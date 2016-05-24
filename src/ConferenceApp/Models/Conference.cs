@@ -9,6 +9,8 @@ namespace ConferenceApp.Models
     {
         public int Id { get; set; }
 
+        public string Name { get; set; }
+
         public string Street { get; set; }
 
         public string City { get; set; }
@@ -23,7 +25,7 @@ namespace ConferenceApp.Models
 
         public IList<Presentation> Presentations { get; set; }
 
-        public IList<Room> Rooms { get; set; }
+        //public IList<Room> Rooms { get; set; }
 
     }
 }
