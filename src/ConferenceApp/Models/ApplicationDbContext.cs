@@ -9,8 +9,16 @@ namespace ConferenceApp.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
+        public DbSet<Slot> Slots { get; set; }
+        public DbSet<Speaker> Speakers { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<Presentation> Presentations { get; set; }
+        public DbSet<Conference> Conferences { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            
             base.OnModelCreating(builder);
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.

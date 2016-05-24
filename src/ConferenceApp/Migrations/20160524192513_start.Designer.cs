@@ -8,9 +8,10 @@ using ConferenceApp.Models;
 namespace ConferenceApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160524192513_start")]
+    partial class start
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -73,8 +74,6 @@ namespace ConferenceApp.Migrations
 
                     b.Property<DateTime>("EndDate");
 
-                    b.Property<string>("Name");
-
                     b.Property<DateTime>("StartDate");
 
                     b.Property<string>("State");
@@ -108,6 +107,8 @@ namespace ConferenceApp.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("ConferenceId");
 
                     b.Property<string>("Name");
 
@@ -245,6 +246,13 @@ namespace ConferenceApp.Migrations
                     b.HasOne("ConferenceApp.Models.Conference")
                         .WithMany()
                         .HasForeignKey("IdConference");
+                });
+
+            modelBuilder.Entity("ConferenceApp.Models.Room", b =>
+                {
+                    b.HasOne("ConferenceApp.Models.Conference")
+                        .WithMany()
+                        .HasForeignKey("ConferenceId");
                 });
 
             modelBuilder.Entity("ConferenceApp.Models.Slot", b =>
