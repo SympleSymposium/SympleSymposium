@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ConferenceApp.Models
+{
+    public class Room
+    {
+        public int Id { get; set; }
+
+        //public int IdConference { get; set; }
+        //[ForeignKey("IdConference")]
+        //public Conference Conference { get; set; }
+
+        public string Name { get; set; }
+
+        public IList<Slot> Slots { get; set; }
+
+    }
+}
