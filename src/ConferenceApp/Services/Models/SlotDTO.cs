@@ -11,5 +11,7 @@ namespace ConferenceApp.Services.Models
         public int IdPresentation { get; set; }
         public int IdSpeaker { get; set; }
         public int IdRoom { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
     }
 }
