@@ -91,13 +91,11 @@ namespace ConferenceApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("ConferenceId");
+
                     b.Property<string>("Description");
 
-                    b.Property<DateTime>("EndTime");
-
-                    b.Property<int>("IdConference");
-
-                    b.Property<DateTime>("StartTime");
+                    b.Property<string>("ImageUrl");
 
                     b.Property<string>("Title");
 
@@ -109,6 +107,8 @@ namespace ConferenceApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("ConferenceId");
+
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
@@ -119,11 +119,15 @@ namespace ConferenceApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("IdPresentation");
+                    b.Property<DateTime>("EndTime");
 
-                    b.Property<int>("IdRoom");
+                    b.Property<int?>("PresentationId");
 
-                    b.Property<int>("IdSpeaker");
+                    b.Property<int?>("RoomId");
+
+                    b.Property<int?>("SpeakerId");
+
+                    b.Property<DateTime>("StartTime");
 
                     b.HasKey("Id");
                 });
@@ -148,6 +152,8 @@ namespace ConferenceApp.Migrations
                     b.Property<string>("Email");
 
                     b.Property<string>("FirstName");
+
+                    b.Property<string>("ImageUrl");
 
                     b.Property<string>("LastName");
 
@@ -244,22 +250,29 @@ namespace ConferenceApp.Migrations
                 {
                     b.HasOne("ConferenceApp.Models.Conference")
                         .WithMany()
-                        .HasForeignKey("IdConference");
+                        .HasForeignKey("ConferenceId");
+                });
+
+            modelBuilder.Entity("ConferenceApp.Models.Room", b =>
+                {
+                    b.HasOne("ConferenceApp.Models.Conference")
+                        .WithMany()
+                        .HasForeignKey("ConferenceId");
                 });
 
             modelBuilder.Entity("ConferenceApp.Models.Slot", b =>
                 {
                     b.HasOne("ConferenceApp.Models.Presentation")
                         .WithMany()
-                        .HasForeignKey("IdPresentation");
+                        .HasForeignKey("PresentationId");
 
                     b.HasOne("ConferenceApp.Models.Room")
                         .WithMany()
-                        .HasForeignKey("IdRoom");
+                        .HasForeignKey("RoomId");
 
                     b.HasOne("ConferenceApp.Models.Speaker")
                         .WithMany()
-                        .HasForeignKey("IdSpeaker");
+                        .HasForeignKey("SpeakerId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>

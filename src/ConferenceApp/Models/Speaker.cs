@@ -31,6 +31,8 @@ namespace ConferenceApp.Models
 
         public string Bio { get; set; }
 
+        public string ImageUrl { get; set; }
+
         public IList<Slot> Slots { get; set; }
     }
 }

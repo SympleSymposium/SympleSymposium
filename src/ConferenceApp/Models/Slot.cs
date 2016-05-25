@@ -10,16 +10,20 @@ namespace ConferenceApp.Models
     {
         public int Id { get; set; }
 
-        public int IdPresentation { get; set; }
-        [ForeignKey("IdPresentation")]
+        public int? PresentationId { get; set; }
+        [ForeignKey("PresentationId")]
         public Presentation Presentation { get; set; }
 
-        public int IdSpeaker { get; set; }
-        [ForeignKey("IdSpeaker")]
+        public int? SpeakerId { get; set; }
+        [ForeignKey("SpeakerId")]
         public Speaker Speaker { get; set; }
 
-        public int IdRoom { get; set; }
-        [ForeignKey("IdRoom")]
+        public int? RoomId { get; set; }
+        [ForeignKey("RoomId")]
         public Room Room { get; set; }
+
+        public DateTime StartTime { get; set; }
+
+        public DateTime EndTime { get; set; }
     }
 }
