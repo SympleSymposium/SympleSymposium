@@ -324,8 +324,8 @@ namespace ConferenceApp.Models {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "JavaScript").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Bob" && s.LastName == "Stanton").Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
-                    StartTime = new DateTime(2016,8,1,9,0,0),
-                    EndTime = new DateTime(2016,8,1,12,0,0)
+                    StartTime = new DateTime(2016,8,1,8,0,0),
+                    EndTime = new DateTime(2016,8,1,10,0,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Typescript").Id,

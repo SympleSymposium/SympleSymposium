@@ -15,41 +15,38 @@ namespace ConferenceApp.Services
         {
             _slotRepo = slotRepo;
         }
-
-        //public int Id { get; set; }
-        //public int IdPresentation { get; set; }
-        //public int IdSpeaker { get; set; }
-        //public int IdRoom { get; set; }
-
-        //    return new ReportDTO() {
-        //    ReportCategories = (from e in expenses
-        //                        group e by e.CategoryType into c
-        //                        select new ReportCategoryDTO()
-        //                        {
-        //                            Name = c.Key,
-        //                            CategoryTotal = c.Sum(exp => exp.Cost.Value), /*Need to use .Value since Cost could be null.*/
-        //                            NumExpenses = c.Count()
-        //                        }).ToList(),
-        //        Expenses = (from e in expenses
-        //                    orderby e.ApptDate descending
-        //                    select e).ToList(),
-        //        GrandTotal = expenses.Sum(exp => exp.Cost.Value)
-        //    };
-
-        // public PresentationDTO Presentation { get; set; }
+                
         public IList<SlotDTO> GetSlotList()
         {
             return (from s in _slotRepo.List()
                     select new SlotDTO
                     {
                         Id = s.Id,
+                        StartTime = s.StartTime,
+                        EndTime = s.EndTime,
+                        Room = s.Room.Name,
                         Presentation = new PresentationDTO()
                         {
                             Title = s.Presentation.Title,
-                            Description = s.Presentation.Description,
+                            Description = s.Presentation.Description
+                        },
+                        Speaker = new SpeakerDTO()
+                        {
+                            FirstName = s.Speaker.FirstName,
+                            LastName = s.Speaker.LastName,
+                            Title = s.Speaker.Title,
+                            Phone = s.Speaker.Phone,
+                            Email = s.Speaker.Email,
+                            Company = s.Speaker.Company,
+                            CoStreet = s.Speaker.CoStreet,
+                            CoCity = s.Speaker.CoCity,
+                            CoState = s.Speaker.CoCity,
+                            CoZip = s.Speaker.CoZip,
+                            Bio = s.Speaker.Bio,
+                            ImageUrl = s.Speaker.ImageUrl
+
                         }
-                    }
-                    ).ToList();
+                    }).ToList();
         }
     }
 }

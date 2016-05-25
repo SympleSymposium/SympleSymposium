@@ -14,18 +14,31 @@ namespace ConferenceApp.Services
         {
             _presentRepo = presentRepo;
         }
-        
+             
+
         public IList<PresentationDTO> GetPresentationList()
         {
             return (from p in _presentRepo.List()
                     select new PresentationDTO
                     {
                         Id = p.Id,
-                        ConferenceId = p.ConferenceId,
                         Title = p.Title,
-                        Description = p.Description
-                    }
-                    ).ToList();
+                        Description = p.Description,
+                        ImageUrl = p.ImageUrl,
+                        Slots = (from s in p.Slots
+                                 select new SlotDTO
+                                 {
+                                     Id = s.Id,
+                                     StartTime = s.StartTime,
+                                     EndTime = s.EndTime,
+                                     Room = s.Room.Name,
+                                     Speaker = new SpeakerDTO
+                                     {
+                                         FirstName = s.Speaker.FirstName,
+                                         LastName = s.Speaker.LastName
+                                     }
+                                 }).ToList()                        
+                    }).ToList();
         }
     }
 }

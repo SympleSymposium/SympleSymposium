@@ -15,6 +15,19 @@ namespace ConferenceApp.Services
             _confRepo = confRepo;
         }
 
+        //public int Id { get; set; }
+        //public string Name { get; set; }
+        //public string Street { get; set; }
+        //public string City { get; set; }
+        //public string Zip { get; set; }
+        //public DateTime StartDate { get; set; }
+        //public DateTime EndDate { get; set; }
+        //public IList<PresentationDTO> Presentations { get; set; }
+
+        //Presentations = new IList<PresentationDTO>
+        //    {
+        //        Title = c.Presentations.Title,                
+        //        Description = c.Presentations.Description
 
         public IList<ConferenceDTO> GetConferenceList()
         {
@@ -28,8 +41,9 @@ namespace ConferenceApp.Services
                         Zip = c.Zip,
                         StartDate = c.StartDate,
                         EndDate = c.EndDate
-                    }
-                    ).ToList();
+                    }                        
+            ).ToList();
+
         }
     }
 }
