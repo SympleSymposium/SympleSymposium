@@ -23,9 +23,7 @@ namespace ConferenceApp.Services
                         Id = p.Id,
                         ConferenceId = p.ConferenceId,
                         Title = p.Title,
-                        Description = p.Description,                        
-                        StartTime = p.StartTime,
-                        EndTime = p.EndTime
+                        Description = p.Description
                     }
                     ).ToList();
         }
