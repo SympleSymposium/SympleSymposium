@@ -89,7 +89,8 @@ namespace ConferenceApp.Models {
                     CoState = "",
                     CoCity = "",
                     CoZip = "",
-                    Bio = ""
+                    Bio = "",
+                    ImageUrl = ""
                 },
                 new Speaker() {
                     Title = "Ms.",
@@ -102,7 +103,8 @@ namespace ConferenceApp.Models {
                     CoState = "",
                     CoCity = "",
                     CoZip = "",
-                    Bio = ""
+                    Bio = "",
+                    ImageUrl = ""
                 },
                 new Speaker() {
                     Title = "Mr.",
@@ -115,7 +117,8 @@ namespace ConferenceApp.Models {
                     CoState = "",
                     CoCity = "",
                     CoZip = "",
-                    Bio = ""
+                    Bio = "",
+                    ImageUrl = ""
                 },
                 new Speaker() {
                     Title = "Mrs.",
@@ -128,7 +131,8 @@ namespace ConferenceApp.Models {
                     CoState = "",
                     CoCity = "",
                     CoZip = "",
-                    Bio = ""
+                    Bio = "",
+                    ImageUrl = ""
                 },
                 new Speaker() {
                     Title = "Mr.",
@@ -141,7 +145,8 @@ namespace ConferenceApp.Models {
                     CoState = "",
                     CoCity = "",
                     CoZip = "",
-                    Bio = ""
+                    Bio = "",
+                    ImageUrl = ""
                 },
                 new Speaker() {
                     Title = "Ms.",
@@ -154,7 +159,8 @@ namespace ConferenceApp.Models {
                     CoState = "",
                     CoCity = "",
                     CoZip = "",
-                    Bio = ""
+                    Bio = "",
+                    ImageUrl = ""
                 },
                 new Speaker() {
                     Title = "Mr.",
@@ -167,7 +173,8 @@ namespace ConferenceApp.Models {
                     CoState = "",
                     CoCity = "",
                     CoZip = "",
-                    Bio = ""
+                    Bio = "",
+                    ImageUrl = ""
                 },
                 new Speaker() {
                     Title = "Mrs.",
@@ -180,7 +187,8 @@ namespace ConferenceApp.Models {
                     CoState = "",
                     CoCity = "",
                     CoZip = "",
-                    Bio = ""
+                    Bio = "",
+                    ImageUrl = ""
                 },
                 new Speaker() {
                     Title = "Dr.",
@@ -193,7 +201,8 @@ namespace ConferenceApp.Models {
                     CoState = "",
                     CoCity = "",
                     CoZip = "",
-                    Bio = ""
+                    Bio = "",
+                    ImageUrl = ""
                 }
             };
 
@@ -220,46 +229,55 @@ namespace ConferenceApp.Models {
                 new Presentation() {
                     Title = "HTML",
                     Description = "Utilize HyperText Markup Language (HTML) to enable you to 'mark up' plain-text documents and add images, links, and formatting.",
+                    ImageUrl = "",
                     IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "CSS",
                     Description = "Understand the ins and outs of CSS animations and transitions, motion design best practices, and how to ensure high performance, 'jank-free' animation on even everyday mobile devices.",
+                    ImageUrl = "",
                     IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "JavaScript",
                     Description = "cover basic programming concepts like variables, data types, and functions, if/then statements, arrays and loops. They also introduce the Document Object Model (DOM) and how to use JavaScript to interact with the DOM and change HTML pages",
+                    ImageUrl = "",
                     IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "Typescript",
                     Description = "a new language and toolset that makes it easier to write cross-platform, application-scale JavaScript.",
+                    ImageUrl = "",
                     IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "Angular",
                     Description = "learn the basics of how to get started with developing Angular apps and scaling them with further complexity",
+                    ImageUrl = "",
                     IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "C#",
                     Description = "Use C# to create Windows client applications, XML Web services, distributed components, client-server applications, database applications, and much, much more.",
+                    ImageUrl = "",
                     IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "ASP.NET",
                     Description = "Learn to use this unified Web development model, including the services necessary for you to build enterprise-class Web applications.",
+                    ImageUrl = "",
                     IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "Visual Studio",
                     Description = "Microsoft Visual Studio is an integrated development environment (IDE) from Microsoft to develop computer and mobile programs.",
+                    ImageUrl = "",
                     IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "Atom",
                     Description = "Use this modern text editor to customize anything but also use productively without ever touching a config file.",
+                    ImageUrl = "",
                     IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 }
 

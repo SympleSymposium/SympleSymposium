@@ -19,6 +19,7 @@ namespace ConferenceApp.Services.Models
         public string CoState { get; set; }
         public string CoZip { get; set; }
         public string Bio { get; set; }
+        public string ImageUrl { get; set; }
         public IList<SlotDTO> Slots { get; set; }
     }
 }

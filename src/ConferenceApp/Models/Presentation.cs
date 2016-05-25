@@ -18,6 +18,8 @@ namespace ConferenceApp.Models
 
         public string Description { get; set; }
 
+        public string ImageUrl { get; set; }
+
         public IList<Slot> Slots { get; set; }
     }
 }
