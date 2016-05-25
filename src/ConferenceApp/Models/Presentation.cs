@@ -10,8 +10,8 @@ namespace ConferenceApp.Models
     {
         public int Id { get; set; }
 
-        public int IdConference { get; set; }
-        [ForeignKey("IdConference")]
+        public int ConferenceId { get; set; }
+        [ForeignKey("ConferenceId")]
         public Conference Conference { get; set; }
 
         public string Title { get; set; }

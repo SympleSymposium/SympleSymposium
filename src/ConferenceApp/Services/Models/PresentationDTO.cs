@@ -8,7 +8,7 @@ namespace ConferenceApp.Services.Models
     public class PresentationDTO
     {
         public int Id { get; set; }
-        public int IdConference { get; set; }
+        public int ConferenceId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime StartTime { get; set; }
