@@ -27,10 +27,15 @@ namespace ConferenceApp.Models
 
             //FluentAPI
             builder.Entity<Room>()
-                .HasMany<Slot>()
+                .HasMany(r => r.Slots)
                 .WithOne(s => s.Room)
                 .OnDelete(DeleteBehavior.SetNull);
-            
+
+            builder.Entity<Speaker>()
+                .HasMany(s => s.Slots)
+                .WithOne(s => s.Speaker)
+                .OnDelete(DeleteBehavior.SetNull);
+
         }
     }
 }

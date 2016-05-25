@@ -48,13 +48,16 @@ namespace ConferenceApp.Models {
             #region Initialize Rooms
             var Rooms = new List<Room>() {
                 new Room() {
-                    Name = "Room A"
+                    Name = "Room A",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Room() {
-                    Name = "Room B"
+                    Name = "Room B",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Room() {
-                    Name = "Room C"
+                    Name = "Room C",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 }
             };
 

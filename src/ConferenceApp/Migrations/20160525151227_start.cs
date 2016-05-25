@@ -52,18 +52,6 @@ namespace ConferenceApp.Migrations
                     table.PrimaryKey("PK_Conference", x => x.Id);
                 });
             migrationBuilder.CreateTable(
-                name: "Room",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Room", x => x.Id);
-                });
-            migrationBuilder.CreateTable(
                 name: "Speaker",
                 columns: table => new
                 {
@@ -160,6 +148,25 @@ namespace ConferenceApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
             migrationBuilder.CreateTable(
+                name: "Room",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ConferenceId = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Room", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Room_Conference_ConferenceId",
+                        column: x => x.ConferenceId,
+                        principalTable: "Conference",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -209,10 +216,9 @@ namespace ConferenceApp.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     EndTime = table.Column<DateTime>(nullable: false),
-                    PresentationId = table.Column<int>(nullable: false),
+                    PresentationId = table.Column<int>(nullable: true),
                     RoomId = table.Column<int>(nullable: true),
-                    RoomId1 = table.Column<int>(nullable: true),
-                    SpeakerId = table.Column<int>(nullable: false),
+                    SpeakerId = table.Column<int>(nullable: true),
                     StartTime = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -223,7 +229,7 @@ namespace ConferenceApp.Migrations
                         column: x => x.PresentationId,
                         principalTable: "Presentation",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Slot_Room_RoomId",
                         column: x => x.RoomId,
@@ -231,17 +237,11 @@ namespace ConferenceApp.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
-                        name: "FK_Slot_Room_RoomId1",
-                        column: x => x.RoomId1,
-                        principalTable: "Room",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_Slot_Speaker_SpeakerId",
                         column: x => x.SpeakerId,
                         principalTable: "Speaker",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                 });
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",

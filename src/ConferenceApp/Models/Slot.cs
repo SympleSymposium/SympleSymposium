@@ -10,11 +10,11 @@ namespace ConferenceApp.Models
     {
         public int Id { get; set; }
 
-        public int PresentationId { get; set; }
+        public int? PresentationId { get; set; }
         [ForeignKey("PresentationId")]
         public Presentation Presentation { get; set; }
 
-        public int SpeakerId { get; set; }
+        public int? SpeakerId { get; set; }
         [ForeignKey("SpeakerId")]
         public Speaker Speaker { get; set; }
 
