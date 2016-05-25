@@ -91,9 +91,9 @@ namespace ConferenceApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Description");
+                    b.Property<int>("ConferenceId");
 
-                    b.Property<int>("IdConference");
+                    b.Property<string>("Description");
 
                     b.Property<string>("ImageUrl");
 
@@ -119,11 +119,13 @@ namespace ConferenceApp.Migrations
 
                     b.Property<DateTime>("EndTime");
 
-                    b.Property<int>("IdPresentation");
+                    b.Property<int>("PresentationId");
 
-                    b.Property<int>("IdRoom");
+                    b.Property<int?>("RoomId");
 
-                    b.Property<int>("IdSpeaker");
+                    b.Property<int?>("RoomId1");
+
+                    b.Property<int>("SpeakerId");
 
                     b.Property<DateTime>("StartTime");
 
@@ -248,22 +250,26 @@ namespace ConferenceApp.Migrations
                 {
                     b.HasOne("ConferenceApp.Models.Conference")
                         .WithMany()
-                        .HasForeignKey("IdConference");
+                        .HasForeignKey("ConferenceId");
                 });
 
             modelBuilder.Entity("ConferenceApp.Models.Slot", b =>
                 {
                     b.HasOne("ConferenceApp.Models.Presentation")
                         .WithMany()
-                        .HasForeignKey("IdPresentation");
+                        .HasForeignKey("PresentationId");
 
                     b.HasOne("ConferenceApp.Models.Room")
                         .WithMany()
-                        .HasForeignKey("IdRoom");
+                        .HasForeignKey("RoomId");
+
+                    b.HasOne("ConferenceApp.Models.Room")
+                        .WithMany()
+                        .HasForeignKey("RoomId1");
 
                     b.HasOne("ConferenceApp.Models.Speaker")
                         .WithMany()
-                        .HasForeignKey("IdSpeaker");
+                        .HasForeignKey("SpeakerId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>

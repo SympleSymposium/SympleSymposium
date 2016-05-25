@@ -8,9 +8,9 @@ namespace ConferenceApp.Services.Models
     public class SlotDTO
     {
         public int Id { get; set; }
-        public int IdPresentation { get; set; }
-        public int IdSpeaker { get; set; }
-        public int IdRoom { get; set; }
+        public int PresentationId { get; set; }
+        public int SpeakerId { get; set; }
+        public int RoomId { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
     }

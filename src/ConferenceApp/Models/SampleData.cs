@@ -230,55 +230,55 @@ namespace ConferenceApp.Models {
                     Title = "HTML",
                     Description = "Utilize HyperText Markup Language (HTML) to enable you to 'mark up' plain-text documents and add images, links, and formatting.",
                     ImageUrl = "",
-                    IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "CSS",
                     Description = "Understand the ins and outs of CSS animations and transitions, motion design best practices, and how to ensure high performance, 'jank-free' animation on even everyday mobile devices.",
                     ImageUrl = "",
-                    IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "JavaScript",
                     Description = "cover basic programming concepts like variables, data types, and functions, if/then statements, arrays and loops. They also introduce the Document Object Model (DOM) and how to use JavaScript to interact with the DOM and change HTML pages",
                     ImageUrl = "",
-                    IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "Typescript",
                     Description = "a new language and toolset that makes it easier to write cross-platform, application-scale JavaScript.",
                     ImageUrl = "",
-                    IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "Angular",
                     Description = "learn the basics of how to get started with developing Angular apps and scaling them with further complexity",
                     ImageUrl = "",
-                    IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "C#",
                     Description = "Use C# to create Windows client applications, XML Web services, distributed components, client-server applications, database applications, and much, much more.",
                     ImageUrl = "",
-                    IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "ASP.NET",
                     Description = "Learn to use this unified Web development model, including the services necessary for you to build enterprise-class Web applications.",
                     ImageUrl = "",
-                    IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "Visual Studio",
                     Description = "Microsoft Visual Studio is an integrated development environment (IDE) from Microsoft to develop computer and mobile programs.",
                     ImageUrl = "",
-                    IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "Atom",
                     Description = "Use this modern text editor to customize anything but also use productively without ever touching a config file.",
                     ImageUrl = "",
-                    IdConference = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 }
 
             };
@@ -287,7 +287,7 @@ namespace ConferenceApp.Models {
                 var presentation = Presentations[i];
 
                 var dbPresentation = (from p in db.Presentations
-                                      where p.Title == presentation.Title && p.IdConference == presentation.IdConference
+                                      where p.Title == presentation.Title && p.ConferenceId == presentation.ConferenceId
                                       select p).FirstOrDefault();
 
                 if (dbPresentation == null) {
@@ -304,65 +304,65 @@ namespace ConferenceApp.Models {
             #region Initialize Slots
             var Slots = new List<Slot>() {
                 new Slot() {
-                    IdPresentation = Presentations.FirstOrDefault(p => p.Title == "HTML").Id,
-                    IdSpeaker = Speakers.FirstOrDefault(s => s.FirstName == "Jim" && s.LastName == "Smith").Id,
-                    IdRoom = Rooms.FirstOrDefault(r => r.Name == "Room A").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "HTML").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Jim" && s.LastName == "Smith").Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A").Id,
                     StartTime = new DateTime(2016,8,1,8,0,0),
                     EndTime = new DateTime(2016,8,1,10,0,0)
                 },
                 new Slot() {
-                    IdPresentation = Presentations.FirstOrDefault(p => p.Title == "CSS").Id,
-                    IdSpeaker = Speakers.FirstOrDefault(s => s.FirstName == "Jill" && s.LastName == "Jones").Id,
-                    IdRoom = Rooms.FirstOrDefault(r => r.Name == "Room B").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "CSS").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Jill" && s.LastName == "Jones").Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room B").Id,
                     StartTime = new DateTime(2016,8,1,8,0,0),
                     EndTime = new DateTime(2016,8,1,10,0,0)
                 },
                 new Slot() {
-                    IdPresentation = Presentations.FirstOrDefault(p => p.Title == "JavaScript").Id,
-                    IdSpeaker = Speakers.FirstOrDefault(s => s.FirstName == "Bob" && s.LastName == "Stanton").Id,
-                    IdRoom = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "JavaScript").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Bob" && s.LastName == "Stanton").Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
                     StartTime = new DateTime(2016,8,1,9,0,0),
                     EndTime = new DateTime(2016,8,1,12,0,0)
                 },
                 new Slot() {
-                    IdPresentation = Presentations.FirstOrDefault(p => p.Title == "Typescript").Id,
-                    IdSpeaker = Speakers.FirstOrDefault(s => s.FirstName == "Nancy" && s.LastName == "Carlson").Id,
-                    IdRoom = Rooms.FirstOrDefault(r => r.Name == "Room A").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Typescript").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Nancy" && s.LastName == "Carlson").Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A").Id,
                     StartTime = new DateTime(2016,8,1,13,0,0),
                     EndTime = new DateTime(2016,8,1,14,0,0)
                 },
                 new Slot() {
-                    IdPresentation = Presentations.FirstOrDefault(p => p.Title == "Angular").Id,
-                    IdSpeaker = Speakers.FirstOrDefault(s => s.FirstName == "Kevin" && s.LastName == "Wilcox").Id,
-                    IdRoom = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Angular").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Kevin" && s.LastName == "Wilcox").Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
                     StartTime = new DateTime(2016,8,1,13,0,0),
                     EndTime = new DateTime(2016,8,1,15,0,0)
                 },
                 new Slot() {
-                    IdPresentation = Presentations.FirstOrDefault(p => p.Title == "C#").Id,
-                    IdSpeaker = Speakers.FirstOrDefault(s => s.FirstName == "Anne" && s.LastName == "Robertson").Id,
-                    IdRoom = Rooms.FirstOrDefault(r => r.Name == "Room B").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "C#").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Anne" && s.LastName == "Robertson").Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room B").Id,
                     StartTime = new DateTime(2016,8,1,14,0,0),
                     EndTime = new DateTime(2016,8,1,16,0,0)
                 },
                 new Slot() {
-                    IdPresentation = Presentations.FirstOrDefault(p => p.Title == "ASP.NET").Id,
-                    IdSpeaker = Speakers.FirstOrDefault(s => s.FirstName == "Sam" && s.LastName == "Giles").Id,
-                    IdRoom = Rooms.FirstOrDefault(r => r.Name == "Room A").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "ASP.NET").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Sam" && s.LastName == "Giles").Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A").Id,
                     StartTime = new DateTime(2016,8,1,15,0,0),
                     EndTime = new DateTime(2016,8,1,17,0,0)
                 },
                 new Slot() {
-                    IdPresentation = Presentations.FirstOrDefault(p => p.Title == "Visual Studio").Id,
-                    IdSpeaker = Speakers.FirstOrDefault(s => s.FirstName == "Alice" && s.LastName == "Jean").Id,
-                    IdRoom = Rooms.FirstOrDefault(r => r.Name == "Room A").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Visual Studio").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Alice" && s.LastName == "Jean").Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A").Id,
                     StartTime = new DateTime(2016,8,2,8,0,0),
                     EndTime = new DateTime(2016,8,2,11,0,0)
                 },
                 new Slot() {
-                    IdPresentation = Presentations.FirstOrDefault(p => p.Title == "Atom").Id,
-                    IdSpeaker = Speakers.FirstOrDefault(s => s.FirstName == "Chris" && s.LastName == "Ramsey").Id,
-                    IdRoom = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Atom").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Chris" && s.LastName == "Ramsey").Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
                     StartTime = new DateTime(2016,8,2,8,0,0),
                     EndTime = new DateTime(2016,8,2,12,0,0)
                 }
@@ -372,7 +372,7 @@ namespace ConferenceApp.Models {
                 var slot = Slots[i];
 
                 var dbSlot = (from s in db.Slots
-                              where s.IdPresentation == slot.IdPresentation && s.IdRoom == slot.IdRoom && s.IdSpeaker == slot.IdSpeaker && s.StartTime == slot.StartTime
+                              where s.PresentationId == slot.PresentationId && s.RoomId == slot.RoomId && s.SpeakerId == slot.SpeakerId && s.StartTime == slot.StartTime
                               select s).FirstOrDefault();
 
                 if (dbSlot == null) {
