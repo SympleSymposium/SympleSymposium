@@ -13,6 +13,13 @@ namespace ConferenceApp {
                 controller: ConferenceApp.Controllers.HomeController,
                 controllerAs: 'controller'
             })
+                    
+            //.state('manageConferences', {
+            //    url: '/conferences/manage',
+            //    templateUrl: '/ngApp/views/conferenceList.html',
+            //    controller: ConferenceApp.Controllers.ManagedConferenceController,
+            //    controllerAs: 'controller'
+            //})
             .state('secret', {
                 url: '/secret',
                 templateUrl: '/ngApp/views/secret.html',

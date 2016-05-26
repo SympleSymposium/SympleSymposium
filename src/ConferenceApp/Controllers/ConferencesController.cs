@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using ConferenceApp.Services;
 using ConferenceApp.Services.Models;
+using Microsoft.AspNet.Authorization;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,10 +22,12 @@ namespace ConferenceApp.Controllers
         }
 
         // GET: api/values
-        [HttpGet]
+        [HttpGet("manage")]
         public IEnumerable<ConferenceDTO> GetConferenceList()
         {
-            return _confServ.GetConferenceList(); ;
+
+            //User.Identity.Name
+            return _confServ.GetConferenceList(User.Identity.Name);
         }
 
         // GET api/values/5
