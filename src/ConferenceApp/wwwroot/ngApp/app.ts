@@ -1,6 +1,6 @@
 namespace ConferenceApp {
 
-    angular.module('ConferenceApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'ngMaterial']).config((
+    angular.module('ConferenceApp', ['ui.router', 'ngResource', 'ngMaterial']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
         $locationProvider: ng.ILocationProvider
@@ -16,7 +16,7 @@ namespace ConferenceApp {
             .state('confManage', {
                 url: '/conferences/manage',
                 templateUrl: '/ngApp/views/confManage.html',
-                controller: ConferenceApp.Controllers.HomeController,
+                controller: ConferenceApp.Controllers.ManagedConferenceController,
                 controllerAs: 'controller'
             })
             .state('secret', {
@@ -42,7 +42,7 @@ namespace ConferenceApp {
                 templateUrl: '/ngApp/views/externalRegister.html',
                 controller: ConferenceApp.Controllers.ExternalRegisterController,
                 controllerAs: 'controller'
-            }) 
+            })
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
@@ -61,7 +61,7 @@ namespace ConferenceApp {
         $locationProvider.html5Mode(true);
     });
 
-    
+
     angular.module('ConferenceApp').factory('authInterceptor', (
         $q: ng.IQService,
         $window: ng.IWindowService,
@@ -86,6 +86,6 @@ namespace ConferenceApp {
         $httpProvider.interceptors.push('authInterceptor');
     });
 
-    
+
 
 }

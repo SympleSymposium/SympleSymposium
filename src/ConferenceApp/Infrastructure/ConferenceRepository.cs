@@ -18,5 +18,19 @@ namespace ConferenceApp.Infrastructure
         {
             return _db.Conferences;
         }
+
+        public IQueryable<Conference> List(string organizerName)
+        {
+            //User.Identity.Name
+            return from c in _db.Conferences
+                   where c.ApplicationUser.UserName == organizerName
+                   select c;
+        }
+        
+        //add a Conference by the organizer
+        public void Add(Conference conference)
+        {
+            _db.Conferences.Add(conference);
+        }
     }
 }

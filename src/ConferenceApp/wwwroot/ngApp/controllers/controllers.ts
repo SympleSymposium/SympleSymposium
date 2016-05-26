@@ -6,12 +6,29 @@ namespace ConferenceApp.Controllers {
 
 
     export class SecretController {
-        public secrets;
+        public secrets = [1];
 
         constructor($http: ng.IHttpService) {
             $http.get('/api/secrets').then((results) => {
-                this.secrets = results.data;
+                //this.secrets = results.data;
+                console.log("test");
             });
+        }
+    }
+
+    export class ManagedConferenceController {
+        public conferences;
+
+        constructor($http: ng.IHttpService) {
+            $http.get('/api/conferences/manage')
+                .then((response) => {
+                    this.conferences = response.data;
+                })
+            .catch((response) => {
+                console.log(response.data);
+                });
+            console.log(this.conferences);
+                
         }
     }
 

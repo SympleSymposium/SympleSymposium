@@ -18,9 +18,9 @@ namespace ConferenceApp.Services
             _addressRepo = addressRepo;
         }
 
-        public IList<ConferenceDTO> GetConferenceList()
+        public IList<ConferenceDTO> GetConferenceList(string organizerName)
         {
-            return (from c in _confRepo.List()
+            return (from c in _confRepo.List( organizerName)
                     select new ConferenceDTO {
                         Id = c.Id,
                         Name = c.Name,
@@ -42,5 +42,11 @@ namespace ConferenceApp.Services
             ).ToList();
 
         }
+
+       
+
+
+        }
+
     }
-}
+
