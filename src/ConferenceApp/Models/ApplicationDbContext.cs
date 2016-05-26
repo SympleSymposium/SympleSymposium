@@ -16,6 +16,7 @@ namespace ConferenceApp.Models
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Presentation> Presentations { get; set; }
         public DbSet<Conference> Conferences { get; set; }
+        public DbSet<Address> Addresses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -35,6 +36,16 @@ namespace ConferenceApp.Models
                 .HasMany(s => s.Slots)
                 .WithOne(s => s.Speaker)
                 .OnDelete(DeleteBehavior.SetNull);
+
+            builder.Entity<Address>()
+               .HasOne<Conference>()
+               .WithOne(c => c.Address)
+               .OnDelete(DeleteBehavior.SetNull);
+
+            builder.Entity<Address>()
+               .HasOne<Speaker>()
+               .WithOne(c => c.Address)
+               .OnDelete(DeleteBehavior.SetNull);
 
         }
     }

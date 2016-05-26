@@ -38,10 +38,10 @@ namespace ConferenceApp.Services
                             Phone = s.Speaker.Phone,
                             Email = s.Speaker.Email,
                             Company = s.Speaker.Company,
-                            CoStreet = s.Speaker.CoStreet,
-                            CoCity = s.Speaker.CoCity,
-                            CoState = s.Speaker.CoCity,
-                            CoZip = s.Speaker.CoZip,
+                            CoStreet = "",
+                            CoCity = "",
+                            CoState = "",
+                            CoZip = "",
                             Bio = s.Speaker.Bio,
                             ImageUrl = s.Speaker.ImageUrl
 

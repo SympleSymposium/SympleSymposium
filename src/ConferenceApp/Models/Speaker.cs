@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,13 +22,9 @@ namespace ConferenceApp.Models
 
         public string Company { get; set; }
 
-        public string CoStreet { get; set; }
-
-        public string CoCity { get; set; }
-
-        public string CoState { get; set; }
-
-        public string CoZip { get; set; }
+        public int? AddressId { get; set; }
+        [ForeignKey("AddressId")]
+        public Address Address { get; set; }
 
         public string Bio { get; set; }
 

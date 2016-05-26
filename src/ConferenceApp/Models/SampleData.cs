@@ -14,14 +14,94 @@ namespace ConferenceApp.Models {
             var userManager = serviceProvider.GetService<UserManager<ApplicationUser>>();
             //context.Database.Migrate();
 
-            #region Initialize Conferences
-            var Conferences = new List<Conference>() {
-                new Conference() {
-                    Name = "Full Stack Web Development Expo",
+
+            #region Initialize Addressses
+            var Addresses = new List<Address>() {
+                new Address() {
                     Street = "11200 Broadway Street",
                     City = "Pearland",
                     State = "TX",
                     Zip = "77584",
+                },
+                new Address() {
+                    Street = "123 A Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 B Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 C Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 D Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 E Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 F Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 G Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 H Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 I Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                }
+            };
+
+            for (int i = 0; i < Addresses.Count; i++) {
+                var address = Addresses[i];
+
+                var dbAddress = (from a in db.Addresses
+                                    where a.Street == address.Street
+                                    select a).FirstOrDefault();
+
+                if (dbAddress == null) {
+                    db.Addresses.Add(address);
+                }
+                else {
+                    Addresses[i] = dbAddress;
+                }
+            }
+
+            db.SaveChanges();
+            #endregion
+
+            #region Initialize Conferences
+            var Conferences = new List<Conference>() {
+                new Conference() {
+                    Name = "Full Stack Web Development Expo",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 8, 1),
                     EndDate = new DateTime(2016, 8, 2)
                 }
@@ -88,10 +168,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 A Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -102,10 +179,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 B Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -116,10 +190,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 C Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -130,10 +201,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 D Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -144,10 +212,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 E Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -158,10 +223,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 F Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -172,10 +234,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 G Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -186,10 +245,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 H Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -200,10 +256,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 I Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 }

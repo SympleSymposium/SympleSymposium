@@ -8,14 +8,30 @@ using ConferenceApp.Models;
 namespace ConferenceApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160526141710_edited ApplicationUser class")]
-    partial class editedApplicationUserclass
+    [Migration("20160526165420_start")]
+    partial class start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("ConferenceApp.Models.Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("State");
+
+                    b.Property<string>("Street");
+
+                    b.Property<string>("Zip");
+
+                    b.HasKey("Id");
+                });
 
             modelBuilder.Entity("ConferenceApp.Models.ApplicationUser", b =>
                 {
@@ -70,21 +86,17 @@ namespace ConferenceApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("AddressId");
+
                     b.Property<string>("ApplicationUserId");
 
-                    b.Property<string>("City");
-
                     b.Property<DateTime>("EndDate");
+
+                    b.Property<string>("ImageURL");
 
                     b.Property<string>("Name");
 
                     b.Property<DateTime>("StartDate");
-
-                    b.Property<string>("State");
-
-                    b.Property<string>("Street");
-
-                    b.Property<string>("Zip");
 
                     b.HasKey("Id");
                 });
@@ -142,15 +154,9 @@ namespace ConferenceApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("AddressId");
+
                     b.Property<string>("Bio");
-
-                    b.Property<string>("CoCity");
-
-                    b.Property<string>("CoState");
-
-                    b.Property<string>("CoStreet");
-
-                    b.Property<string>("CoZip");
 
                     b.Property<string>("Company");
 
@@ -253,6 +259,10 @@ namespace ConferenceApp.Migrations
 
             modelBuilder.Entity("ConferenceApp.Models.Conference", b =>
                 {
+                    b.HasOne("ConferenceApp.Models.Address")
+                        .WithOne()
+                        .HasForeignKey("ConferenceApp.Models.Conference", "AddressId");
+
                     b.HasOne("ConferenceApp.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("ApplicationUserId");
@@ -289,6 +299,13 @@ namespace ConferenceApp.Migrations
                     b.HasOne("ConferenceApp.Models.Speaker")
                         .WithMany()
                         .HasForeignKey("SpeakerId");
+                });
+
+            modelBuilder.Entity("ConferenceApp.Models.Speaker", b =>
+                {
+                    b.HasOne("ConferenceApp.Models.Address")
+                        .WithOne()
+                        .HasForeignKey("ConferenceApp.Models.Speaker", "AddressId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>
