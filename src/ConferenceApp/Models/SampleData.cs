@@ -14,16 +14,141 @@ namespace ConferenceApp.Models {
             var userManager = serviceProvider.GetService<UserManager<ApplicationUser>>();
             //context.Database.Migrate();
 
-            #region Initialize Conferences
-            var Conferences = new List<Conference>() {
-                new Conference() {
-                    Name = "Full Stack Web Development Expo",
+            #region Initialize Users
+            // Ensure Stephen (IsAdmin)
+            var stephen = await userManager.FindByNameAsync("Stephen.Walther@CoderCamps.com");
+            if (stephen == null) {
+                // create user
+                stephen = new ApplicationUser {
+                    UserName = "Stephen.Walther@CoderCamps.com",
+                    Email = "Stephen.Walther@CoderCamps.com"
+                };
+                await userManager.CreateAsync(stephen, "Secret123!");
+
+                // add claims
+                await userManager.AddClaimAsync(stephen, new Claim("IsAdmin", "true"));
+            }
+
+            // Ensure Mike (not IsAdmin)
+            var mike = await userManager.FindByNameAsync("Mike@CoderCamps.com");
+            if (mike == null) {
+                // create user
+                mike = new ApplicationUser {
+                    UserName = "Mike@CoderCamps.com",
+                    Email = "Mike@CoderCamps.com"
+                };
+                await userManager.CreateAsync(mike, "Secret123!");
+            }
+            #endregion
+
+            #region Initialize Addressses
+            var Addresses = new List<Address>() {
+                new Address() {
                     Street = "11200 Broadway Street",
                     City = "Pearland",
                     State = "TX",
                     Zip = "77584",
+                },
+                new Address() {
+                    Street = "123 A Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 B Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 C Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 D Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 E Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 F Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 G Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 H Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                },
+                new Address() {
+                    Street = "123 I Street",
+                    City = "Houston",
+                    State = "TX",
+                    Zip = "77010",
+                }
+            };
+
+            for (int i = 0; i < Addresses.Count; i++) {
+                var address = Addresses[i];
+
+                var dbAddress = (from a in db.Addresses
+                                    where a.Street == address.Street
+                                    select a).FirstOrDefault();
+
+                if (dbAddress == null) {
+                    db.Addresses.Add(address);
+                }
+                else {
+                    Addresses[i] = dbAddress;
+                }
+            }
+
+            db.SaveChanges();
+            #endregion
+
+            #region Initialize Conferences
+            var Conferences = new List<Conference>() {
+                new Conference() {
+                    Name = "Full Stack Web Development Expo",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 8, 1),
-                    EndDate = new DateTime(2016, 8, 2)
+                    EndDate = new DateTime(2016, 8, 2),
+                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
+                },
+                new Conference() {
+                    Name = "Houston Tech Conference",
+                    StartDate = new DateTime(2016, 10, 4),
+                    EndDate = new DateTime(2016, 10, 5),
+                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
+                },
+                new Conference() {
+                    Name = "TechConf",
+                    StartDate = new DateTime(2016, 9, 12),
+                    EndDate = new DateTime(2016, 9, 14),
+                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
+                },
+                new Conference() {
+                    Name = "International Technology Conference",
+                    StartDate = new DateTime(2016, 9, 1),
+                    EndDate = new DateTime(2016, 9, 3),
+                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 }
             };
 
@@ -31,7 +156,7 @@ namespace ConferenceApp.Models {
                 var conference = Conferences[i];
 
                 var dbConference = (from c in db.Conferences
-                                    where c.Name == conference.Name
+                                    where c.Name == conference.Name && c.ApplicationUserId == conference.ApplicationUserId
                                     select c).FirstOrDefault();
 
                 if (dbConference == null) {
@@ -58,7 +183,8 @@ namespace ConferenceApp.Models {
                 new Room() {
                     Name = "Room C",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
-                }
+                },
+                
             };
 
             for (int i = 0; i < Rooms.Count; i++) {
@@ -88,10 +214,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 A Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -102,10 +225,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 B Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -116,10 +236,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 C Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -130,10 +247,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 D Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -144,10 +258,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 E Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -158,10 +269,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 F Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -172,10 +280,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 G Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -186,10 +291,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 H Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 },
@@ -200,10 +302,7 @@ namespace ConferenceApp.Models {
                     Phone = "",
                     Email = "",
                     Company = "",
-                    CoStreet = "",
-                    CoState = "",
-                    CoCity = "",
-                    CoZip = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 I Street").Id,
                     Bio = "",
                     ImageUrl = ""
                 }
@@ -389,30 +488,7 @@ namespace ConferenceApp.Models {
             db.SaveChanges();
             #endregion
 
-            // Ensure Stephen (IsAdmin)
-            var stephen = await userManager.FindByNameAsync("Stephen.Walther@CoderCamps.com");
-            if (stephen == null) {
-                // create user
-                stephen = new ApplicationUser {
-                    UserName = "Stephen.Walther@CoderCamps.com",
-                    Email = "Stephen.Walther@CoderCamps.com"
-                };
-                await userManager.CreateAsync(stephen, "Secret123!");
-
-                // add claims
-                await userManager.AddClaimAsync(stephen, new Claim("IsAdmin", "true"));
-            }
-
-            // Ensure Mike (not IsAdmin)
-            var mike = await userManager.FindByNameAsync("Mike@CoderCamps.com");
-            if (mike == null) {
-                // create user
-                mike = new ApplicationUser {
-                    UserName = "Mike@CoderCamps.com",
-                    Email = "Mike@CoderCamps.com"
-                };
-                await userManager.CreateAsync(mike, "Secret123!");
-            }
+            
 
 
         }
