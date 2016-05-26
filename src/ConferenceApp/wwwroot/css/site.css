@@ -32,6 +32,20 @@ textarea {
         z-index: 10 !important;
     }
 }
+.carddemoBasicUsage .card-media {
+  background-color: #999999; }
+
+
+.md-card  {
+    width: 200px;
+
+}
+
+.md-card md-headline {
+    font-family: Oswald;
+    padding: 5px;
+
+}
 
 .buttondemoBasicUsage section {
   background: #f7f7f7;
@@ -51,3 +65,12 @@ textarea {
   left: 7px;
   font-size: 14px;
   opacity: 0.54; }
+
+
+[ui-sref] {
+    cursor:pointer;
+}
+
+[href] {
+    cursor: pointer;
+}
