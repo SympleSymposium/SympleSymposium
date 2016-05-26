@@ -21,7 +21,7 @@ namespace ConferenceApp.Controllers
             _confServ = confServ;
         }
 
-        // GET: api/values
+        // GET: api/conferences/manage
         [HttpGet("manage")]
         public IEnumerable<ConferenceDTO> GetConferenceList()
         {

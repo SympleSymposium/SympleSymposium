@@ -13,13 +13,12 @@ namespace ConferenceApp {
                 controller: ConferenceApp.Controllers.HomeController,
                 controllerAs: 'controller'
             })
-                    
-            //.state('manageConferences', {
-            //    url: '/conferences/manage',
-            //    templateUrl: '/ngApp/views/conferenceList.html',
-            //    controller: ConferenceApp.Controllers.ManagedConferenceController,
-            //    controllerAs: 'controller'
-            //})
+            .state('manageConferences', {
+                url: '/conferences/manage',
+                templateUrl: '/ngApp/views/conferenceList.html',
+                controller: ConferenceApp.Controllers.ManagedConferenceController,
+                controllerAs: 'controller'
+            })
             .state('secret', {
                 url: '/secret',
                 templateUrl: '/ngApp/views/secret.html',
@@ -43,7 +42,7 @@ namespace ConferenceApp {
                 templateUrl: '/ngApp/views/externalRegister.html',
                 controller: ConferenceApp.Controllers.ExternalRegisterController,
                 controllerAs: 'controller'
-            }) 
+            })
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
@@ -62,7 +61,7 @@ namespace ConferenceApp {
         $locationProvider.html5Mode(true);
     });
 
-    
+
     angular.module('ConferenceApp').factory('authInterceptor', (
         $q: ng.IQService,
         $window: ng.IWindowService,
@@ -87,6 +86,6 @@ namespace ConferenceApp {
         $httpProvider.interceptors.push('authInterceptor');
     });
 
-    
+
 
 }

@@ -16,6 +16,22 @@ namespace ConferenceApp.Controllers {
         }
     }
 
+    export class ManagedConferenceController {
+        public conferences;
+
+        constructor($http: ng.IHttpService) {
+            $http.get('/api/conferences/manage')
+                .then((response) => {
+                    this.conferences = response.data;
+                })
+            .catch((response) => {
+                console.log(response.data);
+                });
+            console.log(this.conferences);
+                
+        }
+    }
+
 
     export class AboutController {
         public message = 'Hello from the about page!';
