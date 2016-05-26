@@ -160,7 +160,7 @@ namespace ConferenceApp.Models {
                     Name = "TechConf",
                     StartDate = new DateTime(2016, 9, 12),
                     EndDate = new DateTime(2016, 9, 14),
-                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
+                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Mike@CoderCamps.com").Id
                 },
                 new Conference() {
                     Name = "International Technology Conference",

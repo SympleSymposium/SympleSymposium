@@ -22,10 +22,12 @@ namespace ConferenceApp.Controllers
         }
 
         // GET: api/values
-        [HttpGet]
+        [HttpGet("manage")]
         public IEnumerable<ConferenceDTO> GetConferenceList()
         {
-            return _confServ.GetConferenceList(); ;
+
+            //User.Identity.Name
+            return _confServ.GetConferenceList(User.Identity.Name);
         }
 
         // GET api/values/5

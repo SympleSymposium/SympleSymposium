@@ -1,6 +1,6 @@
 namespace ConferenceApp {
 
-    angular.module('ConferenceApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'ngMaterial']).config((
+    angular.module('ConferenceApp', ['ui.router', 'ngResource', 'ngMaterial']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
         $locationProvider: ng.ILocationProvider
@@ -13,6 +13,13 @@ namespace ConferenceApp {
                 controller: ConferenceApp.Controllers.HomeController,
                 controllerAs: 'controller'
             })
+                    
+            //.state('manageConferences', {
+            //    url: '/conferences/manage',
+            //    templateUrl: '/ngApp/views/conferenceList.html',
+            //    controller: ConferenceApp.Controllers.ManagedConferenceController,
+            //    controllerAs: 'controller'
+            //})
             .state('secret', {
                 url: '/secret',
                 templateUrl: '/ngApp/views/secret.html',
