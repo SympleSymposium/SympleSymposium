@@ -104,6 +104,21 @@ namespace ConferenceApp.Models {
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 8, 1),
                     EndDate = new DateTime(2016, 8, 2)
+                },
+                new Conference() {
+                    Name = "Houston Tech Conference",
+                    StartDate = new DateTime(2016, 10, 4),
+                    EndDate = new DateTime(2016, 10, 5)
+                },
+                new Conference() {
+                    Name = "TechConf",
+                    StartDate = new DateTime(2016, 9, 12),
+                    EndDate = new DateTime(2016, 9, 14)
+                },
+                new Conference() {
+                    Name = "International Technology Conference",
+                    StartDate = new DateTime(2016, 9, 1),
+                    EndDate = new DateTime(2016, 9, 3)
                 }
             };
 
@@ -138,7 +153,8 @@ namespace ConferenceApp.Models {
                 new Room() {
                     Name = "Room C",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
-                }
+                },
+                
             };
 
             for (int i = 0; i < Rooms.Count; i++) {
