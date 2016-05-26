@@ -22,9 +22,13 @@ namespace ConferenceApp.Models
 
         public string ImageURL { get; set; }
 
+        public string ApplicationUserId { get; set; }
+        [ForeignKey("ApplicationUserId")]
+        public ApplicationUser ApplicationUser { get; set; }
+
         public IList<Presentation> Presentations { get; set; }
 
-        //public IList<Room> Rooms { get; set; }
+        public IList<Room> Rooms { get; set; }
 
     }
 }

@@ -17,6 +17,7 @@ namespace ConferenceApp.Models
         public DbSet<Presentation> Presentations { get; set; }
         public DbSet<Conference> Conferences { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

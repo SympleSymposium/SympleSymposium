@@ -14,6 +14,32 @@ namespace ConferenceApp.Models {
             var userManager = serviceProvider.GetService<UserManager<ApplicationUser>>();
             //context.Database.Migrate();
 
+            #region Initialize Users
+            // Ensure Stephen (IsAdmin)
+            var stephen = await userManager.FindByNameAsync("Stephen.Walther@CoderCamps.com");
+            if (stephen == null) {
+                // create user
+                stephen = new ApplicationUser {
+                    UserName = "Stephen.Walther@CoderCamps.com",
+                    Email = "Stephen.Walther@CoderCamps.com"
+                };
+                await userManager.CreateAsync(stephen, "Secret123!");
+
+                // add claims
+                await userManager.AddClaimAsync(stephen, new Claim("IsAdmin", "true"));
+            }
+
+            // Ensure Mike (not IsAdmin)
+            var mike = await userManager.FindByNameAsync("Mike@CoderCamps.com");
+            if (mike == null) {
+                // create user
+                mike = new ApplicationUser {
+                    UserName = "Mike@CoderCamps.com",
+                    Email = "Mike@CoderCamps.com"
+                };
+                await userManager.CreateAsync(mike, "Secret123!");
+            }
+            #endregion
 
             #region Initialize Addressses
             var Addresses = new List<Address>() {
@@ -103,22 +129,26 @@ namespace ConferenceApp.Models {
                     Name = "Full Stack Web Development Expo",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 8, 1),
-                    EndDate = new DateTime(2016, 8, 2)
+                    EndDate = new DateTime(2016, 8, 2),
+                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 },
                 new Conference() {
                     Name = "Houston Tech Conference",
                     StartDate = new DateTime(2016, 10, 4),
-                    EndDate = new DateTime(2016, 10, 5)
+                    EndDate = new DateTime(2016, 10, 5),
+                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 },
                 new Conference() {
                     Name = "TechConf",
                     StartDate = new DateTime(2016, 9, 12),
-                    EndDate = new DateTime(2016, 9, 14)
+                    EndDate = new DateTime(2016, 9, 14),
+                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 },
                 new Conference() {
                     Name = "International Technology Conference",
                     StartDate = new DateTime(2016, 9, 1),
-                    EndDate = new DateTime(2016, 9, 3)
+                    EndDate = new DateTime(2016, 9, 3),
+                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 }
             };
 
@@ -126,7 +156,7 @@ namespace ConferenceApp.Models {
                 var conference = Conferences[i];
 
                 var dbConference = (from c in db.Conferences
-                                    where c.Name == conference.Name
+                                    where c.Name == conference.Name && c.ApplicationUserId == conference.ApplicationUserId
                                     select c).FirstOrDefault();
 
                 if (dbConference == null) {
@@ -458,30 +488,7 @@ namespace ConferenceApp.Models {
             db.SaveChanges();
             #endregion
 
-            // Ensure Stephen (IsAdmin)
-            var stephen = await userManager.FindByNameAsync("Stephen.Walther@CoderCamps.com");
-            if (stephen == null) {
-                // create user
-                stephen = new ApplicationUser {
-                    UserName = "Stephen.Walther@CoderCamps.com",
-                    Email = "Stephen.Walther@CoderCamps.com"
-                };
-                await userManager.CreateAsync(stephen, "Secret123!");
-
-                // add claims
-                await userManager.AddClaimAsync(stephen, new Claim("IsAdmin", "true"));
-            }
-
-            // Ensure Mike (not IsAdmin)
-            var mike = await userManager.FindByNameAsync("Mike@CoderCamps.com");
-            if (mike == null) {
-                // create user
-                mike = new ApplicationUser {
-                    UserName = "Mike@CoderCamps.com",
-                    Email = "Mike@CoderCamps.com"
-                };
-                await userManager.CreateAsync(mike, "Secret123!");
-            }
+            
 
 
         }
