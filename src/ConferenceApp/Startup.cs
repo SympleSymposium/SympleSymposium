@@ -12,6 +12,8 @@ using Microsoft.Extensions.Logging;
 using ConferenceApp.Models;
 using ConferenceApp.Services;
 using Newtonsoft.Json.Serialization;
+using ConferenceApp.Infrastructure;
+using ConferenceApp.Controllers;
 
 namespace ConferenceApp
 {
@@ -54,6 +56,27 @@ namespace ConferenceApp
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            //add Repositories
+            services.AddScoped<ConferenceRepository>();
+            services.AddScoped<PresentationRepository>();
+            services.AddScoped<RoomRepository>();
+            services.AddScoped<SlotRepository>();
+            services.AddScoped<SpeakerRepository>();
+
+            //add Services
+            services.AddScoped<ConferenceService>();
+            services.AddScoped<PresentationService>();
+            services.AddScoped<RoomService>();
+            services.AddScoped<SlotService>();
+            services.AddScoped<SpeakerService>();
+
+            //add Controllers
+            services.AddScoped<ConferencesController>();
+            services.AddScoped<PresentationsController>();
+            services.AddScoped<RoomsController>();
+            services.AddScoped<SlotsController>();
+            services.AddScoped<SpeakersController>();
 
             // convert Pascal to Camel
             services.AddMvc().AddJsonOptions(options => {
