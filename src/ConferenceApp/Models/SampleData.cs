@@ -28,7 +28,24 @@ namespace ConferenceApp.Models {
                 // add claims
                 await userManager.AddClaimAsync(stephen, new Claim("IsAdmin", "true"));
             }
-
+            var john = await userManager.FindByNameAsync("John@CoderCamps.com");
+            if (john == null) {
+                // create user
+                john = new ApplicationUser {
+                    UserName = "John@CoderCamps.com",
+                    Email = "John@CoderCamps.com"
+                };
+                await userManager.CreateAsync(john, "Secret123!");
+            }
+            var tim = await userManager.FindByNameAsync("Tim@CoderCamps.com");
+            if (tim == null) {
+                // create user
+                tim = new ApplicationUser {
+                    UserName = "Tim@CoderCamps.com",
+                    Email = "Tim@CoderCamps.com"
+                };
+                await userManager.CreateAsync(tim, "Secret123!");
+            }
             // Ensure Mike (not IsAdmin)
             var mike = await userManager.FindByNameAsync("Mike@CoderCamps.com");
             if (mike == null) {
@@ -39,6 +56,7 @@ namespace ConferenceApp.Models {
                 };
                 await userManager.CreateAsync(mike, "Secret123!");
             }
+            
             #endregion
 
             #region Initialize Addressses
