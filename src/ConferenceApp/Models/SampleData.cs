@@ -243,19 +243,19 @@ namespace ConferenceApp.Models {
                 },
                 new Presentation() {
                     Title = "JavaScript",
-                    Description = "cover basic programming concepts like variables, data types, and functions, if/then statements, arrays and loops. They also introduce the Document Object Model (DOM) and how to use JavaScript to interact with the DOM and change HTML pages",
+                    Description = "Cover basic programming concepts like variables, data types, and functions, if/then statements, arrays and loops. They also introduce the Document Object Model (DOM) and how to use JavaScript to interact with the DOM and change HTML pages",
                     ImageUrl = "",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "Typescript",
-                    Description = "a new language and toolset that makes it easier to write cross-platform, application-scale JavaScript.",
+                    Description = "A new language and toolset that makes it easier to write cross-platform, application-scale JavaScript.",
                     ImageUrl = "",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
                     Title = "Angular",
-                    Description = "learn the basics of how to get started with developing Angular apps and scaling them with further complexity",
+                    Description = "Learn the basics of how to get started with developing Angular apps and scaling them with further complexity",
                     ImageUrl = "",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
