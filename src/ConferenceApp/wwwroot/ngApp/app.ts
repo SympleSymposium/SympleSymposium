@@ -19,6 +19,12 @@ namespace ConferenceApp {
                 controller: ConferenceApp.Controllers.ManagedConferenceController,
                 controllerAs: 'controller'
             })
+            .state('confEdit', {
+                url: '/conferences/edit/:id', 
+                templateUrl: '/ngApp/views/confEdit.html',
+                controller: ConferenceApp.Controllers.ConfEditController,
+                controllerAs: 'controller'
+            })
             .state('secret', {
                 url: '/secret',
                 templateUrl: '/ngApp/views/secret.html',

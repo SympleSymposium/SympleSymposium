@@ -30,6 +30,14 @@ namespace ConferenceApp.Controllers
             return _confServ.GetConferenceList(User.Identity.Name);
         }
 
+        // Get specific conference
+        // GET api/conferences/2
+        [HttpGet("{id}")]
+        public ConferenceDTO GetConference(int id) {
+            //BROCK - NEED TO MAKE SURE USERS CAN ONLY GET THEIR OWN CONFERENCES
+            return _confServ.GetConference(id);
+        }
+
         // Add conference
         // POST api/conferences
         [HttpPost]
@@ -40,10 +48,16 @@ namespace ConferenceApp.Controllers
         // Update conference
         // POST api/conferences/5
         [HttpPost("{id}")]
-        public void Post(int id, [FromBody]ConferenceViewModel conference)
+        public IActionResult Post(int id, [FromBody]ConferenceViewModel conference)
         {
+            if (conference == null) {
+                throw new Exception("Could not find conference with id " + id);
+            }
+
             //BROCK - NEED TO MAKE SURE USERS CAN ONLY UPDATE THEIR OWN CONFERENCES
             _confServ.UpdateConference(id, conference);
+
+            return Ok();
         }
 
         // Delete conference

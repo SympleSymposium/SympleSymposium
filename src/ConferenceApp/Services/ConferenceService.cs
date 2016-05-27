@@ -40,6 +40,33 @@ namespace ConferenceApp.Services {
             ).ToList();
         }
 
+        public ConferenceDTO GetConference(int id) {
+            var conf = _confRepo.GetById(id).FirstOrDefault();
+            var address = _addressRepo.GetById(conf.AddressId).FirstOrDefault();
+
+            if (conf == null) {
+                throw new Exception("Could not find conference with id " + id);
+            }
+
+            var confDTO = new ConferenceDTO();
+
+            confDTO.Id = conf.Id;
+            confDTO.Name = conf.Name;
+            confDTO.StartDate = conf.StartDate;
+            confDTO.EndDate = conf.EndDate;
+            confDTO.ImageUrl = conf.ImageURL;
+
+            if (conf.AddressId != null) {
+                confDTO.AddressId = conf.AddressId;
+                confDTO.Street = address.Street;
+                confDTO.City = address.City;
+                confDTO.State = address.State;
+                confDTO.Zip = address.Zip;
+            }
+
+            return confDTO;
+        }
+
         public void UpdateConference(int id, ConferenceViewModel conference) {
             var editedConf = _confRepo.GetById(id).FirstOrDefault();
 

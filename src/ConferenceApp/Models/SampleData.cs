@@ -166,7 +166,7 @@ namespace ConferenceApp.Models {
                 },
                 new Conference() {
                     Name = "International Technology Conference",
-                    AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
+                    //AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 9, 1),
                     EndDate = new DateTime(2016, 9, 3),
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
