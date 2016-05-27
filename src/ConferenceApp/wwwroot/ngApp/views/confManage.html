@@ -1,38 +1,37 @@
-﻿<h1>Conferences<
-/h1>
+﻿<h1>Conferences</h1>
 <div layout="row" layout-align="space around center">
 
-        <div ng-repeat="conference in controller.firstConference">
-            <md-card class="md-card">
-                <img src="{{conference.imageUrl}}" />
-                <md-card-header>
-                    <md-card-header-text>
-                        <span class="md-title">{{conference.name}}</span>
-                    </md-card-header-text>
-                </md-card-header>
-                <md-card-title>
-                    <md-card-title-text>
-                    </md-card-title-text>
-                </md-card-title>/
-                <md-card-content>///
-<<<<<<< Updated upstream
-                    <p>
-                        <span class="md-subhead">{{conference.city}}, {{conference.state}}</span>
-                    </p>
-                        <p>
-                            <span class="md-subhead">{{conference.startDate | date:'MM/dd/yy'}} - {{conference.endDate | date:'MM/dd/yy'}}</span>
-                        </p>
-=======
-                  <span class="md-subhead">{{conference.address}}</span>
-                  <span class="md-subhead">{{conference.startDate | date:'MM/dd/yy'}} - {{conference.endDate | date:'MM/dd/yy'}}</span>
->>>>>>> Stashed changes
-                </md-card-content>
-                <md-card-actions layout="row" layout-align="center">
-                    <md-button class="md-raised md-primary" ui-sref="confEdit({id:conference.id})">Edit</md-button>   
-                    <md-button class="md-raised md-primary">Details</md-button>
-                </md-card-actions>
-            </md-card>
-</div>
+    <div ng-repeat="conference in controller.firstConference">
+        <md-card class="md-card">
+            <img src="{{conference.imageUrl}}" />
+            <md-card-header>
+                <md-card-header-text>
+                    <span class="md-title">{{conference.name}}</span>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-title>
+                <md-card-title-text>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+
+                <p>
+                    <span class="md-subhead">{{conference.city}}, {{conference.state}}</span>
+                </p>
+                <p>
+                    <span class="md-subhead">{{conference.startDate | date:'MM/dd/yy'}} - {{conference.endDate | date:'MM/dd/yy'}}</span>
+                </p>
+
+                <span class="md-subhead">{{conference.address}}</span>
+                <span class="md-subhead">{{conference.startDate | date:'MM/dd/yy'}} - {{conference.endDate | date:'MM/dd/yy'}}</span>
+
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="center">
+                <md-button class="md-raised md-primary" ui-sref="confEdit({id:conference.id})">Edit</md-button>
+                <md-button class="md-raised md-primary">Details</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
     <div ui-sref="add({id:conference.id})">
         <md-card class="md-card">
             <img src="http://plainicon.com/dl.php?pid=42949&tem=256px&con=download-icon" />

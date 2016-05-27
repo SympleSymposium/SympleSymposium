@@ -25,7 +25,7 @@ namespace ConferenceApp.Controllers {
                 .then((response) => {
                     this.conferences = response.data;
                     this.firstConference = [this.conferences[0]];
-                    console.log(this.firstConference);
+                    console.log(response.data);
                 })
             .catch((response) => {
                 console.log(response.data);
