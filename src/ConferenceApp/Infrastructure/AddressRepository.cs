@@ -17,5 +17,21 @@ namespace ConferenceApp.Infrastructure
         public IQueryable<Address> List() {
             return _db.Addresses;
         }
+
+        public IQueryable<Address> GetById(int? id) {
+
+            return from a in _db.Addresses
+                   where a.Id == id
+                   select a;
+        }
+
+        public void add(Address address) {
+
+            _db.Addresses.Add(address);
+        }
+
+        public void saveChanges() {
+            _db.SaveChanges();
+        }
     }
 }

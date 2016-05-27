@@ -6,6 +6,7 @@ using Microsoft.AspNet.Mvc;
 using ConferenceApp.Services;
 using ConferenceApp.Services.Models;
 using Microsoft.AspNet.Authorization;
+using ConferenceApp.ViewModels;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,37 +22,32 @@ namespace ConferenceApp.Controllers
             _confServ = confServ;
         }
 
+        // Get conferences of current user
         // GET: api/conferences/manage
         [HttpGet("manage")]
         public IEnumerable<ConferenceDTO> GetConferenceList()
         {
-
-            //User.Identity.Name
             return _confServ.GetConferenceList(User.Identity.Name);
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-       
-
-        // POST api/values
+        // Add conference
+        // POST api/conferences
         [HttpPost]
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        // Update conference
+        // POST api/conferences/5
+        [HttpPost("{id}")]
+        public void Post(int id, [FromBody]ConferenceViewModel conference)
         {
+            //BROCK - NEED TO MAKE SURE USERS CAN ONLY UPDATE THEIR OWN CONFERENCES
+            _confServ.UpdateConference(id, conference);
         }
 
-        // DELETE api/values/5
+        // Delete conference
+        // DELETE api/conferences/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

@@ -1,26 +1,24 @@
 ﻿using ConferenceApp.Infrastructure;
+using ConferenceApp.Models;
 using ConferenceApp.Services.Models;
+using ConferenceApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ConferenceApp.Services
-{
-    public class ConferenceService
-    {
+namespace ConferenceApp.Services {
+    public class ConferenceService {
         private ConferenceRepository _confRepo;
         private AddressRepository _addressRepo;
 
-        public ConferenceService(ConferenceRepository confRepo, AddressRepository addressRepo)
-        {
+        public ConferenceService(ConferenceRepository confRepo, AddressRepository addressRepo) {
             _confRepo = confRepo;
             _addressRepo = addressRepo;
         }
 
-        public IList<ConferenceDTO> GetConferenceList(string organizerName)
-        {
-            return (from c in _confRepo.List( organizerName)
+        public IList<ConferenceDTO> GetConferenceList(string organizerName) {
+            return (from c in _confRepo.List(organizerName)
                     select new ConferenceDTO {
                         Id = c.Id,
                         Name = c.Name,
@@ -38,15 +36,55 @@ namespace ConferenceApp.Services
                                select a).FirstOrDefault().Zip,
                         StartDate = c.StartDate,
                         EndDate = c.EndDate
-                    }                        
+                    }
             ).ToList();
-
         }
 
-       
+        public void UpdateConference(int id, ConferenceViewModel conference) {
+            var editedConf = _confRepo.GetById(id).FirstOrDefault();
 
+            if (editedConf == null) {
+                throw new Exception("Could not find conference with id " + id);
+            }
 
+            editedConf.Name = conference.Name;
+            editedConf.StartDate = conference.StartDate;
+            editedConf.EndDate = conference.EndDate;
+            editedConf.ImageURL = conference.ImageURL;
+
+            //BROCK - VERIFY THIS WORKS WHEN EDITING A CONFERENCE WITH NULL ADDRESSID
+            if (editedConf.AddressId != null) {
+
+                editedConf.AddressId = conference.AddressId;
+
+                var editedAddress = _addressRepo.GetById(editedConf.AddressId).FirstOrDefault();
+                editedAddress.Street = conference.Street;
+                editedAddress.City = conference.City;
+                editedAddress.State = conference.State;
+                editedAddress.Zip = conference.Zip;
+
+                _addressRepo.saveChanges();
+            }
+            else {
+
+                var newAddress = new Address() {
+                    Street = conference.Street,
+                    City = conference.City,
+                    State = conference.State,
+                    Zip = conference.Zip
+                };
+
+                _addressRepo.add(newAddress);
+                _addressRepo.saveChanges();
+
+                //VERIFY THIS WORKS
+                editedConf.AddressId = newAddress.Id;
+            }
+
+            _confRepo.saveChanges();
         }
 
     }
+
+}
 

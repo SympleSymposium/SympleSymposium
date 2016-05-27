@@ -152,18 +152,21 @@ namespace ConferenceApp.Models {
                 },
                 new Conference() {
                     Name = "Houston Tech Conference",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 10, 4),
                     EndDate = new DateTime(2016, 10, 5),
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 },
                 new Conference() {
                     Name = "TechConf",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 9, 12),
                     EndDate = new DateTime(2016, 9, 14),
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Mike@CoderCamps.com").Id
                 },
                 new Conference() {
                     Name = "International Technology Conference",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 9, 1),
                     EndDate = new DateTime(2016, 9, 3),
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
