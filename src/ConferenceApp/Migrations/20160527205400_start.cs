@@ -96,7 +96,7 @@ namespace ConferenceApp.Migrations
                     AddressId = table.Column<int>(nullable: true),
                     ApplicationUserId = table.Column<string>(nullable: true),
                     EndDate = table.Column<DateTime>(nullable: false),
-                    ImageURL = table.Column<string>(nullable: true),
+                    ImageUrl = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     StartDate = table.Column<DateTime>(nullable: false)
                 },

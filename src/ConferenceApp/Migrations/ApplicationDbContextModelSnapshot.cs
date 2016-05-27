@@ -91,7 +91,7 @@ namespace ConferenceApp.Migrations
 
                     b.Property<DateTime>("EndDate");
 
-                    b.Property<string>("ImageURL");
+                    b.Property<string>("ImageUrl");
 
                     b.Property<string>("Name");
 

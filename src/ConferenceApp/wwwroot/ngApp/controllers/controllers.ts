@@ -15,7 +15,7 @@ namespace ConferenceApp.Controllers {
             });
         }
     }
-
+     
     export class ConfManageController {
         public conferences;
         public firstConference;

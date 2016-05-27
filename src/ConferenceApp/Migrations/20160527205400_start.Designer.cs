@@ -8,8 +8,8 @@ using ConferenceApp.Models;
 namespace ConferenceApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160527162455_Logos")]
-    partial class Logos
+    [Migration("20160527205400_start")]
+    partial class start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -92,7 +92,7 @@ namespace ConferenceApp.Migrations
 
                     b.Property<DateTime>("EndDate");
 
-                    b.Property<string>("ImageURL");
+                    b.Property<string>("ImageUrl");
 
                     b.Property<string>("Name");
 
