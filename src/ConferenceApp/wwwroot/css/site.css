@@ -32,6 +32,28 @@ textarea {
         z-index: 10 !important;
     }
 }
+.carddemoBasicUsage .card-media {
+  background-color: #999999; }
+
+
+.md-card  {
+    width: 200px;
+    height: 300px;
+    text-align: center;
+
+}
+
+.md-card .md-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    text-align: center;
+
+}
+.md-card .md-raised {
+    padding: 1px;
+}
+
+
 
 .buttondemoBasicUsage section {
     background: #f7f7f7;
@@ -61,6 +83,14 @@ textarea {
 
 .title-color {
     color: white;
+    }
+    
+[ui-sref] {
+    cursor:pointer;
+}
+
+[href] {
+    cursor: pointer;
 }
 
 #site-title {

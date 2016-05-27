@@ -8,8 +8,8 @@ using ConferenceApp.Models;
 namespace ConferenceApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160526175543_start")]
-    partial class start
+    [Migration("20160527162455_Logos")]
+    partial class Logos
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="ConferenceApp">
+<head>
+    <title>ConferenceApp</title>   
+    <link href="~/lib/angular-material/angular-material.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <base href="/" />
+</head>
+<body ng-controller="AccountController as account">
+    <div class="container">
+        <h1>ConferenceApp</h1>
+        <div>
+          <a href="/">Home</a> /
+           <a href="/about">About</a>
+
+           / <a href="/secret">Secret</a> /
+           <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
+           <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
+           <div ng-show="account.isLoggedIn()">
+               [{{account.getUserName()}}]
+           </div> 
+        </div>
+        <hr />
+
+        <ui-view></ui-view>
+    </div>
+
+    <!-- Library Files -->
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/angular-resource/angular-resource.js"></script>
+    <script src="~/lib/angular-animate/angular-animate.js"></script>
+    <script src="~/lib/angular-touch/angular-touch.js"></script>
+    <script src="~/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="~/lib/angular-aria/angular-aria.js"></script>
+    <script src="~/lib/angular-messages/angular-messages.js"></script>
+    <script src="~/lib/angular-material/angular-material.js"></script>
+    <script src="~/lib/angular-material/angular-material-mocks.js"></script>
+    
+
+    <!-- App Files-->
+    <script src="~/ngapp/app.js"></script>
+    <script src="~/ngapp/controllers/controllers.js"></script>
+    <script src="~/ngapp/services/services.js"></script>
+
+
+    <!-- Security -->
+    <script src="~/ngapp/controllers/accountcontroller.js"></script>
+    <script src="~/ngapp/services/accountservice.js"></script>
+
+</body>
+</html>

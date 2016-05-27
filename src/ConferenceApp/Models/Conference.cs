@@ -20,7 +20,7 @@ namespace ConferenceApp.Models
 
         public DateTime EndDate { get; set; }
 
-        public string ImageURL { get; set; }
+        public string ImageUrl { get; set; }
 
         public string ApplicationUserId { get; set; }
         [ForeignKey("ApplicationUserId")]
