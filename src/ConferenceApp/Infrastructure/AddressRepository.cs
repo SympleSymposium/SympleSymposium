@@ -17,13 +17,29 @@ namespace ConferenceApp.Infrastructure
         public IQueryable<Address> List() {
             return _db.Addresses;
         }
-
-        //Find Conference Street
+        
+//Find Conference Street
         public IQueryable<Address> FindByAddress(string street, string city, string state, string zip)
         {
             return from s in _db.Addresses
                    where s.Street == street && s.City == city && s.State == state && s.Zip == zip
                    select s;
+        }
+        
+        public IQueryable<Address> GetById(int? id) {
+
+            return from a in _db.Addresses
+                   where a.Id == id
+                   select a;
+        }
+
+        public void add(Address address) {
+
+            _db.Addresses.Add(address);
+        }
+
+        public void saveChanges() {
+            _db.SaveChanges();
         }
     }
 }
