@@ -49,9 +49,6 @@ textarea {
     text-align: center;
 
 }
-.md-card .md-raised {
-    padding: 1px;
-}
 
 
 
@@ -63,7 +60,7 @@ textarea {
   position: relative !important;
   padding-bottom: 10px; }
 .buttondemoBasicUsage md-content {
-  margin-right: 7px; }
+
 .buttondemoBasicUsage section .md-button {
   margin-top: 16px;
   margin-bottom: 16px; }
