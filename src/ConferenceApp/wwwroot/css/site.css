@@ -34,20 +34,107 @@ textarea {
 }
 
 .buttondemoBasicUsage section {
-  background: #f7f7f7;
-  border-radius: 3px;
-  text-align: center;
-  margin: 1em;
-  position: relative !important;
-  padding-bottom: 10px; }
+    background: #f7f7f7;
+    border-radius: 3px;
+    text-align: center;
+    margin: 1em;
+    position: relative !important;
+    padding-bottom: 10px;
+}
+
 .buttondemoBasicUsage md-content {
-  margin-right: 7px; }
+    margin-right: 7px;
+}
+
 .buttondemoBasicUsage section .md-button {
-  margin-top: 16px;
-  margin-bottom: 16px; }
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
 .buttondemoBasicUsage .label {
-  position: absolute;
-  bottom: 5px;
-  left: 7px;
-  font-size: 14px;
-  opacity: 0.54; }
+    position: absolute;
+    bottom: 5px;
+    left: 7px;
+    font-size: 14px;
+    opacity: 0.54;
+}
+
+.title-color {
+    color: white;
+}
+
+#site-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    border: 4px solid white;
+    padding: 20px;
+    padding-right: 12px;
+}
+
+.bg-image {
+    background-image: url("http://www.wheretorome.com/wp-content/uploads/2013/12/business-conference.jpg");
+    width: 100%;
+    height: 70%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.bg-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(64, 64, 64, .94);
+}
+
+
+
+ #site-description {
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: .7em;
+        color: white;
+        margin-top: 2em;
+    }
+
+.event-info{
+        margin-top: 3.25em;
+}
+
+    .event-info ul li {
+        color: white;
+        font-family: "Lato", sans-serif;
+        font-size: 1.5em;
+        margin: 1em 0;
+        padding-bottom: 0px;
+        border-right: 1px solid #404040;
+        padding-top:0;
+    }
+
+    [class*="block-grid-"]>li {
+    display: block;
+    height: auto;
+    float: left;
+    padding: 60px;
+
+}
+
+.material-icons{
+    color: #F74819;
+}
+
+.detail {
+    
+    font-weight: 400;
+        color: white;
+    font-size: 2.2em;
+}
+.des {
+    font-size: 1.3em;
+    color: darkgray;
+    text-align: center;
+    font-family: "Lato", sans-serif;
+}
