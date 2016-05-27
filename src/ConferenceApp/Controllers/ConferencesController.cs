@@ -37,13 +37,24 @@ namespace ConferenceApp.Controllers
             return "value";
         }
 
-       
-
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody]ConferenceDTO conference)
         {
+            if (ModelState.IsValid)
+            {
+                _confServ.PostConference(conference, User.Identity.Name);
+                return Ok(conference);
+            }
+            return HttpBadRequest(ModelState);
         }
+
+
+        // POST api/values
+        //[HttpPost]
+        //public void Post([FromBody]string value)
+        //{
+        //}
 
         // PUT api/values/5
         [HttpPut("{id}")]

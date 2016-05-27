@@ -13,6 +13,8 @@ namespace ConferenceApp.Services.Models
         public string City { get; set; }
         public string State { get; set; }
         public string Zip { get; set; }
+        public string ApplicationUserId { get; set; }
+        public string ImageURL { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public IList<PresentationDTO> Presentations { get; set; }

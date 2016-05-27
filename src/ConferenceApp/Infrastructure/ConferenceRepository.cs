@@ -28,9 +28,15 @@ namespace ConferenceApp.Infrastructure
         }
         
         //add a Conference by the organizer
-        public void Add(Conference conference)
+        //public void Add(Conference conference)
+        //{
+        //    _db.Conferences.Add(conference);
+        //}
+
+        public void AddConference(Conference conference)
         {
             _db.Conferences.Add(conference);
+            _db.SaveChanges();
         }
     }
 }
