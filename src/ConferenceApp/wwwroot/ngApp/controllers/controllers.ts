@@ -16,7 +16,7 @@ namespace ConferenceApp.Controllers {
         }
     }
 
-    export class ManagedConferenceController {
+    export class ConfManageController {
         public conferences;
 
         constructor($http: ng.IHttpService) {
@@ -24,29 +24,30 @@ namespace ConferenceApp.Controllers {
                 .then((response) => {
                     this.conferences = response.data;
                 })
-            .catch((response) => {
-                console.log(response.data);
+                .catch((response) => {
+                    console.log(response.data);
                 });
             console.log(this.conferences);
-                
+
         }
     }
-    export class AddConferenceController {
+    export class ConfAddController {
         public newConference;
+
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService) {
         }
 
         public AddConference() {
-            console.log("Post");
+            console.log(this.newConference);
             this.$http.post('/api/conferences', this.newConference)
                 .then((response) => {
-                    this.$state.go("manageConferences");
+                    this.$state.go("confManage");
                 })
         }
     }
 
-    
+
     export class AboutController {
         public message = 'Hello from the about page!';
     }

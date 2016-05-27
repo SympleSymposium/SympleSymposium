@@ -41,6 +41,7 @@ namespace ConferenceApp.Controllers
         // Add conference
         // POST api/conferences
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody]ConferenceDTO conference)
         {
             if (ModelState.IsValid)

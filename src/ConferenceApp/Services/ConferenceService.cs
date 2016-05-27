@@ -11,10 +11,12 @@ namespace ConferenceApp.Services {
     public class ConferenceService {
         private ConferenceRepository _confRepo;
         private AddressRepository _addressRepo;
+        private UserRepository _userRepo;
 
-        public ConferenceService(ConferenceRepository confRepo, AddressRepository addressRepo) {
+        public ConferenceService(ConferenceRepository confRepo, AddressRepository addressRepo, UserRepository userRepo) {
             _confRepo = confRepo;
             _addressRepo = addressRepo;
+            _userRepo = userRepo;
         }
 
         public IList<ConferenceDTO> GetConferenceList(string organizerName) {
@@ -77,7 +79,9 @@ namespace ConferenceApp.Services {
                 Name = conference.Name,                
                 Address = _addressRepo.FindByAddress(conference.Street, conference.City,
                 conference.State, conference.Zip).FirstOrDefault(),
-                ApplicationUserId = currentUser,
+                ApplicationUserId = (from a in _userRepo.List()
+                                     where a.UserName == currentUser
+                                     select a.Id).FirstOrDefault(),
                 ImageUrl = conference.ImageUrl,
                 StartDate = conference.StartDate,
                 EndDate = conference.EndDate

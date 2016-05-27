@@ -15,8 +15,8 @@ namespace ConferenceApp {
             })
             .state('confManage', {
                 url: '/conferences/manage',
-                templateUrl: '/ngApp/views/confManage.html',
-                controller: ConferenceApp.Controllers.ManagedConferenceController,
+                templateUrl: '/ngApp/views/confManage.html',                
+                controller: ConferenceApp.Controllers.ConfManageController,
                 controllerAs: 'controller'
             })
             .state('confEdit', {
@@ -25,10 +25,10 @@ namespace ConferenceApp {
                 controller: ConferenceApp.Controllers.ConfEditController,
                 controllerAs: 'controller'
             })
-            .state('add', {
-                url: '/add/conferences',
-                templateUrl: '/ngApp/views/addConference.html',
-                controller: ConferenceApp.Controllers.AddConferenceController,
+            .state('confadd', {
+                url: '/conferences/add',
+                templateUrl: '/ngApp/views/confAdd.html',
+                controller: ConferenceApp.Controllers.ConfAddController,
                 controllerAs: 'controller'
             })            
             .state('secret', {
