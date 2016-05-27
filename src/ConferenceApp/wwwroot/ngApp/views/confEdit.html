@@ -35,7 +35,7 @@
                     <input ng-model="controller.imageUrl">
                 </md-input-container>
                 <div layout="row">
-                    <md-button ng-click="showGreeting($event)" class="md-raised md-primary">
+                    <md-button ui-sref="confManage({id:conference.id})" class="md-raised md-primary">
                         Cancel
                     </md-button>
                     <md-button ng-click="controller.EditConference()" class="md-raised md-primary">

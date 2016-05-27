@@ -25,6 +25,7 @@ namespace ConferenceApp.Controllers
         // Get conferences of current user
         // GET: api/conferences/manage
         [HttpGet("manage")]
+        [Authorize]
         public IEnumerable<ConferenceDTO> GetConferenceList()
         {
             return _confServ.GetConferenceList(User.Identity.Name);
