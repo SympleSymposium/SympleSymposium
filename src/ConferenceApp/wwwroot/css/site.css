@@ -1,6 +1,6 @@
 body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 
 /* Wrapping element */
@@ -38,14 +38,22 @@ textarea {
 
 .md-card  {
     width: 200px;
+    height: 300px;
+    text-align: center;
 
 }
 
-.md-card md-headline {
-    font-family: Oswald;
-    padding: 5px;
+.md-card .md-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    text-align: center;
 
 }
+.md-card .md-raised {
+    padding: 1px;
+}
+
+
 
 .buttondemoBasicUsage section {
   background: #f7f7f7;

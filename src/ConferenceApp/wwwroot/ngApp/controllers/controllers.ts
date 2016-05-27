@@ -18,16 +18,19 @@ namespace ConferenceApp.Controllers {
 
     export class ManagedConferenceController {
         public conferences;
+        public firstConference;
 
         constructor($http: ng.IHttpService) {
             $http.get('/api/conferences/manage')
                 .then((response) => {
                     this.conferences = response.data;
+                    this.firstConference = [this.conferences[0]];
+                    console.log(this.firstConference);
                 })
             .catch((response) => {
                 console.log(response.data);
                 });
-            console.log(this.conferences);
+            
                 
         }
     }
