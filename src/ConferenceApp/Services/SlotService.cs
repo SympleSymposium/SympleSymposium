@@ -16,9 +16,9 @@ namespace ConferenceApp.Services
             _slotRepo = slotRepo;
         }
                 
-        public IList<SlotDTO> GetSlotList()
+        public IList<SlotDTO> GetSlotList(int conferenceId)
         {
-            return (from s in _slotRepo.List()
+            var slots = (from s in _slotRepo.List(conferenceId)
                     select new SlotDTO
                     {
                         Id = s.Id,
@@ -47,6 +47,8 @@ namespace ConferenceApp.Services
 
                         }
                     }).ToList();
+
+            return slots;
         }
     }
 }

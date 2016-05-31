@@ -17,9 +17,9 @@ namespace ConferenceApp.Services
         }
 
 
-        public IList<RoomDTO> GetRoomList()
+        public IList<RoomDTO> GetRoomList(int conferenceId)
         {
-            return (from r in _roomRepo.List()
+            return (from r in _roomRepo.List(conferenceId)
                     select new RoomDTO
                     {
                         Id = r.Id,

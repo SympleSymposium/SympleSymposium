@@ -209,7 +209,10 @@ namespace ConferenceApp.Models {
                     Name = "Room C",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
-                
+                new Room() {
+                    Name = "Room D",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Houston Tech Conference").Id
+                }
             };
 
             for (int i = 0; i < Rooms.Count; i++) {
@@ -406,6 +409,12 @@ namespace ConferenceApp.Models {
                     Description = "Use this modern text editor to customize anything but also use productively without ever touching a config file.",
                     ImageUrl = "",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
+                },
+                new Presentation() {
+                    Title = "Houston Web Development",
+                    Description = "Learn about web dev in Houston!",
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Houston Tech Conference").Id
                 }
 
             };
@@ -490,6 +499,13 @@ namespace ConferenceApp.Models {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Atom").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Chris" && s.LastName == "Ramsey").Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
+                    StartTime = new DateTime(2016,8,2,8,0,0),
+                    EndTime = new DateTime(2016,8,2,12,0,0)
+                },
+                new Slot() {
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Houston Web Development").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Chris" && s.LastName == "Ramsey").Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room D").Id,
                     StartTime = new DateTime(2016,8,2,8,0,0),
                     EndTime = new DateTime(2016,8,2,12,0,0)
                 }
