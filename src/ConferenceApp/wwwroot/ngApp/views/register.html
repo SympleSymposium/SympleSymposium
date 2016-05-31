@@ -1,37 +1,83 @@
-<h1>Register</h1>
+<h1 class="register-tit" layout="row" layout-align="center">Register</h1>
 
-<fieldset>
-    <legend>Register with a Social Provider</legend>
+<div  class="register-tit" layout="row" layout-align="center">
+
+
+    
+
+
+
+
+
+
+
+
     <ul>
         <li ng-repeat="externalLogin in account.externalLogins">
             <a target="_self" href="{{externalLogin.url}}">{{externalLogin.name}}</a>
         </li>
     </ul>
 
-</fieldset>
 
-<fieldset>
-    <legend>Local Registration</legend>
+
+
     <ul>
         <li ng-repeat="message in controller.validationMessages">
             {{message}}
         </li>
     </ul>
 
+
+
+
+
+
+
     <form ng-submit="controller.register()">
         <div>
-            <label>Email:</label>
-            <input ng-model="controller.registerUser.email" />
+
+
+            <md-input-container>
+                <label>Email</label>
+                <input type="text" ng-model="controller.registerUser.email">
+            </md-input-container>
+
+           
+      
+            
+
+
+
+
         </div>
         <div>
-            <label>Password:</label>
-            <input ng-model="controller.registerUser.password" />
+
+
+            <md-input-container>
+                <label>Password</label>
+                <input type="text" ng-model="controller.registerUser.password">
+            </md-input-container>
+
+
+
+
+
         </div>
         <div>
-            <label>Confirm Password:</label>
-            <input ng-model="controller.registerUser.confirmPassword" />
+
+
+
+            <md-input-container>
+                <label>Confirm Password</label>
+                <input type="text" ng-model="controller.registerUser.confirmPassword">
+            </md-input-container>
+
+
+
         </div>
-        <input type="submit" value="Register" />
+        
+        <md-button class="md-raised" input type="submit" value="Register"> Register </md-button>
+
     </form>
 
-</fieldset>
+</div>
