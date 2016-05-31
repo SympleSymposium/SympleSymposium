@@ -27,7 +27,7 @@ namespace ConferenceApp {
             }) 
             .state('confAdd', {
                 url: '/conferences/add',
-                templateUrl: '/ngApp/views/confAdd.html',
+                templateUrl: '/ngApp/views/confEdit.html',
                 controller: ConferenceApp.Controllers.ConfAddController,
                 controllerAs: 'controller'
             })            

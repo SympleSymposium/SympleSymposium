@@ -1,1 +1,11 @@
 ﻿<h3> Home Page = Conference List View</h3>
+
+
+<div layout="row">
+    <md-button ui-sref="confManage({id:conference.id})" class="md-raised md-primary">
+        Cancel
+    </md-button>
+    <md-button ng-click="controller.AddConference()" class="md-raised md-primary">
+        Submit
+    </md-button>
+</div>
