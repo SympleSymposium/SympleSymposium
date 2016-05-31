@@ -46,6 +46,7 @@ textarea {
 .card {
     width: 500px;
     height: 500px;
+    margin-top: 48px;
 }
 
 .md-card .md-title {
@@ -291,3 +292,4 @@ a:hover {
     padding: 20px;
     padding-right: 12px;
 }
+
