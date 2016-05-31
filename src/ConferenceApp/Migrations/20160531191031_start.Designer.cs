@@ -8,7 +8,7 @@ using ConferenceApp.Models;
 namespace ConferenceApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160527205400_start")]
+    [Migration("20160531191031_start")]
     partial class start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -134,15 +134,13 @@ namespace ConferenceApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ApplicationUserId");
-
                     b.Property<DateTime>("EndTime");
 
-                    b.Property<int?>("PresentationId");
+                    b.Property<int>("PresentationId");
 
                     b.Property<int?>("RoomId");
 
-                    b.Property<int?>("SpeakerId");
+                    b.Property<int>("SpeakerId");
 
                     b.Property<DateTime>("StartTime");
 
@@ -284,10 +282,6 @@ namespace ConferenceApp.Migrations
 
             modelBuilder.Entity("ConferenceApp.Models.Slot", b =>
                 {
-                    b.HasOne("ConferenceApp.Models.ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId");
-
                     b.HasOne("ConferenceApp.Models.Presentation")
                         .WithMany()
                         .HasForeignKey("PresentationId");

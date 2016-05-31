@@ -133,15 +133,13 @@ namespace ConferenceApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ApplicationUserId");
-
                     b.Property<DateTime>("EndTime");
 
-                    b.Property<int?>("PresentationId");
+                    b.Property<int>("PresentationId");
 
                     b.Property<int?>("RoomId");
 
-                    b.Property<int?>("SpeakerId");
+                    b.Property<int>("SpeakerId");
 
                     b.Property<DateTime>("StartTime");
 
@@ -283,10 +281,6 @@ namespace ConferenceApp.Migrations
 
             modelBuilder.Entity("ConferenceApp.Models.Slot", b =>
                 {
-                    b.HasOne("ConferenceApp.Models.ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId");
-
                     b.HasOne("ConferenceApp.Models.Presentation")
                         .WithMany()
                         .HasForeignKey("PresentationId");

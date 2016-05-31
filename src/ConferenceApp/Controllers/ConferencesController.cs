@@ -80,6 +80,7 @@ namespace ConferenceApp.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _confServ.DeleteConference(id);
         }
     }
 }

@@ -42,10 +42,20 @@ namespace ConferenceApp.Infrastructure
         public void AddConference(Conference conference)
         {
             _db.Conferences.Add(conference);
+            
+        }
+
+        public void SaveChanges() {
             _db.SaveChanges();
         }
 
-        public void saveChanges() {
+        public void Delete(int confId)
+        {
+            var deleteConf =
+                (from c in _db.Conferences
+                 where c.Id == confId
+                 select c).FirstOrDefault();
+            _db.Conferences.Remove(deleteConf);
             _db.SaveChanges();
         }
     }
