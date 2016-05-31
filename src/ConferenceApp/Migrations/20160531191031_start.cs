@@ -244,40 +244,33 @@ namespace ConferenceApp.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ApplicationUserId = table.Column<string>(nullable: true),
                     EndTime = table.Column<DateTime>(nullable: false),
-                    PresentationId = table.Column<int>(nullable: true),
+                    PresentationId = table.Column<int>(nullable: false),
                     RoomId = table.Column<int>(nullable: true),
-                    SpeakerId = table.Column<int>(nullable: true),
+                    SpeakerId = table.Column<int>(nullable: false),
                     StartTime = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Slot", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Slot_ApplicationUser_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_Slot_Presentation_PresentationId",
                         column: x => x.PresentationId,
                         principalTable: "Presentation",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Slot_Room_RoomId",
                         column: x => x.RoomId,
                         principalTable: "Room",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Slot_Speaker_SpeakerId",
                         column: x => x.SpeakerId,
                         principalTable: "Speaker",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Cascade);
                 });
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",

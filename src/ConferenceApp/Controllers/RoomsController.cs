@@ -20,18 +20,13 @@ namespace ConferenceApp.Controllers
         {
             _roomServ = roomServ;
         }
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<RoomDTO> GetRoomList()
-        {
-            return _roomServ.GetRoomList();
-        }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // Get rooms for specific conference
+        // GET: api/slots/2
+        [HttpGet("{conferenceId}")]
+        public IEnumerable<RoomDTO> GetRoomList(int conferenceId)
         {
-            return "value";
+            return _roomServ.GetRoomList(conferenceId);
         }
 
         // POST api/values

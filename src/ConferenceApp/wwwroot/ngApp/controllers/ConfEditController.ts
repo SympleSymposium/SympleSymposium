@@ -36,8 +36,22 @@
                     //console.log("successful post");
                 });
         }
+    
 
-        constructor(private $http: ng.IHttpService, $stateParams: ng.ui.IStateParamsService, private $state: ng.ui.IStateService) {
+        public DeleteConference() {           
+            this.$http.delete(`/api/conferences/${this.confId}`)
+                .then((response) => {
+                    this.$state.go("confManage");
+                })
+                .catch((response) => {
+                    console.log(response.data);
+                });
+
+        }
+
+        constructor(private $http: ng.IHttpService,
+            private $state: ng.ui.IStateService,
+            $stateParams: ng.ui.IStateParamsService) {
             //console.log($stateParams['id']);
             $http.get('/api/conferences/' + $stateParams['id'])
                 .then((response) => {

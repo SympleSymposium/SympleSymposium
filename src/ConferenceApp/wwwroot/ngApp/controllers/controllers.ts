@@ -13,6 +13,7 @@ namespace ConferenceApp.Controllers {
                 //this.secrets = results.data;
                 console.log("test");
             });
+           
         }
     }
      
@@ -49,6 +50,7 @@ namespace ConferenceApp.Controllers {
                 })
         }
     }
+    
 
 
     export class AboutController {

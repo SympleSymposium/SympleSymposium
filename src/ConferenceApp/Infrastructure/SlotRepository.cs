@@ -14,9 +14,11 @@ namespace ConferenceApp.Infrastructure
             _db = db;
         }
 
-        public IQueryable<Slot> List()
+        public IQueryable<Slot> List(int conferenceId)
         {
-            return _db.Slots;
+            return (from s in _db.Slots
+                    where s.Presentation.ConferenceId == conferenceId
+                    select s);
         }
     }
 }

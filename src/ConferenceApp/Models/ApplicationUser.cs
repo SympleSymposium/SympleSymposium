@@ -10,6 +10,6 @@ namespace ConferenceApp.Models
     public class ApplicationUser : IdentityUser
     {
         public IList<Conference> Conferences { get; set; }
-        public IList<Slot> Slots { get; set; }
+        //public IList<Slot> Slots { get; set; } // NO - needs to link to the join table
     }
 }

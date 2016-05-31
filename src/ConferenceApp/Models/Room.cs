@@ -17,6 +17,5 @@ namespace ConferenceApp.Models
         public string Name { get; set; }
 
         public IList<Slot> Slots { get; set; }
-
     }
 }

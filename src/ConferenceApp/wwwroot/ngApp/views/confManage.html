@@ -22,6 +22,9 @@
                     <span class="md-subhead">{{conference.startDate | date:'MM/dd/yy'}} - {{conference.endDate | date:'MM/dd/yy'}}</span>
                 </p>
 
+                <span class="md-subhead">{{conference.address}}</span>
+                <span class="md-subhead">{{conference.startDate | date:'MM/dd/yy'}} - {{conference.endDate | date:'MM/dd/yy'}}</span>
+
             </md-card-content>
             <md-card-actions layout="row" layout-align="space-around center">
                 <md-button class="md-raised md-primary" ui-sref="confEdit({id:conference.id})">Edit</md-button>

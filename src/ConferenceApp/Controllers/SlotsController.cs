@@ -20,18 +20,12 @@ namespace ConferenceApp.Controllers
             _slotServ = slotServ;
         }
 
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<SlotDTO> GetSlotList()
+        // Get slots for specific conference
+        // GET: api/slots/2
+        [HttpGet("{conferenceId}")]
+        public IEnumerable<SlotDTO> GetSlotList(int conferenceId)
         {
-            return _slotServ.GetSlotList();
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
+            return _slotServ.GetSlotList(conferenceId);
         }
 
         // POST api/values

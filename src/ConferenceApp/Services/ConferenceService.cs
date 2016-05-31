@@ -74,12 +74,24 @@ namespace ConferenceApp.Services {
 
         public void PostConference(ConferenceDTO conference, string currentUser)
         {
+            var newAddress = new Address()
+            {
+                Street = conference.Street,
+                City = conference.City,
+                State = conference.State,
+                Zip = conference.Zip
+            };
+
+            _addressRepo.add(newAddress);
+            _addressRepo.saveChanges();
+            
             var newConference = new Conference
             {
-                Name = conference.Name,                
-                Address = _addressRepo.FindByAddress(conference.Street, conference.City,
-                conference.State, conference.Zip).FirstOrDefault(),
-                ApplicationUserId = (from a in _userRepo.List()
+                Name = conference.Name,
+                AddressId = newAddress.Id,
+            //Address = _addressRepo.FindByAddress(conference.Street, conference.City,
+            //conference.State, conference.Zip).FirstOrDefault(),
+            ApplicationUserId = (from a in _userRepo.List()
                                      where a.UserName == currentUser
                                      select a.Id).FirstOrDefault(),
                 ImageUrl = conference.ImageUrl,
@@ -87,6 +99,7 @@ namespace ConferenceApp.Services {
                 EndDate = conference.EndDate
             };
             _confRepo.AddConference(newConference);
+            _confRepo.SaveChanges();
         }
 
 
@@ -131,7 +144,12 @@ namespace ConferenceApp.Services {
                 editedConf.AddressId = newAddress.Id;
             }
 
-            _confRepo.saveChanges();
+            _confRepo.SaveChanges();
+        }
+
+        public void DeleteConference(int id)
+        {
+            _confRepo.Delete(id);
         }
 
     }
