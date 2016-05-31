@@ -1,32 +1,52 @@
-<fieldset>
-    <legend>Login with a Social Provider</legend>
-
+<!--<div class="log-back">
+    <div class="log-over">-->
+<h1 class="reg-title" layout="row" layout-align="center"><i class="material-icons color">person</i></h1>
+<div layout="row" layout-align="center" class="reg-info">
     <ul>
         <li ng-repeat="externalLogin in account.externalLogins">
             <a target="_self" href="/api/account/ExternalLogin?provider={{externalLogin.authenticationScheme}}&returnUrl=/">{{externalLogin.displayName}}</a>
         </li>
     </ul>
 
-</fieldset>
-
-<fieldset>
-    <legend>Login Locally</legend>
     <ul>
         <li ng-repeat="error in controller.validationMessages">
             {{error}}
         </li>
     </ul>
 
+
     <form ng-submit="controller.login()">
         <div>
-            <label>Email:</label>
-            <input ng-model="controller.loginUser.email" />
+            <md-input-container>
+                <label>Email</label>
+                <input type="text" ng-model="controller.loginUser.email">
+            </md-input-container>
+
         </div>
-        <div>
-            <label>Password:</label>
-            <input ng-model="controller.loginUser.password" />
+        <div class="pw">
+            <md-input-container>
+                <label>Password</label>
+                <input type="text" ng-model="controller.loginUser.password">
+            </md-input-container>
+
+
         </div>
-        <input type="submit" value="Login" />
-        <a href="/register">Register</a>
+
+        <md-button class="md-raised" input type="submit" value="Let's do this!"> Let's do this! </md-button>
+
+
+
+
+
+        <div class="reg">
+            <h4>Don't have an account?</h4>
+
+
+
+            <a class="reg-btn red" href="/register">Register</a>
+        </div>
+
     </form>
-</fieldset>
+</div>
+<!--</div>
+</div>-->

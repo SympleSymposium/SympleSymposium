@@ -1,5 +1,4 @@
 body {
-    padding-top: 50px;
     padding-bottom: 20px;
 }
 
@@ -34,24 +33,21 @@ textarea {
 }
 
 .carddemoBasicUsage .card-media {
-  background-color: #999999; 
-
+    background-color: #999999;
 }
 
 
-.md-card  {
+.md-card {
     width: 200px;
     height: 300px;
     text-align: center;
-
 }
 
-.md-card .md-title {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 400;
-    text-align: center;
-
-}
+    .md-card .md-title {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+        text-align: center;
+    }
 
 
 
@@ -83,10 +79,10 @@ textarea {
 
 .title-color {
     color: white;
-    }
-    
+}
+
 [ui-sref] {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 [href] {
@@ -106,7 +102,7 @@ textarea {
 .bg-image {
     background-image: url("http://www.wheretorome.com/wp-content/uploads/2013/12/business-conference.jpg");
     width: 100%;
-    height: 70%;
+    height: 100%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -114,24 +110,25 @@ textarea {
 
 
 .bg-overlay {
+    padding-top: 96px;
     width: 100%;
     height: 100%;
-    background-color: rgba(64, 64, 64, .94);
+    background-color: rgba(0, 0, 0, .80);
 }
 
 
 
- #site-description {
-        font-family: "Montserrat", sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 5px;
-        font-size: .7em;
-        color: white;
-        margin-top: 2em;
-    }
+#site-description {
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: .7em;
+    color: white;
+    margin-top: 2em;
+}
 
-.event-info{
-        margin-top: 3.25em;
+.event-info {
+    margin-top: 3.25em;
 }
 
     .event-info ul li {
@@ -141,25 +138,23 @@ textarea {
         margin: 1em 0;
         padding-bottom: 0px;
         border-right: 1px solid #404040;
-        padding-top:0;
+        padding-top: 0;
     }
 
-    [class*="block-grid-"]>li {
+[class*="block-grid-"] > li {
     display: block;
     height: auto;
     float: left;
     padding: 60px;
-
 }
 
-.material-icons{
+.material-icons {
     color: #F74819;
 }
 
 .detail {
-    
     font-weight: 400;
-        color: white;
+    color: white;
     font-size: 2.2em;
 }
 
@@ -168,4 +163,119 @@ textarea {
     color: darkgray;
     text-align: center;
     font-family: "Lato", sans-serif;
+}
+
+.nav-bar {
+    background-color: rgba(0, 0, 0, 0.98);
+    
+}
+
+.nav-text {
+    display: inline;
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 2.5;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+a:link{
+    color: white;
+}
+a:active{
+        color: #f74819;
+}
+a:hover{
+    color: #f74819;
+}
+
+.reg-title {
+     font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    padding: 20px;
+    padding-right: 12px;
+}
+
+.reg-info{
+     font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+   
+}
+
+.pw {
+    padding-top: 12px;
+}
+
+.but {
+    background-color: #f74819;
+    color: white;
+    text-transform: uppercase;
+    display: block;
+}
+
+.reg{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.reg-btn{
+    text-decoration: none;
+     margin-top: 12px;
+    color: black;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-color: black;
+    background: none;
+}
+.in{
+    margin-top: 12px;
+    color: black;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-color: black;
+    background: none;
+    
+}
+
+/*.log-back {
+       background-image: url("https://static.pexels.com/photos/1984/black-and-white-city-man-people.jpg");
+    width: 100%;
+    height: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.log-over{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.15);
+}*/
+
+.color {
+    color: black !important;
+   
+}
+.red{
+    color: #F74819;
+}
+
+.register-tit{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    padding: 20px;
+    padding-right: 12px;
 }

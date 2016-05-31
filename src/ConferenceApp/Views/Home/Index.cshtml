@@ -32,13 +32,14 @@
     <script src="~/ngapp/services/accountservice.js"></script>
 </head>
 <body ng-controller="AccountController as account" ng-cloak>
-    <div>
-        <a href="/">Home</a> /
-        <a href="/about">About</a>
+    <div class="nav-bar">
+        <a class="nav-text" href="/">Home</a> /
+        <a class="nav-text" href ="/about">About</a>
 
-        / <a href="/secret">Secret</a> /
-        <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
-        <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
+        / <a class="nav-text" href="/secret">Secret</a> /
+        <a class="nav-text" href="/login" ng-show="!account.isLoggedIn()">Login</a>
+        <a class="nav-text" href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
+        
         <div ng-show="account.isLoggedIn()">
             [{{account.getUserName()}}]
         </div>
