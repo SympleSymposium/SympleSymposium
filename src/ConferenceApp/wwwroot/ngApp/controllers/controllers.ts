@@ -36,15 +36,16 @@ namespace ConferenceApp.Controllers {
         }
     }
     export class ConfAddController {
-        public newConference;
+        public conference;
+        public showDelete = false;      //to hide edit when add is true
 
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService) {
         }
 
-        public AddConference() {
-            console.log(this.newConference);
-            this.$http.post('/api/conferences', this.newConference)
+        public SubmitConference() {
+            //console.log(this.conference);
+            this.$http.post('/api/conferences', this.conference)
                 .then((response) => {
                     this.$state.go("confManage");
                 })
