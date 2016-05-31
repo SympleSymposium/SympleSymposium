@@ -32,11 +32,12 @@
 
             this.$http.post('/api/conferences/' + this.confId, JSON.stringify(editedConf))
                 .then((response) => {
-                    console.log("successful post");
+                    this.$state.go("confManage");
+                    //console.log("successful post");
                 });
         }
 
-        constructor(private $http: ng.IHttpService, $stateParams: ng.ui.IStateParamsService) {
+        constructor(private $http: ng.IHttpService, $stateParams: ng.ui.IStateParamsService, private $state: ng.ui.IStateService) {
             //console.log($stateParams['id']);
             $http.get('/api/conferences/' + $stateParams['id'])
                 .then((response) => {

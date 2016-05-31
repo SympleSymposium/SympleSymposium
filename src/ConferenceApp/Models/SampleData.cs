@@ -148,6 +148,7 @@ namespace ConferenceApp.Models {
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 8, 1),
                     EndDate = new DateTime(2016, 8, 2),
+                    ImageUrl = "https://www.codercamps.com/Img/logos/logo-default.png",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 },
                 new Conference() {
@@ -155,6 +156,7 @@ namespace ConferenceApp.Models {
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 10, 4),
                     EndDate = new DateTime(2016, 10, 5),
+                    ImageUrl = "http://startuphouston.com/wp-content/uploads/2014/06/htc-logo-610x350.jpg",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 },
                 new Conference() {
@@ -162,6 +164,7 @@ namespace ConferenceApp.Models {
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 9, 12),
                     EndDate = new DateTime(2016, 9, 14),
+                    ImageUrl = "https://d1hu3ig1v75v82.cloudfront.net/content/editorial/storyimg/big/bb2015_technologyebookwebgraphicsjb1a.jpg",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Mike@CoderCamps.com").Id
                 },
                 new Conference() {
@@ -169,6 +172,7 @@ namespace ConferenceApp.Models {
                     //AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 9, 1),
                     EndDate = new DateTime(2016, 9, 3),
+                    ImageUrl = "https://www.careersingovernment.com/tools/wp-content/uploads/2015/09/government-technology.jpg",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 }
             };

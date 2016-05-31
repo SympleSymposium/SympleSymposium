@@ -64,6 +64,7 @@ namespace ConferenceApp
             services.AddScoped<SlotRepository>();
             services.AddScoped<SpeakerRepository>();
             services.AddScoped<AddressRepository>();
+            services.AddScoped<UserRepository>();
 
             //add Services
             services.AddScoped<ConferenceService>();
