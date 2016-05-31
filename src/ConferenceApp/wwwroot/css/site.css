@@ -43,11 +43,22 @@ textarea {
     text-align: center;
 }
 
-    .md-card .md-title {
-        font-family: 'Oswald', sans-serif;
-        font-weight: 400;
-        text-align: center;
-    }
+.card {
+    width: 500px;
+    height: 500px;
+}
+
+.md-card .md-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+}
+
 
 
 
@@ -167,7 +178,6 @@ textarea {
 
 .nav-bar {
     background-color: rgba(0, 0, 0, 0.98);
-    
 }
 
 .nav-text {
@@ -180,18 +190,21 @@ textarea {
     text-decoration: none;
     text-transform: uppercase;
 }
-a:link{
+
+a:link {
     color: white;
 }
-a:active{
-        color: #f74819;
+
+a:active {
+    color: #f74819;
 }
-a:hover{
+
+a:hover {
     color: #f74819;
 }
 
 .reg-title {
-     font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 8px;
@@ -199,12 +212,11 @@ a:hover{
     padding-right: 12px;
 }
 
-.reg-info{
-     font-family: "Montserrat", sans-serif;
+.reg-info {
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 6px;
-   
 }
 
 .pw {
@@ -218,25 +230,15 @@ a:hover{
     display: block;
 }
 
-.reg{
+.reg {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-.reg-btn{
+.reg-btn {
     text-decoration: none;
-     margin-top: 12px;
-    color: black;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-color: black;
-    background: none;
-}
-.in{
     margin-top: 12px;
     color: black;
     font-family: "Montserrat", sans-serif;
@@ -245,7 +247,17 @@ a:hover{
     letter-spacing: 2px;
     border-color: black;
     background: none;
-    
+}
+
+.in {
+    margin-top: 12px;
+    color: black;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-color: black;
+    background: none;
 }
 
 /*.log-back {
@@ -265,13 +277,13 @@ a:hover{
 
 .color {
     color: black !important;
-   
 }
-.red{
+
+.red {
     color: #F74819;
 }
 
-.register-tit{
+.register-tit {
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
