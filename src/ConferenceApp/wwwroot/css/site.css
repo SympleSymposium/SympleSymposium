@@ -49,6 +49,10 @@ textarea {
     margin-top: 48px;
 }
 
+.input-field{
+    width: 500px;
+}
+
 .md-card .md-title {
         font-family: "Lato", sans-serif;
         font-weight: 500;
@@ -293,3 +297,30 @@ a:hover {
     padding-right: 12px;
 }
 
+.flex-center{
+    display: flex;
+    justify-content: center;
+}
+
+
+.pad {
+        padding: 8px;
+}
+
+.login md-card {
+    width: 400px;
+}
+
+.login .logo {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+}
+
+.white {
+    color: white;
+}
+
+.top{
+    padding-top: 22px;
+}
