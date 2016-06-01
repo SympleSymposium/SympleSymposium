@@ -3,7 +3,7 @@
     export class ConfEditController {
         public showDelete = true;     //to hide add form when edit is true
         public conference; 
-
+         
         public SubmitConference() {
 
             let editedConf = this.conference;

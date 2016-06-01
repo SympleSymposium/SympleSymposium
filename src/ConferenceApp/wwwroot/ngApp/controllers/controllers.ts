@@ -19,7 +19,7 @@ namespace ConferenceApp.Controllers {
      
     export class ConfManageController {
         public conferences;
-        public firstConference;
+        public firstConference; 
 
         constructor($http: ng.IHttpService) {
             $http.get('/api/conferences/manage')
@@ -44,7 +44,7 @@ namespace ConferenceApp.Controllers {
         }
 
         public SubmitConference() {
-            //console.log(this.conference);
+            console.log(this.conference);
             this.$http.post('/api/conferences', this.conference)
                 .then((response) => {
                     this.$state.go("confManage");

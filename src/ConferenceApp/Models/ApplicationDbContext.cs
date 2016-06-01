@@ -43,6 +43,12 @@ namespace ConferenceApp.Models
                 .HasMany(r => r.Slots)
                 .WithOne(s => s.Room)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // Added by Wendy - Need to test
+            builder.Entity<Presentation>()
+                .HasMany(p => p.Slots)
+                .WithOne(r => r.Presentation)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
