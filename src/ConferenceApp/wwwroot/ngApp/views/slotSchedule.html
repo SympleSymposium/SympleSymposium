@@ -1,0 +1,52 @@
+﻿<div class="page-container" id="popupContainer" layout="row" layout-align="center center">
+    <md-whiteframe class="schedule md-whiteframe-5dp" layout="column" layout-align="center stretch">
+        <div class="schedule-body" layout="row" flex layout-align="center stretch">
+            <div class="time-axis">
+                <div class="top-blank"></div>
+                <div class="time-slot-outer">
+                    <div class="time-slot" layout="row" layout-align="start center" ng-repeat="t in controller.timeMarkers">
+                        <div>{{t}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="left-blank"></div>
+            <div class="room-col" layout="column" layout-align="center stretch" flex ng-repeat="r in controller.rooms">
+                <div class="room-headers" layout="row">
+                    <div class="room-header" flex>
+                        {{r.name}}
+                    </div>
+                </div>
+                <div class="schedule-cell" flex>
+
+                    <div class="slot" style="top:{{s.top}}%; height:calc({{s.height}}% - 1px);"
+                         ng-click="controller.editSlot($event, s)"
+                         ng-repeat="s in controller.slots.sort()
+                                       |filter:{room: r.name, day: controller.currentDay}">
+                        <div layout layout-align="center center">{{s.presentation.title}}</div>
+                    </div>
+
+                </div>
+            </div>
+            </>
+        </div>
+    </md-whiteframe>
+    <md-whiteframe class="right-panel-container md-whiteframe-5dp" layout="column">
+        <div class="cur-week-label" layout="column" layout-align="center center">
+            <br />
+            Day of Conference: <br />
+            <div>{{controller.currentDay|date:"M/d/yyyy"}}</div>
+        </div>
+        <div layout="row" layout-align="center center">
+            <md-button class="day-button md-raised md-primary" 
+                       ng-disabled="controller.backDisabled()" 
+                       ng-click="controller.moveDay(-1)">
+                <
+            </md-button>
+            <md-button class="day-button md-raised md-primary" 
+                       ng-disabled="controller.forwardDisabled()" 
+                       ng-click="controller.moveDay(1)">
+                >
+            </md-button>
+        </div>
+    </md-whiteframe>
+</div>
