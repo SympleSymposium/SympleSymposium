@@ -34,13 +34,15 @@ namespace ConferenceApp.Controllers
         // Get specific conference
         // GET api/conferences/2
         [HttpGet("{id}")]
-        public ConferenceDTO GetConference(int id) {
+        public ConferenceDTO GetConference(int id)
+        {
             //BROCK - NEED TO MAKE SURE USERS CAN ONLY GET THEIR OWN CONFERENCES
             return _confServ.GetConference(id);
         }
 
         // Add conference
         // POST api/conferences
+        // This is an Add new conference
         [HttpPost]
         [Authorize]
         public IActionResult Post([FromBody]ConferenceDTO conference)
@@ -62,10 +64,12 @@ namespace ConferenceApp.Controllers
 
         // Update conference
         // POST api/conferences/5
+        // This is an Edit of a specific conference
         [HttpPost("{id}")]
         public IActionResult Post(int id, [FromBody]ConferenceViewModel conference)
         {
-            if (conference == null) {
+            if (conference == null)
+            {
                 throw new Exception("Could not find conference with id " + id);
             }
 

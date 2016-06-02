@@ -1,0 +1,23 @@
+﻿<div ng-show="controller.editView">
+    <form name="userForm">
+        <md-input-container class="md-block">
+            <label>Edit Room:</label>
+            <input ng-model="controller.room.name">
+        </md-input-container>
+        </form>
+    <md-button ng-click="controller.EditRoom(room.id)" class="md-raised md-primary">
+        Submit
+    </md-button>
+</div>
+
+<div ng-show="controller.addView">
+    <form name="userForm">
+        <md-input-container class="md-block">
+            <label>Add Room:</label>
+            <input ng-model="controller.room.name">
+        </md-input-container>
+    </form>
+    <md-button ng-click="controller.AddRoom()" class="md-raised md-primary">
+        Submit
+    </md-button>
+</div>
