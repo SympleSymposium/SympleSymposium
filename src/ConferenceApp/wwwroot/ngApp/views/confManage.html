@@ -1,56 +1,47 @@
 ﻿<h1 class="reg-title flex-center">Conferences</h1>
-<div layout="row" layout-align="space-around center">
-
-    <div ng-repeat="conference in controller.conferences">
-        <md-card class="md-card">
-            
-            <md-card-header>
-                <md-card-header-text>
-                    <span class="md-title">{{conference.name}}</span>
-                </md-card-header-text>
-            </md-card-header>
-            <md-card-title>
-                <img src="{{conference.imageUrl}}" />
-            </md-card-title>
-            <md-card-content layout="column" layout-align="space-around center">
-                    <div class="md-subhead">{{conference.city}}, {{conference.state}}</div>
-                    <div class="md-subhead">{{conference.startDate | date:'MM/dd/yy'}} - {{conference.endDate | date:'MM/dd/yy'}}</div>
-
-            </md-card-content>
-            <md-card-actions layout="row" layout-align="space-around center">
-                <md-button class="md-raised md-primary" ui-sref="confEdit({id:conference.id})">Edit</md-button>
-                <md-button class="md-raised md-primary">Details</md-button>
-            </md-card-actions>
-        </md-card>
-    </div>
-    <div ui-sref="confAdd">
-        <md-card class="md-card">
-            <i class="material-icons">add_circle_outline</i>
-            <md-card-header>
-                <md-card-header-text>
-                    <span class="md-title">Add Conference</span>
-                </md-card-header-text>
-            </md-card-header>
-        </md-card>
-    </div>
+<!--<div class="bg-image">
+    <div class="bg-overlayII">-->
+        <div class="cards" layout="row" layout-align="start center" layout-wrap>
 
 
-    <!--<div>
-        <md-card class="md-card">
-            <img src="../../images/sauncebreezy.jpg" />
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Tech</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="center">
-                <md-button class="md-raised md-primary">Edit</md-button>
-                <md-button class="md-raised md-primary">Details</md-button>
-            </md-card-actions>
-        </md-card>
+            <div flex-offset="10" flex="20" ng-repeat="conference in controller.conferences">
+                <md-card class="md-card">
 
-    </div>-->
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="card-title md-title">{{conference.name}}</span>
+                        </md-card-header-text>
+                    </md-card-header>
+                    <md-card-title>
+                        <img class="md-card-image" src="{{conference.imageUrl}}" />
+                    </md-card-title>
+                    <md-card-content layout="column" layout-align="space-around center">
+                        <div class="card-subhead md-subhead">{{conference.city}}, {{conference.state}}</div>
+                        <div class="card-subhead md-subhead">{{conference.startDate | date:'MM/dd/yy'}} - {{conference.endDate | date:'MM/dd/yy'}}</div>
 
+                    </md-card-content>
+                    <md-card-actions layout="row" layout-align="space-around center">
+                        <md-button class="md-raised" style="background-color: #B71C1C; color: white;" ui-sref="confEdit({id:conference.id})">Edit</md-button>
+                        <md-button class="md-raised" style="background-color: #B71C1C; color: white;">Details</md-button>
+                    </md-card-actions>
+                </md-card>
+            </div>
 
+            <div layout="row" layout-align="end center" layout-wrap>
+                <div flex-offset="10" flex="35" ui-sref="confAdd">
+                    <md-card class="md-card">
+
+                        <md-card-header>
+                            <md-card-header-text>
+                                <span class="card-title md-title">Add Conference</span>
+                            </md-card-header-text>
+                        </md-card-header>
+                        <md-card-actions layout-alight="center center">
+                            <i class="material-icons md-48">add_circle_outline</i>
+                        </md-card-actions>
+                    </md-card>
+                </div>
+            </div>
+        </div>
 </div>
-
+        </div>

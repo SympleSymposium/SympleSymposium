@@ -2,7 +2,12 @@
     <div class="log-over">-->
 <div class="flex-center">
     <md-card class="card">
-        <h1 class="reg-title" layout="row" layout-align="center"><i class="material-icons color">person</i></h1>
+        <div layout="column" layout-padding layout-align="center center" style="background-color: #B71C1C;">
+            <div>
+                <md-icon class="logo flex-center white" style="font-size: 48px; padding-right: 26px;">home</md-icon>
+            </div>
+            <div class="md-headline md-padding white top">Login</div>
+        </div>
         <div layout="row" layout-align="center" class="reg-info">
             <ul>
                 <li ng-repeat="externalLogin in account.externalLogins">
@@ -15,20 +20,20 @@
                     {{error}}
                 </li>
             </ul>
-            <form ng-submit="controller.login()">
-                <div>
-                    <md-input-container class="md-warn">
+            <form ng-submit="controller.login()" style="margin-left: 166px;">
+                <div class="top">
+                    <md-input-container class="md-warn input-field">
                         <label>Email</label>
                         <input type="text" ng-model="controller.loginUser.email">
                     </md-input-container>
                 </div>
                 <div class="pw">
-                    <md-input-container class="md-warn">
+                    <md-input-container class="md-warn input-field">
                         <label>Password</label>
                         <input type="password" ng-model="controller.loginUser.password">
                     </md-input-container>
                 </div>
-                <md-button class="md-raised" input type="submit" value="Let's do this!"> Let's do this! </md-button>
+                <md-button class="md-raised" input type="submit" value="Let's do this!"> Submit </md-button>
                 <div class="reg">
                     <h4>Don't have an account?</h4>
                     <a class="reg-btn red" href="/register">Register</a>
@@ -39,3 +44,13 @@
 </div>
 <!--</div>
 </div>-->
+
+
+
+
+
+  
+
+
+
+

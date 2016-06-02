@@ -40,7 +40,7 @@ namespace ConferenceApp.Controllers {
 
         public login() {
             this.accountService.login(this.loginUser).then(() => {
-                this.$location.path('/');
+                this.$location.path('/conferences/manage');
             }).catch((results) => {
                 this.validationMessages = results;
             });
@@ -56,7 +56,7 @@ namespace ConferenceApp.Controllers {
 
         public register() {
             this.accountService.register(this.registerUser).then(() => {
-                this.$location.path('/');
+                this.$location.path('/conferences/add');
             }).catch((results) => {
                 this.validationMessages = results;
             });

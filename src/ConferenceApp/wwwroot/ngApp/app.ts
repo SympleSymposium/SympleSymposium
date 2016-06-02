@@ -4,7 +4,7 @@ namespace ConferenceApp {
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
         $locationProvider: ng.ILocationProvider
-    ) => {
+    ) => { 
         // Define routes
         $stateProvider
             .state('home', {

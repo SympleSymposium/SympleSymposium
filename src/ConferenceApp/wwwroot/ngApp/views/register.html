@@ -1,6 +1,11 @@
 <div class="flex-center">
     <md-card class="card">
-        <h1 class="register-tit" layout="row" layout-align="center">Register</h1>
+        <div layout="column" layout-padding layout-align="center center" style="background-color: #B71C1C;">
+            <div>
+                <md-icon class="logo flex-center white"; padding-right: 26px;"><i class="material-icons white" style="font-size: 48px;">assignment_ind</i></md-icon>
+            </div>
+            <div class="md-headline md-padding white top" style="margin-right: -28px;">Register</div>
+        </div>
 
         <div class="register-tit" layout="row" layout-align="center">
             <ul>
@@ -13,21 +18,21 @@
                     {{message}}
                 </li>
             </ul>
-            <form ng-submit="controller.register()">
+            <form ng-submit="controller.register()" style="margin-left: 100px;">
                 <div>
-                    <md-input-container class="md-warn">
+                    <md-input-container class="md-warn input-field">
                         <label>Email</label>
                         <input type="text" ng-model="controller.registerUser.email">
                     </md-input-container>
                 </div>
                 <div>
-                    <md-input-container class="md-warn">
+                    <md-input-container class="md-warn input-field">
                         <label>Password</label>
                         <input type="password" ng-model="controller.registerUser.password">
                     </md-input-container>
                 </div>
                 <div>
-                    <md-input-container class="md-warn">
+                    <md-input-container class="md-warn input-field">
                         <label>Confirm Password</label>
                         <input type="password" ng-model="controller.registerUser.confirmPassword">
                     </md-input-container>
