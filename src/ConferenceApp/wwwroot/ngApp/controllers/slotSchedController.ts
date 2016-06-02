@@ -1,8 +1,6 @@
 ﻿namespace ConferenceApp.Controllers {
 
     export class SlotSchedController {
-        public slots;
-        public rooms;
         public conference;
         public firstDay;
         public lastDay;
@@ -51,39 +49,11 @@
 
         constructor(private $http: ng.IHttpService, $stateParams: ng.ui.IStateParamsService, private $state: ng.ui.IStateService) {
 
-            $http.get('/api/slots/' + $stateParams['id'])
-                .then((response) => {
-                    this.slots = response.data;
-
-                    //Calculates the layout for the schedule
-                    this.slots.forEach((item) => {
-                        let startMinute = moment(item.startTime).hour() * 60 + moment(item.startTime).minute();
-                        let endMinute = moment(item.endTime).hour() * 60 + moment(item.endTime).minute();
-                        item.top = (startMinute / 60 - 8) / 10 * 100;
-                        item.height = ((endMinute - startMinute) / 60 / 10) * 100;
-
-                        //used to filter slots by day
-                        item.day = moment(item.startTime).format("M/D/YYYY");
-                    });
-                    console.log(this.slots);
-
-                })
-                .catch((response) => {
-                    console.log(response.data);
-                });
-
-            $http.get('/api/rooms/' + $stateParams['id'])
-                .then((response) => {
-                    this.rooms = response.data;
-                    //console.log(this.rooms);
-                })
-                .catch((response) => {
-                    console.log(response.data);
-                });
-
             $http.get('/api/conferences/' + $stateParams['id'])
                 .then((response) => {
                     this.conference = response.data;
+
+                    //Creates list of days in the conference
                     this.firstDay = moment(this.conference.startDate);
                     this.lastDay = moment(this.conference.endDate);
 
@@ -94,8 +64,24 @@
                         d.add(1, 'days');
                         i++;
                     }
-                    //console.log(this.conferenceDays);
+
+                    //Sets the initial day shown in the schedule to the first day of the conference
                     this.currentDay = this.conferenceDays[0];
+
+                    //Calculates the layout for the schedule
+                    this.conference.rooms.forEach((room) => {
+                        room.slots.forEach((slot) => {
+                            let startMinute = moment(slot.startTime).hour() * 60 + moment(slot.startTime).minute();
+                            let endMinute = moment(slot.endTime).hour() * 60 + moment(slot.endTime).minute();
+                            slot.top = (startMinute / 60 - 8) / 10 * 100;
+                            slot.height = ((endMinute - startMinute) / 60 / 10) * 100;
+
+                            //used to filter slots by day
+                            slot.day = moment(slot.startTime).format("M/D/YYYY");
+                        })
+                    });
+
+                    console.log(this.conference);
                 })
                 .catch((response) => {
                     console.log(response.data);

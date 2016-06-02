@@ -10,18 +10,19 @@
                 </div>
             </div>
             <div class="left-blank"></div>
-            <div class="room-col" layout="column" layout-align="center stretch" flex ng-repeat="r in controller.rooms">
+            
+            <div class="room-col" layout="column" layout-align="center stretch" flex ng-repeat="r in controller.conference.rooms">
                 <div class="room-headers" layout="row">
                     <div class="room-header" flex>
                         {{r.name}}
                     </div>
                 </div>
                 <div class="schedule-cell" flex>
-
-                    <div class="slot" style="top:{{s.top}}%; height:calc({{s.height}}% - 1px);"
-                         ng-click="controller.editSlot($event, s)"
-                         ng-repeat="s in controller.slots.sort()
-                                       |filter:{room: r.name, day: controller.currentDay}">
+                    <div class="slot" 
+                         ng-repeat="s in r.slots.sort()
+                                       |filter:{room: r.name, day: controller.currentDay}"
+                         style="top:{{s.top}}%; height:calc({{s.height}}% - 1px);"
+                         ng-click="controller.editSlot($event, s)">
                         <div layout layout-align="center center">{{s.presentation.title}}</div>
                     </div>
 
@@ -48,5 +49,9 @@
                 >
             </md-button>
         </div>
+        <md-button class="md-raised md-primary"
+                   ui-sref="displayRooms({id:controller.conference.id})">
+            Edit Rooms
+        </md-button>
     </md-whiteframe>
 </div>

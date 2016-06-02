@@ -4,7 +4,7 @@ namespace ConferenceApp {
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
         $locationProvider: ng.ILocationProvider
-    ) => {
+    ) => { 
         // Define routes
         $stateProvider
             .state('home', {
@@ -18,7 +18,7 @@ namespace ConferenceApp {
                 templateUrl: '/ngApp/views/confManage.html',                
                 controller: ConferenceApp.Controllers.ConfManageController,
                 controllerAs: 'controller'
-            })
+            }) 
             .state('schedule', {
                 url: '/schedule/:id',
                 templateUrl: '/ngApp/views/slotSchedule.html',
@@ -33,10 +33,28 @@ namespace ConferenceApp {
             }) 
             .state('confAdd', {
                 url: '/conferences/add',
-                templateUrl: '/ngApp/views/confAdd.html',
+                templateUrl: '/ngApp/views/confEdit.html',
                 controller: ConferenceApp.Controllers.ConfAddController,
                 controllerAs: 'controller'
-            })            
+            })    
+            .state('displayRooms', {
+                url: '/rooms/:id',
+                templateUrl: '/ngApp/views/displayRooms.html',
+                controller: ConferenceApp.Controllers.RoomDisplayController,
+                controllerAs: 'controller'
+            })    
+            .state('roomEdit', {
+                url: '/rooms/edit/:id',
+                templateUrl: '/ngApp/views/roomEdit.html',
+                controller: ConferenceApp.Controllers.RoomEditController,
+                controllerAs: 'controller'
+            }) 
+            .state('roomAdd', { 
+                url: '/rooms/add/:id',
+                templateUrl: '/ngApp/views/roomEdit.html',
+                controller: ConferenceApp.Controllers.RoomAddController,
+                controllerAs: 'controller'
+            })               
             .state('secret', {
                 url: '/secret',
                 templateUrl: '/ngApp/views/secret.html',

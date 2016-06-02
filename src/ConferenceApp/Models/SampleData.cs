@@ -12,7 +12,7 @@ namespace ConferenceApp.Models {
         public async static Task Initialize(IServiceProvider serviceProvider) {
             var db = serviceProvider.GetService<ApplicationDbContext>();
             var userManager = serviceProvider.GetService<UserManager<ApplicationUser>>();
-            //context.Database.Migrate();
+            db.Database.EnsureCreated();
 
             #region Initialize Users
             // Ensure Stephen (IsAdmin)
@@ -169,7 +169,7 @@ namespace ConferenceApp.Models {
                 },
                 new Conference() {
                     Name = "International Technology Conference",
-                    //AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 9, 1),
                     EndDate = new DateTime(2016, 9, 7),
                     ImageUrl = "https://www.careersingovernment.com/tools/wp-content/uploads/2015/09/government-technology.jpg",
@@ -470,15 +470,15 @@ namespace ConferenceApp.Models {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "CSS").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Jill" && s.LastName == "Jones").Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room B").Id,
-                    StartTime = new DateTime(2016,8,1,8,0,0),
-                    EndTime = new DateTime(2016,8,1,10,0,0)
+                    StartTime = new DateTime(2016,8,1,8,30,0),
+                    EndTime = new DateTime(2016,8,1,10,30,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "JavaScript").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Bob" && s.LastName == "Stanton").Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
-                    StartTime = new DateTime(2016,8,1,8,0,0),
-                    EndTime = new DateTime(2016,8,1,10,0,0)
+                    StartTime = new DateTime(2016,8,1,10,15,0),
+                    EndTime = new DateTime(2016,8,1,11,45,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Typescript").Id,
