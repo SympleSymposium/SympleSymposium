@@ -1,0 +1,33 @@
+﻿<div layout="row" layout-align="start start">
+    <h2 class="reg-title flex-center">Rooms</h2>
+    <md-button ui-sref="roomAdd({id:controller.$stateParams['id']})" class="md-raised md-primary">
+        Add
+    </md-button>
+</div>
+<div layout="column" layout-align="start start">
+    
+    <table>
+        <tr>
+            <th>
+                Room Name
+            </th>
+        </tr>
+        <tr ng-repeat="room in controller.rooms">
+            <td>
+                {{room.name}}
+            </td>
+            <td>
+                <md-button ui-sref="roomEdit({id:room.id})" class="md-raised md-primary">
+                    Edit
+                </md-button>
+            </td>
+            <td>
+                <md-button ng-click="controller.DeleteRoom(room.id)" class="md-raised md-primary">
+                    Delete
+                </md-button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+

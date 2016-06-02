@@ -30,7 +30,25 @@ namespace ConferenceApp {
                 templateUrl: '/ngApp/views/confEdit.html',
                 controller: ConferenceApp.Controllers.ConfAddController,
                 controllerAs: 'controller'
-            })            
+            })    
+            .state('displayRooms', {
+                url: '/rooms/:id',
+                templateUrl: '/ngApp/views/displayRooms.html',
+                controller: ConferenceApp.Controllers.RoomDisplayController,
+                controllerAs: 'controller'
+            })    
+            .state('roomEdit', {
+                url: '/rooms/edit/:id',
+                templateUrl: '/ngApp/views/roomEdit.html',
+                controller: ConferenceApp.Controllers.RoomEditController,
+                controllerAs: 'controller'
+            }) 
+            .state('roomAdd', { 
+                url: '/rooms/add/:id',
+                templateUrl: '/ngApp/views/roomEdit.html',
+                controller: ConferenceApp.Controllers.RoomAddController,
+                controllerAs: 'controller'
+            })               
             .state('secret', {
                 url: '/secret',
                 templateUrl: '/ngApp/views/secret.html',
