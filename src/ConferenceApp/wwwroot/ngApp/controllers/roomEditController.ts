@@ -24,9 +24,7 @@
 
             let editedRoom = this.room;
 
-            console.log(JSON.stringify(editedRoom));
-
-            this.$http.post('/api/rooms/' + editedRoom.id, JSON.stringify(editedRoom))
+            this.$http.post('/api/rooms/' + editedRoom.id, editedRoom)
                 .then((response) => {
                     this.$state.go("conferenceManage");
                     //console.log("successful post");

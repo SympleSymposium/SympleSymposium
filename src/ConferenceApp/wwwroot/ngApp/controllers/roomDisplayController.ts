@@ -5,7 +5,11 @@
          
         constructor(public $http: ng.IHttpService,
             public $stateParams: ng.ui.IStateParamsService,
-            public $state: ng.ui.IStateService) {
+            public $state: ng.ui.IStateService,
+            private accountService: ConferenceApp.Services.AccountService) {
+
+            accountService.toolbarTitle = "Manage Rooms";
+
             //console.log($stateParams['id']);
             // $http.get('/api/rooms/' + $stateParams['id'])
             $http.get(`/api/rooms/manage/${$stateParams['id']}`)
@@ -21,7 +25,6 @@
         }
 
         public DeleteRoom(id) {
-            console.log(id);
             this.$http.delete(`/api/rooms/${id}`)
                 .then((response) => {
                     this.$state.go("conferenceManage");
