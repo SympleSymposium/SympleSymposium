@@ -103,11 +103,13 @@ namespace ConferenceApp.Controllers
         public void Put(int id, [FromBody]string value)
         {
         }
-
-        // DELETE api/values/5
+        
+        // Delete presentation
+        // DELETE api/presentation/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _presentServ.DeletePresentation(id);
         }
     }
 }

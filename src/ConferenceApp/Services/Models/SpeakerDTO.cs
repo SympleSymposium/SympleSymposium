@@ -8,6 +8,7 @@ namespace ConferenceApp.Services.Models
     public class SpeakerDTO
     {
         public int Id { get; set; }
+        public int ConferenceId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Title { get; set; }
@@ -20,6 +21,6 @@ namespace ConferenceApp.Services.Models
         public string CoZip { get; set; }
         public string Bio { get; set; }
         public string ImageUrl { get; set; }
-        public IList<SlotDTO> Slots { get; set; }
+        //public IList<SlotDTO> Slots { get; set; }
     }
 }

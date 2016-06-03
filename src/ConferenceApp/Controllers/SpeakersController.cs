@@ -22,36 +22,82 @@ namespace ConferenceApp.Controllers
             _speakerServ = speakerServ;
         }
 
-        // GET: api/values
+        // GET: api/speakers
+        // Get all the speakers
         [HttpGet]
-        public IEnumerable<SpeakerDTO> GetSpeakerList()
+        public IEnumerable<SpeakerDTO> GetSpeakers()
         {
-            return _speakerServ.GetSpeakerList();
+            return _speakerServ.GetSpeakers();
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // Get speakers for a specific conference
+        // GET: api/speakers/manage/2
+        [HttpGet("manage/{conferenceId}")]
+        [Authorize]
+        public IList<SpeakerDTO> GetSpeakerList(int conferenceId)
         {
-            return "value";
+            return _speakerServ.GetSpeakerList(conferenceId);
+        }
+
+        // Get specific speaker
+        // GET api/speakers/2
+        [HttpGet("{id}")]
+        public SpeakerDTO GetSpeaker(int id)
+        {
+            //Wendy - Make sure the Admin can get the speaker to Edit
+            return _speakerServ.GetSpeaker(id);
         }
 
         // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
+        //[HttpPost]
+        //public void Post([FromBody]string value)
+        //{
+        //}
+
+        // Add speaker
+        // POST api/speakers
+        // This is an Add new speaker
+        //[HttpPost]
+        //[Authorize]
+        //public IActionResult Post([FromBody]SpeakerDTO speaker)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _speakerServ.PostSpeaker(speaker);
+        //        return Ok(speaker);
+        //    }
+        //    return HttpBadRequest(ModelState);
+        //}
+
+        // POST api/speakers/5
+        // This is an Edit of a specific speaker
+        [HttpPost("{id}")]
+        public IActionResult Post(int id, [FromBody]SpeakerDTO speaker)
         {
+            if (speaker == null)
+            {
+                throw new Exception("Could not find speaker with id " + id);
+            }
+
+            //Wendy - NEED TO MAKE SURE Admins can add new rooms
+            _speakerServ.UpdateSpeaker(id, speaker);
+
+            return Ok();
         }
 
-        // PUT api/values/5
+        // PUT api/rooms/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+
+        // Delete speaker
+        // DELETE api/speakers/5
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //    _speakerServ.DeleteSpeaker(id);
+        //}
     }
 }

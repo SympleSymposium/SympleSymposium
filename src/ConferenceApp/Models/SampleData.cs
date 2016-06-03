@@ -264,7 +264,8 @@ namespace ConferenceApp.Models {
                     Company = "",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 A Street").Id,
                     Bio = "",
-                    ImageUrl = ""
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Ms.",
@@ -275,7 +276,8 @@ namespace ConferenceApp.Models {
                     Company = "",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 B Street").Id,
                     Bio = "",
-                    ImageUrl = ""
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Mr.",
@@ -286,7 +288,8 @@ namespace ConferenceApp.Models {
                     Company = "",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 C Street").Id,
                     Bio = "",
-                    ImageUrl = ""
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Mrs.",
@@ -297,7 +300,8 @@ namespace ConferenceApp.Models {
                     Company = "",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 D Street").Id,
                     Bio = "",
-                    ImageUrl = ""
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Mr.",
@@ -308,7 +312,8 @@ namespace ConferenceApp.Models {
                     Company = "",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 E Street").Id,
                     Bio = "",
-                    ImageUrl = ""
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Ms.",
@@ -319,7 +324,8 @@ namespace ConferenceApp.Models {
                     Company = "",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 F Street").Id,
                     Bio = "",
-                    ImageUrl = ""
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Mr.",
@@ -330,7 +336,8 @@ namespace ConferenceApp.Models {
                     Company = "",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 G Street").Id,
                     Bio = "",
-                    ImageUrl = ""
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Mrs.",
@@ -341,7 +348,8 @@ namespace ConferenceApp.Models {
                     Company = "",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 H Street").Id,
                     Bio = "",
-                    ImageUrl = ""
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Dr.",
@@ -352,7 +360,20 @@ namespace ConferenceApp.Models {
                     Company = "",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 I Street").Id,
                     Bio = "",
-                    ImageUrl = ""
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
+                },
+                new Speaker() {
+                    Title = "Dr.",
+                    FirstName = "Adam",
+                    LastName = "Ramsey",
+                    Phone = "",
+                    Email = "",
+                    Company = "",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 I Street").Id,
+                    Bio = "",
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Houston Tech Conference").Id
                 }
             };
 
@@ -461,71 +482,71 @@ namespace ConferenceApp.Models {
             var Slots = new List<Slot>() {
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "HTML").Id,
-                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Jim" && s.LastName == "Smith").Id,
-                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Jim" && s.LastName == "Smith" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,8,0,0),
                     EndTime = new DateTime(2016,8,1,10,0,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "CSS").Id,
-                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Jill" && s.LastName == "Jones").Id,
-                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room B").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Jill" && s.LastName == "Jones" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room B" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,8,30,0),
                     EndTime = new DateTime(2016,8,1,10,30,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "JavaScript").Id,
-                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Bob" && s.LastName == "Stanton").Id,
-                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Bob" && s.LastName == "Stanton" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,10,15,0),
                     EndTime = new DateTime(2016,8,1,11,45,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Typescript").Id,
-                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Nancy" && s.LastName == "Carlson").Id,
-                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Nancy" && s.LastName == "Carlson" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,13,0,0),
                     EndTime = new DateTime(2016,8,1,14,0,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Angular").Id,
-                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Kevin" && s.LastName == "Wilcox").Id,
-                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Kevin" && s.LastName == "Wilcox" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,13,0,0),
                     EndTime = new DateTime(2016,8,1,15,0,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "C#").Id,
-                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Anne" && s.LastName == "Robertson").Id,
-                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room B").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Anne" && s.LastName == "Robertson" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room B" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,14,0,0),
                     EndTime = new DateTime(2016,8,1,16,0,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "ASP.NET").Id,
-                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Sam" && s.LastName == "Giles").Id,
-                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Sam" && s.LastName == "Giles" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,15,0,0),
                     EndTime = new DateTime(2016,8,1,17,0,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Visual Studio").Id,
-                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Alice" && s.LastName == "Jean").Id,
-                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Alice" && s.LastName == "Jean" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,2,10,30,0),
                     EndTime = new DateTime(2016,8,2,11,30,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Atom").Id,
-                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Chris" && s.LastName == "Ramsey").Id,
-                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Chris" && s.LastName == "Ramsey" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,2,10,30,0),
                     EndTime = new DateTime(2016,8,2,11,30,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Houston Web Development").Id,
-                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Chris" && s.LastName == "Ramsey").Id,
-                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room D").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Adam" && s.LastName == "Ramsey" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Houston Tech Conference").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room D" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Houston Tech Conference").Id).Id,
                     StartTime = new DateTime(2016,8,2,10,30,0),
                     EndTime = new DateTime(2016,8,2,11,30,0)
                 }

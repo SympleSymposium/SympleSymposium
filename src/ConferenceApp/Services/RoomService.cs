@@ -23,31 +23,32 @@ namespace ConferenceApp.Services
         //Get all rooms
         public IList<RoomDTO> GetRooms()
         {
-            return (from r in _roomRepo.List()
-                    select new RoomDTO
-                    {
+            var rooms = (from r in _roomRepo.List()
+                    select new RoomDTO {
                         Id = r.Id,
-                        Name = r.Name
+                        Name = r.Name,
+                        ConferenceId = r.ConferenceId
                     }).ToList();
+
+            return rooms;
         }
 
         // Get a specific room
         public RoomDTO GetRoom(int id)
         {
-            var room = _roomRepo.GetById(id).FirstOrDefault();
+            var room = (from r in _roomRepo.GetById(id)
+                         select new RoomDTO {
+                             Id = r.Id,
+                             Name = r.Name,
+                             ConferenceId = r.ConferenceId
+                         }).FirstOrDefault();
 
             if (room == null)
             {
                 throw new Exception("Could not find conference with id " + id);
             }
 
-            var _roomDTO = new RoomDTO();
-
-            _roomDTO.Id = room.Id;
-            _roomDTO.Name = room.Name;
-            // Slots???
-
-            return _roomDTO;
+            return room;
         }
 
 

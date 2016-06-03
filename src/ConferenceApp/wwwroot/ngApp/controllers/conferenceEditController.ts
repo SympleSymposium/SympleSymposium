@@ -10,7 +10,7 @@
 
             console.log(editedConf);
 
-            this.$http.post('/api/conferences/' + editedConf.id, JSON.stringify(editedConf))
+            this.$http.post('/api/conferences/' + editedConf.id, editedConf)
                 .then((response) => {
                     this.$state.go("conferenceManage");
                     //console.log("successful post");
