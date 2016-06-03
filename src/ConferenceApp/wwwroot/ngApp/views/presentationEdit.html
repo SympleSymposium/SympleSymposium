@@ -1,0 +1,39 @@
+﻿<div ng-show="controller.editView">
+    <form name="userForm">
+        <md-input-container class="md-block">
+            <label>Edit Presentation:</label>
+            <input ng-model="controller.presentation.title">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Edit Description:</label>
+            <input ng-model="controller.presentation.description">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Edit Image Url:</label>
+            <input ng-model="controller.presentation.imageUrl">
+        </md-input-container>
+    </form>
+    <md-button ng-click="controller.EditPresentation(presentation.id)" class="md-raised md-primary">
+        Submit
+    </md-button>
+</div>
+
+<div ng-show="controller.addView">
+    <form name="userForm">
+        <md-input-container class="md-block">
+            <label>Add Presentation:</label>
+            <input ng-model="controller.presentation.title">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Add Description:</label>
+            <input ng-model="controller.presentation.description">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Add Image Url:</label>
+            <input ng-model="controller.presentation.imageUrl">
+        </md-input-container>
+    </form>
+    <md-button ng-click="controller.AddPresentation()" class="md-raised md-primary">
+        Submit
+    </md-button>
+</div>
