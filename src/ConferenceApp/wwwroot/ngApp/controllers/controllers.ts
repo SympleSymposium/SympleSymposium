@@ -139,6 +139,9 @@ namespace ConferenceApp.Controllers {
 
         public SubmitConference() {
             console.log(this.conference);
+            if (!this.conference.imageUrl) {
+                this.conference.imageUrl = 'http://vector.me/files/images/3/8/382633/white_board_silhouette_preview';
+            }
             this.$http.post('/api/conferences', this.conference)
                 .then((response) => {
                     this.$state.go("confManage");
