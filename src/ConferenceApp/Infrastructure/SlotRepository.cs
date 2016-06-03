@@ -29,5 +29,15 @@ namespace ConferenceApp.Infrastructure
             _db.Slots.RemoveRange(deleteSlots);
             _db.SaveChanges();
         }
+
+        public void DeleteSlotsPresentationRelated(int presentationId)
+        {
+            var deleteSlots =
+                (from s in _db.Slots
+                 where s.PresentationId == presentationId
+                 select s).ToList();
+            _db.Slots.RemoveRange(deleteSlots);
+            _db.SaveChanges();
+        }
     }
 }

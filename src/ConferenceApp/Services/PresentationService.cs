@@ -12,9 +12,12 @@ namespace ConferenceApp.Services
     public class PresentationService
     {
         private PresentationRepository _presentRepo;
-        public PresentationService(PresentationRepository presentRepo)
+        private SlotRepository _slotRepo;
+
+        public PresentationService(PresentationRepository presentRepo, SlotRepository slotRepo)
         {
             _presentRepo = presentRepo;
+            _slotRepo = slotRepo;
         }
 
         // Get all the presentations
@@ -108,6 +111,12 @@ namespace ConferenceApp.Services
             editedPresentation.ImageUrl = presentation.ImageUrl;
 
             _presentRepo.SaveChanges();
+        }
+
+        public void DeletePresentation(int presentationId)
+        {
+            _slotRepo.DeleteSlotsPresentationRelated(presentationId);
+            _presentRepo.Delete(presentationId);
         }
     }
 }

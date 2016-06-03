@@ -43,5 +43,15 @@ namespace ConferenceApp.Infrastructure
         {
             _db.SaveChanges();
         }
+
+        public void Delete(int presentationId)
+        {
+            var deletePresentation =
+                (from c in _db.Presentations
+                 where c.Id == presentationId
+                 select c).FirstOrDefault();
+            _db.Presentations.Remove(deletePresentation);
+            _db.SaveChanges();
+        }
     }
 }

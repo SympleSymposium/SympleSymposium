@@ -30,5 +30,7 @@ namespace ConferenceApp.Models
 
         public IList<Room> Rooms { get; set; }
 
+        public IList<Speaker> Speakers { get; set; }
+
     }
 }

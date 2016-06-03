@@ -18,5 +18,19 @@ namespace ConferenceApp.Infrastructure
         {
             return _db.Speakers;
         }
+
+        public IQueryable<Speaker> List(int conferenceId)
+        {
+            return (from r in _db.Speakers
+                    where r.ConferenceId == conferenceId
+                    select r);
+        }
+
+        public IQueryable<Speaker> GetById(int id)
+        {
+            return (from r in _db.Speakers
+                    where r.Id == id
+                    select r);
+        }
     }
 }
