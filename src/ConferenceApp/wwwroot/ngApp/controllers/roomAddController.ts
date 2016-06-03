@@ -11,12 +11,12 @@
         }
 
         public AddRoom() {
-            console.log(this.room);
+            //console.log(this.room);
             this.room.conferenceId = parseInt(this.$stateParams['id']);
-            console.log(this.room);
+            //console.log(this.room);
             this.$http.post('/api/rooms', this.room)
                 .then((response) => {
-                    this.$state.go("conferenceManage");
+                    this.$state.go("displayRooms", { id: this.room.conferenceId });
                 })
         }
 

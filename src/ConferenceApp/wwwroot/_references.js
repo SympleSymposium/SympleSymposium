@@ -28,4 +28,3 @@
 /// <reference path="ngapp/controllers/roomeditcontroller.js" />
 /// <reference path="ngapp/controllers/schedulecontroller.js" />
 /// <reference path="ngapp/services/accountservice.js" />
-/// <reference path="ngapp/services/services.js" />
