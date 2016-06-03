@@ -113,8 +113,12 @@ namespace ConferenceApp.Controllers {
     export class ConfManageController {
         public conferences;
         public firstConference;
+        public toolbarTitle;
 
-        constructor($http: ng.IHttpService) {
+        constructor($http: ng.IHttpService, private accountService: ConferenceApp.Services.AccountService) {
+
+            accountService.toolbarTitle = "Conferences"
+
             $http.get('/api/conferences/manage')
                 .then((response) => {
                     this.conferences = response.data;

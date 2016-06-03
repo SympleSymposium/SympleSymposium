@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="ConferenceApp">
 <head>
-    <title>ConferenceApp</title>
+    <title>Conference App</title>
     <link href="~/lib/angular-material/angular-material.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
@@ -16,7 +16,7 @@
     <script src="~/lib/angular-aria/angular-aria.js"></script>
     <script src="~/lib/angular-messages/angular-messages.js"></script>
     <script src="~/lib/angular-material/angular-material.js"></script>
-    <script src="~/lib/angular-material/angular-material-mocks.js"></script>    
+    <script src="~/lib/angular-material/angular-material-mocks.js"></script>
     <script src="~/lib/moment/moment.js"></script>
 
 
@@ -34,18 +34,22 @@
     <script src="~/ngapp/services/accountservice.js"></script>
 </head>
 <body ng-controller="AccountController as account" ng-cloak>
-    <div class="nav-bar">
-        <a class="nav-text" href="/">Home</a> /
-        <a class="nav-text" href ="/about">About</a>
-
-        / <a class="nav-text" href="/secret">Secret</a> /
-        <a class="nav-text" href="/login" ng-show="!account.isLoggedIn()">Login</a>
-        <a class="nav-text" href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
-        
-        <div ng-show="account.isLoggedIn()">
-            [{{account.getUserName()}}]
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button>
+                Home
+            </md-button>
+            <h2>
+                <span>{{account.getToolbarTitle()}}</span>
+            </h2>
+            <span flex></span>
+            <h5 ng-show="account.isLoggedIn()">
+                <span>{{account.getUserName()}}</span>
+            </h5>
+            <md-button class="md-raised" href="/login" ng-show="!account.isLoggedIn()">Login</md-button>
+            <md-button class="md-raised" href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</md-button>
         </div>
-    </div>
+    </md-toolbar>
 
     <ui-view></ui-view>
 

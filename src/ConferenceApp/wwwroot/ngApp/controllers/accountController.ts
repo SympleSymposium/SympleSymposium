@@ -24,6 +24,10 @@ namespace ConferenceApp.Controllers {
             return this.accountService.getExternalLogins();
         }
 
+        public getToolbarTitle() {
+            return this.accountService.toolbarTitle;
+        }
+
         constructor(private accountService: ConferenceApp.Services.AccountService, private $location: ng.ILocationService) {
             this.getExternalLogins().then((results) => {
                 this.externalLogins = results;
@@ -64,10 +68,6 @@ namespace ConferenceApp.Controllers {
 
         constructor(private accountService: ConferenceApp.Services.AccountService, private $location: ng.ILocationService) { }
     }
-
-
-
-
 
     export class ExternalRegisterController {
         public registerUser;

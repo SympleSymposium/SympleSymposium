@@ -43,22 +43,15 @@ textarea {
 
 .md-card {
     width: 300px;
-<<<<<<< HEAD
-    height: 40px;
-=======
     height: 400px;
     background-color:#ECEFF1;
->>>>>>> 752580ab51d280fdd8ba0074198a31b758cea8b8
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-
 }
 
 .md-card:hover {
     border: solid thin;
     border-color: #B71C1C;
-
-
 }
 
 .image {
@@ -75,11 +68,6 @@ textarea {
     margin-bottom: 40px;
 }
 
-<<<<<<< HEAD
-.input-field {
-    width: 500px;
-}
-
 .md-card .md-title {
     font-family: "Lato", sans-serif;
     font-weight: 500;
@@ -91,8 +79,6 @@ textarea {
     font-weight: 400;
     text-align: center;
 }
-=======
-
 
 .input-field{
     width: 500px;
@@ -108,8 +94,6 @@ textarea {
     text-transform: uppercase;
 }
 
->>>>>>> 752580ab51d280fdd8ba0074198a31b758cea8b8
-
 .card-subhead {
     font-family:'Century Gothic';
     color: black;
@@ -124,7 +108,6 @@ textarea {
     /*padding-left: 250px;*/
     padding-bottom: 100px;
 }
-
 
 .buttondemoBasicUsage section {
     background: #f7f7f7;
