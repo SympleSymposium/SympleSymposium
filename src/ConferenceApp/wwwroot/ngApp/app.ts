@@ -10,55 +10,48 @@ namespace ConferenceApp {
             .state('home', {
                 url: '/',
                 templateUrl: '/ngApp/views/home.html',
-                controller: ConferenceApp.Controllers.HomeController,
                 controllerAs: 'controller'
             })
             .state('confManage', {
                 url: '/conferences/manage',
-                templateUrl: '/ngApp/views/confManage.html',                
-                controller: ConferenceApp.Controllers.ConfManageController,
+                templateUrl: '/ngApp/views/conferenceManage.html',                
+                controller: ConferenceApp.Controllers.ConferenceManageController,
                 controllerAs: 'controller'
             }) 
             .state('schedule', {
                 url: '/schedule/:id',
-                templateUrl: '/ngApp/views/slotSchedule.html',
-                controller: ConferenceApp.Controllers.SlotSchedController,
+                templateUrl: '/ngApp/views/schedule.html',
+                controller: ConferenceApp.Controllers.ScheduleController,
                 controllerAs: 'controller'
             })
             .state('confEdit', {
                 url: '/conferences/edit/:id', 
-                templateUrl: '/ngApp/views/confEdit.html',
-                controller: ConferenceApp.Controllers.ConfEditController,
+                templateUrl: '/ngApp/views/conferenceAddEdit.html',
+                controller: ConferenceApp.Controllers.ConferenceEditController,
                 controllerAs: 'controller'
             }) 
             .state('confAdd', {
                 url: '/conferences/add',
-                templateUrl: '/ngApp/views/confEdit.html',
-                controller: ConferenceApp.Controllers.ConfAddController,
+                templateUrl: '/ngApp/views/conferenceAddEdit.html',
+                controller: ConferenceApp.Controllers.ConferenceAddController,
                 controllerAs: 'controller'
             })    
             .state('displayRooms', {
                 url: '/rooms/:id',
-                templateUrl: '/ngApp/views/displayRooms.html',
+                templateUrl: '/ngApp/views/roomDisplay.html',
                 controller: ConferenceApp.Controllers.RoomDisplayController,
                 controllerAs: 'controller'
             })    
             .state('roomEdit', {
                 url: '/rooms/edit/:id',
-                templateUrl: '/ngApp/views/roomEdit.html',
+                templateUrl: '/ngApp/views/roomAddEdit.html',
                 controller: ConferenceApp.Controllers.RoomEditController,
                 controllerAs: 'controller'
             }) 
             .state('roomAdd', { 
                 url: '/rooms/add/:id',
-                templateUrl: '/ngApp/views/roomEdit.html',
+                templateUrl: '/ngApp/views/roomAddEdit.html',
                 controller: ConferenceApp.Controllers.RoomAddController,
-                controllerAs: 'controller'
-            })               
-            .state('secret', {
-                url: '/secret',
-                templateUrl: '/ngApp/views/secret.html',
-                controller: ConferenceApp.Controllers.SecretController,
                 controllerAs: 'controller'
             })
             .state('login', {
@@ -77,12 +70,6 @@ namespace ConferenceApp {
                 url: '/externalRegister',
                 templateUrl: '/ngApp/views/externalRegister.html',
                 controller: ConferenceApp.Controllers.ExternalRegisterController,
-                controllerAs: 'controller'
-            })
-            .state('about', {
-                url: '/about',
-                templateUrl: '/ngApp/views/about.html',
-                controller: ConferenceApp.Controllers.AboutController,
                 controllerAs: 'controller'
             })
             .state('notFound', {

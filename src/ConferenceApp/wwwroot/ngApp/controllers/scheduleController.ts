@@ -1,6 +1,6 @@
 ﻿namespace ConferenceApp.Controllers {
 
-    export class SlotSchedController {
+    export class ScheduleController {
         public conference;
         public firstDay;
         public lastDay;
@@ -47,7 +47,12 @@
             }
         }
 
-        constructor(private $http: ng.IHttpService, $stateParams: ng.ui.IStateParamsService, private $state: ng.ui.IStateService) {
+        constructor(private $http: ng.IHttpService,
+            private $stateParams: ng.ui.IStateParamsService,
+            private $state: ng.ui.IStateService,
+            private accountService: ConferenceApp.Services.AccountService) {
+
+            accountService.toolbarTitle = "Presentation Schedule";
 
             $http.get('/api/conferences/' + $stateParams['id'])
                 .then((response) => {

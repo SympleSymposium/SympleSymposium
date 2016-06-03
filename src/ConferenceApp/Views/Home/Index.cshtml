@@ -1,9 +1,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="ConferenceApp">
 <head>
     <title>Conference App</title>
+
+    <!-- CSS -->
     <link href="~/lib/angular-material/angular-material.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
+
+    <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <base href="/" />
 
     <!-- Library Files -->
@@ -19,26 +25,31 @@
     <script src="~/lib/angular-material/angular-material-mocks.js"></script>
     <script src="~/lib/moment/moment.js"></script>
 
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- App Files-->
+    <!-- App-->
     <script src="~/ngapp/app.js"></script>
-    <script src="~/ngapp/controllers/controllers.js"></script>
-    <script src="~/ngapp/services/services.js"></script>
-    <script src="~/ngapp/controllers/confeditcontroller.js"></script>
-    <script src="~/ngapp/controllers/slotschedcontroller.js"></script>
 
-    <!-- Security -->
+    <!-- Controllers-->
     <script src="~/ngapp/controllers/accountcontroller.js"></script>
+    <script src="~/ngapp/controllers/conferenceaddcontroller.js"></script>
+    <script src="~/ngapp/controllers/conferenceeditcontroller.js"></script>
+    <script src="~/ngapp/controllers/conferencemanagecontroller.js"></script>
+    <script src="~/ngapp/controllers/roomaddcontroller.js"></script>
+    <script src="~/ngapp/controllers/roomdisplaycontroller.js"></script>
+    <script src="~/ngapp/controllers/roomeditcontroller.js"></script>
+    <script src="~/ngapp/controllers/schedulecontroller.js"></script>
+
+    <!-- Services-->
     <script src="~/ngapp/services/accountservice.js"></script>
+
 </head>
+
 <body ng-controller="AccountController as account" ng-cloak>
+
     <md-toolbar>
         <div class="md-toolbar-tools">
-            <md-button>
-                Home
-            </md-button>
+            @*<md-button ui-sref="confManage">
+                    Home
+                </md-button>*@
             <h2>
                 <span>{{account.getToolbarTitle()}}</span>
             </h2>
@@ -52,7 +63,6 @@
     </md-toolbar>
 
     <ui-view></ui-view>
-
 
 </body>
 </html>
