@@ -12,11 +12,13 @@
 
             //console.log($stateParams['id']);
             // $http.get('/api/rooms/' + $stateParams['id'])
+
+            console.log('we are in the roomdisplay constructor');
             $http.get(`/api/rooms/manage/${$stateParams['id']}`)
                 //$http.get(`/api/rooms/${this.rooms.conferenceId}`)
                 .then((response) => {
                     this.rooms = response.data;
-                    //console.log('we are in the roomdisplay constructor');
+                    
                     console.log(response.data);
                 })
                 .catch((response) => {

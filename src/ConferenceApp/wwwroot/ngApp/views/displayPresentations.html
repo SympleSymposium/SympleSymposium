@@ -1,0 +1,43 @@
+﻿<div layout="row" layout-align="start start">
+    <h2 class="reg-title flex-center">Presentations</h2>
+    <md-button ui-sref="presentationAdd({id:controller.$stateParams['id']})" class="md-raised md-primary">
+        Add
+    </md-button>
+</div>
+<div layout="column" layout-align="start start">
+
+    <table>
+        <tr>
+            <th>
+                Presentation
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                ImageUrl
+            </th>
+        </tr>
+        <tr ng-repeat="present in controller.presentation">            
+            <td>
+                {{present.title}}
+            </td>
+            <td>
+                {{present.description}}
+            </td>
+            <td>
+                {{present.imageUrl}}
+            </td>
+            <td>
+                <md-button ui-sref="presentationEdit({id:present.id})" class="md-raised md-primary">
+                    Edit
+                </md-button>
+            </td>
+            <td>
+                <md-button ng-click="controller.DeleteRoom(presentation.id)" class="md-raised md-primary">
+                    Delete
+                </md-button>
+            </td>
+        </tr>
+    </table>
+</div>

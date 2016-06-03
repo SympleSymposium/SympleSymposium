@@ -38,7 +38,7 @@ namespace ConferenceApp.Infrastructure
             _db.Rooms.Add(room);
 
         }
-
+                
         public void SaveChanges()
         {
             _db.SaveChanges();

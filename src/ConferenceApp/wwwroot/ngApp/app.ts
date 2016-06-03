@@ -1,88 +1,121 @@
 namespace ConferenceApp {
 
-    angular.module('ConferenceApp', ['ui.router', 'ngResource', 'ngMaterial']).config((
-        $stateProvider: ng.ui.IStateProvider,
-        $urlRouterProvider: ng.ui.IUrlRouterProvider,
-        $locationProvider: ng.ILocationProvider
-    ) => { 
-        // Define routes
-        $stateProvider
-            .state('home', {
-                url: '/',
-                templateUrl: '/ngApp/views/home.html',
-                controllerAs: 'controller'
-            })
-            .state('conferenceManage', {
-                url: '/conferences/manage',
-                templateUrl: '/ngApp/views/conferenceManage.html',                
-                controller: ConferenceApp.Controllers.ConferenceManageController,
-                controllerAs: 'controller'
-            }) 
-            .state('schedule', {
-                url: '/schedule/:id',
-                templateUrl: '/ngApp/views/schedule.html',
-                controller: ConferenceApp.Controllers.ScheduleController,
-                controllerAs: 'controller'
-            })
-            .state('conferenceEdit', {
-                url: '/conferences/edit/:id', 
-                templateUrl: '/ngApp/views/conferenceAddEdit.html',
-                controller: ConferenceApp.Controllers.ConferenceEditController,
-                controllerAs: 'controller'
-            }) 
-            .state('conferenceAdd', {
-                url: '/conferences/add',
-                templateUrl: '/ngApp/views/conferenceAddEdit.html',
-                controller: ConferenceApp.Controllers.ConferenceAddController,
-                controllerAs: 'controller'
-            })    
-            .state('displayRooms', {
-                url: '/rooms/:id',
-                templateUrl: '/ngApp/views/roomDisplay.html',
-                controller: ConferenceApp.Controllers.RoomDisplayController,
-                controllerAs: 'controller'
-            })    
-            .state('roomEdit', {
-                url: '/rooms/edit/:id',
-                templateUrl: '/ngApp/views/roomAddEdit.html',
-                controller: ConferenceApp.Controllers.RoomEditController,
-                controllerAs: 'controller'
-            }) 
-            .state('roomAdd', { 
-                url: '/rooms/add/:id',
-                templateUrl: '/ngApp/views/roomAddEdit.html',
-                controller: ConferenceApp.Controllers.RoomAddController,
-                controllerAs: 'controller'
-            })
-            .state('login', {
-                url: '/login',
-                templateUrl: '/ngApp/views/login.html',
-                controller: ConferenceApp.Controllers.LoginController,
-                controllerAs: 'controller'
-            })
-            .state('register', {
-                url: '/register',
-                templateUrl: '/ngApp/views/register.html',
-                controller: ConferenceApp.Controllers.RegisterController,
-                controllerAs: 'controller'
-            })
-            .state('externalRegister', {
-                url: '/externalRegister',
-                templateUrl: '/ngApp/views/externalRegister.html',
-                controller: ConferenceApp.Controllers.ExternalRegisterController,
-                controllerAs: 'controller'
-            })
-            .state('notFound', {
-                url: '/notFound',
-                templateUrl: '/ngApp/views/notFound.html'
-            });
+    angular.module('ConferenceApp', ['ui.router', 'ngResource', 'ngMaterial'])
+        .config((
+            $stateProvider: ng.ui.IStateProvider,
+            $urlRouterProvider: ng.ui.IUrlRouterProvider,
+            $locationProvider: ng.ILocationProvider
+        ) => {
+            // Define routes
+            $stateProvider
+                .state('home', {
+                    url: '/',
+                    templateUrl: '/ngApp/views/home.html',
+                    controllerAs: 'controller'
+                })
+                .state('conferenceManage', {
+                    url: '/conferences/manage',
+                    templateUrl: '/ngApp/views/conferenceManage.html',
+                    controller: ConferenceApp.Controllers.ConferenceManageController,
+                    controllerAs: 'controller'
+                })
+                .state('schedule', {
+                    url: '/schedule/:id',
+                    templateUrl: '/ngApp/views/schedule.html',
+                    controller: ConferenceApp.Controllers.ScheduleController,
+                    controllerAs: 'controller'
+                })
+                .state('conferenceEdit', {
+                    url: '/conferences/edit/:id',
+                    templateUrl: '/ngApp/views/conferenceAddEdit.html',
+                    controller: ConferenceApp.Controllers.ConferenceEditController,
+                    controllerAs: 'controller'
+                })
+                .state('conferenceAdd', {
+                    url: '/conferences/add',
+                    templateUrl: '/ngApp/views/conferenceAddEdit.html',
+                    controller: ConferenceApp.Controllers.ConferenceAddController,
+                    controllerAs: 'controller'
+                })
+                .state('displayRooms', {
+                    url: '/rooms/:id',
+                    templateUrl: '/ngApp/views/roomDisplay.html',
+                    controller: ConferenceApp.Controllers.RoomDisplayController,
+                    controllerAs: 'controller'
+                })
+                .state('displayPresentations', {
+                    url: '/presentations/:id',
+                    templateUrl: '/ngApp/views/displayPresentations.html',
+                    controller: ConferenceApp.Controllers.PresentationDisplayController,
+                    controllerAs: 'controller'
+                })
+                .state('presentationEdit', {
+                    url: '/presentations/edit/:id',
+                    templateUrl: '/ngApp/views/presentationEdit.html',
+                    controller: ConferenceApp.Controllers.PresentationEditController,
+                    controllerAs: 'controller'
+                })
+                .state('presentationAdd', {
+                    url: '/presentations/add/:id',
+                    templateUrl: '/ngApp/views/presentationEdit.html',
+                    controller: ConferenceApp.Controllers.PresentationAddController,
+                    controllerAs: 'controller'
+                })
+                .state('roomEdit', {
+                    url: '/rooms/edit/:id',
+                    templateUrl: '/ngApp/views/roomAddEdit.html',
+                    controller: ConferenceApp.Controllers.RoomEditController,
+                    controllerAs: 'controller'
+                })
+                .state('roomAdd', {
+                    url: '/rooms/add/:id',
+                    templateUrl: '/ngApp/views/roomAddEdit.html',
+                    controller: ConferenceApp.Controllers.RoomAddController,
+                    controllerAs: 'controller'
+                })
+                .state('login', {
+                    url: '/login',
+                    templateUrl: '/ngApp/views/login.html',
+                    controller: ConferenceApp.Controllers.LoginController,
+                    controllerAs: 'controller'
+                })
+                .state('register', {
+                    url: '/register',
+                    templateUrl: '/ngApp/views/register.html',
+                    controller: ConferenceApp.Controllers.RegisterController,
+                    controllerAs: 'controller'
+                })
+                .state('externalRegister', {
+                    url: '/externalRegister',
+                    templateUrl: '/ngApp/views/externalRegister.html',
+                    controller: ConferenceApp.Controllers.ExternalRegisterController,
+                    controllerAs: 'controller'
+                })
+                .state('notFound', {
+                    url: '/notFound',
+                    templateUrl: '/ngApp/views/notFound.html'
+                });
 
-        // Handle request for non-existent route
-        $urlRouterProvider.otherwise('/notFound');
+            // Handle request for non-existent route
+            $urlRouterProvider.otherwise('/notFound');
 
-        // Enable HTML5 navigation
-        $locationProvider.html5Mode(true);
-    });
+            // Enable HTML5 navigation
+            $locationProvider.html5Mode(true);
+        })
+        .config(function ($mdThemingProvider) {
+            $mdThemingProvider.theme('default')
+                //.primaryPalette('green', {
+                //    //'default': '400', // by default use shade 400 from the pink palette for primary intentions
+                //    //'hue-1': '100', // use shade 100 for the <code>md-hue-1</code> class
+                //    //'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
+                //    //'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
+                //})
+                //// If you specify less than all of the keys, it will inherit from the
+                //// default shades
+                //.accentPalette('purple', {
+                //    //'default': '200' // use shade 200 for default, and keep all other shades the same
+                //});
+        });
 
 
     angular.module('ConferenceApp').factory('authInterceptor', (
