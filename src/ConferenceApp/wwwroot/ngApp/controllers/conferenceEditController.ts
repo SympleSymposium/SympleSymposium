@@ -12,7 +12,7 @@
 
             this.$http.post('/api/conferences/' + editedConf.id, JSON.stringify(editedConf))
                 .then((response) => {
-                    this.$state.go("confManage");
+                    this.$state.go("conferenceManage");
                     //console.log("successful post");
                 });
         }
@@ -22,7 +22,7 @@
             console.log(this.conference.id);  
             this.$http.delete(`/api/conferences/${this.conference.id}`)
                 .then((response) => {
-                    this.$state.go("confManage");
+                    this.$state.go("conferenceManage");
                 })
                 .catch((response) => {
                     console.log(response.data);

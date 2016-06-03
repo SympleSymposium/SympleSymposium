@@ -37,10 +37,10 @@
                             <input ng-model="controller.conference.imageUrl">
                         </md-input-container>
                         <div layout="row">
-                            <md-button ui-sref="confManage({id:conference.id})" class="md-raised md-primary">
+                            <md-button ui-sref="conferenceManage({id:conference.id})" class="md-raised md-primary">
                                 Cancel
                             </md-button>
-                            <md-button ng-click="controller.DeleteConference()" class="md-raised md-primary">
+                            <md-button ng-click="controller.DeleteConference()" ng-show="controller.showDelete"class="md-raised md-primary">
                                 Delete
                             </md-button>
                             <md-button ng-click="controller.SubmitConference()" class="md-raised md-primary">

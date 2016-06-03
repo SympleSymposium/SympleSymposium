@@ -28,7 +28,7 @@
 
             this.$http.post('/api/rooms/' + editedRoom.id, JSON.stringify(editedRoom))
                 .then((response) => {
-                    this.$state.go("confManage");
+                    this.$state.go("conferenceManage");
                     //console.log("successful post");
                 });
         }

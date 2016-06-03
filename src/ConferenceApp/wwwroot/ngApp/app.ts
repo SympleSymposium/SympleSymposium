@@ -12,7 +12,7 @@ namespace ConferenceApp {
                 templateUrl: '/ngApp/views/home.html',
                 controllerAs: 'controller'
             })
-            .state('confManage', {
+            .state('conferenceManage', {
                 url: '/conferences/manage',
                 templateUrl: '/ngApp/views/conferenceManage.html',                
                 controller: ConferenceApp.Controllers.ConferenceManageController,
@@ -24,13 +24,13 @@ namespace ConferenceApp {
                 controller: ConferenceApp.Controllers.ScheduleController,
                 controllerAs: 'controller'
             })
-            .state('confEdit', {
+            .state('conferenceEdit', {
                 url: '/conferences/edit/:id', 
                 templateUrl: '/ngApp/views/conferenceAddEdit.html',
                 controller: ConferenceApp.Controllers.ConferenceEditController,
                 controllerAs: 'controller'
             }) 
-            .state('confAdd', {
+            .state('conferenceAdd', {
                 url: '/conferences/add',
                 templateUrl: '/ngApp/views/conferenceAddEdit.html',
                 controller: ConferenceApp.Controllers.ConferenceAddController,

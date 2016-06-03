@@ -11,7 +11,7 @@
             }
             this.$http.post('/api/conferences', this.conference)
                 .then((response) => {
-                    this.$state.go("confManage");
+                    this.$state.go("conferenceManage");
                 })
         }
 

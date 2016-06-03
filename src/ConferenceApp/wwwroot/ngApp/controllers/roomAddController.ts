@@ -16,7 +16,7 @@
             console.log(this.room);
             this.$http.post('/api/rooms', this.room)
                 .then((response) => {
-                    this.$state.go("confManage");
+                    this.$state.go("conferenceManage");
                 })
         }
 

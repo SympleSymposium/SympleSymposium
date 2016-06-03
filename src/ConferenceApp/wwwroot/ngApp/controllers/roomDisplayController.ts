@@ -24,7 +24,7 @@
             console.log(id);
             this.$http.delete(`/api/rooms/${id}`)
                 .then((response) => {
-                    this.$state.go("confManage");
+                    this.$state.go("conferenceManage");
                 })
                 .catch((response) => {
                     console.log(response.data);
