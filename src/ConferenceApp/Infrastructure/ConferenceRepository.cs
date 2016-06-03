@@ -28,9 +28,11 @@ namespace ConferenceApp.Infrastructure
 
         public IQueryable<Conference> GetById(int id) {
 
-            return from c in _db.Conferences
+            var conf = from c in _db.Conferences
                    where c.Id == id
                    select c;
+
+            return conf;
         }
 
         //add a Conference by the organizer

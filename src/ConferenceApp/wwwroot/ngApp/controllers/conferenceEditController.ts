@@ -1,6 +1,6 @@
 ﻿namespace ConferenceApp.Controllers {
 
-    export class ConfEditController {
+    export class ConferenceEditController {
         public showDelete = true;     //to hide add form when edit is true
         public conference; 
          
@@ -8,11 +8,11 @@
 
             let editedConf = this.conference;
 
-            //console.log(JSON.stringify(editedConf));
+            console.log(editedConf);
 
             this.$http.post('/api/conferences/' + editedConf.id, JSON.stringify(editedConf))
                 .then((response) => {
-                    this.$state.go("confManage");
+                    this.$state.go("conferenceManage");
                     //console.log("successful post");
                 });
         }
@@ -22,7 +22,7 @@
             console.log(this.conference.id);  
             this.$http.delete(`/api/conferences/${this.conference.id}`)
                 .then((response) => {
-                    this.$state.go("confManage");
+                    this.$state.go("conferenceManage");
                 })
                 .catch((response) => {
                     console.log(response.data);
@@ -32,8 +32,10 @@
 
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService,
-            $stateParams: ng.ui.IStateParamsService) {
-            //console.log($stateParams['id']);
+            $stateParams: ng.ui.IStateParamsService, private accountService: ConferenceApp.Services.AccountService) {
+
+            accountService.toolbarTitle = "Edit Conference Details";
+
             $http.get('/api/conferences/' + $stateParams['id'])
                 .then((response) => {
                     this.conference = response.data;

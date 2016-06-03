@@ -46,30 +46,50 @@ namespace ConferenceApp.Services {
         }
 
         public ConferenceDTO GetConference(int id) {
-            var conf = _confRepo.GetById(id).FirstOrDefault();
-            var address = _addressRepo.GetById(conf.AddressId).FirstOrDefault();
+            var conference =  (from c in _confRepo.GetById(id)
+                    select new ConferenceDTO() {
+                        Id = c.Id,
+                        Name = c.Name,
+                        StartDate = c.StartDate,
+                        EndDate = c.EndDate,
+                        ImageUrl = c.ImageUrl,
+                        Rooms = (from r in c.Rooms
+                                 select new RoomDTO() {
+                                     Name = r.Name,
+                                     Slots = (from s in r.Slots
+                                              select new SlotDTO() {
+                                                  Id = s.Id,
+                                                  StartTime = s.StartTime,
+                                                  EndTime = s.EndTime,
+                                                  Room = s.Room.Name,
+                                                  Presentation = new PresentationDTO() {
+                                                      Title = s.Presentation.Title,
+                                                      Description = s.Presentation.Description
+                                                  },
+                                                  Speaker = new SpeakerDTO() {
+                                                      FirstName = s.Speaker.FirstName,
+                                                      LastName = s.Speaker.LastName,
+                                                      Title = s.Speaker.Title,
+                                                      Phone = s.Speaker.Phone,
+                                                      Email = s.Speaker.Email,
+                                                      Company = s.Speaker.Company,
+                                                      CoStreet = "",
+                                                      CoCity = "",
+                                                      CoState = "",
+                                                      CoZip = "",
+                                                      Bio = s.Speaker.Bio,
+                                                      ImageUrl = s.Speaker.ImageUrl
+                                                  }
+                                              }).ToList()
+                                     }).ToList(),
+                        Street = c.Address.Street,
+                        City = c.Address.City,
+                        State = c.Address.State,
+                        Zip = c.Address.Zip
+                    }
+                        ).FirstOrDefault();
 
-            if (conf == null) {
-                throw new Exception("Could not find conference with id " + id);
-            }
-            
-            var confDTO = new ConferenceDTO();
-
-            confDTO.Id = conf.Id;
-            confDTO.Name = conf.Name;
-            confDTO.StartDate = conf.StartDate;
-            confDTO.EndDate = conf.EndDate;
-            confDTO.ImageUrl = conf.ImageUrl;
-
-            if (conf.AddressId != null) {
-                confDTO.AddressId = conf.AddressId;
-                confDTO.Street = address.Street;
-                confDTO.City = address.City;
-                confDTO.State = address.State;
-                confDTO.Zip = address.Zip;
-            }
-            
-            return confDTO;
+            return conference;
         }
 
         public void PostConference(ConferenceDTO conference, string currentUser)
@@ -116,7 +136,7 @@ namespace ConferenceApp.Services {
             editedConf.ImageUrl = conference.ImageUrl;
 
             //BROCK - VERIFY THIS WORKS WHEN EDITING A CONFERENCE WITH NULL ADDRESSID
-            if (editedConf.AddressId != null) {
+            if (conference.AddressId != null) {
 
                 editedConf.AddressId = conference.AddressId;
 

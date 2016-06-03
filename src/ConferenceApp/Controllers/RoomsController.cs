@@ -98,7 +98,7 @@ namespace ConferenceApp.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _roomServ.DeleteConference(id);
+            _roomServ.DeleteRoom(id);
         }
     }
 }

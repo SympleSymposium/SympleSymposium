@@ -28,7 +28,6 @@ namespace ConferenceApp.Models
             // Add your customizations after calling base.OnModelCreating(builder);
 
             //FluentAPI
-
             builder.Entity<Address>()
                .HasOne<Conference>()
                .WithOne(c => c.Address)
@@ -45,10 +44,10 @@ namespace ConferenceApp.Models
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Added by Wendy - Need to test
-            builder.Entity<Presentation>()
-                .HasMany(p => p.Slots)
-                .WithOne(r => r.Presentation)
-                .OnDelete(DeleteBehavior.Restrict);
+            //builder.Entity<Presentation>()
+            //    .HasMany(p => p.Slots)
+            //    .WithOne(r => r.Presentation)
+            //    .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

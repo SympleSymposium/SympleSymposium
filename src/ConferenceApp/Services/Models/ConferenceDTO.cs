@@ -19,5 +19,6 @@ namespace ConferenceApp.Services.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }        
         public IList<PresentationDTO> Presentations { get; set; }
+        public IList<RoomDTO> Rooms { get; set; }
     }
 }

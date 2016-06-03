@@ -2,6 +2,8 @@ namespace ConferenceApp.Services {
 
     export class AccountService {
 
+        public toolbarTitle;
+
         // Store access token and claims in browser session storage
         private storeUserInfo(userInfo) {
             // store user name

@@ -12,10 +12,12 @@ namespace ConferenceApp.Services
     public class RoomService
     {
         private RoomRepository _roomRepo;
+        private SlotRepository _slotRepo;
 
-        public RoomService(RoomRepository roomRepo)
+        public RoomService(RoomRepository roomRepo, SlotRepository slotRepo)
         {
             _roomRepo = roomRepo;
+            _slotRepo = slotRepo;
         }
 
         //Get all rooms
@@ -91,9 +93,10 @@ namespace ConferenceApp.Services
             _roomRepo.SaveChanges();
         }
 
-        public void DeleteConference(int id)
+        public void DeleteRoom(int roomId)
         {
-            _roomRepo.Delete(id);
+            _slotRepo.DeleteSlotsRoomRelated(roomId);
+            _roomRepo.Delete(roomId);
         }
     }
 }

@@ -1,5 +1,5 @@
 body {
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
 }
 
 /* Wrapping element */
@@ -44,10 +44,9 @@ textarea {
 .md-card {
     width: 300px;
     height: 400px;
-    background-color:#EFEBE9;
+    background-color:#ECEFF1;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-
 }
 
 .md-card:hover {
@@ -55,14 +54,30 @@ textarea {
     border-color: #B71C1C;
 }
 
+.image {
+    max-height: 80%;
+    max-width: 80%;
+    height: auto;
+    width: auto;   
+}
+
 .card {
     width: 500px;
-    height: 500px;
     margin-top: 48px;
     margin-bottom: 40px;
 }
 
+.md-card .md-title {
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+    text-align: center;
+}
 
+.md-card .md-subhead {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
 
 .input-field{
     width: 500px;
@@ -77,7 +92,6 @@ textarea {
     text-decoration: none;
     text-transform: uppercase;
 }
-
 
 .card-subhead {
     font-family:'Century Gothic';
@@ -202,7 +216,7 @@ textarea {
 }
 
 .material-icons {
-    color: #F74819;
+    color: #B71C1C;
 }
 
 .detail {
@@ -238,11 +252,11 @@ a:link {
 }
 
 a:active {
-    color: #f74819;
+    color: #B71C1C;
 }
 
 a:hover {
-    color: #f74819;
+    color: #B71C1C;
 }
 
 .reg-title {
@@ -302,8 +316,8 @@ a:hover {
     background: none;
 }
 
-/*.log-back {
-       background-image: url("https://static.pexels.com/photos/1984/black-and-white-city-man-people.jpg");
+.log-back {
+    background-image: url("http://www.intlafr.com/img61.jpg");
     width: 100%;
     height: 100%;
     background-position: 50% 50%;
@@ -311,18 +325,18 @@ a:hover {
     background-size: cover;
 }
 
-.log-over{
+.log-over {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.15);
-}*/
+    background-color: rgba(183, 28, 28, 0.24);
+}
 
 .color {
     color: black !important;
 }
 
 .red {
-    color: #F74819;
+    color: #B71C1C;
 }
 
 .register-tit {
@@ -334,14 +348,14 @@ a:hover {
     padding-right: 12px;
 }
 
-.flex-center{
+.flex-center {
     display: flex;
     justify-content: center;
 }
 
 
 .pad {
-        padding: 8px;
+    padding: 8px;
 }
 
 .login md-card {
@@ -358,6 +372,136 @@ a:hover {
     color: white;
 }
 
-.top{
+.top {
     padding-top: 22px;
 }
+.card-back {
+    margin-top: 250px;
+}
+
+.indigo {
+    color: #3F51B5;
+    text-decoration: none;
+}
+
+.reg-back {
+    background-image: url("http://qlaconsulting.com/wp-content/uploads/2014/09/bigstock-Speaker-at-Business-Conference-64962394.jpg");
+    width: 100%;
+    height: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.reg-over {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(63, 81, 181, 0.30);
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*---------------------*/
+/*CSS for schedule view*/
+/*---------------------*/
+
+.schedule {
+    margin: 10px 0px 10px 10px;
+    width: 96%;
+    height: calc(100% - 78px);
+    background-color: #fbfbfb;
+}
+
+    .schedule * {
+        text-align: center;
+    }
+
+.top-blank {
+    height: 25px;
+    border-bottom: 1px solid black;
+}
+
+.left-blank {
+    width: 100px;
+}
+
+.room-header {
+    height: 25px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.schedule-body {
+    width: 100%;
+    position: relative;
+    border-right: 1px solid black;
+}
+
+.time-axis {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.time-slot-outer {
+    height: calc(100% - 25px);
+}
+
+.time-slot {
+    width: 100%;
+    height: 10%;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+    .time-slot > div {
+        width: 100px;
+        text-align: center;
+    }
+
+.schedule-cell {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    position: relative;
+}
+
+.slot-group {
+    border: 1px solid red;
+}
+
+.slot {
+    width: 100%;
+    position: absolute;
+}
+
+    .slot > div {
+        margin: 0px 3px 0px 3px;
+        background-color: lightblue;
+        border-radius: 5px;
+        cursor: pointer;
+        height: 100%;
+        /*border: 1px solid grey;*/
+    }
+
+.right-panel-container {
+    min-width: 220px;
+    margin: 0px 10px 0px 10px;
+    background-color: #fbfbfb;
+    border: 1px solid black;
+    /*border-radius: 5px;*/
+    cursor: pointer;
+    height: calc(100% - 78px);
+}
+
+.day-button{
+    /*max-width: 20px;*/
+}
+
+/** {
+    border: 1px solid red;
+}*/

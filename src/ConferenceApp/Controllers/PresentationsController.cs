@@ -67,7 +67,7 @@ namespace ConferenceApp.Controllers
         [Authorize]
         public IActionResult Post([FromBody]PresentationViewModel presentation)
         {
-            
+
             if (ModelState.IsValid)
             {
                 _presentServ.PostPresentation(presentation);

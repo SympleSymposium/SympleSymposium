@@ -1,7 +1,7 @@
-<!--<div class="log-back">
-    <div class="log-over">-->
+<div class="log-back">
+    <div class="log-over">
 <div class="flex-center">
-    <md-card class="card">
+    <md-card class="card card-back">
         <div layout="column" layout-padding layout-align="center center" style="background-color: #B71C1C;">
             <div>
                 <md-icon class="logo flex-center white" style="font-size: 48px; padding-right: 26px;">home</md-icon>
@@ -14,7 +14,6 @@
                     <a target="_self" href="/api/account/ExternalLogin?provider={{externalLogin.authenticationScheme}}&returnUrl=/">{{externalLogin.displayName}}</a>
                 </li>
             </ul>
-
             <ul>
                 <li ng-repeat="error in controller.validationMessages">
                     {{error}}
@@ -35,22 +34,11 @@
                 </div>
                 <md-button class="md-raised" input type="submit" value="Let's do this!"> Submit </md-button>
                 <div class="reg">
-                    <h4>Don't have an account?</h4>
-                    <a class="reg-btn red" href="/register">Register</a>
+                    <h5>Looking to <a class="indigo" href="/register">create an account?</a></h5>
                 </div>
             </form>
         </div>
     </md-card>
 </div>
-<!--</div>
-</div>-->
-
-
-
-
-
-  
-
-
-
-
+</div>
+</div>

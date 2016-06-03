@@ -20,5 +20,14 @@ namespace ConferenceApp.Infrastructure
                     where s.Presentation.ConferenceId == conferenceId
                     select s);
         }
+
+        public void DeleteSlotsRoomRelated(int roomId) {
+            var deleteSlots =
+                (from s in _db.Slots
+                 where s.RoomId == roomId
+                 select s).ToList();
+            _db.Slots.RemoveRange(deleteSlots);
+            _db.SaveChanges();
+        }
     }
 }

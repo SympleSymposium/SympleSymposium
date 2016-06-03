@@ -6,46 +6,46 @@
                     <form name="userForm">
                         <md-input-container class="md-block">
                             <label>Conference Name</label>
-                    <input ng-model="controller.conference.name">
+                            <input ng-model="controller.conference.name">
                         </md-input-container>
                         <div layout="row">
-                    <md-datepicker ng-model="controller.conference.startDate" md-placeholder="Start Date">
+                            <md-datepicker ng-model="controller.conference.startDate" md-placeholder="Start Date">
                             </md-datepicker>
-                    <md-datepicker ng-model="controller.conference.endDate" md-placeholder="End Date">
+                            <md-datepicker ng-model="controller.conference.endDate" md-placeholder="End Date">
                             </md-datepicker>
                         </div>
                         <md-input-container class="md-block" flex>
                             <label>Street</label>
-                    <input ng-model="controller.conference.street">
+                            <input ng-model="controller.conference.street">
                         </md-input-container>
                         <div layout="row" class="md-block">
                             <md-input-container class="md-block">
                                 <label>City</label>
-                        <input ng-model="controller.conference.city">
+                                <input ng-model="controller.conference.city">
                             </md-input-container>
                             <md-input-container class="md-block">
                                 <label>State</label>
-                        <input ng-model="controller.conference.state">
+                                <input ng-model="controller.conference.state">
                             </md-input-container>
                             <md-input-container class="md-block">
                                 <label>Zip</label>
-                        <input ng-model="controller.conference.zip">
+                                <input ng-model="controller.conference.zip">
                             </md-input-container>
                         </div>
                         <md-input-container class="md-block" flex>
                             <label>Logo URL</label>
-                    <input ng-model="controller.conference.imageUrl">
+                            <input ng-model="controller.conference.imageUrl">
                         </md-input-container>
                         <div layout="row">
-                            <md-button ui-sref="confManage({id:conference.id})" class="md-raised md-primary">
+                            <md-button ui-sref="conferenceManage({id:conference.id})" class="md-raised md-primary">
                                 Cancel
                             </md-button>
-                    <md-button ng-show="controller.showDelete" ng-click="controller.DeleteConference()" class="md-raised" style="background-color: #B71C1C; color: white;">
-                        Delete
-                    </md-button>
-                    <md-button ng-click="controller.SubmitConference()" class="md-raised md-primary">
-                        Submit
-                    </md-button>
+                            <md-button ng-click="controller.DeleteConference()" ng-show="controller.showDelete"class="md-raised md-primary">
+                                Delete
+                            </md-button>
+                            <md-button ng-click="controller.SubmitConference()" class="md-raised md-primary">
+                                Submit
+                            </md-button>
                         </div>
                     </form>
                 </div>

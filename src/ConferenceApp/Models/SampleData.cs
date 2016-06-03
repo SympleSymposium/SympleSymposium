@@ -12,7 +12,7 @@ namespace ConferenceApp.Models {
         public async static Task Initialize(IServiceProvider serviceProvider) {
             var db = serviceProvider.GetService<ApplicationDbContext>();
             var userManager = serviceProvider.GetService<UserManager<ApplicationUser>>();
-            //context.Database.Migrate();
+            db.Database.EnsureCreated();
 
             #region Initialize Users
             // Ensure Stephen (IsAdmin)
@@ -147,7 +147,7 @@ namespace ConferenceApp.Models {
                     Name = "Full Stack Web Development Expo",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 8, 1),
-                    EndDate = new DateTime(2016, 8, 2),
+                    EndDate = new DateTime(2016, 8, 3),
                     ImageUrl = "https://www.codercamps.com/Img/logos/logo-default.png",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 },
@@ -155,7 +155,7 @@ namespace ConferenceApp.Models {
                     Name = "Houston Tech Conference",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 10, 4),
-                    EndDate = new DateTime(2016, 10, 5),
+                    EndDate = new DateTime(2016, 10, 7),
                     ImageUrl = "http://startuphouston.com/wp-content/uploads/2014/06/htc-logo-610x350.jpg",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 },
@@ -163,15 +163,15 @@ namespace ConferenceApp.Models {
                     Name = "TechConf",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 9, 12),
-                    EndDate = new DateTime(2016, 9, 14),
+                    EndDate = new DateTime(2016, 9, 15),
                     ImageUrl = "https://d1hu3ig1v75v82.cloudfront.net/content/editorial/storyimg/big/bb2015_technologyebookwebgraphicsjb1a.jpg",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Mike@CoderCamps.com").Id
                 },
                 new Conference() {
                     Name = "International Technology Conference",
-                    //AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 9, 1),
-                    EndDate = new DateTime(2016, 9, 3),
+                    EndDate = new DateTime(2016, 9, 7),
                     ImageUrl = "https://www.careersingovernment.com/tools/wp-content/uploads/2015/09/government-technology.jpg",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 }
@@ -212,7 +212,27 @@ namespace ConferenceApp.Models {
                 new Room() {
                     Name = "Room D",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Houston Tech Conference").Id
-                }
+                },
+                new Room() {
+                    Name = "Room E",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Houston Tech Conference").Id
+                },
+                new Room() {
+                    Name = "Room F",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
+                },
+                new Room() {
+                    Name = "Room G",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
+                },
+                new Room() {
+                    Name = "Room H",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
+                },
+                new Room() {
+                    Name = "Room I",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
+                },
             };
 
             for (int i = 0; i < Rooms.Count; i++) {
@@ -450,15 +470,15 @@ namespace ConferenceApp.Models {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "CSS").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Jill" && s.LastName == "Jones").Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room B").Id,
-                    StartTime = new DateTime(2016,8,1,8,0,0),
-                    EndTime = new DateTime(2016,8,1,10,0,0)
+                    StartTime = new DateTime(2016,8,1,8,30,0),
+                    EndTime = new DateTime(2016,8,1,10,30,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "JavaScript").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Bob" && s.LastName == "Stanton").Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
-                    StartTime = new DateTime(2016,8,1,8,0,0),
-                    EndTime = new DateTime(2016,8,1,10,0,0)
+                    StartTime = new DateTime(2016,8,1,10,15,0),
+                    EndTime = new DateTime(2016,8,1,11,45,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Typescript").Id,
@@ -492,22 +512,22 @@ namespace ConferenceApp.Models {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Visual Studio").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Alice" && s.LastName == "Jean").Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A").Id,
-                    StartTime = new DateTime(2016,8,2,8,0,0),
-                    EndTime = new DateTime(2016,8,2,11,0,0)
+                    StartTime = new DateTime(2016,8,2,10,30,0),
+                    EndTime = new DateTime(2016,8,2,11,30,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Atom").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Chris" && s.LastName == "Ramsey").Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C").Id,
-                    StartTime = new DateTime(2016,8,2,8,0,0),
-                    EndTime = new DateTime(2016,8,2,12,0,0)
+                    StartTime = new DateTime(2016,8,2,10,30,0),
+                    EndTime = new DateTime(2016,8,2,11,30,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Houston Web Development").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Chris" && s.LastName == "Ramsey").Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room D").Id,
-                    StartTime = new DateTime(2016,8,2,8,0,0),
-                    EndTime = new DateTime(2016,8,2,12,0,0)
+                    StartTime = new DateTime(2016,8,2,10,30,0),
+                    EndTime = new DateTime(2016,8,2,11,30,0)
                 }
             };
 
