@@ -36,19 +36,46 @@ textarea {
     background-color: #999999;
 }
 
+.button {
+    margin-bottom: 30px;
+
+}
 
 .md-card {
     width: 300px;
+<<<<<<< HEAD
     height: 40px;
+=======
+    height: 400px;
+    background-color:#ECEFF1;
+>>>>>>> 752580ab51d280fdd8ba0074198a31b758cea8b8
     text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+}
+
+.md-card:hover {
+    border: solid thin;
+    border-color: #B71C1C;
+
+
+}
+
+.image {
+    max-height: 80%;
+    max-width: 80%;
+    height: auto;
+    width: auto;   
 }
 
 .card {
     width: 500px;
     height: 400px;
     margin-top: 48px;
+    margin-bottom: 40px;
 }
 
+<<<<<<< HEAD
 .input-field {
     width: 500px;
 }
@@ -64,7 +91,39 @@ textarea {
     font-weight: 400;
     text-align: center;
 }
+=======
 
+
+.input-field{
+    width: 500px;
+}
+
+.card-title {
+    font-family:'Montserrat', sans-serif;
+    display: inline;
+    color: black;
+    font-weight: bold;
+    font-size: 19px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+>>>>>>> 752580ab51d280fdd8ba0074198a31b758cea8b8
+
+.card-subhead {
+    font-family:'Century Gothic';
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.cards {
+
+    /*padding-left: 250px;*/
+    padding-bottom: 100px;
+}
 
 
 .buttondemoBasicUsage section {
@@ -132,6 +191,12 @@ textarea {
     background-color: rgba(0, 0, 0, .80);
 }
 
+.bg-overlayII {
+    padding-top: 98px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .95);
+}
 
 
 #site-description {
@@ -162,6 +227,10 @@ textarea {
     height: auto;
     float: left;
     padding: 60px;
+}
+.material-icons.md-48 { 
+    font-size: 200px; 
+    color: #B71C1C;
 }
 
 .material-icons {
@@ -324,7 +393,6 @@ a:hover {
 .top {
     padding-top: 22px;
 }
-
 .card-back {
     margin-top: 250px;
 }
