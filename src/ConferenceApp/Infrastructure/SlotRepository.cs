@@ -21,7 +21,15 @@ namespace ConferenceApp.Infrastructure
                     select s);
         }
 
-        //REFACTOR like DeleteSlotsSpeakerRelated() below
+        public void AddSlot(Slot slot) {
+            _db.Slots.Add(slot);
+
+        }
+
+        public void SaveChanges() {
+            _db.SaveChanges();
+        }
+
         public void DeleteSlotsRoomRelated(int roomId) {
             var deleteSlots =
                 (from s in _db.Slots

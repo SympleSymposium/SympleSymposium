@@ -1,5 +1,7 @@
 ﻿using ConferenceApp.Infrastructure;
+using ConferenceApp.Models;
 using ConferenceApp.Services.Models;
+using ConferenceApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +17,8 @@ namespace ConferenceApp.Services
         {
             _slotRepo = slotRepo;
         }
-                
+
+        // Get all slots for a specific conference        
         public IList<SlotDTO> GetSlotList(int conferenceId)
         {
             var slots = (from s in _slotRepo.List(conferenceId)
@@ -49,6 +52,19 @@ namespace ConferenceApp.Services
                     }).ToList();
 
             return slots;
+        }
+
+        // Add a new slot
+        public void AddSlot(SlotViewModel slot) {
+            var newSlot = new Slot {
+                PresentationId = slot.PresentationId,
+                SpeakerId = slot.SpeakerId,
+                RoomId = slot.RoomId,
+                StartTime = slot.StartTime,
+                EndTime = slot.EndTime
+            };
+            _slotRepo.AddSlot(newSlot);
+            _slotRepo.SaveChanges();
         }
     }
 }
