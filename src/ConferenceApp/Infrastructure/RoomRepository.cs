@@ -30,27 +30,33 @@ namespace ConferenceApp.Infrastructure
         {
             return (from r in _db.Rooms
                     where r.Id == id
-                   select r);
+                    select r);
         }
 
         public void AddRoom(Room room)
         {
             _db.Rooms.Add(room);
         }
-                
+
         public void SaveChanges()
         {
             _db.SaveChanges();
         }
 
-        public void Delete(int roomId)
+        //public void Delete(int roomId)
+        //{
+        //    var deleteRoom =
+        //        (from c in _db.Rooms
+        //         where c.Id == roomId
+        //         select c).FirstOrDefault();
+        //    _db.Rooms.Remove(deleteRoom);
+        //    _db.SaveChanges();
+        //}
+
+        public void Delete(Room deletedRoom)
         {
-            var deleteRoom =
-                (from c in _db.Rooms
-                 where c.Id == roomId
-                 select c).FirstOrDefault();
-            _db.Rooms.Remove(deleteRoom);
-            _db.SaveChanges();
+            _db.Rooms.Remove(deletedRoom);
+
         }
     }
 }

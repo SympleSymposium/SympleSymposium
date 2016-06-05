@@ -62,30 +62,31 @@ namespace ConferenceApp.Services
         }
 
         // Get a specific presentation
-        public PresentationDTO GetPresentation(int id)
+        //refactored 6/5/16
+        public PresentationDTO GetPresentation(int presentationId)
         {
-            var presentation = this._presentRepo.GetById(id).FirstOrDefault();
+            var presentation = (from p in _presentRepo.GetById(presentationId)
+                                select new PresentationDTO()
+                                {
+                                    Id = presentationId,
+                                    Title = p.Title,
+                                    ConferenceId = p.ConferenceId,
+                                    Description = p.Description,
+                                    ImageUrl = p.ImageUrl,
+                                }).FirstOrDefault();
 
             if (presentation == null)
             {
-                throw new Exception("Could not find conference with id " + id);
+                throw new Exception("Could not find presentation with id " + presentationId);
             }
 
-            var _presentRepo = new PresentationDTO();
-
-            _presentRepo.Id = presentation.Id;
-            _presentRepo.Title = presentation.Title;
-            _presentRepo.ConferenceId = presentation.ConferenceId;
-            _presentRepo.Description = presentation.Description;
-            _presentRepo.ImageUrl = presentation.ImageUrl;
-
-            return _presentRepo;
+            return presentation;
         }
 
         // Add a new presentation
         public void PostPresentation(PresentationViewModel presentation)
         {
-            var newPresentation = new Presentation
+            var newPresentation = new Presentation()
             {
                 Title = presentation.Title,
                 ConferenceId = presentation.ConferenceId,
@@ -97,13 +98,13 @@ namespace ConferenceApp.Services
         }
 
         // This is an Edit of a specific presentation
-        public void UpdatePresentation(int id, PresentationDTO presentation)
+        public void UpdatePresentation(int presentationId, PresentationDTO presentation)
         {
-            var editedPresentation = _presentRepo.GetById(id).FirstOrDefault();
+            var editedPresentation = _presentRepo.GetById(presentationId).FirstOrDefault();
 
             if (editedPresentation == null)
             {
-                throw new Exception("Could not find presentation with id " + id);
+                throw new Exception("Could not find presentation with id " + presentationId);
             }
             editedPresentation.Title = presentation.Title;
             editedPresentation.ConferenceId = presentation.ConferenceId;
@@ -113,10 +114,19 @@ namespace ConferenceApp.Services
             _presentRepo.SaveChanges();
         }
 
+        //this method has been refactored 6/5/16
         public void DeletePresentation(int presentationId)
         {
-            _slotRepo.DeleteSlotsPresentationRelated(presentationId);
-            _presentRepo.Delete(presentationId);
+            var deletedPresentation = (from p in _presentRepo.GetById(presentationId)
+                                       select p).FirstOrDefault();
+
+            var relatedSlots = (from s in _slotRepo.List(deletedPresentation.ConferenceId)
+                                select s).ToList();
+
+            _slotRepo.DeleteRelatedSlots(relatedSlots);
+
+            _presentRepo.Delete(deletedPresentation);
+            _presentRepo.SaveChanges();
         }
     }
 }

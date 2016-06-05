@@ -13,6 +13,8 @@ namespace ConferenceApp.Services
     //IMPORTANT 
     //DONT COPY to make other services - use SpeakerService, which has been refactored better
 
+    //DeleteRoom has been refactored 6/5/16
+
     public class RoomService
     {
         private RoomRepository _roomRepo;
@@ -38,18 +40,19 @@ namespace ConferenceApp.Services
         }
 
         // Get a specific room
-        public RoomDTO GetRoom(int id)
+        public RoomDTO GetRoom(int roomId)
         {
-            var room = (from r in _roomRepo.GetById(id)
+            var room = (from r in _roomRepo.GetById(roomId)
                          select new RoomDTO {
-                             Id = r.Id,
+                             //Id = r.Id,
+                             Id = roomId,
                              Name = r.Name,
                              ConferenceId = r.ConferenceId
                          }).FirstOrDefault();
 
             if (room == null)
             {
-                throw new Exception("Could not find conference with id " + id);
+                throw new Exception("Could not find conference with id " + roomId);
             }
 
             return room;
@@ -69,13 +72,13 @@ namespace ConferenceApp.Services
         }
 
         // This is an Edit of a specific room
-        public void UpdateRoom(int id, RoomDTO room)
+        public void UpdateRoom(int roomId, RoomDTO room)
         {
-            var editedRoom = _roomRepo.GetById(id).FirstOrDefault();
+            var editedRoom = _roomRepo.GetById(roomId).FirstOrDefault();
 
             if (editedRoom == null)
             {
-                throw new Exception("Could not find room with id " + id);
+                throw new Exception("Could not find room with id " + roomId);
             }
 
             editedRoom.Name = room.Name;
@@ -89,7 +92,7 @@ namespace ConferenceApp.Services
         // Add a new room
         public void PostRoom(RoomViewModel room)
         {
-            var newRoom = new Room
+            var newRoom = new Room()
             {
                 Name = room.Name,
                 ConferenceId = room.ConferenceId
@@ -98,10 +101,23 @@ namespace ConferenceApp.Services
             _roomRepo.SaveChanges();
         }
 
+        //public void DeleteRoom(int roomId)
+        //{
+        //    _slotRepo.DeleteSlotsRoomRelated(roomId);
+        //    _roomRepo.Delete(roomId);
+        //}
+
         public void DeleteRoom(int roomId)
         {
-            _slotRepo.DeleteSlotsRoomRelated(roomId);
-            _roomRepo.Delete(roomId);
+            var deletedRoom = (from r in _roomRepo.GetById(roomId)
+                               select r).FirstOrDefault();
+
+            var relatedSlots = (from s in _slotRepo.List(deletedRoom.ConferenceId)
+                                select s).ToList();
+
+            _slotRepo.DeleteRelatedSlots(relatedSlots);
+            _roomRepo.Delete(deletedRoom);
+            _roomRepo.SaveChanges();
         }
     }
 }
