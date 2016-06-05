@@ -27,7 +27,6 @@
 /// <reference path="ngapp/controllers/roomdisplaycontroller.js" />
 /// <reference path="ngapp/controllers/roomeditcontroller.js" />
 /// <reference path="ngapp/controllers/schedulecontroller.js" />
-/// <reference path="ngapp/controllers/slotaddcontroller.js" />
 /// <reference path="ngapp/controllers/speakeraddcontroller.js" />
 /// <reference path="ngapp/controllers/speakerdisplaycontroller.js" />
 /// <reference path="ngapp/controllers/speakereditcontroller.js" />
