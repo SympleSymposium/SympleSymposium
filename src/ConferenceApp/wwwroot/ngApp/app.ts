@@ -45,13 +45,19 @@ namespace ConferenceApp {
                 })
                 .state('displayPresentations', {
                     url: '/presentations/:id',
-                    templateUrl: '/ngApp/views/displayPresentations.html',
+                    templateUrl: '/ngApp/views/presentationDisplay.html',
                     controller: ConferenceApp.Controllers.PresentationDisplayController,
+                    controllerAs: 'controller'
+                })
+                .state('displaySpeakers', {
+                    url: '/speakers/:id',
+                    templateUrl: '/ngApp/views/speakerDisplay.html',
+                    controller: ConferenceApp.Controllers.SpeakerDisplayController,
                     controllerAs: 'controller'
                 })
                 .state('presentationEdit', {
                     url: '/presentations/edit/:id',
-                    templateUrl: '/ngApp/views/presentationEdit.html',
+                    templateUrl: '/ngApp/views/presentationAddEdit.html',
                     controller: ConferenceApp.Controllers.PresentationEditController,
                     controllerAs: 'controller'
                 })
@@ -59,6 +65,18 @@ namespace ConferenceApp {
                     url: '/presentations/add/:id',
                     templateUrl: '/ngApp/views/presentationEdit.html',
                     controller: ConferenceApp.Controllers.PresentationAddController,
+                    controllerAs: 'controller'
+                })
+                .state('speakerEdit', {
+                    url: '/speakers/edit/:id',
+                    templateUrl: '/ngApp/views/speakerAddEdit.html',
+                    controller: ConferenceApp.Controllers.SpeakerEditController,
+                    controllerAs: 'controller'
+                })
+                .state('speakerAdd', {
+                    url: '/speakers/add/:id',
+                    templateUrl: '/ngApp/views/speakerAddEdit.html',
+                    controller: ConferenceApp.Controllers.SpeakerAddController,
                     controllerAs: 'controller'
                 })
                 .state('roomEdit', {
@@ -104,17 +122,17 @@ namespace ConferenceApp {
         })
         .config(function ($mdThemingProvider) {
             $mdThemingProvider.theme('default')
-                //.primaryPalette('green', {
-                //    //'default': '400', // by default use shade 400 from the pink palette for primary intentions
-                //    //'hue-1': '100', // use shade 100 for the <code>md-hue-1</code> class
-                //    //'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
-                //    //'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
-                //})
-                //// If you specify less than all of the keys, it will inherit from the
-                //// default shades
-                //.accentPalette('purple', {
-                //    //'default': '200' // use shade 200 for default, and keep all other shades the same
-                //});
+                .primaryPalette('teal', {
+                    'default': '900', // by default use shade 400 from the pink palette for primary intentions
+                    'hue-1': '200', // use shade 100 for the <code>md-hue-1</code> class
+                    'hue-2': '300', // use shade 600 for the <code>md-hue-2</code> class
+                    'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
+                })
+                // If you specify less than all of the keys, it will inherit from the
+                // default shades
+                .accentPalette('pink', {
+                    //'default': '200' // use shade 200 for default, and keep all other shades the same
+                });
         });
 
 

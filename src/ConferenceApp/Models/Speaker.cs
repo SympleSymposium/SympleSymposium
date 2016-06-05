@@ -22,6 +22,10 @@ namespace ConferenceApp.Models
 
         public string Company { get; set; }
 
+        public int ConferenceId { get; set; }
+        [ForeignKey("ConferenceId")]
+        public Conference Conference { get; set; }
+
         public int? AddressId { get; set; }
         [ForeignKey("AddressId")]
         public Address Address { get; set; }

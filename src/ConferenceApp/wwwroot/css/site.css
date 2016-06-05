@@ -135,7 +135,7 @@ textarea {
 }
 
 .title-color {
-    color: white;
+    color: white !important; 
 }
 
 [ui-sref] {
@@ -151,9 +151,8 @@ textarea {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 8px;
-    border: 4px solid white;
+    border: 4px solid rgb(77,182,172);
     padding: 20px;
-    padding-right: 12px;
 }
 
 .bg-image {
@@ -192,7 +191,7 @@ textarea {
 }
 
 .event-info {
-    margin-top: 3.25em;
+    margin-top: 0.25em;
 }
 
     .event-info ul li {
@@ -217,7 +216,7 @@ textarea {
 }
 
 .material-icons {
-    color: #B71C1C;
+    color: rgb(77,182,172);
 }
 
 .detail {
@@ -509,3 +508,25 @@ a:hover {
 /** {
     border: 1px solid red;
 }*/
+
+.big-font{
+    font-size: 1em;
+   
+}
+
+.under{
+    border-bottom: thin;
+}
+
+.reg-btn-home{
+    padding: 10px;
+    background-color:transparent !important;
+   border: 4px solid rgb(77,182,172)!important;
+    border-radius: 500px;
+    padding: 0 90px;
+}
+
+.reg-btn-home:hover{
+   background-color: rgb(77,182,172)!important;
+  
+}

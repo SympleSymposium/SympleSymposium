@@ -1,0 +1,111 @@
+﻿<div ng-show="controller.editView">
+    <form name="userForm">
+        <md-input-container class="md-block">
+            <label>Edit Speaker Title:</label>
+            <input ng-model="controller.speaker.title">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Edit Speaker First Name:</label>
+            <input ng-model="controller.speaker.firstName">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Edit Speaker Last Name:</label>
+            <input ng-model="controller.speaker.lastName">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Edit Speaker Phone:</label>
+            <input ng-model="controller.speaker.phone">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Edit Speaker Email:</label>
+            <input ng-model="controller.speaker.email">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Edit Speaker Company:</label>
+            <input ng-model="controller.speaker.company">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Edit Speaker Street:</label>
+            <input ng-model="controller.speaker.coStreet">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Edit Speaker City:</label>
+            <input ng-model="controller.speaker.coCity">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Edit Speaker State:</label>
+            <input ng-model="controller.speaker.coState">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Edit Speaker Zip:</label>
+            <input ng-model="controller.speaker.coZip">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Edit Speaker Bio:</label>
+            <input ng-model="controller.speaker.bio">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Edit Speaker Image:</label>
+            <input ng-model="controller.speaker.imageUrl">
+        </md-input-container>
+    </form>
+    <md-button ng-click="controller.EditSpeaker(speaker.id)" class="md-raised md-primary">
+        Submit
+    </md-button>
+</div>
+
+<div ng-show="controller.addView">
+    <form name="userForm">
+        <md-input-container class="md-block">
+            <label>Add Speaker Title:</label>
+            <input ng-model="controller.speaker.title">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Add Speaker First Name:</label>
+            <input ng-model="controller.speaker.firstName">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Add Speaker Last Name:</label>
+            <input ng-model="controller.speaker.lastName">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Add Speaker Phone:</label>
+            <input ng-model="controller.speaker.phone">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Add Speaker Email:</label>
+            <input ng-model="controller.speaker.email">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Add Speaker Company:</label>
+            <input ng-model="controller.speaker.company">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Add Speaker Street:</label>            
+            <input ng-model="controller.speaker.coStreet">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Add Speaker City:</label>
+            <input ng-model="controller.speaker.coCity">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Add Speaker State:</label>
+            <input ng-model="controller.speaker.coState">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Add Speaker Zip:</label>
+            <input ng-model="controller.speaker.coZip">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Add Speaker Bio:</label>
+            <input ng-model="controller.speaker.bio">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Add Speaker Image:</label>
+            <input ng-model="controller.speaker.imageUrl">
+        </md-input-container>
+    </form>
+    <md-button ng-click="controller.AddSpeaker()" class="md-raised md-primary">
+        Submit
+    </md-button>
+</div>

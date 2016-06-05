@@ -1,0 +1,72 @@
+﻿<div layout="row" layout-align="start start">
+    <md-button ui-sref="schedule({id:controller.$stateParams['id']})" class="md-raised md-primary">
+        Back
+    </md-button>
+    <md-button ui-sref="speakerAdd({id:controller.$stateParams['id']})" class="md-raised md-primary">
+        Add
+    </md-button>
+</div>
+<div layout="column" layout-align="start start">
+
+    <table>
+        <tr>
+            <th>
+                Speaker Name
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Company
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Bio
+            </th>
+            <th>
+                Image
+            </th>
+        </tr>
+        <tr ng-repeat="speaker in controller.speakers">
+            <td>
+                {{speaker.title}} {{speaker.firstName}} {{speaker.lastName}}
+            </td>
+            <td>
+                {{speaker.phone}}
+            </td>
+            <td>
+                {{speaker.email}}
+            </td>
+            <td>
+                {{speaker.company}}
+            </td>
+            <td>
+                
+                {{speaker.coStreet}}, {{speaker.coCity}}, {{speaker.coState}}, {{speaker.coZip}}
+                <!--{{speaker.street}}, {{speaker.address.city}}, {{speaker.coState}}, {{speaker.coZip}}-->
+                <!--{{speaker.street}},--> 
+            </td>
+            <td>
+                {{speaker.bio}}
+            </td>
+            <td>
+                {{speaker.imageUrl}}
+            </td>
+            <td>
+                <md-button ui-sref="speakerEdit({id:speaker.id})" class="md-raised md-primary">
+                    Edit
+                </md-button>
+            </td>
+            <td>
+                <md-button ng-click="controller.DeleteSpeaker(speaker.id)" class="md-raised md-primary">
+                    Delete
+                </md-button>
+            </td>
+        </tr>
+    </table>
+</div>

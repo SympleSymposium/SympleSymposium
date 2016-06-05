@@ -22,36 +22,60 @@ namespace ConferenceApp.Controllers
             _speakerServ = speakerServ;
         }
 
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<SpeakerDTO> GetSpeakerList()
+        // Get all speakers for a specific conference
+        // GET: api/speakers/manage/2
+        [HttpGet("manage/{conferenceId}")]
+        [Authorize]
+        public IList<SpeakerDTO> GetSpeakerList(int conferenceId)
         {
-            return _speakerServ.GetSpeakerList();
+            return _speakerServ.GetSpeakerList(conferenceId);
         }
 
-        // GET api/values/5
+        // Get specific speaker by speakerId
+        // GET api/speakers/2
         [HttpGet("{id}")]
-        public string Get(int id)
+        public SpeakerDTO GetSpeaker(int id)
         {
-            return "value";
+            //Wendy - Make sure the Admin can get the speaker to Edit
+            return _speakerServ.GetSpeaker(id);
         }
 
-        // POST api/values
+        // Add speaker
+        // POST api/speakers
         [HttpPost]
-        public void Post([FromBody]string value)
+        [Authorize]
+        public IActionResult Post([FromBody]SpeakerDTO speaker)
         {
+            if (ModelState.IsValid)
+            {
+                _speakerServ.PostSpeaker(speaker);
+                return Ok(speaker);
+            }
+            return HttpBadRequest(ModelState);
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        // Edit speaker
+        // POST api/speakers/5
+        [HttpPost("{id}")]
+        public IActionResult Post(int id, [FromBody]SpeakerDTO speaker)
         {
+            if (speaker == null)
+            {
+                throw new Exception("Could not find speaker with id " + id);
+            }
+
+            //Wendy - NEED TO MAKE SURE Admins can add new rooms
+            _speakerServ.UpdateSpeaker(id, speaker);
+
+            return Ok();
         }
 
-        // DELETE api/values/5
+        // Delete speaker
+        // DELETE api/speakers/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _speakerServ.DeleteSpeaker(id);
         }
     }
 }

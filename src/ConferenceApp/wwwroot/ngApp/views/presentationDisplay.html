@@ -1,5 +1,8 @@
 ﻿<div layout="row" layout-align="start start">
     <h2 class="reg-title flex-center">Presentations</h2>
+    <md-button ui-sref="schedule({id:controller.$stateParams['id']})" class="md-raised md-primary">
+        Back
+    </md-button>
     <md-button ui-sref="presentationAdd({id:controller.$stateParams['id']})" class="md-raised md-primary">
         Add
     </md-button>
@@ -18,7 +21,7 @@
                 ImageUrl
             </th>
         </tr>
-        <tr ng-repeat="present in controller.presentation">            
+        <tr ng-repeat="present in controller.presentation">
             <td>
                 {{present.title}}
             </td>
@@ -34,7 +37,7 @@
                 </md-button>
             </td>
             <td>
-                <md-button ng-click="controller.DeleteRoom(presentation.id)" class="md-raised md-primary">
+                <md-button ng-click="controller.DeletePresentation(present.id)" class="md-raised md-primary">
                     Delete
                 </md-button>
             </td>
