@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using ConferenceApp.Services.Models;
 using ConferenceApp.Services;
+using ConferenceApp.ViewModels;
+using Microsoft.AspNet.Authorization;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -28,11 +30,24 @@ namespace ConferenceApp.Controllers
             return _slotServ.GetSlotList(conferenceId);
         }
 
-        // POST api/values
+        // Add slot
+        // POST api/slot
         [HttpPost]
-        public void Post([FromBody]string value)
-        {
+        [Authorize]
+        public IActionResult Post([FromBody]SlotViewModel slot) {
+
+            if (ModelState.IsValid) {
+                _slotServ.AddSlot(slot);
+                return Ok(slot);
+            }
+            return HttpBadRequest(ModelState);
         }
+
+        //// POST api/values
+        //[HttpPost]
+        //public void Post([FromBody]string value)
+        //{
+        //}
 
         // PUT api/values/5
         [HttpPut("{id}")]

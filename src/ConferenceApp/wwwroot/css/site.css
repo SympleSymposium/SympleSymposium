@@ -156,7 +156,8 @@ textarea {
 }
 
 .bg-image {
-    background-image: url("http://www.wheretorome.com/wp-content/uploads/2013/12/business-conference.jpg");
+    /*background-image: url("ht tp://www.whe retorome.com/wp-con tent/uploads/2013/12/business-co nference.jpg");*/
+    background-image: url('../ngapp/images/main.jpg');
     width: 100%;
     height: 100%;
     background-position: 50% 50%;
@@ -289,6 +290,7 @@ a:hover {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     text-transform: uppercase;
+
     letter-spacing: 2px;
 }
 
@@ -316,7 +318,8 @@ a:hover {
 }
 
 .log-back {
-    background-image: url("http://www.intlafr.com/img61.jpg");
+    /*background-image: url("http:// www.in tlafr.com/img61.jpg");*/
+    background-image: url('../ngapp/images/login.jpg');
     width: 100%;
     height: 100%;
     background-position: 50% 50%;
@@ -384,7 +387,8 @@ a:hover {
 }
 
 .reg-back {
-    background-image: url("http://qlaconsulting.com/wp-content/uploads/2014/09/bigstock-Speaker-at-Business-Conference-64962394.jpg");
+    /*background-image: url("ht tp://ql aconsulting.com/wp-content/uploads/2014 /09/bigstock-Speaker-at-Business-Conf erence-64962394.jpg");*/
+    background-image: url('../ngapp/images/register.jpg');
     width: 100%;
     height: 100%;
     background-position: 50% 50%;
