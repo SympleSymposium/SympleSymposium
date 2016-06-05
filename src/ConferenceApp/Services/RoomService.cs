@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace ConferenceApp.Services
 {
+
+    //IMPORTANT 
+    //DONT COPY to make other services - use SpeakerService, which has been refactored better
+
     public class RoomService
     {
         private RoomRepository _roomRepo;

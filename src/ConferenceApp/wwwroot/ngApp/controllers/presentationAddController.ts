@@ -16,7 +16,7 @@
             this.$http.post('/api/presentations', this.presentation)
                 .then((response) => {
                     console.log("middle of post in AddPresentation ");
-                    this.$state.go("conferenceManage");
+                    this.$state.go("displayPresentations", { id: this.presentation.conferenceId });
                 });
             console.log("End of Add Presentation in controller.ts");
         }

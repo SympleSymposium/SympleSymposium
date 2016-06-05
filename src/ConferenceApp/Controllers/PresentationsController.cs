@@ -18,6 +18,7 @@ namespace ConferenceApp.Controllers
     public class PresentationsController : Controller
     {
         private PresentationService _presentServ;
+
         public PresentationsController(PresentationService presentServ)
         {
             _presentServ = presentServ;
@@ -40,7 +41,7 @@ namespace ConferenceApp.Controllers
             return _presentServ.GetPresentationList(conferenceId);
         }
 
-        // Get a specific presentation
+        // Get presentation by presentationId
         // GET api/presentations/2
         [HttpGet("{id}")]
         public PresentationDTO GetPresentation(int id)
@@ -49,20 +50,9 @@ namespace ConferenceApp.Controllers
             return _presentServ.GetPresentation(id);
         }
 
-
-
-        // GET a specific presentation
-        // GET api/presentations/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-
-        // Add room
+        // Add presentation
         // POST api/presentations
-        // This is an Add new room
+        // This is an Add new presentation
         [HttpPost]
         [Authorize]
         public IActionResult Post([FromBody]PresentationViewModel presentation)
@@ -76,14 +66,8 @@ namespace ConferenceApp.Controllers
             return HttpBadRequest(ModelState);
         }
 
-        //// POST api/values
-        //[HttpPost]
-        //public void Post([FromBody]string value)
-        //{
-        //}
-
-        // POST api/rooms/5
-        // This is an Edit of a specific presentation
+        // Edit presentation
+        // POST api/presentations/5
         [HttpPost("{id}")]
         public IActionResult Post(int id, [FromBody]PresentationDTO presentation)
         {
@@ -98,14 +82,8 @@ namespace ConferenceApp.Controllers
             return Ok();
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-        
         // Delete presentation
-        // DELETE api/presentation/5
+        // DELETE api/presentations/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

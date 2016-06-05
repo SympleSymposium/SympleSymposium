@@ -14,6 +14,7 @@ namespace ConferenceApp.Services.Models
         public string Title { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+        public int? AddressId { get; set; }
         public string Company { get; set; }
         public string CoStreet { get; set; }
         public string CoCity { get; set; }

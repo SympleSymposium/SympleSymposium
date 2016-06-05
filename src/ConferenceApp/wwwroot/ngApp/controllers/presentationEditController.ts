@@ -27,7 +27,8 @@
 
             this.$http.post('/api/presentations/' + editedPresentation.id, JSON.stringify(editedPresentation))
                 .then((response) => {
-                    this.$state.go("conferenceManage");
+                    this.$state.go("displayPresentations", { id: this.presentation.conferenceId });
+                    //this.$state.go("displayPresentations");
                     //console.log("successful post");
                 });
         }

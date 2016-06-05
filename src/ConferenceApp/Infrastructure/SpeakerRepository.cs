@@ -32,5 +32,20 @@ namespace ConferenceApp.Infrastructure
                     where r.Id == id
                     select r);
         }
+
+        public void AddSpeaker(Speaker speaker)
+        {
+            _db.Speakers.Add(speaker);
+        }
+
+        public void Delete(Speaker deletedSpeaker)
+        {
+            _db.Speakers.Remove(deletedSpeaker);
+        }
+
+        public void SaveChanges()
+        {
+            _db.SaveChanges();
+        }
     }
 }

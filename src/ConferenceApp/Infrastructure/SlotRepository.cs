@@ -21,6 +21,7 @@ namespace ConferenceApp.Infrastructure
                     select s);
         }
 
+        //REFACTOR like DeleteSlotsSpeakerRelated() below
         public void DeleteSlotsRoomRelated(int roomId) {
             var deleteSlots =
                 (from s in _db.Slots
@@ -30,6 +31,7 @@ namespace ConferenceApp.Infrastructure
             _db.SaveChanges();
         }
 
+        //REFACTOR like DeleteSlotsSpeakerRelated() below
         public void DeleteSlotsPresentationRelated(int presentationId)
         {
             var deleteSlots =
@@ -38,6 +40,11 @@ namespace ConferenceApp.Infrastructure
                  select s).ToList();
             _db.Slots.RemoveRange(deleteSlots);
             _db.SaveChanges();
+        }
+
+        public void DeleteSlotsSpeakerRelated(IList<Slot> relatedSlots)
+        {
+            _db.Slots.RemoveRange(relatedSlots);
         }
     }
 }

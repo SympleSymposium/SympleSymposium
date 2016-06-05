@@ -22,15 +22,7 @@ namespace ConferenceApp.Controllers
             _speakerServ = speakerServ;
         }
 
-        // GET: api/speakers
-        // Get all the speakers
-        [HttpGet]
-        public IEnumerable<SpeakerDTO> GetSpeakers()
-        {
-            return _speakerServ.GetSpeakers();
-        }
-
-        // Get speakers for a specific conference
+        // Get all speakers for a specific conference
         // GET: api/speakers/manage/2
         [HttpGet("manage/{conferenceId}")]
         [Authorize]
@@ -39,7 +31,7 @@ namespace ConferenceApp.Controllers
             return _speakerServ.GetSpeakerList(conferenceId);
         }
 
-        // Get specific speaker
+        // Get specific speaker by speakerId
         // GET api/speakers/2
         [HttpGet("{id}")]
         public SpeakerDTO GetSpeaker(int id)
@@ -48,29 +40,22 @@ namespace ConferenceApp.Controllers
             return _speakerServ.GetSpeaker(id);
         }
 
-        // POST api/values
-        //[HttpPost]
-        //public void Post([FromBody]string value)
-        //{
-        //}
-
         // Add speaker
         // POST api/speakers
-        // This is an Add new speaker
-        //[HttpPost]
-        //[Authorize]
-        //public IActionResult Post([FromBody]SpeakerDTO speaker)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _speakerServ.PostSpeaker(speaker);
-        //        return Ok(speaker);
-        //    }
-        //    return HttpBadRequest(ModelState);
-        //}
+        [HttpPost]
+        [Authorize]
+        public IActionResult Post([FromBody]SpeakerDTO speaker)
+        {
+            if (ModelState.IsValid)
+            {
+                _speakerServ.PostSpeaker(speaker);
+                return Ok(speaker);
+            }
+            return HttpBadRequest(ModelState);
+        }
 
+        // Edit speaker
         // POST api/speakers/5
-        // This is an Edit of a specific speaker
         [HttpPost("{id}")]
         public IActionResult Post(int id, [FromBody]SpeakerDTO speaker)
         {
@@ -85,19 +70,12 @@ namespace ConferenceApp.Controllers
             return Ok();
         }
 
-        // PUT api/rooms/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-
         // Delete speaker
         // DELETE api/speakers/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //    _speakerServ.DeleteSpeaker(id);
-        //}
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            _speakerServ.DeleteSpeaker(id);
+        }
     }
 }

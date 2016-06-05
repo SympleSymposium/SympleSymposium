@@ -10,75 +10,49 @@ namespace ConferenceApp.Services
 {
     public class SpeakerService
     {
+
+        //This service has been refactored - copy same logic to RoomService
+
         private SpeakerRepository _speakerRepo;
         private AddressRepository _addressRepo;
+        private SlotRepository _slotRepo;
 
-        public SpeakerService(SpeakerRepository speakerRepo, AddressRepository addressRepo)
+        public SpeakerService(SpeakerRepository speakerRepo, AddressRepository addressRepo, SlotRepository slotRepo)
         {
             _speakerRepo = speakerRepo;
             _addressRepo = addressRepo;
+            _slotRepo = slotRepo;
         }
-
-        // Get all Speakers
-        public IList<SpeakerDTO> GetSpeakers()
-        {
-            return (from s in _speakerRepo.List()
-                    select new SpeakerDTO
-                    {
-                        Id = s.Id,
-                        FirstName = s.FirstName,
-                        LastName = s.LastName,
-                        Title = s.Title,
-                        Phone = s.Phone,
-                        Email = s.Email,
-                        Company = s.Company,
-                        CoStreet = (from a in _addressRepo.List()
-                                    where a.Id == s.AddressId
-                                    select a).FirstOrDefault().Street,
-                        CoCity = (from a in _addressRepo.List()
-                                  where a.Id == s.AddressId
-                                  select a).FirstOrDefault().City,
-                        CoState = (from a in _addressRepo.List()
-                                   where a.Id == s.AddressId
-                                   select a).FirstOrDefault().State,
-                        CoZip = (from a in _addressRepo.List()
-                                 where a.Id == s.AddressId
-                                 select a).FirstOrDefault().Zip,
-                        Bio = s.Bio,
-                        ImageUrl = s.ImageUrl
-                    }
-                    ).ToList();
-        }
-
 
         // Get a specific speaker
-        public SpeakerDTO GetSpeaker(int id)
+        public SpeakerDTO GetSpeaker(int speakerId)
         {
-            var speaker = _speakerRepo.GetById(id).FirstOrDefault();
+            var speaker = (from s in _speakerRepo.GetById(speakerId)
+                           select new SpeakerDTO()
+                           {
+                               FirstName = s.FirstName,
+                               LastName = s.LastName,
+                               Title = s.Title,
+                               Phone = s.Phone,
+                               Email = s.Email,
+                               Company = s.Company,
+                               CoStreet = s.Address.Street,
+                               CoCity = s.Address.City,
+                               CoState = s.Address.State,
+                               CoZip = s.Address.Zip,
+                               Bio = s.Bio,
+                               ImageUrl = s.ImageUrl,
+                               ConferenceId = s.ConferenceId,
+                               Id = speakerId
+                           }
+                           ).FirstOrDefault();
 
             if (speaker == null)
             {
-                throw new Exception("Could not find speaker with id " + id);
+                throw new Exception("Could not find speaker with id " + speakerId);
             }
 
-            var _speakerDTO = new SpeakerDTO();
-
-
-            _speakerDTO.FirstName = speaker.FirstName;
-            _speakerDTO.LastName = speaker.LastName;
-            _speakerDTO.Title = speaker.Title;
-            _speakerDTO.Phone = speaker.Phone;
-            _speakerDTO.Email = speaker.Email;
-            _speakerDTO.Company = speaker.Company;
-            //_speakerDTO.CoStreet = speaker.CoStreet;
-            //_speakerDTO.CoCity = speaker.CoCity;
-            //_speakerDTO.CoState = speaker.CoState;
-            //_speakerDTO.CoZip = speaker.CoZip;
-            _speakerDTO.Bio = speaker.Bio;
-            _speakerDTO.ImageUrl = speaker.ImageUrl;
-
-
-            return _speakerDTO;
+            return speaker;
         }
 
         //Get all the speakers associated with a conference
@@ -93,24 +67,26 @@ namespace ConferenceApp.Services
                         Phone = s.Phone,
                         Email = s.Email,
                         Company = s.Company,
-                        //CoStreet = s.CoStreet,
-                        //CoCity = s.CoCity,
-                        //CoState = s.CoState,
-                        //CoZip = s.CoZip,
+                        CoStreet = s.Address.Street,
+                        CoCity = s.Address.City,
+                        CoState = s.Address.State,
+                        CoZip = s.Address.Zip,
                         Bio = s.Bio,
-                        ImageUrl = s.ImageUrl
+                        ImageUrl = s.ImageUrl,
+                        Id = s.Id
                     }
                     ).ToList();
         }
 
         // This is an Edit of a specific room
-        public void UpdateSpeaker(int id, SpeakerDTO speaker)
+        public void UpdateSpeaker(int speakerId, SpeakerDTO speaker)
         {
-            var editedSpeaker = _speakerRepo.GetById(id).FirstOrDefault();
+            var editedSpeaker = _speakerRepo.GetById(speakerId).FirstOrDefault();
+            
 
             if (editedSpeaker == null)
             {
-                throw new Exception("Could not find speaker with id " + id);
+                throw new Exception("Could not find speaker with id " + speakerId);
             }
 
             editedSpeaker.FirstName = speaker.FirstName;
@@ -119,43 +95,92 @@ namespace ConferenceApp.Services
             editedSpeaker.Phone = speaker.Phone;
             editedSpeaker.Email = speaker.Email;
             editedSpeaker.Company = speaker.Company;
-            //editedSpeaker.CoStreet = speaker.CoStreet;
-            //editedSpeaker.CoCity = speaker.CoCity;
-            //editedSpeaker.CoState = speaker.CoState;
-            //editedSpeaker.CoZip = speaker.CoZip;
             editedSpeaker.Bio = speaker.Bio;
             editedSpeaker.ImageUrl = speaker.ImageUrl;
+            editedSpeaker.ConferenceId = speaker.ConferenceId;
 
-            //_speakerRepo.SaveChanges();
+            //BROCK - VERIFY THIS WORKS WHEN EDITING A CONFERENCE WITH NULL ADDRESSID
+            if (speaker.AddressId != null)
+            {
+
+                editedSpeaker.AddressId = speaker.AddressId;
+                //var editedAddress = _addressRepo.GetById(speakerId).FirstOrDefault();
+
+                var editedAddress = _addressRepo.GetById(editedSpeaker.AddressId).FirstOrDefault();
+                editedAddress.Street = speaker.CoStreet;
+                editedAddress.City = speaker.CoCity;
+                editedAddress.State = speaker.CoState;
+                editedAddress.Zip = speaker.CoZip;                
+
+                _addressRepo.saveChanges();
+            }
+            else
+            {
+
+                var newAddress = new Address()
+                {
+                    Street = speaker.CoStreet,
+                    City = speaker.CoCity,
+                    State = speaker.CoState,
+                    Zip = speaker.CoZip
+                };
+
+                _addressRepo.add(newAddress);
+                _addressRepo.saveChanges();
+
+                //VERIFY THIS WORKS
+                editedSpeaker.AddressId = newAddress.Id;
+            }
+            
+            _speakerRepo.SaveChanges();
+           
+
         }
 
-        // Add a new room
-        public void PostRoom(SpeakerDTO speaker)
+        // Add a new speaker
+        public void PostSpeaker(SpeakerDTO speaker)
         {
-            var newSpeaker = new Speaker
+
+            var newAddress = new Address()
+            {
+                Street = speaker.CoStreet,
+                City = speaker.CoCity,
+                State = speaker.CoState,
+                Zip = speaker.CoZip
+            };
+            _addressRepo.add(newAddress);
+            _addressRepo.saveChanges();
+
+            var addedSpeaker = new Speaker()
             {
                 FirstName = speaker.FirstName,
-            LastName = speaker.LastName,
-            Title = speaker.Title,
-            Phone = speaker.Phone,
-            Email = speaker.Email,
-            Company = speaker.Company,
-            //CoStreet = speaker.CoStreet,
-            //CoCity = speaker.CoCity,
-            //CoState = speaker.CoState,
-            //CoZip = speaker.CoZip,
-            Bio = speaker.Bio,
-            ImageUrl = speaker.ImageUrl
+                LastName = speaker.LastName,
+                AddressId = newAddress.Id,
+                Title = speaker.Title,
+                Phone = speaker.Phone,
+                Email = speaker.Email,
+                Company = speaker.Company,
+                Bio = speaker.Bio,
+                ImageUrl = speaker.ImageUrl,
+                ConferenceId = speaker.ConferenceId
+                //Id = speaker.Id
+            };
 
-        };
-            //_speakerRepo.AddSpeaker(newSpeaker);
-            //_speakerRepo.SaveChanges();
+            _speakerRepo.AddSpeaker(addedSpeaker);
+            _speakerRepo.SaveChanges();
         }
 
-    public void DeleteRoom(int speakerId)
-    {
-            //_speakerRepo.DeleteSlotsSpeakerRelated(speakerId);
-            //_speakerRepo.Delete(speakerId);
+        public void DeleteSpeaker(int speakerId)
+        {
+            var deletedSpeaker = (from s in _speakerRepo.GetById(speakerId)
+                                  select s).FirstOrDefault();
+
+            var relatedSlots = (from s in _slotRepo.List(deletedSpeaker.ConferenceId)
+                                select s).ToList();
+
+            _slotRepo.DeleteSlotsSpeakerRelated(relatedSlots);
+            _speakerRepo.Delete(deletedSpeaker);
+            _speakerRepo.SaveChanges();
+        }
     }
-}
 }

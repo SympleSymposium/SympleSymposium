@@ -45,13 +45,19 @@ namespace ConferenceApp {
                 })
                 .state('displayPresentations', {
                     url: '/presentations/:id',
-                    templateUrl: '/ngApp/views/displayPresentations.html',
+                    templateUrl: '/ngApp/views/presentationDisplay.html',
                     controller: ConferenceApp.Controllers.PresentationDisplayController,
+                    controllerAs: 'controller'
+                })
+                .state('displaySpeakers', {
+                    url: '/speakers/:id',
+                    templateUrl: '/ngApp/views/speakerDisplay.html',
+                    controller: ConferenceApp.Controllers.SpeakerDisplayController,
                     controllerAs: 'controller'
                 })
                 .state('presentationEdit', {
                     url: '/presentations/edit/:id',
-                    templateUrl: '/ngApp/views/presentationEdit.html',
+                    templateUrl: '/ngApp/views/presentationAddEdit.html',
                     controller: ConferenceApp.Controllers.PresentationEditController,
                     controllerAs: 'controller'
                 })
@@ -59,6 +65,18 @@ namespace ConferenceApp {
                     url: '/presentations/add/:id',
                     templateUrl: '/ngApp/views/presentationEdit.html',
                     controller: ConferenceApp.Controllers.PresentationAddController,
+                    controllerAs: 'controller'
+                })
+                .state('speakerEdit', {
+                    url: '/speakers/edit/:id',
+                    templateUrl: '/ngApp/views/speakerAddEdit.html',
+                    controller: ConferenceApp.Controllers.SpeakerEditController,
+                    controllerAs: 'controller'
+                })
+                .state('speakerAdd', {
+                    url: '/speakers/add/:id',
+                    templateUrl: '/ngApp/views/speakerAddEdit.html',
+                    controller: ConferenceApp.Controllers.SpeakerAddController,
                     controllerAs: 'controller'
                 })
                 .state('roomEdit', {
