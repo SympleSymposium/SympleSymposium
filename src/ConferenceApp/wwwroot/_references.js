@@ -32,3 +32,4 @@
 /// <reference path="ngapp/controllers/speakerdisplaycontroller.js" />
 /// <reference path="ngapp/controllers/speakereditcontroller.js" />
 /// <reference path="ngapp/services/accountservice.js" />
+/// <reference path="ngApp/services/services.js" />
