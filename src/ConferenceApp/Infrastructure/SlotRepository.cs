@@ -30,27 +30,19 @@ namespace ConferenceApp.Infrastructure
             _db.SaveChanges();
         }
 
-        public void DeleteSlotsRoomRelated(int roomId) {
-            var deleteSlots =
-                (from s in _db.Slots
-                 where s.RoomId == roomId
-                 select s).ToList();
-            _db.Slots.RemoveRange(deleteSlots);
-            _db.SaveChanges();
-        }
 
-        //REFACTOR like DeleteSlotsSpeakerRelated() below
-        public void DeleteSlotsPresentationRelated(int presentationId)
-        {
-            var deleteSlots =
-                (from s in _db.Slots
-                 where s.PresentationId == presentationId
-                 select s).ToList();
-            _db.Slots.RemoveRange(deleteSlots);
-            _db.SaveChanges();
-        }
+        ////REFACTOR like DeleteSlotsSpeakerRelated() below
+        //public void DeleteSlotsPresentationRelated(int presentationId)
+        //{
+        //    var deleteSlots =
+        //        (from s in _db.Slots
+        //         where s.PresentationId == presentationId
+        //         select s).ToList();
+        //    _db.Slots.RemoveRange(deleteSlots);
+        //    _db.SaveChanges();
+        //}
 
-        public void DeleteSlotsSpeakerRelated(IList<Slot> relatedSlots)
+        public void DeleteRelatedSlots(IList<Slot> relatedSlots)
         {
             _db.Slots.RemoveRange(relatedSlots);
         }

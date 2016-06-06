@@ -410,6 +410,10 @@ a:hover {
     justify-content: center;
 }
 
+mdp-time-picker *{
+    /*color: black;*/
+}
+
 
 /*---------------------*/
 /*CSS for schedule view*/

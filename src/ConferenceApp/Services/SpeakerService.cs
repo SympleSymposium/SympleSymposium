@@ -78,7 +78,7 @@ namespace ConferenceApp.Services
                     ).ToList();
         }
 
-        // This is an Edit of a specific room
+        // This is an Edit of a specific speaker
         public void UpdateSpeaker(int speakerId, SpeakerDTO speaker)
         {
             var editedSpeaker = _speakerRepo.GetById(speakerId).FirstOrDefault();
@@ -178,7 +178,7 @@ namespace ConferenceApp.Services
             var relatedSlots = (from s in _slotRepo.List(deletedSpeaker.ConferenceId)
                                 select s).ToList();
 
-            _slotRepo.DeleteSlotsSpeakerRelated(relatedSlots);
+            _slotRepo.DeleteRelatedSlots(relatedSlots);
             _speakerRepo.Delete(deletedSpeaker);
             _speakerRepo.SaveChanges();
         }

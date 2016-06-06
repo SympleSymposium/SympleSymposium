@@ -1,6 +1,6 @@
 namespace ConferenceApp {
 
-    angular.module('ConferenceApp', ['ui.router', 'ngResource', 'ngMaterial'])
+    angular.module('ConferenceApp', ['ui.router', 'ngResource', 'ngMaterial', 'mdPickers'])
         .config((
             $stateProvider: ng.ui.IStateProvider,
             $urlRouterProvider: ng.ui.IUrlRouterProvider,
@@ -25,7 +25,7 @@ namespace ConferenceApp {
                     controller: ConferenceApp.Controllers.ScheduleController,
                     controllerAs: 'controller'
                 })
-                .state('sloteAdd', {
+                .state('slotAdd', {
                     url: '/slots/add/:id',
                     templateUrl: '/ngApp/views/slotAddEdit.html',
                     controller: ConferenceApp.Controllers.SlotAddController,
@@ -69,7 +69,7 @@ namespace ConferenceApp {
                 })
                 .state('presentationAdd', {
                     url: '/presentations/add/:id',
-                    templateUrl: '/ngApp/views/presentationEdit.html',
+                    templateUrl: '/ngApp/views/presentationAddEdit.html',
                     controller: ConferenceApp.Controllers.PresentationAddController,
                     controllerAs: 'controller'
                 })

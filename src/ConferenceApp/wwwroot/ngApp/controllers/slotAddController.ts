@@ -2,7 +2,9 @@
 
     export class SlotAddController {
         public newSlot;
-        public conference;
+        public speakers;
+        public presentations;
+        public rooms;
         public addView = true;
 
         constructor(private $http: ng.IHttpService,
@@ -10,12 +12,22 @@
             private $stateParams: ng.ui.IStateParamsService,
             private accountService: ConferenceApp.Services.AccountService) {
 
-            accountService.toolbarTitle = "Presentation Schedule";
+            accountService.toolbarTitle = "Add Slot";
 
-            $http.get('/api/conferences/' + $stateParams['id'])
+            $http.get('/api/speakers/manage/' + $stateParams['id'])
                 .then((response) => {
-                    this.conference = response.data;
-                    console.log(this.conference);
+                    this.speakers = response.data;
+                    console.log(this.speakers);
+                })
+
+            $http.get('/api/presentations/manage/' + $stateParams['id'])
+                .then((response) => {
+                    this.presentations = response.data;
+                })
+
+            $http.get('/api/rooms/manage/' + $stateParams['id'])
+                .then((response) => {
+                    this.rooms = response.data;
                 })
         }
 
