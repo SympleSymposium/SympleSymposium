@@ -23,7 +23,11 @@
                                        |filter:{room: r.name, day: controller.currentDay}"
                          style="top:{{s.top}}%; height:calc({{s.height}}% - 1px);"
                          ng-click="controller.editSlot($event, s)">
-                        <div layout layout-align="center center">{{s.presentation.title}}</div>
+                        <div layout="column" layout-align="center center">
+                            <div>{{s.presentation.title}}</div>
+                            <div>Speaker: {{s.speaker.firstName}} {{s.speaker.lastName}}</div>
+                            <div>{{s.startTime}} to {{s.endTime}}</div>
+                        </div>
                     </div>
 
                 </div>

@@ -83,8 +83,15 @@
 
                             //used to filter slots by day
                             slot.day = moment(slot.startTime).format("M/D/YYYY");
+
+                            //Format start and endtime for display
+                            slot.startTime = moment(slot.startTime).format("h:mm A");
+                            slot.endTime = moment(slot.endTime).format("h:mm A");
+                            
                         })
                     });
+
+                    
 
                     console.log(this.conference);
                 })
