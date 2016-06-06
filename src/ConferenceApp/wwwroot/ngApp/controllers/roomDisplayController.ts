@@ -4,7 +4,8 @@
         public rooms;
 
         private GetRooms() {
-            this.$http.get(`/api/rooms/manage/${this.$stateParams['id']}`)
+            this.$http.get(`/api/rooms/manage/${
+                this.$stateParams['id']}`)
                 .then((response) => {
                     this.rooms = response.data;
                 })
@@ -21,8 +22,9 @@
             accountService.toolbarTitle = "Manage Rooms";
 
             this.GetRooms();
-        }
 
+
+        }
         public DeleteRoom(id) {
             this.$http.delete(`/api/rooms/${id}`)
                 .then((response) => {
@@ -33,7 +35,5 @@
                 });
 
         }
-
-
     }
 }
