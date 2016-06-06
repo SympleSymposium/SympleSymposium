@@ -5,6 +5,7 @@
     <!-- CSS -->
     <link href="~/lib/angular-material/angular-material.css" rel="stylesheet" />
     <link href="~/lib/mdpickers/dist/mdpickers.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
 
     <!-- Fonts -->
@@ -52,7 +53,7 @@
 
 </head>
 
-<body ng-controller="AccountController as account" ng-cloak>
+<body ng-controller="AccountController as account" ng-cloak layout="column">
 
     <md-toolbar>
         <div class="md-toolbar-tools">
@@ -71,7 +72,7 @@
         </div>
     </md-toolbar>
 
-    <ui-view></ui-view>
+    <ui-view flex-grow="1" layout="row"></ui-view>
 
 </body>
 </html>

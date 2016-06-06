@@ -17,6 +17,7 @@
 /// <reference path="lib/moment/moment.js" />
 /// <reference path="ngapp/app.js" />
 /// <reference path="ngapp/controllers/accountcontroller.js" />
+/// <reference path="ngApp/controllers/ConfEditController.js" />
 /// <reference path="ngapp/controllers/conferenceaddcontroller.js" />
 /// <reference path="ngapp/controllers/conferenceeditcontroller.js" />
 /// <reference path="ngapp/controllers/conferencemanagecontroller.js" />

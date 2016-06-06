@@ -379,10 +379,9 @@ namespace ConferenceApp.Models {
 
             for (int i = 0; i < Speakers.Count; i++) {
                 var speaker = Speakers[i];
-
                 var dbSpeaker = (from s in db.Speakers
-                                 where s.FirstName == speaker.FirstName && s.LastName == speaker.LastName
-                                 select s).FirstOrDefault();
+                                    where s.FirstName == speaker.FirstName && s.LastName == speaker.LastName
+                                    select s).FirstOrDefault();
 
                 if (dbSpeaker == null) {
                     db.Speakers.Add(speaker);

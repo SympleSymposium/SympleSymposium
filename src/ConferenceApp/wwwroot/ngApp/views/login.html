@@ -1,44 +1,42 @@
-<div class="log-back">
-    <div class="log-over">
-<div class="flex-center">
-    <md-card class="card card-back">
-        <div layout="column" layout-padding layout-align="center center" style="background-color: #B71C1C;">
-            <div>
-                <md-icon class="logo flex-center white" style="font-size: 48px; padding-right: 26px;">home</md-icon>
+<div class="log-back" layout="row" flex-grow="1">
+    <div class="log-over" layout="row" layout-align="center center" flex-grow="1">
+        <md-card class="card card-back">
+            <!--////////////////////////////////////-->
+            <div layout="column" layout-padding layout-align="center center" style="background-color: #FF6F00;">
+                <div>
+                    <md-icon class="logo flex-center white" style="font-size: 48px; padding-right: 26px;">home</md-icon>
+                </div>
+                <div class="md-headline md-padding white top">Login</div>
             </div>
-            <div class="md-headline md-padding white top">Login</div>
-        </div>
-        <div layout="row" layout-align="center" class="reg-info">
-            <ul>
-                <li ng-repeat="externalLogin in account.externalLogins">
-                    <a target="_self" href="/api/account/ExternalLogin?provider={{externalLogin.authenticationScheme}}&returnUrl=/">{{externalLogin.displayName}}</a>
-                </li>
-            </ul>
-            <ul>
-                <li ng-repeat="error in controller.validationMessages">
-                    {{error}}
-                </li>
-            </ul>
-            <form ng-submit="controller.login()" style="margin-left: 166px;">
-                <div class="top">
-                    <md-input-container class="md-warn input-field">
+            <div layout="column" layout-align="start center" class="reg-info">
+                <ul class="user-agent-counter">
+                    <li ng-repeat="externalLogin in account.externalLogins">
+                        <a target="_self" href="/api/account/ExternalLogin?provider={{externalLogin.authenticationScheme}}&returnUrl=/">{{externalLogin.displayName}}</a>
+                    </li>
+                </ul>
+                <ul class="user-agent-counter">
+                    <li ng-repeat="error in controller.validationMessages">
+                        {{error}}
+                    </li>
+                </ul>
+                <form ng-submit="controller.login()" layout="column" layout-align="start center">
+                    <md-input-container class="md-primary input-field top">
                         <label>Email</label>
                         <input type="text" ng-model="controller.loginUser.email">
                     </md-input-container>
-                </div>
-                <div class="pw">
-                    <md-input-container class="md-warn input-field">
+                    <md-input-container class="md-primary input-field pw">
                         <label>Password</label>
                         <input type="password" ng-model="controller.loginUser.password">
                     </md-input-container>
-                </div>
-                <md-button class="md-raised" input type="submit" value="Let's do this!"> Submit </md-button>
-                <div class="reg">
-                    <h5>Looking to <a class="indigo" href="/register">create an account?</a></h5>
-                </div>
-            </form>
-        </div>
-    </md-card>
-</div>
-</div>
+                    <md-button class="md-raised" type="submit" flex-offset="200" value="Let's do this!">
+                        <i class="fa fa-sign-in" type="submit" aria-hidden="true"></i>
+                        Submit
+                    </md-button>
+                    <div class="reg">
+                        <h5>Looking to <a class="indigo" href="/register">create an account?</a></h5>
+                    </div>
+                </form>
+            </div>
+        </md-card>
+    </div>
 </div>
