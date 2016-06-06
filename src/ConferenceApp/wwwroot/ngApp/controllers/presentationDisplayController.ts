@@ -16,10 +16,23 @@
                 });
         }
 
+        private ConfirmDelete() {
+            var confirm = this.$mdDialog.confirm()
+                .title('Would you like to delete this presentation?')
+                .textContent('This presentation will be deleted if you press the "Yes" button.')
+                //.template('/ngApp/views/presentationConfirmDeleteModal.html')
+                //.ariaLabel('Lucky day')
+                //.targetEvent()
+                .ok('Yes')
+                .cancel('Cancel');
+            return this.$mdDialog.show(confirm)
+        }
+
         constructor(public $http: ng.IHttpService,
             public $stateParams: ng.ui.IStateParamsService,
             public $state: ng.ui.IStateService,
-            private accountService: ConferenceApp.Services.AccountService) {
+            private accountService: ConferenceApp.Services.AccountService,
+            public $mdDialog: ng.material.IDialogService) {
             //console.log($stateParams['id']);
             
             accountService.toolbarTitle = "Manage Presentations";
@@ -29,16 +42,20 @@
 
         public DeletePresentation(id) {
             console.log(id);
-            this.$http.delete(`/api/presentations/${id}`)
-                .then((response) => {
-                    //this.$state.go("displayPresentations", { id: this.presentation.id });
-                    console.log(response.data);
-                    this.GetPresentations();
-                })
-                .catch((response) => {
-                    console.log(response.data);
-                });
+            //Added delete confirmation modal
+            this.ConfirmDelete()
+                .then(() => {
+                    this.$http.delete(`/api/presentations/${id}`)
+                        .then((response) => {
+                            //this.$state.go("displayPresentations", { id: this.presentation.id });
+                            console.log(response.data);
+                            this.GetPresentations();
+                        })
+                        .catch((response) => {
+                            console.log(response.data);
+                        });
 
+                });
         }
 
 
