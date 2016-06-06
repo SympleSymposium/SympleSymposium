@@ -4,7 +4,7 @@
             <md-content layout-padding>
                 <div>
                     <form name="userForm">
-                        <div layout="column" >
+                        <div layout="column">
                             <md-input-container>
                                 <label>Speaker</label>
                                 <md-select ng-model="controller.speakerId">
@@ -31,14 +31,10 @@
                             </md-input-container>
                         </div>
                         <div layout="row" layout-align="center center">
-                            <md-input-container class="md-block" flex>
-                                <label>Start Time</label>
-                                <mdp-time-picker ng-model="controller.conference.startTime" mdp-auto-switch="true"></mdp-time-picker>
-                            </md-input-container>
-                            <md-input-container class="md-block" flex>
-                                <label>End Time</label>
-                                <mdp-time-picker ng-model="controller.conference.endTime" mdp-auto-switch="true"></mdp-time-picker>
-                            </md-input-container>
+
+                            <mdp-time-picker ng-model="controller.conference.startTime" mdp-auto-switch="true" mdp-label="Start Time"></mdp-time-picker>
+                            <mdp-time-picker ng-model="controller.conference.endTime" mdp-auto-switch="true" mdp-label="End Time"></mdp-time-picker>
+
                         </div>
                         <div layout="row" layout-align="center">
                             <md-button ui-sref="conferenceManage({id:conference.id})" class="md-raised md-primary">
