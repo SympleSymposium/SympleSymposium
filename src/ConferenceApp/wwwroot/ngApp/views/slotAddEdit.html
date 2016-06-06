@@ -4,31 +4,39 @@
             <md-content layout-padding>
                 <div>
                     <form name="userForm">
-                        <md-input-container>
-                            <label>Speaker</label>
-                            <md-select ng-model="controller.speakerId">
-                                <md-option ng-repeat="speaker in controller.speakers" value="{{speaker.Id}}">
-                                    {{speaker.firstName}} {{speaker.lastName}}
-                                </md-option>
-                            </md-select>
-                        </md-input-container>
-                        <md-input-container class="md-block">
-                            <label>Select Presentation</label>
-                            <input ng-model="controller.conference.name">
-                        </md-input-container>
-                        <md-input-container class="md-block">
-                            <label>Select Room</label>
-                            <input ng-model="controller.conference.name">
-                        </md-input-container>
-                        <md-input-container class="md-block">
-                            <label>Start Time</label>
-                            <mdp-time-picker ng-model="controller.conference.startTime" mdp-auto-switch="true"></mdp-time-picker>
-                        </md-input-container>
-                        <md-input-container class="md-block">
-                            <label>End Time</label>
-                            <mdp-time-picker ng-model="controller.conference.endTime" mdp-auto-switch="true"></mdp-time-picker>
-                        </md-input-container>
-                        <div layout="row">
+                        <div layout="column">
+                            <md-input-container>
+                                <label>Speaker</label>
+                                <md-select ng-model="controller.speakerId">
+                                    <md-option ng-repeat="speaker in controller.speakers" value="{{speaker.id}}">
+                                        {{speaker.firstName}} {{speaker.lastName}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Presentation</label>
+                                <md-select ng-model="controller.presentationId">
+                                    <md-option ng-repeat="presentation in controller.presentations" value="{{presentation.id}}">
+                                        {{presentation.title}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Room</label>
+                                <md-select ng-model="controller.roomId">
+                                    <md-option ng-repeat="room in controller.rooms" value="{{room.id}}">
+                                        {{room.name}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div layout="row" layout-align="center center">
+
+                            <mdp-time-picker ng-model="controller.conference.startTime" mdp-auto-switch="true" mdp-label="Start Time"></mdp-time-picker>
+                            <mdp-time-picker ng-model="controller.conference.endTime" mdp-auto-switch="true" mdp-label="End Time"></mdp-time-picker>
+
+                        </div>
+                        <div layout="row" layout-align="center">
                             <md-button ui-sref="conferenceManage({id:conference.id})" class="md-raised md-primary">
                                 Cancel
                             </md-button>

@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="left-blank"></div>
-            
+
             <div class="room-col" layout="column" layout-align="center stretch" flex ng-repeat="r in controller.conference.rooms">
                 <div class="room-headers" layout="row">
                     <div class="room-header" flex>
@@ -18,12 +18,16 @@
                     </div>
                 </div>
                 <div class="schedule-cell" flex>
-                    <div class="slot" 
+                    <div class="slot"
                          ng-repeat="s in r.slots.sort()
                                        |filter:{room: r.name, day: controller.currentDay}"
                          style="top:{{s.top}}%; height:calc({{s.height}}% - 1px);"
                          ng-click="controller.editSlot($event, s)">
-                        <div layout layout-align="center center">{{s.presentation.title}}</div>
+                        <div layout="column" layout-align="center center">
+                            <div>{{s.presentation.title}}</div>
+                            <div>Speaker: {{s.speaker.firstName}} {{s.speaker.lastName}}</div>
+                            <div>{{s.startTime}} to {{s.endTime}}</div>
+                        </div>
                     </div>
 
                 </div>
@@ -38,13 +42,13 @@
             <div>{{controller.currentDay|date:"M/d/yyyy"}}</div>
         </div>
         <div layout="row" layout-align="center center">
-            <md-button class="day-button md-raised md-primary" 
-                       ng-disabled="controller.backDisabled()" 
+            <md-button class="day-button md-raised md-primary"
+                       ng-disabled="controller.backDisabled()"
                        ng-click="controller.moveDay(-1)">
                 <
             </md-button>
-            <md-button class="day-button md-raised md-primary" 
-                       ng-disabled="controller.forwardDisabled()" 
+            <md-button class="day-button md-raised md-primary"
+                       ng-disabled="controller.forwardDisabled()"
                        ng-click="controller.moveDay(1)">
                 >
             </md-button>
