@@ -14,7 +14,8 @@
     "angular-ui-router": "^0.3.0",
     "angular-material": "^1.0.9",
     "moment": "^2.13.0",
-    "mdPickers": "https://github.com/brockm87/mdPickers.git"
+    "mdPickers": "https://github.com/brockm87/mdPickers.git",
+    "font-awesome": "^4.6.3"
   },
   "resolutions": {
     "angular": "^1.0.8",
