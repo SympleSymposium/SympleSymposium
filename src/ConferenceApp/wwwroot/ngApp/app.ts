@@ -69,7 +69,7 @@ namespace ConferenceApp {
                 })
                 .state('presentationAdd', {
                     url: '/presentations/add/:id',
-                    templateUrl: '/ngApp/views/presentationEdit.html',
+                    templateUrl: '/ngApp/views/presentationAddEdit.html',
                     controller: ConferenceApp.Controllers.PresentationAddController,
                     controllerAs: 'controller'
                 })
