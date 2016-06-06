@@ -22,11 +22,11 @@
                         </md-input-container>
                         <md-input-container class="md-block">
                             <label>Start Time</label>
-                            <input ng-model="controller.conference.name">
+                            <mdp-time-picker ng-model="controller.conference.startTime" mdp-auto-switch="true"></mdp-time-picker>
                         </md-input-container>
                         <md-input-container class="md-block">
                             <label>End Time</label>
-                            <input ng-model="controller.conference.name">
+                            <mdp-time-picker ng-model="controller.conference.endTime" mdp-auto-switch="true"></mdp-time-picker>
                         </md-input-container>
                         <div layout="row">
                             <md-button ui-sref="conferenceManage({id:conference.id})" class="md-raised md-primary">

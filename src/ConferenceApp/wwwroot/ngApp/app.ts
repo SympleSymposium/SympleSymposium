@@ -1,6 +1,6 @@
 namespace ConferenceApp {
 
-    angular.module('ConferenceApp', ['ui.router', 'ngResource', 'ngMaterial'])
+    angular.module('ConferenceApp', ['ui.router', 'ngResource', 'ngMaterial', 'mdPickers'])
         .config((
             $stateProvider: ng.ui.IStateProvider,
             $urlRouterProvider: ng.ui.IUrlRouterProvider,
