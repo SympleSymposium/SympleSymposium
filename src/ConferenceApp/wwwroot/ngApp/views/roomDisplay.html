@@ -3,7 +3,7 @@
         Back
     </md-button>
     <md-button ui-sref="roomAdd({id:controller.$stateParams['id']})" class="md-raised md-primary">
-        Add
+        <i class="fa fa-plus" aria-hidden="true">Add</i>
     </md-button>
 </div>
 <div layout="column" layout-align="start start">
@@ -20,14 +20,14 @@
             </td>
             <td>
                 <md-button ui-sref="roomEdit({id:room.id})" class="md-raised md-primary">
-                    Edit
+                    <i class="fa fa-pencil-square-o" aria-hidden="true">Edit</i>
                 </md-button>
             </td>
-            <td>
+            <!--<td>
                 <md-button ng-click="controller.DeleteRoom(room.id)" class="md-raised md-primary">
                     Delete
                 </md-button>
-            </td>
+            </td>-->
         </tr>
     </table>
 </div>
