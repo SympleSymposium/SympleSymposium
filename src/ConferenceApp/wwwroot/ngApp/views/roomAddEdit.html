@@ -15,8 +15,9 @@
                             <md-button ng-click="controller.DeleteRoom(room.id)" ng-show="controller.showDelete" class="md-raised md-primary">
                                 <i class="fa fa-trash" aria-hidden="true">Delete</i>
                             </md-button>
-                            <md-button ng-click="controller.AddRoom()" class="md-raised md-primary">
-                                <i class="fa fa-plus-square-o">Submit</i>
+                            <md-button ng-click="controller.AddRoom()" class="md-raised md-primary" type="submit">
+                                <i class="fa fa-plus-square-o" type="submit" aria-hidden="true"></i>
+                                Submit
                             </md-button>
                         </div>
                     </form>
