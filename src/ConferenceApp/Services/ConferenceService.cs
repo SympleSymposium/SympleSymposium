@@ -12,11 +12,13 @@ namespace ConferenceApp.Services {
         private ConferenceRepository _confRepo;
         private AddressRepository _addressRepo;
         private UserRepository _userRepo;
+        private SlotRepository _slotRepo;
 
-        public ConferenceService(ConferenceRepository confRepo, AddressRepository addressRepo, UserRepository userRepo) {
+        public ConferenceService(ConferenceRepository confRepo, AddressRepository addressRepo, UserRepository userRepo, SlotRepository slotRepo) {
             _confRepo = confRepo;
             _addressRepo = addressRepo;
             _userRepo = userRepo;
+            _slotRepo = slotRepo;
         }
 
         public IList<ConferenceDTO> GetConferenceList(string organizerName) {
@@ -55,13 +57,14 @@ namespace ConferenceApp.Services {
                         ImageUrl = c.ImageUrl,
                         Rooms = (from r in c.Rooms
                                  select new RoomDTO() {
+                                     Id = r.Id,
+                                     ConferenceId = r.ConferenceId,
                                      Name = r.Name,
                                      Slots = (from s in r.Slots
                                               select new SlotDTO() {
                                                   Id = s.Id,
                                                   StartTime = s.StartTime,
                                                   EndTime = s.EndTime,
-                                                  Room = s.Room.Name,
                                                   Presentation = new PresentationDTO() {
                                                       Title = s.Presentation.Title,
                                                       Description = s.Presentation.Description

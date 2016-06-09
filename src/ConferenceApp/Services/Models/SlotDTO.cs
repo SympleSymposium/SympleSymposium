@@ -10,7 +10,7 @@ namespace ConferenceApp.Services.Models
         public int Id { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public string Room { get; set; }
+        public RoomDTO Room { get; set; }
         public SpeakerDTO Speaker { get; set; }               
         public PresentationDTO Presentation { get; set; }
     }

@@ -21,6 +21,13 @@ namespace ConferenceApp.Infrastructure
                     select s);
         }
 
+        public IQueryable<Slot> GetById(int id)
+        {
+            return (from s in _db.Slots
+                    where s.Id == id
+                    select s);
+        }
+
         public void AddSlot(Slot slot) {
             _db.Slots.Add(slot);
 
@@ -45,6 +52,11 @@ namespace ConferenceApp.Infrastructure
         public void DeleteRelatedSlots(IList<Slot> relatedSlots)
         {
             _db.Slots.RemoveRange(relatedSlots);
+        }
+
+        public void Delete(Slot slot)
+        {
+            _db.Slots.Remove(slot);
         }
     }
 }

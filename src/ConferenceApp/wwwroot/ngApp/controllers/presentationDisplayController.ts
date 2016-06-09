@@ -42,7 +42,7 @@
 
         public DeletePresentation(id) {
             console.log(id);
-            //Added delete confirmation modal
+            //Added delete confirmation modal. The method returns a promise.
             this.ConfirmDelete()
                 .then(() => {
                     this.$http.delete(`/api/presentations/${id}`)

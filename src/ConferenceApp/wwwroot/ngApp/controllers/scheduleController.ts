@@ -51,12 +51,13 @@
             private $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService,
             private accountService: ConferenceApp.Services.AccountService) {
-
+            console.log("bye");
             accountService.toolbarTitle = "Presentation Schedule";
 
             $http.get('/api/conferences/' + $stateParams['id'])
                 .then((response) => {
                     this.conference = response.data;
+                    console.log(this.conference);
 
                     //Creates list of days in the conference
                     this.firstDay = moment(this.conference.startDate);

@@ -19,10 +19,10 @@
                 </div>
                 <div class="schedule-cell" flex>
                     <div class="slot" 
-                         ng-repeat="s in r.slots.sort()
-                                       |filter:{room: r.name, day: controller.currentDay}"
+                         ng-repeat="s in r.slots
+                                       |filter:{day: controller.currentDay}"
                          style="top:{{s.top}}%; height:calc({{s.height}}% - 1px);"
-                         ng-click="controller.editSlot($event, s)">
+                         ui-sref="slotEdit({id:s.id})">
                         <div layout layout-align="center center">{{s.presentation.title}}</div>
                     </div>
 
@@ -31,27 +31,55 @@
             </>
         </div>
     </md-whiteframe>
-    <md-whiteframe class="right-panel-container md-whiteframe-5dp" layout="column">
+    <md-whiteframe class="right-panel-container md-whiteframe-4dp" style="border:1px solid white; box-shadow: none" layout="column">
         <div class="cur-week-label" layout="column" layout-align="center center">
-            <br />
-            Day of Conference: <br />
-            <div>{{controller.currentDay|date:"M/d/yyyy"}}</div>
+            <!--New part for side nav-->
+            <!--<div class="cur-week-label" layout="column" layout-align="start end">-->
+            <md-sidenav class="md-sidenav-right"
+                        md-component-id="right"
+                        md-is-locked-open="$mdMedia('gt-md')"
+                        md-disable-backdrop
+                        md-whiteframe="4"
+                        ng-cloak>
+                <br />
+                Day of Conference: <br />
+                <div>{{controller.currentDay|date:"M/d/yyyy"}}</div>
+                <br />
+                <!--<div layout="row" layout-align="center center">
+                    <md-button class="day-button md-raised md-primary"
+                               ng-disabled="controller.backDisabled()"
+                               ng-click="controller.moveDay(-1)">
+
+                    </md-button>
+                    <md-button class="day-button md-raised md-primary"
+                               ng-disabled="controller.forwardDisabled()"
+                               ng-click="controller.moveDay(1)">
+
+                    </md-button>
+                </div>-->
+                <md-button class="md-raised md-primary"
+                           ui-sref="displayRooms({id:controller.conference.id})">
+                    Edit Rooms
+                </md-button>
+                <md-button class="md-raised md-primary"
+                           ui-sref="displayPresentations({id:controller.conference.id})">
+                    Edit Presentations
+                </md-button>
+                <md-button class="md-raised md-primary"
+                           ui-sref="displaySpeakers({id:controller.conference.id})">
+                    Edit Speakers
+                </md-button>
+                <!--<md-button class="md-raised md-primary"
+                           ui-sref="slotAdd({id:controller.conference.id})">
+                    Add Slot
+                </md-button>-->
+                <br />
+                <b>{{controller.conference.name}}</b>
+                <p style="margin: 0">{{controller.conference.street}}</p>
+                <p style="margin: 0">{{controller.conference.city}}, {{controller.conference.state}} {{controller.conference.zip}}</p>
+                <br />
+                <img ng-src="{{controller.conference.imageUrl}}"/>
+            </md-sidenav>
         </div>
-        <div layout="row" layout-align="center center">
-            <md-button class="day-button md-raised md-primary" 
-                       ng-disabled="controller.backDisabled()" 
-                       ng-click="controller.moveDay(-1)">
-                <
-            </md-button>
-            <md-button class="day-button md-raised md-primary" 
-                       ng-disabled="controller.forwardDisabled()" 
-                       ng-click="controller.moveDay(1)">
-                >
-            </md-button>
-        </div>
-        <md-button class="md-raised md-primary"
-                   ui-sref="displayRooms({id:controller.conference.id})">
-            Edit Rooms
-        </md-button>
     </md-whiteframe>
 </div>
