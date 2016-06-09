@@ -34,6 +34,8 @@
         public AddSlot() {
 
             console.log(this.newSlot);
+            console.log(moment(this.newSlot.startTime));
+            console.log(moment(this.newSlot.startTime).utc);
 
             this.newSlot.conferenceId = parseInt(this.$stateParams['id']);
 

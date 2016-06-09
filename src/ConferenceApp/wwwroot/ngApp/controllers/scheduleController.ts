@@ -51,12 +51,12 @@
             private $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService,
             private accountService: ConferenceApp.Services.AccountService) {
-            console.log("bye");
+
             accountService.toolbarTitle = "Presentation Schedule";
 
             $http.get('/api/conferences/' + $stateParams['id'])
                 .then((response) => {
-                    console.log(response.data);
+                    //console.log(response.data);
                     this.conference = response.data;
 
 
@@ -78,6 +78,7 @@
                     //Calculates the layout for the schedule
                     this.conference.rooms.forEach((room) => {
                         room.slots.forEach((slot) => {
+                            //console.log(moment.utc(slot.startTime).format());
                             let startMinute = moment(slot.startTime).hour() * 60 + moment(slot.startTime).minute();
                             let endMinute = moment(slot.endTime).hour() * 60 + moment(slot.endTime).minute();
                             slot.top = (startMinute / 60 - 8) / 10 * 100;

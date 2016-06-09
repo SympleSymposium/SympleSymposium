@@ -14,7 +14,7 @@
             private $stateParams: ng.ui.IStateParamsService,
             private accountService: ConferenceApp.Services.AccountService,
             public $mdDialog: ng.material.IDialogService) {
-            console.log('edit');
+            //console.log('edit');
 
             accountService.toolbarTitle = "Edit Slot";
 
@@ -24,14 +24,12 @@
                     this.slot = response.data;
                     this.slot.startTime = moment(this.slot.startTime).toDate();
                     this.slot.endTime = moment(this.slot.endTime).toDate();
-                    console.log(this.slot);
+
 
                     //these $http.gets are to build the dropdown list for speakers, presentations, and rooms
                     $http.get('/api/speakers/manage/' + this.slot.presentation.conferenceId)
                         .then((response) => {
                             this.speakers = response.data;
-                            //console.log("speakers");
-                            //console.log(this.speakers);
                         })
 
                     $http.get('/api/presentations/manage/' + this.slot.presentation.conferenceId)
@@ -54,8 +52,11 @@
 
             let editedSlot = {
                 id: this.slot.id,
-                endTime: this.slot.endTime,
-                startTime: this.slot.startTime,
+
+                //Start time and end time must be formatted like this to deal with local times
+                startTime: moment(this.slot.startTime).format("M/D/YYYY h:mm:ss A"),
+                endTime: moment(this.slot.endTime).format("M/D/YYYY h:mm:ss A"),
+                
                 presentationId: this.slot.presentation.id,
                 speakerId: this.slot.speaker.id,
                 roomId: this.slot.room.id
@@ -63,7 +64,6 @@
 
             this.$http.post('/api/slots/' + editedSlot.id, editedSlot)
                 .then((response) => {
-                    //console.log(editedSlot);
                     this.$state.go("schedule", { id: this.slot.room.conferenceId });
                 })
         }
