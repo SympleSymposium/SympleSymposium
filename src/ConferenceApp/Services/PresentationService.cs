@@ -36,7 +36,12 @@ namespace ConferenceApp.Services
                                      Id = s.Id,
                                      StartTime = s.StartTime,
                                      EndTime = s.EndTime,
-                                     Room = s.Room.Name,
+                                     Room = new RoomDTO()
+                                     {
+                                         Id = s.Room.Id,
+                                         Name = s.Room.Name,
+                                         ConferenceId = s.Room.ConferenceId
+                                     },
                                      Speaker = new SpeakerDTO
                                      {
                                          FirstName = s.Speaker.FirstName,

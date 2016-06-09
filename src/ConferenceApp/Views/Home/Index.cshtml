@@ -42,11 +42,13 @@
     <script src="~/ngapp/controllers/schedulecontroller.js"></script>
     <script src="~/ngapp/controllers/presentationaddcontroller.js"></script>
     <script src="~/ngapp/controllers/slotaddcontroller.js"></script>
+    <script src="~/ngapp/controllers/sloteditcontroller.js"></script>
     <script src="~/ngapp/controllers/presentationdisplaycontroller.js"></script>
     <script src="~/ngapp/controllers/presentationeditcontroller.js"></script>
     <script src="~/ngapp/controllers/speakeraddcontroller.js"></script>
     <script src="~/ngapp/controllers/speakerdisplaycontroller.js"></script>
     <script src="~/ngapp/controllers/speakereditcontroller.js"></script>
+    <script src="~/ngapp/controllers/toolbar.js"></script>
 
     <!-- Services-->
     <script src="~/ngapp/services/accountservice.js"></script>
@@ -56,13 +58,15 @@
 <body ng-controller="AccountController as account" ng-cloak layout="column">
 
     <md-toolbar>
-        <div class="md-toolbar-tools">
+        <div class="md-toolbar-tools" ng-controller="ToolbarController as toolbar">
             @*<md-button ui-sref="conferenceManage">
                     Home
                 </md-button>*@
-            <h2>
-                <span>{{account.getToolbarTitle()}}</span>
-            </h2>
+            <div class="breadcrumbs">
+                <div ui-sref="home"><img src="~/ngApp/images/logo.png" /></div>
+                <div ng-repeat="breadcrumb in toolbar.breadcrumbs | limitTo:toolbar.breadcrumbs.length - 1" ui-sref="{{breadcrumb.link}}">{{breadcrumb.text}}</div>
+                <div ng-if="toolbar.lastBreadcrumb">{{toolbar.lastBreadcrumb.text}}</div>
+            </div>
             <span flex></span>
             <h5 ng-show="account.isLoggedIn()">
                 <span>{{account.getUserName()}}</span>
@@ -73,7 +77,7 @@
     </md-toolbar>
 
 
-    <ui-view flex-grow="1" layout="row"></ui-view>
+    <ui-view flex-grow="1" layout="column"></ui-view>
 
 </body>
 </html>

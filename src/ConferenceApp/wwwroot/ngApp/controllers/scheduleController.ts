@@ -51,12 +51,14 @@
             private $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService,
             private accountService: ConferenceApp.Services.AccountService) {
-
+            console.log("bye");
             accountService.toolbarTitle = "Presentation Schedule";
 
             $http.get('/api/conferences/' + $stateParams['id'])
                 .then((response) => {
+                    console.log(response.data);
                     this.conference = response.data;
+
 
                     //Creates list of days in the conference
                     this.firstDay = moment(this.conference.startDate);
@@ -85,15 +87,15 @@
                             slot.day = moment(slot.startTime).format("M/D/YYYY");
 
                             //Format start and endtime for display
-                            slot.startTime = moment(slot.startTime).format("h:mm A");
-                            slot.endTime = moment(slot.endTime).format("h:mm A");
-                            
+                            slot.startTimeDisplay = moment(slot.startTime).format("h:mm A");
+                            slot.endTimeDisplay = moment(slot.endTime).format("h:mm A");
+
                         })
                     });
 
-                    
 
-                    console.log(this.conference);
+
+                    //console.log(this.conference);
                 })
                 .catch((response) => {
                     console.log(response.data);

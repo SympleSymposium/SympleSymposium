@@ -1,55 +1,86 @@
-﻿<div class="flex-center">
+﻿<div layout="column" layout-align="center center" flex>
     <md-card class="card">
-        <div layout="column" ng-cloak class="md-inline-form">
-            <md-content layout-padding>
-                <div>
-                    <form name="userForm">
+        <md-toolbar class="md-{{controller.theme}}">
+            <div class="md-toolbar-tools">
+                <md-icon>{{controller.icon}}</md-icon>
+                <span flex style="margin-left:10px;">{{controller.title}}</span>
+            </div>
+        </md-toolbar>
+        <md-content layout-padding layout="column" ng-cloak class="md-inline-form">
+            <div>
+                <form name="userForm" ng-submit="controller.UpdateConference()">
+                    <md-input-container class="md-block">
+                        <label>Conference Name</label>
+                        <input ng-model="controller.conference.name">
+                    </md-input-container>
+                    <div layout="row">
+                        <md-datepicker ng-model="controller.conference.startDate" md-placeholder="Start Date">
+                        </md-datepicker>
+                        <md-datepicker ng-model="controller.conference.endDate" md-placeholder="End Date">
+                        </md-datepicker>
+                    </div>
+                    <md-input-container class="md-block" flex>
+                        <label>Street</label>
+                        <input ng-model="controller.conference.street">
+                    </md-input-container>
+                    <div layout="row" class="md-block">
                         <md-input-container class="md-block">
-                            <label>Conference Name</label>
-                            <input ng-model="controller.conference.name">
+                            <label>City</label>
+                            <input ng-model="controller.conference.city">
                         </md-input-container>
-                        <div layout="row">
-                            <md-datepicker ng-model="controller.conference.startDate" md-placeholder="Start Date">
-                            </md-datepicker>
-                            <md-datepicker ng-model="controller.conference.endDate" md-placeholder="End Date">
-                            </md-datepicker>
-                        </div>
-                        <md-input-container class="md-block" flex>
-                            <label>Street</label>
-                            <input ng-model="controller.conference.street">
+                        <md-input-container class="md-block">
+                            <label>State</label>
+                            <input ng-model="controller.conference.state">
                         </md-input-container>
-                        <div layout="row" class="md-block">
-                            <md-input-container class="md-block">
-                                <label>City</label>
-                                <input ng-model="controller.conference.city">
-                            </md-input-container>
-                            <md-input-container class="md-block">
-                                <label>State</label>
-                                <input ng-model="controller.conference.state">
-                            </md-input-container>
-                            <md-input-container class="md-block">
-                                <label>Zip</label>
-                                <input ng-model="controller.conference.zip">
-                            </md-input-container>
-                        </div>
-                        <md-input-container class="md-block" flex>
-                            <label>Logo URL</label>
-                            <input ng-model="controller.conference.imageUrl">
+                        <md-input-container class="md-block">
+                            <label>Zip</label>
+                            <input ng-model="controller.conference.zip">
                         </md-input-container>
-                        <div layout="row">
-                            <md-button ui-sref="conferenceManage({id:conference.id})" class="md-raised md-primary">
-                                Cancel
-                            </md-button>
-                            <md-button ng-click="controller.DeleteConference()" ng-show="controller.showDelete"class="md-raised md-primary">
-                                Delete
-                            </md-button>
-                            <md-button ng-click="controller.SubmitConference()" class="md-raised md-primary">
-                                Submit
-                            </md-button>
-                        </div>
-                    </form>
+                    </div>
+                    <md-input-container class="md-block" flex>
+                        <label>Logo URL</label>
+                        <input ng-model="controller.conference.imageUrl">
+                    </md-input-container>
+                    <div layout="row" layout-align="center">
+                        <md-button ng-click="controller.cancel()" class="md-fab md-{{controller.theme}}">
+                            <md-tooltip md-direction="top">Cancel</md-tooltip>
+                            <md-icon>clear</md-icon>
+                        </md-button>
+                        <md-button ng-click="controller.DeleteConference()" ng-show="controller.showDelete" class="md-fab md-{{controller.theme}}">
+                            <md-tooltip md-direction="top">Delete</md-tooltip>
+                            <md-icon>delete</md-icon>
+                        </md-button>
+                        <md-button class="md-fab md-{{controller.theme}}" type="submit">
+                            <md-tooltip md-direction="top">Submit</md-tooltip>
+                            <md-icon>done</md-icon>
+                        </md-button>
+                    </div>
+                </form>
                 </div>
-            </md-content>
-        </div>
+        </md-content>
     </md-card>
 </div>
+
+
+
+
+
+
+
+<!--<div layout="row">
+    <md-button ui-sref="conferenceManage({id:conference.id})" class="md-raised md-primary">
+        Cancel
+    </md-button>
+    <md-button ng-click="controller.DeleteConference()" ng-show="controller.showDelete" class="md-raised md-primary">
+        Delete
+    </md-button>
+    <md-button ng-click="controller.SubmitConference()" class="md-raised md-primary">
+        Submit
+    </md-button>
+</div>
+                </form>
+            </div>
+        </md-content>
+</div>
+    </md-card>
+</div>-->

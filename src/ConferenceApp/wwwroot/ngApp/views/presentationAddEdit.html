@@ -1,39 +1,40 @@
-﻿<div ng-show="controller.editView">
-    <form name="userForm">
-        <md-input-container class="md-block">
-            <label>Edit Presentation:</label>
-            <input ng-model="controller.presentation.title">
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>Edit Description:</label>
-            <input ng-model="controller.presentation.description">
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>Edit Image Url:</label>
-            <input ng-model="controller.presentation.imageUrl">
-        </md-input-container>
-    </form>
-    <md-button ng-click="controller.EditPresentation(presentation.id)" class="md-raised md-primary">
-        Submit
-    </md-button>
-</div>
-
-<div ng-show="controller.addView">
-    <form name="userForm">
-        <md-input-container class="md-block">
-            <label>Add Presentation:</label>
-            <input ng-model="controller.presentation.title">
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>Add Description:</label>
-            <input ng-model="controller.presentation.description">
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>Add Image Url:</label>
-            <input ng-model="controller.presentation.imageUrl">
-        </md-input-container>
-    </form>
-    <md-button ng-click="controller.AddPresentation()" class="md-raised md-primary">
-        Submit
-    </md-button>
+﻿<div layout="column" layout-align="center center" flex>
+    <md-card class="card">
+        <md-toolbar class="md-{{controller.theme}}">
+            <div class="md-toolbar-tools">
+                <md-icon>{{controller.icon}}</md-icon>
+                <span flex style="margin-left:10px;">{{controller.title}}</span>
+            </div>
+        </md-toolbar>
+        <md-content layout-padding layout="column" ng-cloak class="md-inline-form">
+            <form name="userForm" ng-submit="controller.UpdatePresentation()">
+                <md-input-container class="md-block">
+                    <label>Presentation</label>
+                    <input ng-model="controller.presentation.title">
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Description</label>
+                    <input ng-model="controller.presentation.description">
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Image Url</label>
+                    <input ng-model="controller.presentation.imageUrl">
+                </md-input-container>
+                <div layout="row" layout-align="center">
+                    <md-button ng-click="controller.cancel()" class="md-fab md-{{controller.theme}}">
+                        <md-tooltip md-direction="top">Cancel</md-tooltip>
+                        <md-icon>clear</md-icon>
+                    </md-button>
+                    <md-button ng-click="controller.DeletePresentation(controller.presentation.id)" ng-show="controller.showDelete" class="md-fab md-{{controller.theme}}">
+                        <md-tooltip md-direction="top">Delete</md-tooltip>
+                        <md-icon>delete</md-icon>
+                    </md-button>
+                    <md-button class="md-fab md-{{controller.theme}}" type="submit">
+                        <md-tooltip md-direction="top">Submit</md-tooltip>
+                        <md-icon>done</md-icon>
+                    </md-button>
+                </div>
+            </form>
+        </md-content>
+    </md-card>
 </div>

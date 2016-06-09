@@ -30,19 +30,44 @@ namespace ConferenceApp.Controllers
             return _slotServ.GetSlotList(conferenceId);
         }
 
+        // Get slot for specific conference
+        // GET: api/slots/edit/2
+        [HttpGet("edit/{id}")]
+        public SlotDTO GetSlot(int id)
+        {
+            return _slotServ.GetSlot(id);
+        }
+
         // Add slot
-        // POST api/slot
+        // POST api/slots
         [HttpPost]
         [Authorize]
-        public IActionResult Post([FromBody]SlotViewModel slot) {
+        public IActionResult Post([FromBody]SlotViewModel slot)
+        {
 
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 _slotServ.AddSlot(slot);
                 return Ok(slot);
             }
             return HttpBadRequest(ModelState);
         }
 
+        // Edit slot
+        // POST api/slots/5
+        [HttpPost("{id}")]
+        public IActionResult Post(int id, [FromBody]SlotViewModel slot)
+        {
+            if (slot == null)
+            {
+                throw new Exception("Could not find slot with id " + id);
+            }
+
+            //Wendy - NEED TO MAKE SURE Admins can add new rooms
+            _slotServ.UpdateSlot(id, slot);
+
+            return Ok();
+        }
         //// POST api/values
         //[HttpPost]
         //public void Post([FromBody]string value)
@@ -55,10 +80,12 @@ namespace ConferenceApp.Controllers
         {
         }
 
-        // DELETE api/values/5
+        // Delete slot
+        // DELETE api/slots/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _slotServ.DeleteSlot(id);
         }
     }
 }

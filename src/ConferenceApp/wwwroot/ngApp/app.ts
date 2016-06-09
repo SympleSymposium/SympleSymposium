@@ -31,6 +31,12 @@ namespace ConferenceApp {
                     controller: ConferenceApp.Controllers.SlotAddController,
                     controllerAs: 'controller'
                 })
+                .state('slotEdit', {
+                    url: '/slots/edit/:id',
+                    templateUrl: '/ngApp/views/slotAddEdit.html',
+                    controller: ConferenceApp.Controllers.SlotEditController,
+                    controllerAs: 'controller'
+                })
                 .state('conferenceEdit', {
                     url: '/conferences/edit/:id',
                     templateUrl: '/ngApp/views/conferenceAddEdit.html',

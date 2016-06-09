@@ -3,7 +3,7 @@
     export class PresentationDisplayController {
         public presentation;
 
-        private GetPresentations() {
+        private UpdatePresentations() {
             this.$http.get(`/api/presentations/manage/${this.$stateParams['id']}`)
                 //$http.get(`/api/rooms/${this.rooms.conferenceId}`)
                 .then((response) => {
@@ -20,9 +20,11 @@
             var confirm = this.$mdDialog.confirm()
                 .title('Would you like to delete this presentation?')
                 .textContent('This presentation will be deleted if you press the "Yes" button.')
-                //.template('/ngApp/views/presentationConfirmDeleteModal.html')
-                //.ariaLabel('Lucky day')
-                //.targetEvent()
+
+                .template('/ngApp/views/presentationConfirmDeleteModal.html')
+                .ariaLabel('Lucky day')
+                .targetEvent()
+
                 .ok('Yes')
                 .cancel('Cancel');
             return this.$mdDialog.show(confirm)
@@ -37,19 +39,19 @@
             
             accountService.toolbarTitle = "Manage Presentations";
 
-            this.GetPresentations();
+            this.UpdatePresentations();
         }
 
         public DeletePresentation(id) {
             console.log(id);
-            //Added delete confirmation modal
+            //Added delete confirmation modal. The method returns a promise.
             this.ConfirmDelete()
                 .then(() => {
                     this.$http.delete(`/api/presentations/${id}`)
                         .then((response) => {
                             //this.$state.go("displayPresentations", { id: this.presentation.id });
                             console.log(response.data);
-                            this.GetPresentations();
+                            this.UpdatePresentations();
                         })
                         .catch((response) => {
                             console.log(response.data);

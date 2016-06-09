@@ -13,7 +13,7 @@
                     console.log(response.data);
                 });
         }
-         
+
         constructor(private $http: ng.IHttpService,
             private $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService,
@@ -22,18 +22,8 @@
             accountService.toolbarTitle = "Manage Rooms";
 
             this.GetRooms();
-
-
         }
-        public DeleteRoom(id) {
-            this.$http.delete(`/api/rooms/${id}`)
-                .then((response) => {
-                    this.GetRooms();
-                })
-                .catch((response) => {
-                    console.log(response.data);
-                });
 
-        }
+        
     }
 }

@@ -25,20 +25,6 @@
             this.GetSpeakers();
         }
 
-        public DeleteSpeaker(id) {
-            console.log(id);
-            console.log("In delete method.");
-            this.$http.delete(`/api/speakers/${id}`)
-                .then((response) => {
-                    this.GetSpeakers();
-                    console.log("In delete method after GetSpeakers.");
-                })
-                .catch((response) => {
-                    console.log(response.data);
-                });
-
-        }
-
 
     }
 }

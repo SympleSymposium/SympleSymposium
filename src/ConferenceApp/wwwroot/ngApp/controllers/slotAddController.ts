@@ -11,7 +11,7 @@
             private $state: ng.ui.IStateService,
             private $stateParams: ng.ui.IStateParamsService,
             private accountService: ConferenceApp.Services.AccountService) {
-
+            console.log('add');
             accountService.toolbarTitle = "Add Slot";
 
             $http.get('/api/speakers/manage/' + $stateParams['id'])
@@ -32,6 +32,8 @@
         }
 
         public AddSlot() {
+
+            console.log(this.newSlot);
 
             this.newSlot.conferenceId = parseInt(this.$stateParams['id']);
 

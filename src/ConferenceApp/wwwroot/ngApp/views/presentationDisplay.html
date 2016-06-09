@@ -1,46 +1,51 @@
-﻿<div layout="row" layout-align="start start">
-    <h2 class="reg-title flex-center">Presentations</h2>
-    <md-button ui-sref="schedule({id:controller.$stateParams['id']})" class="md-raised md-primary">
-        Back
-    </md-button>
-    <md-button ui-sref="presentationAdd({id:controller.$stateParams['id']})" class="md-raised md-primary">
-        Add
-    </md-button>
-</div>
-<div layout="column" layout-align="start start">
-
-    <table>
-        <tr>
-            <th>
-                Presentation
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                ImageUrl
-            </th>
-        </tr>
-        <tr ng-repeat="present in controller.presentation">
-            <td>
-                {{present.title}}
-            </td>
-            <td>
-                {{present.description}}
-            </td>
-            <td>
-                {{present.imageUrl}}
-            </td>
-            <td>
+﻿<div class="cards" layout="row" layout-align="start start" layout-wrap>
+    <div flex-offset="15" ng-repeat="present in controller.presentation">
+        <md-card class="md-card-pres" flex>
+            <md-card-header>
+                <md-card-header-text>
+                    <span class="card-title md-title">{{present.title}}</span>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-title layout="column" layout-align="center center" layout-scale>
+                <img class="image md-card-image" src="{{present.imageUrl}}" />
+            </md-card-title>
+            <md-card-content layout="column" layout-align="space-around center">
+                <div class="card-subhead-pres md-subhead">{{present.description}}</div>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="center end">
                 <md-button ui-sref="presentationEdit({id:present.id})" class="md-raised md-primary">
                     Edit
                 </md-button>
-            </td>
-            <td>
-                <md-button ng-click="controller.DeletePresentation(present.id)" class="md-raised md-primary">
-                    Delete
+            </md-card-actions>
+        </md-card>
+    </div>
+    <div flex-offset="15">
+        <md-card class="md-card-pres" flex>
+            <md-card-header>
+                <md-card-header-text>
+                    <span class="card-title md-title">Add Presentation</span>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-actions layout="column" layout-align="end center">
+                <md-button class="md-raised md-accent" ui-sref="presentationAdd({id:controller.$stateParams['id']})">
+                    Add
                 </md-button>
-            </td>
-        </tr>
-    </table>
+            </md-card-actions>
+        </md-card>
+    </div>
 </div>
+
+
+
+
+
+
+
+
+        <!--<md-button ng-click="controller.DeletePresentation(present.id)" class="md-raised md-primary">
+            Delete
+        </md-button>
+<md-button ui-sref="schedule({id:controller.$stateParams['id']})" class="md-raised md-primary">
+    Back
+</md-button>-->
+  
