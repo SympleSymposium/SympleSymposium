@@ -4,16 +4,20 @@ body {
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
+}*/
+
+body {
+    min-height: 100vh;
 }
 
 /* Carousel */
@@ -32,26 +36,87 @@ textarea {
     }
 }
 
-.carddemoBasicUsage .card-media {
-    background-color: #999999;
+
+
+/*---------------------*/
+/*CSS for Icons*/
+/*---------------------*/
+.material-icons.md-48 { 
+    font-size: 200px; 
+    color: #B71C1C;
+}
+.fa .fa-plus .md-48 {
+    font-size: 200px;
+    color: #B71C1C;
 }
 
-.button {
-    margin-bottom: 30px;
-
+.material-icons {
+    color: rgb(77,182,172);
 }
 
-.md-card {
-    width: 300px;
+.icon-disp-add {
+    display: flex;
+    font-size: 200px;
+    color: #03A9F4;
+}
+
+
+/*---------------------*/
+/*CSS for Cards*/
+/*---------------------*/
+
+.md-card-room {
+    margin-top: 48px;
+    margin-bottom: 40px;
+    background-color:#ECEFF1;
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.md-card-room:hover {
+    border: solid thin;
+    border-color: #E0E0E0;
+}
+
+.md-card-pres {
+    margin-top: 40px;
+    width: 320px;
     height: 400px;
     background-color:#ECEFF1;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
+.md-card-pres:hover {
+    border: solid thin;
+    border-color: #E0E0E0;
+}
+
+.md-card {
+    margin-top: 40px;
+    width: 300px;
+    height: 400px;
+    background-color:#ECEFF1;
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 .md-card:hover {
     border: solid thin;
-    border-color: #B71C1C;
+    border-color: #E0E0E0;
+}
+
+.md-card-auto {
+    margin-top: 40px;
+    width:400px;
+    height: auto;
+    background-color: #ECEFF1;
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.md-card-auto:hover {
+    border: solid thin;
+    border-color: #E0E0E0;
 }
 
 .image {
@@ -64,23 +129,23 @@ textarea {
 .card {
     width: 500px;
     margin-top: 48px;
-    margin-bottom: 40px;
+    margin-bottom: 200px;
 }
 
-.md-card .md-title {
+.md-title {
     font-family: "Lato", sans-serif;
     font-weight: 500;
     text-align: center;
 }
 
-.md-card .md-subhead {
+.md-subhead {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     text-align: center;
 }
 
-.input-field{
-    width: 500px;
+.input-field input {
+    width: 400px;
 }
 
 .card-title {
@@ -102,10 +167,32 @@ textarea {
     text-transform: uppercase;
 }
 
-.cards {
+.card-subhead-pres {
+    font-family:'Century Gothic';
+    color: black;
+    font-weight: 200;
+    font-size: 13px;
+    text-decoration: none;
+}
+.card-title-pres {
+    font-family: 'Century Gothic';
+    display: inline;
+    color: black;
+    font-weight: bold;
+    font-size: 19px;
+    text-transform: uppercase;
+}
 
-    /*padding-left: 250px;*/
-    padding-bottom: 100px;
+/*---------------------*/
+/*CSS for Buttons*/
+/*---------------------*/
+
+.md-button:hover {
+     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.button {
+    margin-bottom: 30px;
 }
 
 .buttondemoBasicUsage section {
@@ -134,6 +221,10 @@ textarea {
     opacity: 0.54;
 }
 
+/*---------------------*/
+/*CSS for Images and Titles*/
+/*---------------------*/
+
 .title-color {
     color: white !important; 
 }
@@ -151,26 +242,26 @@ textarea {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 8px;
-    border: 4px solid rgb(77,182,172);
+    border: 4px solid #009688;
     padding: 20px;
 }
 
 .bg-image {
     /*background-image: url("ht tp://www.whe retorome.com/wp-con tent/uploads/2013/12/business-co nference.jpg");*/
     background-image: url('../ngapp/images/main.jpg');
-    width: 100%;
-    height: 100%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 720px;
 }
 
 
 .bg-overlay {
-    padding-top: 96px;
-    width: 100%;
-    height: 100%;
     background-color: rgba(0, 0, 0, .80);
+}
+
+.banner-conf-title {
+    padding-top: 96px !important;
 }
 
 .bg-overlayII {
@@ -210,14 +301,44 @@ textarea {
     float: left;
     padding: 60px;
 }
-.material-icons.md-48 { 
-    font-size: 200px; 
+
+
+/*---------------------*/
+/*CSS for colors*/
+/*---------------------*/
+
+.color {
+    color: black !important;
+}
+
+.red {
     color: #B71C1C;
 }
 
-.material-icons {
-    color: rgb(77,182,172);
+.teal {
+    color:#009688;
 }
+
+.light-blue {
+   color: #03A9F4
+}
+
+.light-grey {
+    color: #E0E0E0;
+}
+
+.amber {
+    color: #FF6F00;
+}
+
+.dark-grey {
+    color: #424242;
+}
+
+
+/*---------------------*/
+/*CSS for Nav Login & Reg*/
+/*---------------------*/
 
 .detail {
     font-weight: 400;
@@ -318,28 +439,17 @@ a:hover {
 }
 
 .log-back {
-    /*background-image: url("http:// www.in tlafr.com/img61.jpg");*/
-    background-image: url('../ngapp/images/login.jpg');
-    width: 100%;
-    height: 100%;
+    background-image: url('/ngapp/images/login.jpg');
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .log-over {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(183, 28, 28, 0.24);
+    background-color: rgba(255, 11, 0, 0.20);
 }
 
-.color {
-    color: black !important;
-}
 
-.red {
-    color: #B71C1C;
-}
 
 .register-tit {
     font-family: "Montserrat", sans-serif;
@@ -377,17 +487,13 @@ a:hover {
 .top {
     padding-top: 22px;
 }
-.card-back {
-    margin-top: 250px;
-}
 
 .indigo {
-    color: #3F51B5;
+    color: #03A9F4;
     text-decoration: none;
 }
 
 .reg-back {
-    /*background-image: url("ht tp://ql aconsulting.com/wp-content/uploads/2014 /09/bigstock-Speaker-at-Business-Conf erence-64962394.jpg");*/
     background-image: url('../ngapp/images/register.jpg');
     width: 100%;
     height: 100%;
@@ -399,17 +505,11 @@ a:hover {
 .reg-over {
     width: 100%;
     height: 100%;
-    background-color: rgba(63, 81, 181, 0.30);
+    background-color: rgba(3, 169, 244, 0.20);
 }
 
-.center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-mdp-time-picker *{
-    /*color: black;*/
+.user-agent-counter{
+    -webkit-padding-start: 0;
 }
 
 
@@ -533,4 +633,26 @@ mdp-time-picker *{
 .reg-btn-home:hover{
    background-color: rgb(77,182,172)!important;
   
+}
+
+/*---------------------*/
+/*CSS for breadcrumbs*/
+/*---------------------*/
+
+
+.breadcrumbs {
+    display: flex;
+}
+.breadcrumbs div {
+    display: flex;
+    height: 64px;
+    width: 250px;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+    box-shadow: rgba(0,0,0,.23) 3px 0;
+    align-items: center;
+    justify-content: center;
+}
+.breadcrumbs div img {
+    width: 100%;
 }

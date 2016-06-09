@@ -7,8 +7,7 @@
         public presentations;
         public rooms;
         public editView = true;
-
-        
+        public startTimeTest;
 
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService,
@@ -31,8 +30,8 @@
                     $http.get('/api/speakers/manage/' + this.slot.presentation.conferenceId)
                         .then((response) => {
                             this.speakers = response.data;
-                            console.log("speakers");
-                            console.log(this.speakers);
+                            //console.log("speakers");
+                            //console.log(this.speakers);
                         })
 
                     $http.get('/api/presentations/manage/' + this.slot.presentation.conferenceId)
@@ -52,6 +51,7 @@
         }
 
         public EditSlot() {
+
             let editedSlot = {
                 id: this.slot.id,
                 endTime: this.slot.endTime,

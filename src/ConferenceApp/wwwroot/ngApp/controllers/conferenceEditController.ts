@@ -1,10 +1,13 @@
 ﻿namespace ConferenceApp.Controllers {
 
     export class ConferenceEditController {
-        public showDelete = true;     //to hide add form when edit is true
-        public conference; 
+        public conference;
+        public title = "Edit Conference"
+        public icon = "edit";
+        public theme = "primary";
+        public showDelete = true;     //to hide add form when edit is true 
          
-        public SubmitConference() {
+        public UpdateConference() {
 
             let editedConf = this.conference;
 
@@ -15,6 +18,10 @@
                     this.$state.go("conferenceManage");
                     //console.log("successful post");
                 });
+        }
+
+        public cancel() {
+            this.$state.go("conferenceManage");
         }
 
 

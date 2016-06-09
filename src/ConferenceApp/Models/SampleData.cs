@@ -148,7 +148,7 @@ namespace ConferenceApp.Models {
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 8, 1),
                     EndDate = new DateTime(2016, 8, 3),
-                    ImageUrl = "https://www.codercamps.com/Img/logos/logo-default.png",
+                    ImageUrl = "ngapp/images/coderCamps.png",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 },
                 new Conference() {
@@ -156,7 +156,7 @@ namespace ConferenceApp.Models {
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 10, 4),
                     EndDate = new DateTime(2016, 10, 7),
-                    ImageUrl = "http://startuphouston.com/wp-content/uploads/2014/06/htc-logo-610x350.jpg",
+                    ImageUrl = "ngapp/images/htc.png",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 },
                 new Conference() {
@@ -164,7 +164,7 @@ namespace ConferenceApp.Models {
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 9, 12),
                     EndDate = new DateTime(2016, 9, 15),
-                    ImageUrl = "https://d1hu3ig1v75v82.cloudfront.net/content/editorial/storyimg/big/bb2015_technologyebookwebgraphicsjb1a.jpg",
+                    ImageUrl = "ngapp/images/vs.png",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Mike@CoderCamps.com").Id
                 },
                 new Conference() {
@@ -172,7 +172,7 @@ namespace ConferenceApp.Models {
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 9, 1),
                     EndDate = new DateTime(2016, 9, 7),
-                    ImageUrl = "https://www.careersingovernment.com/tools/wp-content/uploads/2015/09/government-technology.jpg",
+                    ImageUrl = "ngapp/images/co.png",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 }
             };
@@ -379,10 +379,9 @@ namespace ConferenceApp.Models {
 
             for (int i = 0; i < Speakers.Count; i++) {
                 var speaker = Speakers[i];
-
                 var dbSpeaker = (from s in db.Speakers
-                                 where s.FirstName == speaker.FirstName && s.LastName == speaker.LastName
-                                 select s).FirstOrDefault();
+                                    where s.FirstName == speaker.FirstName && s.LastName == speaker.LastName
+                                    select s).FirstOrDefault();
 
                 if (dbSpeaker == null) {
                     db.Speakers.Add(speaker);
@@ -398,55 +397,55 @@ namespace ConferenceApp.Models {
             #region Initialize Presentations
             var Presentations = new List<Presentation>() {
                 new Presentation() {
-                    Title = "HTML",
+                    Title = "HTML: Let's Lay This Out",
                     Description = "Utilize HyperText Markup Language (HTML) to enable you to 'mark up' plain-text documents and add images, links, and formatting.",
                     ImageUrl = "",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
-                    Title = "CSS",
+                    Title = "CSS: How to Stay in Style",
                     Description = "Understand the ins and outs of CSS animations and transitions, motion design best practices, and how to ensure high performance, 'jank-free' animation on even everyday mobile devices.",
                     ImageUrl = "",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
-                    Title = "JavaScript",
+                    Title = "JavaScript: No, This Talk Is Not About Java",
                     Description = "Cover basic programming concepts like variables, data types, and functions, if/then statements, arrays and loops. They also introduce the Document Object Model (DOM) and how to use JavaScript to interact with the DOM and change HTML pages",
                     ImageUrl = "",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
-                    Title = "Typescript",
+                    Title = "Typescript: JavaScript, Only So Much Better",
                     Description = "A new language and toolset that makes it easier to write cross-platform, application-scale JavaScript.",
                     ImageUrl = "",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
-                    Title = "Angular",
+                    Title = "Angular: What HTML Should Have Been, According To Google",
                     Description = "Learn the basics of how to get started with developing Angular apps and scaling them with further complexity",
                     ImageUrl = "",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
-                    Title = "C#",
+                    Title = "C#: Not Just A Note On Your Piano",
                     Description = "Use C# to create Windows client applications, XML Web services, distributed components, client-server applications, database applications, and much, much more.",
                     ImageUrl = "",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
-                    Title = "ASP.NET",
+                    Title = "ASP.NET: Building App That Actually Scale",
                     Description = "Learn to use this unified Web development model, including the services necessary for you to build enterprise-class Web applications.",
                     ImageUrl = "",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
-                    Title = "Visual Studio",
+                    Title = "Visual Studio: There Is Only One Visual Studio",
                     Description = "Microsoft Visual Studio is an integrated development environment (IDE) from Microsoft to develop computer and mobile programs.",
                     ImageUrl = "",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
-                    Title = "Atom",
+                    Title = "Atom: Can We Just Code Already?",
                     Description = "Use this modern text editor to customize anything but also use productively without ever touching a config file.",
                     ImageUrl = "",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
@@ -481,63 +480,63 @@ namespace ConferenceApp.Models {
             #region Initialize Slots
             var Slots = new List<Slot>() {
                 new Slot() {
-                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "HTML").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "HTML: Let's Lay This Out").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Jim" && s.LastName == "Smith" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,8,0,0),
                     EndTime = new DateTime(2016,8,1,10,0,0)
                 },
                 new Slot() {
-                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "CSS").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "CSS: How to Stay in Style").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Jill" && s.LastName == "Jones" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room B" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,8,30,0),
                     EndTime = new DateTime(2016,8,1,10,30,0)
                 },
                 new Slot() {
-                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "JavaScript").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "JavaScript: No, This Talk Is Not About Java").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Bob" && s.LastName == "Stanton" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,10,15,0),
                     EndTime = new DateTime(2016,8,1,11,45,0)
                 },
                 new Slot() {
-                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Typescript").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Typescript: JavaScript, Only So Much Better").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Nancy" && s.LastName == "Carlson" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,13,0,0),
                     EndTime = new DateTime(2016,8,1,14,0,0)
                 },
                 new Slot() {
-                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Angular").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Angular: What HTML Should Have Been, According To Google").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Kevin" && s.LastName == "Wilcox" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,13,0,0),
                     EndTime = new DateTime(2016,8,1,15,0,0)
                 },
                 new Slot() {
-                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "C#").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "C#: Not Just A Note On Your Piano").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Anne" && s.LastName == "Robertson" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room B" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,14,0,0),
                     EndTime = new DateTime(2016,8,1,16,0,0)
                 },
                 new Slot() {
-                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "ASP.NET").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "ASP.NET: Building App That Actually Scale").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Sam" && s.LastName == "Giles" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,15,0,0),
                     EndTime = new DateTime(2016,8,1,17,0,0)
                 },
                 new Slot() {
-                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Visual Studio").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Visual Studio: There Is Only One Visual Studio").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Alice" && s.LastName == "Jean" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,2,10,30,0),
                     EndTime = new DateTime(2016,8,2,11,30,0)
                 },
                 new Slot() {
-                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Atom").Id,
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Atom: Can We Just Code Already?").Id,
                     SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Chris" && s.LastName == "Ramsey" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,2,10,30,0),

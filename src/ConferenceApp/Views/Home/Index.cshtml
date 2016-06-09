@@ -5,6 +5,7 @@
     <!-- CSS -->
     <link href="~/lib/angular-material/angular-material.css" rel="stylesheet" />
     <link href="~/lib/mdpickers/dist/mdpickers.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
 
     <!-- Fonts -->
@@ -47,22 +48,25 @@
     <script src="~/ngapp/controllers/speakeraddcontroller.js"></script>
     <script src="~/ngapp/controllers/speakerdisplaycontroller.js"></script>
     <script src="~/ngapp/controllers/speakereditcontroller.js"></script>
+    <script src="~/ngapp/controllers/toolbar.js"></script>
 
     <!-- Services-->
     <script src="~/ngapp/services/accountservice.js"></script>
 
 </head>
 
-<body ng-controller="AccountController as account" ng-cloak>
+<body ng-controller="AccountController as account" ng-cloak layout="column">
 
     <md-toolbar>
-        <div class="md-toolbar-tools">
+        <div class="md-toolbar-tools" ng-controller="ToolbarController as toolbar">
             @*<md-button ui-sref="conferenceManage">
-                Home
-            </md-button>*@
-            <h2>
-                <span>{{account.getToolbarTitle()}}</span>
-            </h2>
+                    Home
+                </md-button>*@
+            <div class="breadcrumbs">
+                <div ui-sref="home"><img src="~/ngApp/images/logo.png" /></div>
+                <div ng-repeat="breadcrumb in toolbar.breadcrumbs | limitTo:toolbar.breadcrumbs.length - 1" ui-sref="{{breadcrumb.link}}">{{breadcrumb.text}}</div>
+                <div ng-if="toolbar.lastBreadcrumb">{{toolbar.lastBreadcrumb.text}}</div>
+            </div>
             <span flex></span>
             <h5 ng-show="account.isLoggedIn()">
                 <span>{{account.getUserName()}}</span>
@@ -72,7 +76,7 @@
         </div>
     </md-toolbar>
 
-    <ui-view></ui-view>
+    <ui-view flex-grow="1" layout="column"></ui-view>
 
 </body>
 </html>

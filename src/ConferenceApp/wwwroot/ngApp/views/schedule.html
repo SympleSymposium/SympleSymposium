@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="left-blank"></div>
-            
+
             <div class="room-col" layout="column" layout-align="center stretch" flex ng-repeat="r in controller.conference.rooms">
                 <div class="room-headers" layout="row">
                     <div class="room-header" flex>
@@ -18,12 +18,16 @@
                     </div>
                 </div>
                 <div class="schedule-cell" flex>
-                    <div class="slot" 
+                    <div class="slot"
                          ng-repeat="s in r.slots
                                        |filter:{day: controller.currentDay}"
                          style="top:{{s.top}}%; height:calc({{s.height}}% - 1px);"
                          ui-sref="slotEdit({id:s.id})">
-                        <div layout layout-align="center center">{{s.presentation.title}}</div>
+                        <div layout="column" layout-align="center center">
+                            <div>{{s.presentation.title}}</div>
+                            <div>Speaker: {{s.speaker.firstName}} {{s.speaker.lastName}}</div>
+                            <div>{{s.startTimeDisplay}} to {{s.endTimeDisplay}}</div>
+                        </div>
                     </div>
 
                 </div>
