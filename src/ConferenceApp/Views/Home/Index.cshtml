@@ -58,8 +58,8 @@
     <md-toolbar>
         <div class="md-toolbar-tools">
             @*<md-button ui-sref="conferenceManage">
-                Home
-            </md-button>*@
+                    Home
+                </md-button>*@
             <h2>
                 <span>{{account.getToolbarTitle()}}</span>
             </h2>
@@ -71,6 +71,7 @@
             <md-button class="md-raised" href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</md-button>
         </div>
     </md-toolbar>
+
 
     <ui-view flex-grow="1" layout="row"></ui-view>
 

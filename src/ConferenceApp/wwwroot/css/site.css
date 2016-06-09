@@ -174,7 +174,8 @@ body {
 }
 
 .banner-conf-title {
-    padding-top: 96px !important;
+    align-items: center;
+    padding-top: 60px;x
 }
 
 .bg-overlayII {
@@ -201,11 +202,9 @@ body {
     .event-info ul li {
         color: white;
         font-family: "Lato", sans-serif;
-        font-size: 1.5em;
-        margin: 1em 0;
-        padding-bottom: 0px;
+        font-size: 1.0em;
         border-right: 1px solid #404040;
-        padding-top: 0;
+        list-style-type: none;
     }
 
 [class*="block-grid-"] > li {
@@ -227,6 +226,9 @@ body {
     color: rgb(77,182,172);
 }
 
+.icon-orange{
+    color: #FF6F00
+}
 .detail {
     font-weight: 400;
     color: white;
@@ -360,7 +362,7 @@ a:hover {
 
 
 .pad {
-    padding: 8px;
+    padding: 10px;
 }
 
 .login md-card {
