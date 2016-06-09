@@ -1,7 +1,11 @@
 ﻿namespace ConferenceApp.Controllers {
     export class PresentationAddController {
         public presentation;
-        public addView = true;
+        public title = "Add Presentation"
+        public icon = "add_circle";
+        public theme = "accent";
+        public showDelete = false;//to hide edit when add is true
+
 
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService,
@@ -9,7 +13,11 @@
             console.log('we are in the presentationAdd constructor');
         }
 
-        public AddPresentation() {
+        public cancel() {
+            this.$state.go('displayPresentations', { id: this.presentation.conferenceId });
+        }
+
+        public UpdatePresentation() {
             console.log(this.presentation);
             this.presentation.conferenceId = parseInt(this.$stateParams['id']);
             console.log(this.presentation);

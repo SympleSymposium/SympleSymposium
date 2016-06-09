@@ -2,18 +2,26 @@
 
     export class ConferenceAddController {
         public conference;
-        public showDelete = false;      //to hide edit when add is true
+        public title = "Add Conference"
+        public icon = "add_circle";
+        public theme = "accent";
+        public showDelete = false;//to hide edit when add is true
 
-        public SubmitConference() {
+        public UpdateConference() {
             //console.log(this.conference);
             if (!this.conference.imageUrl) {
-                this.conference.imageUrl = 'http://vector.me/files/images/3/8/382633/white_board_silhouette_preview';
+                this.conference.imageUrl = "ngapp/images/wb.png";
             }
             this.$http.post('/api/conferences', this.conference)
                 .then((response) => {
                     this.$state.go("conferenceManage");
                 })
         }
+
+        public cancel() {
+            this.$state.go("conferenceManage");
+        }
+
 
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService,

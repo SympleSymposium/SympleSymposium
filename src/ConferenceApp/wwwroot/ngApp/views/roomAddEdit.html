@@ -1,77 +1,33 @@
-﻿<div class="flex-center">
-    <md-card class="card cards">
-        <div layout="column" ng-cloak class="md-inline-form">
-            <md-content layout-padding>
-                <div>
-                    <form name="userForm">
-                        <md-input-container class="md-block" flex>
-                            <label>Room</label>
-                            <input ng-model="controller.room.name">
-                        </md-input-container>
-                        <div layout="row">
-                            <md-button ui-sref="displayRooms({id:controller.room.conferenceId})" class="md-raised md-primary">
-                                Cancel
-                            </md-button>
-                            <md-button ng-click="controller.DeleteRoom(room.id)" ng-show="controller.showDelete" class="md-raised md-primary">
-                                <i class="fa fa-trash" aria-hidden="true">Delete</i>
-                            </md-button>
-                            <md-button ng-click="controller.AddRoom()" class="md-raised md-primary" type="submit">
-                                <i class="fa fa-plus-square-o" type="submit" aria-hidden="true"></i>
-                                Submit
-                            </md-button>
-                        </div>
-                    </form>
+﻿<div layout="column" layout-align="center center" flex>
+    <md-card class="card">
+        <md-toolbar class="md-{{controller.theme}}">
+            <div class="md-toolbar-tools">
+                <md-icon>{{controller.icon}}</md-icon>
+                <span flex style="margin-left:10px;">{{controller.title}}</span>
+            </div>
+        </md-toolbar>
+        <md-content layout-padding layout="column" ng-cloak class="md-inline-form">
+            <form name="userForm" ng-submit="controller.UpdateRoom()">
+                <md-input-container class="md-block" flex>
+                    <label>Room</label>
+                    <input ng-model="controller.room.name">
+                </md-input-container>
+                <div layout="row" layout-align="center">
+                    <md-button ng-click="controller.cancel()" class="md-fab md-{{controller.theme}}">
+                        <md-tooltip md-direction="top">Cancel</md-tooltip>
+                        <md-icon>clear</md-icon>
+                    </md-button>
+                    <md-button ng-click="controller.DeleteRoom(room.id)" ng-show="controller.showDelete" class="md-fab md-{{controller.theme}}">
+                        <md-tooltip md-direction="top">Delete</md-tooltip>
+                        <md-icon>delete</md-icon>
+                    </md-button>
+                    <md-button class="md-fab md-{{controller.theme}}" type="submit">
+                        <md-tooltip md-direction="top">Submit</md-tooltip>
+                        <md-icon>done</md-icon>
+                    </md-button>
                 </div>
-            </md-content>
-        </div>
+            </form>
+        </md-content>
     </md-card>
 </div>
-
-
-<!--<div class="flex-center">
-    <md-card class="card cards">
-        <div layout="column" ng-cloak class="md-inline-form">
-            <md-content layout-padding>
-                <div>
-                    <form name="userForm">
-                    <div ng-show="controller.editView">
-
-        <md-input-container class="md-block" flex>
-            <label>Edit Room:</label>
-            <input ng-model="controller.room.name">
-        </md-input-container>
-        <div layout="row">
-            <md-button ng-click="controller.EditRoom(room.id)" class="md-raised md-primary">
-                Submit
-            </md-button>
-            <md-button ng-click="controller.DeleteRoom(room.id)" ng-show="controller.showDelete" class="md-raised md-primary">
-                Delete
-            </md-button>
-        </div>
-                        </div>
-</form>
-                </div>
-            </md-content>
-            </div>
-        </md-card>
-        </div>
-
-
-            <div ng-show="controller.addView">
-                <form name="userForm">
-                    <md-input-container class="md-block">
-                        <label>Add Room:</label>
-                        <input ng-model="controller.room.name">
-                    </md-input-container>
-                </form>
-                <md-button ng-click="controller.AddRoom()" class="md-raised md-primary">
-                    Submit
-                </md-button>
-            </div>-->
-
-
-
-
-
-
 

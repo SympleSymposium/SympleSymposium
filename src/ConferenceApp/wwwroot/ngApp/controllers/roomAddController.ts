@@ -1,9 +1,13 @@
 ﻿namespace ConferenceApp.Controllers {
 
     export class RoomAddController {
-        public room:any = {};
-        public addView = true;
-        public showDelete = false;      //to hide edit when add is true
+        public room: any = {}; 
+        public title = "Add Room"
+        public icon = "add_circle";
+        public theme = "accent";
+        public showDelete = false;//to hide edit when add is true
+            
+
 
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService,
@@ -13,7 +17,11 @@
             console.log(this.room.conferenceId);
         }
 
-        public AddRoom() {
+        public cancel() {
+            this.$state.go('displayRooms', { id: this.room.conferenceId });
+        }
+
+        public UpdateRoom() {
             //console.log(this.room);
             this.room.conferenceId = parseInt(this.$stateParams['id']);
             //console.log(this.room);

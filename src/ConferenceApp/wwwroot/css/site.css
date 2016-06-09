@@ -36,26 +36,87 @@ body {
     }
 }
 
-.carddemoBasicUsage .card-media {
-    background-color: #999999;
+
+
+/*---------------------*/
+/*CSS for Icons*/
+/*---------------------*/
+.material-icons.md-48 { 
+    font-size: 200px; 
+    color: #B71C1C;
+}
+.fa .fa-plus .md-48 {
+    font-size: 200px;
+    color: #B71C1C;
 }
 
-.button {
-    margin-bottom: 30px;
-
+.material-icons {
+    color: rgb(77,182,172);
 }
 
-.md-card {
-    width: 300px;
+.icon-disp-add {
+    display: flex;
+    font-size: 200px;
+    color: #03A9F4;
+}
+
+
+/*---------------------*/
+/*CSS for Cards*/
+/*---------------------*/
+
+.md-card-room {
+    margin-top: 48px;
+    margin-bottom: 40px;
+    background-color:#ECEFF1;
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.md-card-room:hover {
+    border: solid thin;
+    border-color: #E0E0E0;
+}
+
+.md-card-pres {
+    margin-top: 40px;
+    width: 320px;
     height: 400px;
     background-color:#ECEFF1;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
+.md-card-pres:hover {
+    border: solid thin;
+    border-color: #E0E0E0;
+}
+
+.md-card {
+    margin-top: 40px;
+    width: 300px;
+    height: 400px;
+    background-color:#ECEFF1;
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 .md-card:hover {
     border: solid thin;
-    border-color: #B71C1C;
+    border-color: #E0E0E0;
+}
+
+.md-card-auto {
+    margin-top: 40px;
+    width:400px;
+    height: auto;
+    background-color: #ECEFF1;
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.md-card-auto:hover {
+    border: solid thin;
+    border-color: #E0E0E0;
 }
 
 .image {
@@ -68,16 +129,16 @@ body {
 .card {
     width: 500px;
     margin-top: 48px;
-    margin-bottom: 40px;
+    margin-bottom: 200px;
 }
 
-.md-card .md-title {
+.md-title {
     font-family: "Lato", sans-serif;
     font-weight: 500;
     text-align: center;
 }
 
-.md-card .md-subhead {
+.md-subhead {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     text-align: center;
@@ -106,10 +167,32 @@ body {
     text-transform: uppercase;
 }
 
-.cards {
+.card-subhead-pres {
+    font-family:'Century Gothic';
+    color: black;
+    font-weight: 200;
+    font-size: 13px;
+    text-decoration: none;
+}
+.card-title-pres {
+    font-family: 'Century Gothic';
+    display: inline;
+    color: black;
+    font-weight: bold;
+    font-size: 19px;
+    text-transform: uppercase;
+}
 
-    /*padding-left: 250px;*/
-    padding-bottom: 100px;
+/*---------------------*/
+/*CSS for Buttons*/
+/*---------------------*/
+
+.md-button:hover {
+     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.button {
+    margin-bottom: 30px;
 }
 
 .buttondemoBasicUsage section {
@@ -137,6 +220,10 @@ body {
     font-size: 14px;
     opacity: 0.54;
 }
+
+/*---------------------*/
+/*CSS for Images and Titles*/
+/*---------------------*/
 
 .title-color {
     color: white !important; 
@@ -214,18 +301,44 @@ body {
     float: left;
     padding: 60px;
 }
-.material-icons.md-48 { 
-    font-size: 200px; 
-    color: #B71C1C;
+
+
+/*---------------------*/
+/*CSS for colors*/
+/*---------------------*/
+
+.color {
+    color: black !important;
 }
-.fa .fa-plus .md-48 {
-    font-size: 200px;
+
+.red {
     color: #B71C1C;
 }
 
-.material-icons {
-    color: rgb(77,182,172);
+.teal {
+    color:#009688;
 }
+
+.light-blue {
+   color: #03A9F4
+}
+
+.light-grey {
+    color: #E0E0E0;
+}
+
+.amber {
+    color: #FF6F00;
+}
+
+.dark-grey {
+    color: #424242;
+}
+
+
+/*---------------------*/
+/*CSS for Nav Login & Reg*/
+/*---------------------*/
 
 .detail {
     font-weight: 400;
@@ -336,13 +449,7 @@ a:hover {
     background-color: rgba(255, 11, 0, 0.20);
 }
 
-.color {
-    color: black !important;
-}
 
-.red {
-    color: #B71C1C;
-}
 
 .register-tit {
     font-family: "Montserrat", sans-serif;
@@ -528,3 +635,24 @@ a:hover {
   
 }
 
+/*---------------------*/
+/*CSS for breadcrumbs*/
+/*---------------------*/
+
+
+.breadcrumbs {
+    display: flex;
+}
+.breadcrumbs div {
+    display: flex;
+    height: 64px;
+    width: 250px;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+    box-shadow: rgba(0,0,0,.23) 3px 0;
+    align-items: center;
+    justify-content: center;
+}
+.breadcrumbs div img {
+    width: 100%;
+}

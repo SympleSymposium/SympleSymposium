@@ -148,7 +148,7 @@ namespace ConferenceApp.Models {
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 8, 1),
                     EndDate = new DateTime(2016, 8, 3),
-                    ImageUrl = "ngapp/images/codercamps.png",
+                    ImageUrl = "ngapp/images/coderCamps.png",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 },
                 new Conference() {
@@ -156,7 +156,7 @@ namespace ConferenceApp.Models {
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 10, 4),
                     EndDate = new DateTime(2016, 10, 7),
-                    ImageUrl = "ngapp/images/htc-logo-610x350.jpg",
+                    ImageUrl = "ngapp/images/htc.png",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 },
                 new Conference() {
@@ -164,7 +164,7 @@ namespace ConferenceApp.Models {
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 9, 12),
                     EndDate = new DateTime(2016, 9, 15),
-                    ImageUrl = "ngapp/images/government-technology.jpg",
+                    ImageUrl = "ngapp/images/vs.png",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Mike@CoderCamps.com").Id
                 },
                 new Conference() {
@@ -172,7 +172,7 @@ namespace ConferenceApp.Models {
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 9, 1),
                     EndDate = new DateTime(2016, 9, 7),
-                    ImageUrl = "ngapp/images/government-technology.jpg",
+                    ImageUrl = "ngapp/images/co.png",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 }
             };

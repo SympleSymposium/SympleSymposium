@@ -7,51 +7,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ConferenceApp.Services
-{
+namespace ConferenceApp.Services {
 
     //IMPORTANT 
     //DONT COPY to make other services - use SpeakerService, which has been refactored better
 
     //DeleteRoom has been refactored 6/5/16
 
-    public class RoomService
-    {
+    public class RoomService {
         private RoomRepository _roomRepo;
         private SlotRepository _slotRepo;
 
-        public RoomService(RoomRepository roomRepo, SlotRepository slotRepo)
-        {
+        public RoomService(RoomRepository roomRepo, SlotRepository slotRepo) {
             _roomRepo = roomRepo;
             _slotRepo = slotRepo;
         }
 
         //Get all rooms
-        public IList<RoomDTO> GetRooms()
-        {
+        public IList<RoomDTO> GetRooms() {
             var rooms = (from r in _roomRepo.List()
-                    select new RoomDTO {
-                        Id = r.Id,
-                        Name = r.Name,
-                        ConferenceId = r.ConferenceId
-                    }).ToList();
+                         select new RoomDTO {
+                             Id = r.Id,
+                             Name = r.Name,
+                             ConferenceId = r.ConferenceId
+                         }).ToList();
 
             return rooms;
         }
 
         // Get a specific room
-        public RoomDTO GetRoom(int roomId)
-        {
+        public RoomDTO GetRoom(int roomId) {
             var room = (from r in _roomRepo.GetById(roomId)
-                         select new RoomDTO {
-                             //Id = r.Id,
-                             Id = roomId,
-                             Name = r.Name,
-                             ConferenceId = r.ConferenceId
-                         }).FirstOrDefault();
+                        select new RoomDTO {
+                            //Id = r.Id,
+                            Id = roomId,
+                            Name = r.Name,
+                            ConferenceName = r.Conference.Name,
+                            ConferenceId = r.ConferenceId
+                        }).FirstOrDefault();
 
-            if (room == null)
-            {
+            if (room == null) {
                 throw new Exception("Could not find conference with id " + roomId);
             }
 
@@ -60,11 +55,9 @@ namespace ConferenceApp.Services
 
 
         //Get all the rooms associated with a conference
-        public IList<RoomDTO> GetRoomList(int conferenceId)
-        {
+        public IList<RoomDTO> GetRoomList(int conferenceId) {
             return (from r in _roomRepo.List(conferenceId)
-                    select new RoomDTO
-                    {
+                    select new RoomDTO {
                         Id = r.Id,
                         Name = r.Name,
                     }
@@ -72,12 +65,10 @@ namespace ConferenceApp.Services
         }
 
         // This is an Edit of a specific room
-        public void UpdateRoom(int roomId, RoomDTO room)
-        {
+        public void UpdateRoom(int roomId, RoomDTO room) {
             var editedRoom = _roomRepo.GetById(roomId).FirstOrDefault();
 
-            if (editedRoom == null)
-            {
+            if (editedRoom == null) {
                 throw new Exception("Could not find room with id " + roomId);
             }
 
@@ -88,12 +79,10 @@ namespace ConferenceApp.Services
             _roomRepo.SaveChanges();
         }
 
-        
+
         // Add a new room
-        public void PostRoom(RoomViewModel room)
-        {
-            var newRoom = new Room()
-            {
+        public void PostRoom(RoomViewModel room) {
+            var newRoom = new Room() {
                 Name = room.Name,
                 ConferenceId = room.ConferenceId
             };
@@ -107,8 +96,7 @@ namespace ConferenceApp.Services
         //    _roomRepo.Delete(roomId);
         //}
 
-        public void DeleteRoom(int roomId)
-        {
+        public void DeleteRoom(int roomId) {
             var deletedRoom = (from r in _roomRepo.GetById(roomId)
                                select r).FirstOrDefault();
 
