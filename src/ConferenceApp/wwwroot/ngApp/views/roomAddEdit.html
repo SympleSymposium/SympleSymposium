@@ -13,6 +13,10 @@
                         <label>Room</label>
                         <input ng-model="controller.room.name">
                     </md-input-container>
+                <md-input-container class="md-block" flex>
+                    <label>Description:</label>
+                    <input ng-model="controller.room.description">
+                </md-input-container>
                     <div layout="row" layout-align="center">
                         <md-button ng-click="controller.cancel()" class="md-fab md-{{controller.theme}}">
                             <md-tooltip md-direction="top">Cancel</md-tooltip>

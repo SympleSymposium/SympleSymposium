@@ -199,38 +199,47 @@ namespace ConferenceApp.Models {
             var Rooms = new List<Room>() {
                 new Room() {
                     Name = "Room A",
+                    Description = "Building 201, 2nd floor",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Room() {
                     Name = "Room B",
+                    Description = "Building 301, 3rd floor",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Room() {
                     Name = "Room C",
+                    Description = "Building 1201A, 1st floor",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Room() {
                     Name = "Room D",
+                    Description = "Building 1301B, 2nd floor",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Houston Tech Conference").Id
                 },
                 new Room() {
                     Name = "Room E",
+                    Description = "Building 121A, 1st floor",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Houston Tech Conference").Id
                 },
                 new Room() {
                     Name = "Room F",
+                    Description = "Building 121B, 1st floor",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
                 },
                 new Room() {
                     Name = "Room G",
+                    Description = "Building 121B, 2nd floor",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
                 },
                 new Room() {
                     Name = "Room H",
+                    Description = "Building 311A, 1st floor",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
                 },
                 new Room() {
                     Name = "Room I",
+                    Description = "Building 311B, 2nd floor",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
                 },
             };
@@ -259,120 +268,120 @@ namespace ConferenceApp.Models {
                     Title = "Mr.",
                     FirstName = "Jim",
                     LastName = "Smith",
-                    Phone = "",
-                    Email = "",
-                    Company = "",
+                    Phone = "501-324-7800",
+                    Email = "jim.smith@marathon.com",
+                    Company = "Marathon Petroleum",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 A Street").Id,
-                    Bio = "",
-                    ImageUrl = "",
+                    Bio = ".Net Consultant and Trainer, GeeksWithBlogs Co-Owner, Microsoft Regional Director",
+                    ImageUrl = "ngApp/images/JimSmith.jpg",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Ms.",
                     FirstName = "Jill",
                     LastName = "Jones",
-                    Phone = "",
-                    Email = "",
-                    Company = "",
+                    Phone = "244-788-6000",
+                    Email = "jill.jones@microsoft.com",
+                    Company = "Microsoft",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 B Street").Id,
-                    Bio = "",
-                    ImageUrl = "",
+                    Bio = "Jill Jones is a Technical Evangelist in the Developer & Platform Evangelism (DPE) group at Microsoft. She enjoys running, photography and being outdoors.",
+                    ImageUrl = "ngApp/images/JillJones.jpg",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Mr.",
                     FirstName = "Bob",
                     LastName = "Stanton",
-                    Phone = "",
-                    Email = "",
-                    Company = "",
+                    Phone = "512-555-7800",
+                    Email = "bob.stanton@dell.com",
+                    Company = "Dell",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 C Street").Id,
-                    Bio = "",
-                    ImageUrl = "",
+                    Bio = "Canadian Geek in NJ. Microsoft Technical Evangelist, NY Metro. X-plat Mobile Developer. Ex-WPDEV MVP. GIS Pro. Game Dev. Speaker. Author. Blogger. Father. Gamer",
+                    ImageUrl = "ngApp/images/BobStanton.jpg",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Mrs.",
                     FirstName = "Nancy",
                     LastName = "Carlson",
-                    Phone = "",
-                    Email = "",
-                    Company = "",
+                    Phone = "321-543-5566",
+                    Email = "nancy.carlson@ibm.com",
+                    Company = "IBM",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 D Street").Id,
-                    Bio = "",
-                    ImageUrl = "",
+                    Bio = "Developer | CTO Applied Information Sciences | Azure MVP l Fleeting thoughts on Cloud Computing, BI, SharePoint and stuff.",
+                    ImageUrl = "ngApp/images/NancyCarlson.jpg",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Mr.",
                     FirstName = "Kevin",
                     LastName = "Wilcox",
-                    Phone = "",
-                    Email = "",
-                    Company = "",
+                    Phone = "801-322-8900",
+                    Email = "kevin.wilcox@stompit.com",
+                    Company = "Stompit",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 E Street").Id,
-                    Bio = "",
-                    ImageUrl = "",
+                    Bio = "Father. Husband. Wakeboarder. Software Developer. Lead Consultant w/ Magenic. Stomp It Co-founder",
+                    ImageUrl = "ngApp/images/KevinWilcox.jpg",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Ms.",
                     FirstName = "Anne",
                     LastName = "Robertson",
-                    Phone = "",
-                    Email = "",
-                    Company = "",
+                    Phone = "782-644-8100",
+                    Email = "aroberts@microsoft.com",
+                    Company = "Microsoft",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 F Street").Id,
-                    Bio = "",
-                    ImageUrl = "",
+                    Bio = "Author, speaker, designer, developer, consultant, trainer, mother.",
+                    ImageUrl = "ngApp/images/AnneRobertson.jpg",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Mr.",
                     FirstName = "Sam",
                     LastName = "Giles",
-                    Phone = "",
-                    Email = "",
-                    Company = "",
+                    Phone = "256-334-7878",
+                    Email = "sam.giles@phoenix.com",
+                    Company = "Phoenix Consulting",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 G Street").Id,
-                    Bio = "",
-                    ImageUrl = "",
+                    Bio = ".NET Full Stack and SQL trainer/consultant. Geek. Marathoner. Husband.",
+                    ImageUrl = "ngApp/images/SamGiles.jpg",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Mrs.",
                     FirstName = "Alice",
                     LastName = "Jean",
-                    Phone = "",
-                    Email = "",
-                    Company = "",
+                    Phone = "611-855-4300",
+                    Email = "ajean@sleektech@com",
+                    Company = "Sleek Technologies",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 H Street").Id,
-                    Bio = "",
-                    ImageUrl = "",
+                    Bio = "I'm CTO of Sleek Technologies, and a Microsoft MVP, developer, author, and speaker, passionate about SQL Server and .NET technologies.",
+                    ImageUrl = "ngApp/images/AliceJean.jpg",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Dr.",
                     FirstName = "Chris",
                     LastName = "Ramsey",
-                    Phone = "",
-                    Email = "",
-                    Company = "",
+                    Phone = "748-655-9000",
+                    Email = "cramsey@hp.com",
+                    Company = "HP",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 I Street").Id,
-                    Bio = "",
-                    ImageUrl = "",
+                    Bio = "Jazz musician turned software consultant. Obsessed w/ Scrum & software testing. Scrum.org trainer, project coach, conference speaker.",
+                    ImageUrl = "ngApp/images/ChrisRamsey.jpg",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
                     Title = "Dr.",
                     FirstName = "Adam",
                     LastName = "Ramsey",
-                    Phone = "",
-                    Email = "",
-                    Company = "",
+                    Phone = "748-655-9000",
+                    Email = "adam.ramsey@xamarin.com",
+                    Company = "Xamarin",
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "123 I Street").Id,
-                    Bio = "",
-                    ImageUrl = "",
+                    Bio = "Live, Love, Bike & Code. Developer Guru.",
+                    ImageUrl = "ngApp/images/AdamRamsey.jpg",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Houston Tech Conference").Id
                 }
             };

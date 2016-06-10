@@ -14,6 +14,8 @@ namespace ConferenceApp.Models
         [ForeignKey("ConferenceId")]
         public Conference Conference { get; set; }
 
+        public string Description { get; set; }
+
         public string Name { get; set; }
 
         public IList<Slot> Slots { get; set; }
