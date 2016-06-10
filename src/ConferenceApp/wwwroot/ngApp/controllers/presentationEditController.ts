@@ -42,8 +42,8 @@
         }
         private ConfirmDelete() {
             var confirm = this.$mdDialog.confirm()
-                .title('Would you like to delete this presentation?')
-                .textContent('This presentation will be deleted if you press the "Yes" button.')
+                .title('Are you sure you want to delete this presentation?')
+                //.textContent('This presentation will be deleted if you press the "Yes" button.')
                 //.template('/ngApp/views/presentationConfirmDeleteModal.html')
                 //.ariaLabel('Lucky day')
                 //.targetEvent()
@@ -53,7 +53,7 @@
         }
         public DeletePresentation(id) {
             console.log(id);
-            //Added delete confirmation modal
+            //Delete confirmation modal. The method returns a promise.
             this.ConfirmDelete()
                 .then(() => {
                     this.$http.delete(`/api/presentations/${id}`)

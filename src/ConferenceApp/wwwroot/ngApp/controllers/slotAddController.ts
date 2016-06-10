@@ -1,6 +1,7 @@
 ﻿namespace ConferenceApp.Controllers {
 
     export class SlotAddController {
+        public slot;
         public newSlot;
         public speakers;
         public presentations;
@@ -13,7 +14,7 @@
             private accountService: ConferenceApp.Services.AccountService) {
             console.log('add');
             accountService.toolbarTitle = "Add Slot";
-
+            console.log(`StateParams Id = $stateParams['id']`);
             $http.get('/api/speakers/manage/' + $stateParams['id'])
                 .then((response) => {
                     this.speakers = response.data;
@@ -32,14 +33,21 @@
         }
 
         public AddSlot() {
-
+            this.newSlot = {
+                presentationId: this.slot.presentation.id,
+                speakerId: this.slot.speaker.id,
+                roomId: this.slot.room.id,
+                startTime: this.slot.startTime,
+                endTime: this.slot.endTime
+            };
+            console.log(this.slot);
             console.log(this.newSlot);
 
-            this.newSlot.conferenceId = parseInt(this.$stateParams['id']);
+            this.slot.conferenceId = parseInt(this.$stateParams['id']);
 
             this.$http.post('/api/slots', this.newSlot)
                 .then((response) => {
-                    this.$state.go("schedule", { id: this.newSlot.conferenceId });
+                    this.$state.go("schedule", { id: this.slot.conferenceId });
                 })
         }
 

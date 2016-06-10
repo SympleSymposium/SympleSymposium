@@ -7,8 +7,8 @@
         public presentations;
         public rooms;
         public editView = true;
-        public startTimeTest;
-
+        public showDelete = true;
+        
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService,
             private $stateParams: ng.ui.IStateParamsService,
@@ -70,8 +70,8 @@
 
         private ConfirmDelete() {
             var confirm = this.$mdDialog.confirm()
-                .title('Would you like to delete this slot?')
-                .textContent('This slot will be deleted if you press the "Yes" button.')
+                .title('Are you sure you want to delete this slot?')
+                //.textContent('This slot will be deleted if you press the "Yes" button.')
                 //.template('/ngApp/views/presentationConfirmDeleteModal.html')
                 //.ariaLabel('Lucky day')
                 //.targetEvent()
@@ -80,11 +80,12 @@
             return this.$mdDialog.show(confirm)
         }
 
-        public DeleteSlot(id) {
+        public DeleteSlot() {
             //Added delete confirmation modal. The method returns a promise.
             this.ConfirmDelete()
                 .then(() => {
-                    this.$http.delete(`/api/slots/${id}`)
+                    console.log("slot id = " + this.slot.id);
+                    this.$http.delete(`/api/slots/${this.slot.id}`)
                         .then((response) => {
                             console.log(response.data);
                             this.$state.go("schedule", { id: this.slot.room.conferenceId });
