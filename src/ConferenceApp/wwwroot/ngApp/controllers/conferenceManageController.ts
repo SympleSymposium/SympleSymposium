@@ -8,9 +8,14 @@
         public themeEdit = "primary";
         public themeSched = "warn";
 
-        constructor($http: ng.IHttpService, private accountService: ConferenceApp.Services.AccountService) {
+        constructor($http: ng.IHttpService,
+            private accountService: ConferenceApp.Services.AccountService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
 
             accountService.toolbarTitle = "Manage Conferences";
+
+            //Show top toolbar
+            toolbarService.hideToolbar = false;
 
             $http.get('/api/conferences/manage')
                 .then((response) => {

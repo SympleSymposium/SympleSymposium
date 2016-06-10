@@ -50,17 +50,19 @@
     <script src="~/ngapp/controllers/speakerdisplaycontroller.js"></script>
     <script src="~/ngapp/controllers/speakereditcontroller.js"></script>
     <script src="~/ngapp/controllers/toolbar.js"></script>
+    <script src="~/ngapp/controllers/homecontroller.js"></script>
 
     <!-- Services-->
     <script src="~/ngapp/services/accountservice.js"></script>
     <script src="~/ngapp/services/dayservice.js"></script>
+    <script src="~/ngapp/services/toolbarservice.js"></script>
 
 </head>
 
 <body ng-controller="AccountController as account" ng-cloak layout="column">
 
-    <md-toolbar>
-        <div class="md-toolbar-tools" ng-controller="ToolbarController as toolbar">
+    <md-toolbar ng-controller="ToolbarController as toolbar" ng-hide="toolbar.toolbarService.hideToolbar">
+        <div class="md-toolbar-tools" >
             @*<md-button ui-sref="conferenceManage">
                     Home
                 </md-button>*@
