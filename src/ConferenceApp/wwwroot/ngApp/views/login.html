@@ -21,8 +21,9 @@
                 </ul>
                 <form ng-submit="controller.login()" layout="column" layout-align="start center">
                     <md-input-container class="md-primary input-field top">
-                        <label>Email</label>
-                        <input type="text" ng-model="controller.loginUser.email">
+                        <label>User Name:</label>
+                        <!--<input type="text" ng-model="controller.loginUser.email">-->
+                        <input type="text" ng-model="controller.loginUser.userName">
                     </md-input-container>
                     <md-input-container class="md-primary input-field pw">
                         <label>Password</label>

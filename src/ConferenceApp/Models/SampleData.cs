@@ -16,11 +16,12 @@ namespace ConferenceApp.Models {
 
             #region Initialize Users
             // Ensure Stephen (IsAdmin)
-            var stephen = await userManager.FindByNameAsync("Stephen.Walther@CoderCamps.com");
+            //var stephen = await userManager.FindByNameAsync("Stephen.Walther@CoderCamps.com");
+            var stephen = await userManager.FindByNameAsync("StephenWalther");
             if (stephen == null) {
                 // create user
                 stephen = new ApplicationUser {
-                    UserName = "Stephen.Walther@CoderCamps.com",
+                    UserName = "StephenWalther",
                     Email = "Stephen.Walther@CoderCamps.com"
                 };
                 await userManager.CreateAsync(stephen, "Secret123!");
@@ -28,30 +29,30 @@ namespace ConferenceApp.Models {
                 // add claims
                 await userManager.AddClaimAsync(stephen, new Claim("IsAdmin", "true"));
             }
-            var john = await userManager.FindByNameAsync("John@CoderCamps.com");
+            var john = await userManager.FindByNameAsync("John");
             if (john == null) {
                 // create user
                 john = new ApplicationUser {
-                    UserName = "John@CoderCamps.com",
+                    UserName = "John",
                     Email = "John@CoderCamps.com"
                 };
                 await userManager.CreateAsync(john, "Secret123!");
             }
-            var tim = await userManager.FindByNameAsync("Tim@CoderCamps.com");
+            var tim = await userManager.FindByNameAsync("Tim");
             if (tim == null) {
                 // create user
                 tim = new ApplicationUser {
-                    UserName = "Tim@CoderCamps.com",
+                    UserName = "Tim",
                     Email = "Tim@CoderCamps.com"
                 };
                 await userManager.CreateAsync(tim, "Secret123!");
             }
             // Ensure Mike (not IsAdmin)
-            var mike = await userManager.FindByNameAsync("Mike@CoderCamps.com");
+            var mike = await userManager.FindByNameAsync("Mike");
             if (mike == null) {
                 // create user
                 mike = new ApplicationUser {
-                    UserName = "Mike@CoderCamps.com",
+                    UserName = "Mike",
                     Email = "Mike@CoderCamps.com"
                 };
                 await userManager.CreateAsync(mike, "Secret123!");
@@ -149,7 +150,7 @@ namespace ConferenceApp.Models {
                     StartDate = new DateTime(2016, 8, 1),
                     EndDate = new DateTime(2016, 8, 3),
                     ImageUrl = "ngapp/images/coderCamps.png",
-                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
+                    ApplicationUserId = stephen.Id
                 },
                 new Conference() {
                     Name = "Houston Tech Conference",
@@ -157,7 +158,7 @@ namespace ConferenceApp.Models {
                     StartDate = new DateTime(2016, 10, 4),
                     EndDate = new DateTime(2016, 10, 7),
                     ImageUrl = "ngapp/images/SkillCode.png",
-                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
+                    ApplicationUserId = stephen.Id
                 },
                 new Conference() {
                     Name = "TechConf",
@@ -165,7 +166,7 @@ namespace ConferenceApp.Models {
                     StartDate = new DateTime(2016, 9, 12),
                     EndDate = new DateTime(2016, 9, 15),
                     ImageUrl = "ngapp/images/vs.png",
-                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Mike@CoderCamps.com").Id
+                    ApplicationUserId = mike.Id
                 },
                 new Conference() {
                     Name = "International Technology Conference",
@@ -173,7 +174,7 @@ namespace ConferenceApp.Models {
                     StartDate = new DateTime(2016, 9, 1),
                     EndDate = new DateTime(2016, 9, 7),
                     ImageUrl = "ngapp/images/co.png",
-                    ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
+                    ApplicationUserId = stephen.Id
                 }
             };
 
