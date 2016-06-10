@@ -17,14 +17,12 @@
             private accountService: ConferenceApp.Services.AccountService,
             private dayService: ConferenceApp.Services.DayService) {
 
-            //console.log('add');
             accountService.toolbarTitle = "Add Slot";
-            //console.log(`StateParams Id = $stateParams['id']`);
+
             this.conferenceId = $stateParams['id'];
             console.log("ConferenceId: " + this.conferenceId);
 
             this.day = dayService.slotDay;
-            console.log(this.day);
 
             $http.get('/api/speakers/manage/' + $stateParams['id'])
                 .then((response) => {

@@ -2,7 +2,7 @@
 
     export class ToolbarService {
 
-        public hideToolbar = true;
+        public hideToolbar;
 
     }
 
