@@ -24,6 +24,7 @@
                     this.slot = response.data;
                     this.slot.startTime = moment(this.slot.startTime).toDate();
                     this.slot.endTime = moment(this.slot.endTime).toDate();
+                    this.slot.day = moment(this.slot.startTime).format("M/D/YYYY");
 
 
                     //these $http.gets are to build the dropdown list for speakers, presentations, and rooms
