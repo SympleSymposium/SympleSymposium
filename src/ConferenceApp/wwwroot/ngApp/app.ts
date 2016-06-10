@@ -142,36 +142,40 @@ namespace ConferenceApp {
                 })
                 // If you specify less than all of the keys, it will inherit from the
                 // default shades
-                .accentPalette('pink', {
+                .accentPalette('light-blue', {
                     //'default': '200' // use shade 200 for default, and keep all other shades the same
+                })
+                .warnPalette('amber', {
+                    'default': '900'
                 });
-        });
 
 
-    angular.module('ConferenceApp').factory('authInterceptor', (
-        $q: ng.IQService,
-        $window: ng.IWindowService,
-        $location: ng.ILocationService
-    ) =>
-        ({
-            request: function (config) {
-                config.headers = config.headers || {};
-                config.headers['X-Requested-With'] = 'XMLHttpRequest';
-                return config;
-            },
-            responseError: function (rejection) {
-                if (rejection.status === 401 || rejection.status === 403) {
-                    $location.path('/login');
-                }
-                return $q.reject(rejection);
-            }
-        })
-    );
+            angular.module('ConferenceApp').factory('authInterceptor', (
+                $q: ng.IQService,
+                $window: ng.IWindowService,
+                $location: ng.ILocationService
+            ) =>
+                ({
+                    request: function (config) {
+                        config.headers = config.headers || {};
+                        config.headers['X-Requested-With'] = 'XMLHttpRequest';
+                        return config;
+                    },
+                    responseError: function (rejection) {
+                        if (rejection.status === 401 || rejection.status === 403) {
+                            $location.path('/login');
+                        }
+                        return $q.reject(rejection);
+                    }
+                })
+            );
 
-    angular.module('ConferenceApp').config(function ($httpProvider) {
-        $httpProvider.interceptors.push('authInterceptor');
-    });
+            angular.module('ConferenceApp').config(function ($httpProvider) {
+                $httpProvider.interceptors.push('authInterceptor');
+            });
 
 
 
+        }
+        )
 }

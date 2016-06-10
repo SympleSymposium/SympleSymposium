@@ -5,7 +5,6 @@
             <div flex="20" flex-offset="10" ng-repeat="conference in controller.conferences">
                 <div>
                     <md-card class="md-card">
-
                         <md-card-header>
                             <md-card-header-text>
                                 <span class="card-title md-title">{{conference.name}}</span>
@@ -17,7 +16,6 @@
                         <md-card-content layout="column" layout-align="space-around center">
                             <div class="card-subhead md-subhead">{{conference.city}}, {{conference.state}}</div>
                             <div class="card-subhead md-subhead">{{conference.startDate | date:'MM/dd/yy'}} - {{conference.endDate | date:'MM/dd/yy'}}</div>
-
                         </md-card-content>
                         <md-card-actions layout="row" layout-align="space-around center">
                             <md-button class="md-raised md-primary"  ui-sref="conferenceEdit({id:conference.id})">Edit</md-button>
@@ -26,8 +24,6 @@
                     </md-card>
                 </div>
             </div>
-
-
             <div  flex="20" flex-offset="10" layout-wrap>
                     <md-card class="md-card" flex>
 
