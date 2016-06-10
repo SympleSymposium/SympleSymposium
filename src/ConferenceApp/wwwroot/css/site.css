@@ -36,7 +36,9 @@ body {
     }
 }
 
-
+.toolbar-logo{
+    height: 80%;
+}
 
 
 /*---------------------*/
@@ -309,18 +311,38 @@ body {
 
 .event-info {
     margin-top: 0.25em;
+    margin: 10px 100px 10px 100px;
 }
 
-    .event-info ul li {
-        color: white;
-        font-family: "Lato", sans-serif;
-        font-size: 1.0em;
-        margin: 1em 0;
-        padding-bottom: 0px;
-        border-right: 1px solid #404040;
-        padding-top: 0;
-        list-style-type: none;
-    }
+.event-info-box {
+    color: white;
+    font-family: "Lato", sans-serif;
+    font-size: 1.0em;
+    margin: 1em 0;
+    padding: 0px 20px 0px 20px;
+    border-right: 1px solid #404040;
+    list-style-type: none;
+    min-height: 70px;
+}
+
+.event-info-box-last {
+    color: white;
+    font-family: "Lato", sans-serif;
+    font-size: 1.0em;
+    margin: 1em 0;
+    padding: 0px 20px 0px 20px;
+    /*border-right: 1px solid #404040;*/
+    list-style-type: none;
+    min-height: 70px;
+}
+
+.event-info-text {
+    padding-left: 10px;
+}
+
+.event-info-icon {
+    font-size: 40px;
+}
 
 [class*="block-grid-"] > li {
     display: block;
@@ -370,7 +392,7 @@ body {
 .detail {
     font-weight: 400;
     color: white;
-    font-size: 2.2em;
+   
 }
 
 .des {
@@ -382,6 +404,10 @@ body {
 
 .nav-bar {
     background-color: rgba(0, 0, 0, 0.98);
+}
+
+.login-register{
+    margin-top: 20px;
 }
 
 .nav-text {
@@ -489,11 +515,6 @@ a:hover {
 .flex-center {
     display: flex;
     justify-content: center;
-}
-
-
-.pad {
-    padding: 10px;
 }
 
 .login md-card {

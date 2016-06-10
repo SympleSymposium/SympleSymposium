@@ -9,17 +9,8 @@
                     <div class="md-headline md-padding white top" style="margin-right: -28px;">Register</div>
                 </div>
                 <div class="register-tit" layout="column" layout-align="start center">
-                    <ul class="user-agent-counter">
-                        <li ng-repeat="externalLogin in account.externalLogins">
-                            <a target="_self" href="{{externalLogin.url}}">{{externalLogin.name}}</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li ng-repeat="message in controller.validationMessages">
-                            {{message}}
-                        </li>
-                    </ul>
-                    <form ng-submit="controller.register()">
+                    
+                    <form class="login-register" ng-submit="controller.register()" layout="column" layout-align="start center">
                         <div>
                             <md-input-container class="md-prima input-field">
                                 <!--<label class="reg-info">Email</label>
@@ -48,8 +39,18 @@
                                 <input type="password" ng-model="controller.registerUser.confirmPassword">
                             </md-input-container>
                         </div>
-                        <md-button class="md-raised" input type="submit" value="Register"> Register </md-button>
+                        <div><md-button class="md-raised" input type="submit" value="Register"> Register </md-button></div>
                     </form>
+                    <ul class="user-agent-counter">
+                        <li ng-repeat="externalLogin in account.externalLogins">
+                            <a target="_self" href="{{externalLogin.url}}">{{externalLogin.name}}</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li ng-repeat="message in controller.validationMessages">
+                            {{message}}
+                        </li>
+                    </ul>
                 </div>
             </md-card>
         </div>

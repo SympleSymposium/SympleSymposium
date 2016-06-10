@@ -10,7 +10,9 @@
             return this.breadcrumbService.breadcrumbs[this.breadcrumbService.breadcrumbs.length - 1];
         }
 
-        constructor(private breadcrumbService: ConferenceApp.Services.BreadcrumbService) {}
+        constructor(private breadcrumbService: ConferenceApp.Services.BreadcrumbService,
+            public toolbarService: ConferenceApp.Services.ToolbarService) {
+        }
     }
     angular.module("ConferenceApp").controller("ToolbarController", ToolbarController);
 }
