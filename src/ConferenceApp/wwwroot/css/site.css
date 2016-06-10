@@ -518,7 +518,7 @@ a:hover {
 /*---------------------*/
 
 .schedule {
-    margin: 10px 0px 10px 10px;
+    margin: 10px 10px 10px 10px;
     width: 96%;
     height: calc(100% - 78px);
     background-color: #fbfbfb;
