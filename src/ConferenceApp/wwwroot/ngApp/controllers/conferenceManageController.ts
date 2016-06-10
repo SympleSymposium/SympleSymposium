@@ -4,6 +4,9 @@
         public conferences;
         public firstConference;
         public toolbarTitle;
+        public themeAdd = "accent";
+        public themeEdit = "primary";
+        public themeSched = "warn";
 
         constructor($http: ng.IHttpService, private accountService: ConferenceApp.Services.AccountService) {
 

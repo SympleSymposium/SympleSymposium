@@ -18,7 +18,10 @@
         }
 
         public UpdatePresentation() {
-            console.log(this.presentation);
+            //console.log(this.presentation);
+            if (!this.presentation.imageUrl) {
+                this.presentation.imageUrl = "ngApp/images/Pod.png";
+            }
             this.presentation.conferenceId = parseInt(this.$stateParams['id']);
             console.log(this.presentation);
             this.$http.post('/api/presentations', this.presentation)

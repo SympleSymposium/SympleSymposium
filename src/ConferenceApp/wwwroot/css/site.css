@@ -38,13 +38,15 @@ body {
 
 
 
+
 /*---------------------*/
 /*CSS for Icons*/
 /*---------------------*/
-.material-icons.md-48 { 
-    font-size: 200px; 
+.material-icons.md-48 {
+    font-size: 200px;
     color: #B71C1C;
 }
+
 .fa .fa-plus .md-48 {
     font-size: 200px;
     color: #B71C1C;
@@ -67,63 +69,74 @@ body {
 
 .md-card-room {
     margin-top: 48px;
-    margin-bottom: 40px;
-    background-color:#ECEFF1;
+    margin-bottom: 60px;
+    background-color: #ECEFF1;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.md-card-room:hover {
-    border: solid thin;
-    border-color: #E0E0E0;
-}
+    .md-card-room:hover {
+        border: solid thin;
+        border-color: #E0E0E0;
+    }
 
 .md-card-pres {
     margin-top: 40px;
+    margin-bottom: 60px;
     width: 320px;
     height: 400px;
-    background-color:#ECEFF1;
+    background-color: #ECEFF1;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.md-card-pres:hover {
-    border: solid thin;
-    border-color: #E0E0E0;
-}
+    .md-card-pres:hover {
+        border: solid thin;
+        border-color: #E0E0E0;
+    }
 
 .md-card {
     margin-top: 40px;
+    margin-bottom: 60px;
     width: 300px;
     height: 400px;
-    background-color:#ECEFF1;
+    background-color: #ECEFF1;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-.md-card:hover {
-    border: solid thin;
-    border-color: #E0E0E0;
-}
+
+    .md-card:hover {
+        border: solid thin;
+        border-color: #E0E0E0;
+    }
 
 .md-card-auto {
     margin-top: 40px;
-    width:400px;
+    margin-bottom: 60px;
+    width: 400px;
     height: auto;
     background-color: #ECEFF1;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.md-card-auto:hover {
-    border: solid thin;
-    border-color: #E0E0E0;
-}
+    .md-card-auto:hover {
+        border: solid thin;
+        border-color: #E0E0E0;
+    }
 
 .image {
     max-height: 80%;
     max-width: 80%;
     height: auto;
-    width: auto;   
+    width: auto;
+}
+
+.image-sp {
+    max-height: 30%;
+    max-width: 30%;
+    height: auto;
+    width: auto;
 }
 
 .card {
@@ -149,7 +162,7 @@ body {
 }
 
 .card-title {
-    font-family:'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     display: inline;
     color: black;
     font-weight: bold;
@@ -159,7 +172,7 @@ body {
 }
 
 .card-subhead {
-    font-family:'Century Gothic';
+    font-family: 'Century Gothic';
     color: black;
     font-weight: bold;
     font-size: 16px;
@@ -168,12 +181,13 @@ body {
 }
 
 .card-subhead-pres {
-    font-family:'Century Gothic';
+    font-family: 'Century Gothic';
     color: black;
     font-weight: 200;
     font-size: 13px;
     text-decoration: none;
 }
+
 .card-title-pres {
     font-family: 'Century Gothic';
     display: inline;
@@ -188,7 +202,7 @@ body {
 /*---------------------*/
 
 .md-button:hover {
-     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .button {
@@ -226,7 +240,7 @@ body {
 /*---------------------*/
 
 .title-color {
-    color: white !important; 
+    color: white !important;
 }
 
 [ui-sref] {
@@ -247,7 +261,6 @@ body {
 }
 
 .bg-image {
-    /*background-image: url("ht tp://www.whe retorome.com/wp-con tent/uploads/2013/12/business-co nference.jpg");*/
     background-image: url('../ngapp/images/main.jpg');
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -255,6 +268,19 @@ body {
     min-height: 720px;
 }
 
+.bg-image-display {
+    background-image: url('../ngapp/images/wbg.jpg');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.bg-overlay-display {
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+}
 
 .bg-overlay {
     background-color: rgba(0, 0, 0, .80);
@@ -316,11 +342,11 @@ body {
 }
 
 .teal {
-    color:#009688;
+    color: #009688;
 }
 
 .light-blue {
-   color: #03A9F4
+    color: #03A9F4;
 }
 
 .light-grey {
@@ -411,7 +437,6 @@ a:hover {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     text-transform: uppercase;
-
     letter-spacing: 2px;
 }
 
@@ -508,7 +533,7 @@ a:hover {
     background-color: rgba(3, 169, 244, 0.20);
 }
 
-.user-agent-counter{
+.user-agent-counter {
     -webkit-padding-start: 0;
 }
 
@@ -538,6 +563,8 @@ a:hover {
 }
 
 .room-header {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
     height: 25px;
     border-top: 1px solid black;
     border-left: 1px solid black;
@@ -560,6 +587,8 @@ a:hover {
 }
 
 .time-slot {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
     width: 100%;
     height: 10%;
     border-bottom: 1px solid black;
@@ -581,19 +610,32 @@ a:hover {
     border: 1px solid red;
 }
 
-.slot {
+.slot-container {
     width: 100%;
     position: absolute;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
 }
 
-    .slot > div {
-        margin: 0px 3px 0px 3px;
-        background-color: lightblue;
-        border-radius: 5px;
-        cursor: pointer;
-        height: 100%;
-        /*border: 1px solid grey;*/
+    .slot-container .slot {
+        position: relative;
+        background-color: #E0E0E0;
+        top: 0;
+        transition: all .1s;
     }
+
+    .slot-container:hover .slot {
+        top: -5px;
+        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+.slot > div {
+    margin: 0px 3px 0px 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 100%;
+    /*border: 1px solid grey;*/
+}
 
 .right-panel-container {
     min-width: 220px;
@@ -605,7 +647,7 @@ a:hover {
     height: calc(100% - 78px);
 }
 
-.day-button{
+.day-button {
     /*max-width: 20px;*/
 }
 
@@ -613,27 +655,25 @@ a:hover {
     border: 1px solid red;
 }*/
 
-.big-font{
+.big-font {
     font-size: 1em;
-   
 }
 
-.under{
+.under {
     border-bottom: thin;
 }
 
-.reg-btn-home{
+.reg-btn-home {
     padding: 10px;
-    background-color:transparent !important;
-   border: 4px solid rgb(77,182,172)!important;
+    background-color: transparent !important;
+    border: 4px solid rgb(77,182,172) !important;
     border-radius: 500px;
     padding: 0 90px;
 }
 
-.reg-btn-home:hover{
-   background-color: rgb(77,182,172)!important;
-  
-}
+    .reg-btn-home:hover {
+        background-color: rgb(77,182,172) !important;
+    }
 
 /*---------------------*/
 /*CSS for breadcrumbs*/
@@ -643,16 +683,18 @@ a:hover {
 .breadcrumbs {
     display: flex;
 }
-.breadcrumbs div {
-    display: flex;
-    height: 64px;
-    width: 250px;
-    border-top-right-radius: 32px;
-    border-bottom-right-radius: 32px;
-    box-shadow: rgba(0,0,0,.23) 3px 0;
-    align-items: center;
-    justify-content: center;
-}
-.breadcrumbs div img {
-    width: 100%;
-}
+
+    .breadcrumbs div {
+        display: flex;
+        height: 64px;
+        width: 250px;
+        border-top-right-radius: 32px;
+        border-bottom-right-radius: 32px;
+        box-shadow: rgba(0,0,0,.23) 3px 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .breadcrumbs div img {
+            width: 100%;
+        }
