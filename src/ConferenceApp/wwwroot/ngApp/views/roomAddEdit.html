@@ -1,37 +1,39 @@
-﻿<div layout="column" layout-align="center center" flex>
-    <md-card class="card">
-        <md-toolbar class="md-{{controller.theme}}">
-            <div class="md-toolbar-tools">
-                <md-icon>{{controller.icon}}</md-icon>
-                <span flex style="margin-left:10px;">{{controller.title}}</span>
-            </div>
-        </md-toolbar>
-        <md-content layout-padding layout="column" ng-cloak class="md-inline-form">
-            <form name="userForm" ng-submit="controller.UpdateRoom()">
-                <md-input-container class="md-block" flex>
-                    <label>Room</label>
-                    <input ng-model="controller.room.name">
-                </md-input-container>
+﻿<div>
+    <div layout="column" layout-align="center center" class="bg-image-display" flex>
+        <md-card class="card">
+            <md-toolbar class="md-{{controller.theme}}">
+                <div class="md-toolbar-tools">
+                    <md-icon>{{controller.icon}}</md-icon>
+                    <span flex style="margin-left:10px;">{{controller.title}}</span>
+                </div>
+            </md-toolbar>
+            <md-content layout-padding layout="column" ng-cloak class="md-inline-form">
+                <form name="userForm" ng-submit="controller.UpdateRoom()">
+                    <md-input-container class="md-block" flex>
+                        <label>Room</label>
+                        <input ng-model="controller.room.name">
+                    </md-input-container>
                 <md-input-container class="md-block" flex>
                     <label>Description:</label>
                     <input ng-model="controller.room.description">
                 </md-input-container>
-                <div layout="row" layout-align="center">
-                    <md-button ng-click="controller.cancel()" class="md-fab md-{{controller.theme}}">
-                        <md-tooltip md-direction="top">Cancel</md-tooltip>
-                        <md-icon>clear</md-icon>
-                    </md-button>
-                    <md-button ng-click="controller.DeleteRoom(room.id)" ng-show="controller.showDelete" class="md-fab md-{{controller.theme}}">
-                        <md-tooltip md-direction="top">Delete</md-tooltip>
-                        <md-icon>delete</md-icon>
-                    </md-button>
-                    <md-button class="md-fab md-{{controller.theme}}" type="submit">
-                        <md-tooltip md-direction="top">Submit</md-tooltip>
-                        <md-icon>done</md-icon>
-                    </md-button>
-                </div>
-            </form>
-        </md-content>
-    </md-card>
-</div>
+                    <div layout="row" layout-align="center">
+                        <md-button ng-click="controller.cancel()" class="md-fab md-{{controller.theme}}">
+                            <md-tooltip md-direction="top">Cancel</md-tooltip>
+                            <md-icon>clear</md-icon>
+                        </md-button>
+                        <md-button ng-click="controller.DeleteRoom(room.id)" ng-show="controller.showDelete" class="md-fab md-{{controller.theme}}">
+                            <md-tooltip md-direction="top">Delete</md-tooltip>
+                            <md-icon>delete</md-icon>
+                        </md-button>
+                        <md-button class="md-fab md-{{controller.theme}}" type="submit">
+                            <md-tooltip md-direction="top">Submit</md-tooltip>
+                            <md-icon>done</md-icon>
+                        </md-button>
+                    </div>
+                </form>
+            </md-content>
+        </md-card>
+    </div>
+    </div>
 

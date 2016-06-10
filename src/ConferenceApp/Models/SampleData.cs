@@ -156,7 +156,7 @@ namespace ConferenceApp.Models {
                     AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
                     StartDate = new DateTime(2016, 10, 4),
                     EndDate = new DateTime(2016, 10, 7),
-                    ImageUrl = "ngapp/images/htc.png",
+                    ImageUrl = "ngapp/images/SkillCode.png",
                     ApplicationUserId = db.ApplicationUsers.FirstOrDefault(a => a.UserName == "Stephen.Walther@CoderCamps.com").Id
                 },
                 new Conference() {

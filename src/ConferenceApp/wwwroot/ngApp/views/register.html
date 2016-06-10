@@ -8,8 +8,8 @@
                     </div>
                     <div class="md-headline md-padding white top" style="margin-right: -28px;">Register</div>
                 </div>
-                <div class="register-tit" layout="row" layout-align="center">
-                    <ul>
+                <div class="register-tit" layout="column" layout-align="start center">
+                    <ul class="user-agent-counter">
                         <li ng-repeat="externalLogin in account.externalLogins">
                             <a target="_self" href="{{externalLogin.url}}">{{externalLogin.name}}</a>
                         </li>
@@ -19,26 +19,26 @@
                             {{message}}
                         </li>
                     </ul>
-                    <form ng-submit="controller.register()" style="margin-left: 100px;">
+                    <form ng-submit="controller.register()">
                         <div>
                             <md-input-container class="md-prima input-field">
-                                <label>Email</label>
+                                <label class="reg-info">Email</label>
                                 <input type="text" ng-model="controller.registerUser.email">
                             </md-input-container>
                         </div>
                         <div>
                             <md-input-container class="md-primary input-field">
-                                <label>Password</label>
+                                <label class="reg-info">Password</label>
                                 <input type="password" ng-model="controller.registerUser.password">
                             </md-input-container>
                         </div>
                         <div>
                             <md-input-container class="md-primary input-field">
-                                <label>Confirm Password</label>
+                                <label class="reg-info">Confirm Password</label>
                                 <input type="password" ng-model="controller.registerUser.confirmPassword">
                             </md-input-container>
                         </div>
-                        <md-button class="md-raised" input type="submit" value="Register"style="margin-left: 111px;"> Register </md-button>
+                        <md-button class="md-raised" input type="submit" value="Register"> Register </md-button>
                     </form>
                 </div>
             </md-card>
