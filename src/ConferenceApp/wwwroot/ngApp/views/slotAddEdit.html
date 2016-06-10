@@ -7,7 +7,7 @@
                         <div layout="row" layout-align="center center">
                             <md-input-container flex ="25">
                                 <label>Day</label>
-                                <input ng-model="controller.slot.day" ng-disabled="true">
+                                <input ng-model="controller.day" ng-disabled="controller.dayDisabled">
                             </md-input-container>
                             <div flex layout="row" layout-align="end">
                                 <mdp-time-picker ng-model="controller.slot.startTime" mdp-auto-switch="true" mdp-label="Start Time"></mdp-time-picker>
@@ -45,13 +45,16 @@
                         </div>
                         
                         <div layout="row" layout-align="center">
-                            <md-button ui-sref="schedule({id:controller.slot.presentation.conferenceId})" class="md-raised md-primary">
+                            <md-button ui-sref="schedule({id:controller.conferenceId})" class="md-raised md-primary">
                                 Cancel
                             </md-button>
                             <md-button ng-click="controller.DeleteSlot()" ng-show="controller.showDelete" class="md-raised md-primary">
                                 Delete
                             </md-button>
-                            <md-button ng-click="controller.EditSlot()" class="md-raised md-primary">
+                            <md-button ng-click="controller.EditSlot()" ng-show="controller.editView" class="md-raised md-primary">
+                                Submit
+                            </md-button>
+                            <md-button ng-click="controller.AddSlot()" ng-show="controller.addView" class="md-raised md-primary">
                                 Submit
                             </md-button>
                         </div>

@@ -6,7 +6,7 @@
         public icon = "edit";
         public theme = "primary";
         public showDelete = true;     //to hide add form when edit is true 
-         
+
         public UpdateConference() {
 
             let editedConf = this.conference;
@@ -23,23 +23,40 @@
         public cancel() {
             this.$state.go("conferenceManage");
         }
+        private ConfirmDelete() {
+            var confirm = this.$mdDialog.confirm()
+                .title('Are you sure you want to delete this conference?')
+                //.textContent('This presentation will be deleted if you press the "Yes" button.')
+                //.template('/ngApp/views/presentationConfirmDeleteModal.html')
+                //.ariaLabel('Lucky day')
+                //.targetEvent()
+                .ok('Yes')
+                .cancel('Cancel');
+            return this.$mdDialog.show(confirm)
+        }
+        
 
-
-        public DeleteConference() {         
-            console.log(this.conference.id);  
-            this.$http.delete(`/api/conferences/${this.conference.id}`)
-                .then((response) => {
-                    this.$state.go("conferenceManage");
-                })
-                .catch((response) => {
-                    console.log(response.data);
+        public DeleteConference() {
+            console.log(this.conference.id);
+            //Delete confirmation modal. The method returns a promise.
+            this.ConfirmDelete()
+                .then(() => {
+                    this.$http.delete(`/api/conferences/${this.conference.id}`)
+                        .then((response) => {
+                            this.$state.go("conferenceManage");
+                        })
+                        .catch((response) => {
+                            console.log(response.data);
+                        });
                 });
 
         }
 
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService,
-            $stateParams: ng.ui.IStateParamsService, private accountService: ConferenceApp.Services.AccountService) {
+            $stateParams: ng.ui.IStateParamsService,
+            private accountService: ConferenceApp.Services.AccountService,
+            public $mdDialog: ng.material.IDialogService) {
 
             accountService.toolbarTitle = "Edit Conference Details";
 
@@ -52,7 +69,7 @@
                 .catch((response) => {
                     console.log(response.data);
                 });
-            
+
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<div class="page-container" id="popupContainer" layout="row" layout-align="center center">
+﻿<div class="page-container" id="popupContainer" layout="row" layout-align="center">
     <md-whiteframe class="schedule md-whiteframe-5dp" layout="column" layout-align="center stretch">
         <div class="schedule-body" layout="row" flex layout-align="center stretch">
             <div class="time-axis">
@@ -35,32 +35,47 @@
             </>
         </div>
     </md-whiteframe>
-    <md-whiteframe class="right-panel-container md-whiteframe-4dp" style="border:1px solid white; box-shadow: none" layout="column">
-        <div class="cur-week-label" layout="column" layout-align="center center">
-            <!--New part for side nav-->
-            <!--<div class="cur-week-label" layout="column" layout-align="start end">-->
-            <md-sidenav class="md-sidenav-right"
-                        md-component-id="right"
-                        md-is-locked-open="$mdMedia('gt-md')"
-                        md-disable-backdrop
-                        md-whiteframe="4"
-                        ng-cloak>
-                <br />
-                Day of Conference: <br />
-                <div>{{controller.currentDay|date:"M/d/yyyy"}}</div>
-                <br />
-                <!--<div layout="row" layout-align="center center">
+    <!--<md-whiteframe class="right-panel-container md-whiteframe-4dp" style="border:1px solid white; box-shadow: none" layout="column">-->
+    <!--<div class="cur-week-label" layout="column" layout-align="center center">-->
+    <!--New part for side nav-->
+
+    <md-sidenav class="md-sidenav-right"
+                md-component-id="right"
+                md-is-locked-open="$mdMedia('gt-md')"
+                md-disable-backdrop
+                md-whiteframe="4"
+                ng-cloak>
+        <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">Schedule Options</h1>
+        </md-toolbar>
+        <!--<md-content layout-padding ng-controller="RightCtrl">-->
+        <md-content layout-padding>
+            <br />
+            Day of Conference: <br />
+            <div>{{controller.currentDay|date:"M/d/yyyy"}}</div>                  
+            <div class="cur-week-label" layout="column" layout-align="center center">
+                <div layout="row" layout-align="center center">
                     <md-button class="day-button md-raised md-primary"
                                ng-disabled="controller.backDisabled()"
                                ng-click="controller.moveDay(-1)">
-
+                        Back
                     </md-button>
                     <md-button class="day-button md-raised md-primary"
                                ng-disabled="controller.forwardDisabled()"
                                ng-click="controller.moveDay(1)">
-
+                        Forward
                     </md-button>
-                </div>-->
+                </div>
+            </div>     
+            <div layout="column" layout-align="center center">
+                <b>{{controller.conference.name}}</b>
+                <p style="margin: 0">{{controller.conference.street}}</p>
+                <p style="margin: 0">{{controller.conference.city}}, {{controller.conference.state}} {{controller.conference.zip}}</p>
+                <br />
+                <img ng-src="{{controller.conference.imageUrl}}" />
+            </div>
+            
+            <div layout="column" layout-align="center center">
                 <md-button class="md-raised md-primary"
                            ui-sref="displayRooms({id:controller.conference.id})">
                     Edit Rooms
@@ -73,17 +88,13 @@
                            ui-sref="displaySpeakers({id:controller.conference.id})">
                     Edit Speakers
                 </md-button>
-                <!--<md-button class="md-raised md-primary"
+                <md-button class="md-raised md-primary"
                            ui-sref="slotAdd({id:controller.conference.id})">
                     Add Slot
-                </md-button>-->
-                <br />
-                <b>{{controller.conference.name}}</b>
-                <p style="margin: 0">{{controller.conference.street}}</p>
-                <p style="margin: 0">{{controller.conference.city}}, {{controller.conference.state}} {{controller.conference.zip}}</p>
-                <br />
-                <img ng-src="{{controller.conference.imageUrl}}"/>
-            </md-sidenav>
-        </div>
-    </md-whiteframe>
+                </md-button>
+            </div>
+            
+        </md-content>
+    </md-sidenav>
 </div>
+<!--</md-whiteframe>-->
