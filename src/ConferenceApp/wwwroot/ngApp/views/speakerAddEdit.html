@@ -1,76 +1,78 @@
-﻿<div layout="column" layout-align="center center" flex>
-    <md-card class="card">
-        <md-toolbar class="md-{{controller.theme}}">
-            <div class="md-toolbar-tools">
-                <md-icon>{{controller.icon}}</md-icon>
-                <span flex style="margin-left:10px;">{{controller.title}}</span>
-            </div>
-        </md-toolbar>
-        <md-content layout-padding layout="column" ng-cloak class="md-inline-form">
-            <form name="userForm" ng-submit="controller.UpdateSpeaker()">
-                <md-input-container class="md-block" flex>
-                    <label>Speaker Title</label>
-                    <input ng-model="controller.speaker.title">
-                </md-input-container>
-                <md-input-container class="md-block" flex>
-                    <label>Speaker First Name</label>
-                    <input ng-model="controller.speaker.firstName">
-                </md-input-container>
-                <md-input-container class="md-block" flex>
-                    <label>Speaker Last Name</label>
-                    <input ng-model="controller.speaker.lastName">
-                </md-input-container>
-                <md-input-container class="md-block" flex>
-                    <label>Speaker Phone</label>
-                    <input ng-model="controller.speaker.phone">
-                </md-input-container>
-                <md-input-container class="md-block" flex>
-                    <label>Speaker Email</label>
-                    <input ng-model="controller.speaker.email">
-                </md-input-container>
-                <md-input-container class="md-block" flex>
-                    <label>Speaker Company</label>
-                    <input ng-model="controller.speaker.company">
-                </md-input-container>
-                <md-input-container class="md-block" flex>
-                    <label>Speaker Street</label>
-                    <input ng-model="controller.speaker.coStreet">
-                </md-input-container>
-                <md-input-container class="md-block" flex>
-                    <label>Speaker City</label>
-                    <input ng-model="controller.speaker.coCity">
-                </md-input-container>
-                <md-input-container class="md-block" flex>
-                    <label>Speaker State</label>
-                    <input ng-model="controller.speaker.coState">
-                </md-input-container>
-                <md-input-container class="md-block" flex>
-                    <label>Speaker Zip</label>
-                    <input ng-model="controller.speaker.coZip">
-                </md-input-container>
-                <md-input-container class="md-block" flex>
-                    <label>Speaker Bio</label>
-                    <input ng-model="controller.speaker.bio">
-                </md-input-container>
-                <md-input-container class="md-block" flex>
-                    <label>Speaker Image</label>
-                    <input ng-model="controller.speaker.imageUrl">
-                </md-input-container>
-                <div layout="row" layout-align="center">
-                    <md-button ng-click="controller.cancel()" class="md-fab md-{{controller.theme}}">
-                        <md-tooltip md-direction="top">Cancel</md-tooltip>
-                        <md-icon>clear</md-icon>
-                    </md-button>
-                    <md-button ng-click="controller.DeleteSpeaker(speaker.id)" ng-show="controller.showDelete" class="md-fab md-{{controller.theme}}">
-                        <md-tooltip md-direction="top">Delete</md-tooltip>
-                        <md-icon>delete</md-icon>
-                    </md-button>
-                    <md-button class="md-fab md-{{controller.theme}}" type="submit">
-                        <md-tooltip md-direction="top">Submit</md-tooltip>
-                        <md-icon>done</md-icon>
-                    </md-button>
+﻿<div>
+    <div layout="column" layout-align="center center" class="bg-image-display"flex>
+        <md-card class="card">
+            <md-toolbar class="md-{{controller.theme}}">
+                <div class="md-toolbar-tools">
+                    <md-icon>{{controller.icon}}</md-icon>
+                    <span flex style="margin-left:10px;">{{controller.title}}</span>
                 </div>
-            </form>
-        </md-content>
-    </md-card>
-</div>
+            </md-toolbar>
+            <md-content layout-padding layout="column" ng-cloak class="md-inline-form">
+                <form name="userForm" ng-submit="controller.UpdateSpeaker()">
+                    <md-input-container class="md-block" flex>
+                        <label>Speaker Title</label>
+                        <input ng-model="controller.speaker.title">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex>
+                        <label>Speaker First Name</label>
+                        <input ng-model="controller.speaker.firstName">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex>
+                        <label>Speaker Last Name</label>
+                        <input ng-model="controller.speaker.lastName">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex>
+                        <label>Speaker Phone</label>
+                        <input ng-model="controller.speaker.phone">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex>
+                        <label>Speaker Email</label>
+                        <input ng-model="controller.speaker.email">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex>
+                        <label>Speaker Company</label>
+                        <input ng-model="controller.speaker.company">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex>
+                        <label>Speaker Street</label>
+                        <input ng-model="controller.speaker.coStreet">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex>
+                        <label>Speaker City</label>
+                        <input ng-model="controller.speaker.coCity">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex>
+                        <label>Speaker State</label>
+                        <input ng-model="controller.speaker.coState">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex>
+                        <label>Speaker Zip</label>
+                        <input ng-model="controller.speaker.coZip">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex>
+                        <label>Speaker Bio</label>
+                        <input ng-model="controller.speaker.bio">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex>
+                        <label>Speaker Image</label>
+                        <input ng-model="controller.speaker.imageUrl">
+                    </md-input-container>
+                    <div layout="row" layout-align="center">
+                        <md-button ng-click="controller.cancel()" class="md-fab md-{{controller.theme}}">
+                            <md-tooltip md-direction="top">Cancel</md-tooltip>
+                            <md-icon>clear</md-icon>
+                        </md-button>
+                        <md-button ng-click="controller.DeleteSpeaker(speaker.id)" ng-show="controller.showDelete" class="md-fab md-{{controller.theme}}">
+                            <md-tooltip md-direction="top">Delete</md-tooltip>
+                            <md-icon>delete</md-icon>
+                        </md-button>
+                        <md-button class="md-fab md-{{controller.theme}}" type="submit">
+                            <md-tooltip md-direction="top">Submit</md-tooltip>
+                            <md-icon>done</md-icon>
+                        </md-button>
+                    </div>
+                </form>
+            </md-content>
+        </md-card>
+    </div>
+    </div>

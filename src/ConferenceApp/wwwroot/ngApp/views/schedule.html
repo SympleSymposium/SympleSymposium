@@ -1,4 +1,5 @@
-﻿<div class="page-container" id="popupContainer" layout="row" layout-align="center">
+﻿<div class="page-container bg-image-display" id="popupContainer" layout="row" layout-align="center center">
+
     <md-whiteframe class="schedule md-whiteframe-5dp" layout="column" layout-align="center stretch">
         <div class="schedule-body" layout="row" flex layout-align="center stretch">
             <div class="time-axis">
@@ -17,16 +18,20 @@
                         {{r.name}}
                     </div>
                 </div>
-                <div class="schedule-cell" flex>
-                    <div class="slot"
+                <div class="schedule-cell " flex>
+                    <div class="slot-container"
                          ng-repeat="s in r.slots
                                        |filter:{day: controller.currentDay}"
-                         style="top:{{s.top}}%; height:calc({{s.height}}% - 1px);"
+                         style=
+                         "top:{{s.top}}%; 
+                         height:calc({{s.height}}% - 1px);"
                          ui-sref="slotEdit({id:s.id})">
-                        <div layout="column" layout-align="center center">
-                            <div>{{s.presentation.title}}</div>
-                            <div>Speaker: {{s.speaker.firstName}} {{s.speaker.lastName}}</div>
-                            <div>{{s.startTimeDisplay}} to {{s.endTimeDisplay}}</div>
+                        <div class="slot">
+                            <div layout="column" layout-align="center center" class="">
+                                <div>{{s.presentation.title}}</div>
+                                <div>Speaker: {{s.speaker.firstName}} {{s.speaker.lastName}}</div>
+                                <div>{{s.startTimeDisplay}} to {{s.endTimeDisplay}}</div>
+                            </div>
                         </div>
                     </div>
 
