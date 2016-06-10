@@ -24,7 +24,7 @@
         public UpdateSpeaker() {
             //console.log(this.speaker);
             if (!this.speaker.imageUrl) {
-                this.speaker.imageUrl = "ngapp/images/"
+                this.speaker.imageUrl = "ngApp/images/head.jpg";
             }
             this.speaker.conferenceId = parseInt(this.$stateParams['id']);
             //console.log(this.speaker);

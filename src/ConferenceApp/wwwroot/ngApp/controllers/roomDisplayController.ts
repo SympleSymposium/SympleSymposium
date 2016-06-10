@@ -2,6 +2,8 @@
 
     export class RoomDisplayController {
         public rooms;
+        public themeAdd = "accent";
+        public themeEdit = "primary";
 
         private GetRooms() {
             this.$http.get(`/api/rooms/manage/${

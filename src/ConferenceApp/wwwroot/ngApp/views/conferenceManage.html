@@ -1,44 +1,57 @@
 ﻿<!--<h1 class="reg-title flex-center">Conferences</h1>-->
-<!--<div class="bg-image">
-    <div class="bg-overlayII">-->
-<div class="cards" layout="row" layout-align="start center" layout-wrap>
+<div class="bg-image-display">
+    <!--<div class="bg-overlay-display">-->
+
+        <div class="cards" layout="row" layout-align="start center" layout-wrap>
             <div flex="20" flex-offset="10" ng-repeat="conference in controller.conferences">
                 <div>
                     <md-card class="md-card">
                         <md-card-header>
                             <md-card-header-text>
-                                <span class="card-title md-title">{{conference.name}}</span>
+                                <div class="card-title md-title">{{conference.name}}</div>
                             </md-card-header-text>
                         </md-card-header>
+
                         <md-card-title layout="column" layout-align="center center" layout-scale>
-                            <img class="image md-card-image" src="{{conference.imageUrl}}"/>
+                            <img class="image md-card-image" src="{{conference.imageUrl}}" />
                         </md-card-title>
+
                         <md-card-content layout="column" layout-align="space-around center">
                             <div class="card-subhead md-subhead">{{conference.city}}, {{conference.state}}</div>
                             <div class="card-subhead md-subhead">{{conference.startDate | date:'MM/dd/yy'}} - {{conference.endDate | date:'MM/dd/yy'}}</div>
                         </md-card-content>
                         <md-card-actions layout="row" layout-align="space-around center">
-                            <md-button class="md-raised md-primary"  ui-sref="conferenceEdit({id:conference.id})">Edit</md-button>
-                            <md-button class="md-raised md-primary" ui-sref="schedule({id:conference.id})">Schedule</md-button>
+                            <md-button ui-sref="conferenceEdit({id:conference.id})" class="md-fab md-{{controller.themeEdit}}" layout="flex">
+                                <md-tooltip md-direction="right">Edit</md-tooltip>
+                                <md-icon>edit</md-icon>
+                            </md-button>
+                            <md-button ui-sref="schedule({id:conference.id})" class="md-fab md-{{controller.themeSched}}" layout="flex">
+                                <md-tooltip md-direction="left">Schedule</md-tooltip>
+                                <md-icon>view_list</md-icon>
+                            </md-button>
                         </md-card-actions>
                     </md-card>
                 </div>
             </div>
-            <div  flex="20" flex-offset="10" layout-wrap>
-                    <md-card class="md-card" flex>
+            <div flex="20" flex-offset="10" layout-wrap>
+                <md-card class="md-card" flex>
 
-                <md-card-header>
-                    <md-card-header-text>
-                        <span class="card-title md-title">Add Conference</span>
-                    </md-card-header-text>
-                </md-card-header>
-                    <md-card-actions layout="row" layout-align="center" class="layout-align-center-stretch layout-row">
-                        <md-button class="md-fab md-primary md-button" type="button" aria-label="Add" ui-sref="conferenceAdd">
-                            <md-icon class="md-icon">add_circle_outline</md-icon>  
-                        </md-button>
-                   </md-card-actions>
-            </md-card>
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="card-title md-title">Add Conference</span>
+                        </md-card-header-text>
+                    </md-card-header>
+                    <md-card-actions>
+                        <div layout="row" layout-align="center">
+                            <md-button ui-sref="conferenceAdd" class="md-fab md-{{controller.themeAdd}}" layout="flex">
+                                <md-icon>add_circle</md-icon>
+                            </md-button>
+                        </div>
+                    </md-card-actions>
+                </md-card>
+            </div>
         </div>
-    </div>
 
-
+    <!--</div>-->
+</div>
+<!--ui-sref="conferenceAdd">-->

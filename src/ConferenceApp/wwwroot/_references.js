@@ -36,4 +36,4 @@
 /// <reference path="ngapp/controllers/speakereditcontroller.js" />
 /// <reference path="ngapp/controllers/toolbar.js" />
 /// <reference path="ngapp/services/accountservice.js" />
-/// <reference path="ngApp/services/services.js" />
+/// <reference path="ngapp/services/dayservice.js" />

@@ -38,6 +38,7 @@ body {
 
 
 
+
 /*---------------------*/
 /*CSS for Icons*/
 /*---------------------*/
@@ -68,7 +69,7 @@ body {
 
 .md-card-room {
     margin-top: 48px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     background-color: #ECEFF1;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -81,6 +82,7 @@ body {
 
 .md-card-pres {
     margin-top: 40px;
+    margin-bottom: 60px;
     width: 320px;
     height: 400px;
     background-color: #ECEFF1;
@@ -95,6 +97,7 @@ body {
 
 .md-card {
     margin-top: 40px;
+    margin-bottom: 60px;
     width: 300px;
     height: 400px;
     background-color: #ECEFF1;
@@ -109,6 +112,7 @@ body {
 
 .md-card-auto {
     margin-top: 40px;
+    margin-bottom: 60px;
     width: 400px;
     height: auto;
     background-color: #ECEFF1;
@@ -124,6 +128,13 @@ body {
 .image {
     max-height: 80%;
     max-width: 80%;
+    height: auto;
+    width: auto;
+}
+
+.image-sp {
+    max-height: 30%;
+    max-width: 30%;
     height: auto;
     width: auto;
 }
@@ -250,7 +261,6 @@ body {
 }
 
 .bg-image {
-    /*background-image: url("ht tp://www.whe retorome.com/wp-con tent/uploads/2013/12/business-co nference.jpg");*/
     background-image: url('../ngapp/images/main.jpg');
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -258,6 +268,19 @@ body {
     min-height: 720px;
 }
 
+.bg-image-display {
+    background-image: url('../ngapp/images/wbg.jpg');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.bg-overlay-display {
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+}
 
 .bg-overlay {
     background-color: rgba(0, 0, 0, .80);
@@ -521,7 +544,7 @@ a:hover {
 /*---------------------*/
 
 .schedule {
-    margin: 10px 0px 10px 10px;
+    margin: 10px 10px 10px 10px;
     width: 96%;
     height: calc(100% - 78px);
     background-color: #fbfbfb;
@@ -541,6 +564,8 @@ a:hover {
 }
 
 .room-header {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
     height: 25px;
     border-top: 1px solid black;
     border-left: 1px solid black;
@@ -563,6 +588,8 @@ a:hover {
 }
 
 .time-slot {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
     width: 100%;
     height: 10%;
     border-bottom: 1px solid black;
@@ -584,19 +611,32 @@ a:hover {
     border: 1px solid red;
 }
 
-.slot {
+.slot-container {
     width: 100%;
     position: absolute;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
 }
 
-    .slot > div {
-        margin: 0px 3px 0px 3px;
-        background-color: lightblue;
-        border-radius: 5px;
-        cursor: pointer;
-        height: 100%;
-        /*border: 1px solid grey;*/
+    .slot-container .slot {
+        position: relative;
+        background-color: #E0E0E0;
+        top: 0;
+        transition: all .1s;
     }
+
+    .slot-container:hover .slot {
+        top: -5px;
+        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+.slot > div {
+    margin: 0px 3px 0px 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 100%;
+    /*border: 1px solid grey;*/
+}
 
 .right-panel-container {
     min-width: 220px;

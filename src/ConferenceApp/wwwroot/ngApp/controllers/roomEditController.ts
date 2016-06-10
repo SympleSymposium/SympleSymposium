@@ -21,8 +21,8 @@
 
         private ConfirmDelete() {
             var confirm = this.$mdDialog.confirm()
-                .title('Would you like to delete this room?')
-                .textContent('This room will be deleted if you press the "Yes" button.')
+                .title('Are you sure you want to delete this room?')
+                //.textContent('This room will be deleted if you press the "Yes" button.')
                 //.template('/ngApp/views/presentationConfirmDeleteModal.html')
                 //.ariaLabel('Lucky day')
                 //.targetEvent()

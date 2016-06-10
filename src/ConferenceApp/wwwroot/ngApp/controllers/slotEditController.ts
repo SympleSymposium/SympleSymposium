@@ -7,14 +7,17 @@
         public presentations;
         public rooms;
         public editView = true;
-        public startTimeTest;
-
+        public showDelete = true;
+        public dayDisabled = true;
+        public day;
+        public conferenceId;
+        
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService,
             private $stateParams: ng.ui.IStateParamsService,
             private accountService: ConferenceApp.Services.AccountService,
             public $mdDialog: ng.material.IDialogService) {
-            console.log('edit');
+            //console.log('edit');
 
             accountService.toolbarTitle = "Edit Slot";
 
@@ -24,14 +27,14 @@
                     this.slot = response.data;
                     this.slot.startTime = moment(this.slot.startTime).toDate();
                     this.slot.endTime = moment(this.slot.endTime).toDate();
-                    console.log(this.slot);
+                    this.day = moment(this.slot.startTime).format("M/D/YYYY");
+                    this.conferenceId = this.slot.presentation.conferenceId;
+
 
                     //these $http.gets are to build the dropdown list for speakers, presentations, and rooms
                     $http.get('/api/speakers/manage/' + this.slot.presentation.conferenceId)
                         .then((response) => {
                             this.speakers = response.data;
-                            //console.log("speakers");
-                            //console.log(this.speakers);
                         })
 
                     $http.get('/api/presentations/manage/' + this.slot.presentation.conferenceId)
@@ -54,8 +57,11 @@
 
             let editedSlot = {
                 id: this.slot.id,
-                endTime: this.slot.endTime,
-                startTime: this.slot.startTime,
+
+                //Start time and end time must be formatted like this to deal with local times
+                startTime: moment(this.slot.startTime).format("M/D/YYYY h:mm:ss A"),
+                endTime: moment(this.slot.endTime).format("M/D/YYYY h:mm:ss A"),
+                
                 presentationId: this.slot.presentation.id,
                 speakerId: this.slot.speaker.id,
                 roomId: this.slot.room.id
@@ -63,15 +69,14 @@
 
             this.$http.post('/api/slots/' + editedSlot.id, editedSlot)
                 .then((response) => {
-                    //console.log(editedSlot);
                     this.$state.go("schedule", { id: this.slot.room.conferenceId });
                 })
         }
 
         private ConfirmDelete() {
             var confirm = this.$mdDialog.confirm()
-                .title('Would you like to delete this slot?')
-                .textContent('This slot will be deleted if you press the "Yes" button.')
+                .title('Are you sure you want to delete this slot?')
+                //.textContent('This slot will be deleted if you press the "Yes" button.')
                 //.template('/ngApp/views/presentationConfirmDeleteModal.html')
                 //.ariaLabel('Lucky day')
                 //.targetEvent()
@@ -80,11 +85,12 @@
             return this.$mdDialog.show(confirm)
         }
 
-        public DeleteSlot(id) {
+        public DeleteSlot() {
             //Added delete confirmation modal. The method returns a promise.
             this.ConfirmDelete()
                 .then(() => {
-                    this.$http.delete(`/api/slots/${id}`)
+                    console.log("slot id = " + this.slot.id);
+                    this.$http.delete(`/api/slots/${this.slot.id}`)
                         .then((response) => {
                             console.log(response.data);
                             this.$state.go("schedule", { id: this.slot.room.conferenceId });

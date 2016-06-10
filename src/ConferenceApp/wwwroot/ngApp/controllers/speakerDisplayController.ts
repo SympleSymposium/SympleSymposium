@@ -2,6 +2,8 @@
 
     export class SpeakerDisplayController {
         public speakers;
+        public themeAdd = "accent";
+        public themeEdit = "primary";
 
         private GetSpeakers() {
             console.log("In GetSpeakers method");

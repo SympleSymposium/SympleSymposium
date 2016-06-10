@@ -21,6 +21,9 @@
         //change currently viewed day
         public moveDay(moveNum: number) {
             this.currentDay = moment(new Date(this.currentDay)).add(moveNum, 'day').format("M/D/YYYY");
+
+            //Save current day to service so that slotAddController will be able to access it
+            this.dayService.slotDay = this.currentDay;
         }
 
         //logic for disabling back button
@@ -50,13 +53,14 @@
         constructor(private $http: ng.IHttpService,
             private $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService,
-            private accountService: ConferenceApp.Services.AccountService) {
-            console.log("bye");
+            private accountService: ConferenceApp.Services.AccountService,
+            private dayService: ConferenceApp.Services.DayService) {
+
             accountService.toolbarTitle = "Presentation Schedule";
 
             $http.get('/api/conferences/' + $stateParams['id'])
                 .then((response) => {
-                    console.log(response.data);
+                    //console.log(response.data);
                     this.conference = response.data;
 
 
@@ -72,12 +76,26 @@
                         i++;
                     }
 
-                    //Sets the initial day shown in the schedule to the first day of the conference
-                    this.currentDay = this.conferenceDays[0];
+                    if (dayService.slotDay) {
+
+                        //If currentDay is already set, jump to this day
+                        this.currentDay = dayService.slotDay;
+
+                    } else {
+
+                        //Sets the initial day shown in the schedule to the first day of the conference
+                        this.currentDay = this.conferenceDays[0];
+
+                        //Save current day to service so that slotAddController will be able to access it
+                        dayService.slotDay = this.currentDay;
+                    }
+
+                    
 
                     //Calculates the layout for the schedule
                     this.conference.rooms.forEach((room) => {
                         room.slots.forEach((slot) => {
+                            //console.log(moment.utc(slot.startTime).format());
                             let startMinute = moment(slot.startTime).hour() * 60 + moment(slot.startTime).minute();
                             let endMinute = moment(slot.endTime).hour() * 60 + moment(slot.endTime).minute();
                             slot.top = (startMinute / 60 - 8) / 10 * 100;
