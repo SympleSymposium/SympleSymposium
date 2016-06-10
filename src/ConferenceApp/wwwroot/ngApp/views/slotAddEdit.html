@@ -43,7 +43,10 @@
                             <md-button ng-click="controller.DeleteSlot()" ng-show="controller.showDelete" class="md-raised md-primary">
                                 Delete
                             </md-button>
-                            <md-button ng-click="controller.EditSlot()" class="md-raised md-primary">
+                            <md-button ng-click="controller.EditSlot()" ng-show="controller.editView" class="md-raised md-primary">
+                                Submit
+                            </md-button>
+                            <md-button ng-click="controller.AddSlot()" ng-show="controller.addView" class="md-raised md-primary">
                                 Submit
                             </md-button>
                         </div>

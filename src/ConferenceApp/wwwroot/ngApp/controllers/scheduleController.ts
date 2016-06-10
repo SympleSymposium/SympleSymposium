@@ -51,7 +51,6 @@
             private $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService,
             private accountService: ConferenceApp.Services.AccountService) {
-            console.log("bye");
             accountService.toolbarTitle = "Presentation Schedule";
 
             $http.get('/api/conferences/' + $stateParams['id'])
