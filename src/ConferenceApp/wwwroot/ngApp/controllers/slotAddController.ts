@@ -44,23 +44,27 @@
         }
 
         public AddSlot() {
+
+            //console.log("day: " + this.day);
+            //console.log("startTime: " + moment(this.slot.startTime).format("hh:mm:ss A"));
+            //console.log("endTime: " + moment(this.slot.endTime).format("hh:mm:ss A"));
+
             this.newSlot = {
                 presentationId: this.slot.presentation.id,
                 speakerId: this.slot.speaker.id,
                 roomId: this.slot.room.id,
-                startTime: this.slot.startTime,
-                endTime: this.slot.endTime
+                startTime: this.day + " " + moment(this.slot.startTime).format("hh:mm:ss A"),
+                endTime: this.day + " " + moment(this.slot.endTime).format("hh:mm:ss A")
             };
-            console.log(this.slot);
+            //console.log(this.slot);
+            console.log("New Slot: ");
             console.log(this.newSlot);
-            console.log(moment(this.newSlot.startTime));
-            console.log(moment(this.newSlot.startTime).utc);
 
-            this.slot.conferenceId = parseInt(this.$stateParams['id']);
+            //this.slot.conferenceId = parseInt(this.$stateParams['id']);
 
             this.$http.post('/api/slots', this.newSlot)
                 .then((response) => {
-                    this.$state.go("schedule", { id: this.slot.conferenceId });
+                    this.$state.go("schedule", { id: this.conferenceId });
                 })
         }
 

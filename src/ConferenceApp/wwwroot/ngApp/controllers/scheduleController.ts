@@ -76,11 +76,21 @@
                         i++;
                     }
 
-                    //Sets the initial day shown in the schedule to the first day of the conference
-                    this.currentDay = this.conferenceDays[0];
+                    if (dayService.slotDay) {
 
-                    //Save current day to service so that slotAddController will be able to access it
-                    dayService.slotDay = this.currentDay;
+                        //If currentDay is already set, jump to this day
+                        this.currentDay = dayService.slotDay;
+
+                    } else {
+
+                        //Sets the initial day shown in the schedule to the first day of the conference
+                        this.currentDay = this.conferenceDays[0];
+
+                        //Save current day to service so that slotAddController will be able to access it
+                        dayService.slotDay = this.currentDay;
+                    }
+
+                    
 
                     //Calculates the layout for the schedule
                     this.conference.rooms.forEach((room) => {
