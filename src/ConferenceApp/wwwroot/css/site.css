@@ -404,6 +404,10 @@ body {
     background-color: rgba(0, 0, 0, 0.98);
 }
 
+.login-register{
+    margin-top: 20px;
+}
+
 .nav-text {
     display: inline;
     color: white;
