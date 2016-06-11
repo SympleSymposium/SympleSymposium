@@ -4,6 +4,7 @@
         public presentation;
         public themeAdd = "accent";
         public themeEdit = "primary";
+        public conferenceId;
 
         private UpdatePresentations() {
             this.$http.get(`/api/presentations/manage/${this.$stateParams['id']}`)
@@ -26,11 +27,14 @@
             //console.log($stateParams['id']);
 
             accountService.toolbarTitle = "Manage Presentations";
+            this.conferenceId = $stateParams['id'];
 
             toolbarService.goBack = () => {
                 console.log("tried");
+                console.log("Confererence Id: " + this.presentation.conferenceId);
+                console.log("Confererence Id: " + this.presentation.id);
                 //this.$state.go("conferenceManage");
-                this.$state.go("schedule", { id: this.presentation.id })
+                this.$state.go("schedule", { id: this.conferenceId })
             };
 
             this.UpdatePresentations();
