@@ -4,6 +4,7 @@
         public speakers;
         public themeAdd = "accent";
         public themeEdit = "primary";
+        public conferenceId;
 
         private GetSpeakers() {
             console.log("In GetSpeakers method");
@@ -20,9 +21,17 @@
         constructor(private $http: ng.IHttpService,
             private $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService,
-            private accountService: ConferenceApp.Services.AccountService) {
+            private accountService: ConferenceApp.Services.AccountService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
 
             accountService.toolbarTitle = "Manage Speakers";
+            this.conferenceId = $stateParams['id'];
+
+            toolbarService.goBack = () => {
+                console.log("tried");
+                //this.$state.go("conferenceManage");
+                this.$state.go("schedule", { id: this.conferenceId })
+            };
 
             this.GetSpeakers();
         }

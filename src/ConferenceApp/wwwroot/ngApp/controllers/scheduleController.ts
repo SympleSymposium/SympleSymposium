@@ -50,14 +50,29 @@
             }
         }
 
+        
+
         constructor(private $http: ng.IHttpService,
             private $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService,
+            public $window: ng.IWindowService,
             private accountService: ConferenceApp.Services.AccountService,
-            private dayService: ConferenceApp.Services.DayService) {
+            private dayService: ConferenceApp.Services.DayService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
 
             accountService.toolbarTitle = "Presentation Schedule";
 
+
+            toolbarService.goBack = () => {
+                console.log("tried");
+                this.$state.go("conferenceManage");
+            };
+
+            //$back => {
+            //    $window.history.back();
+            //}
+
+            
             $http.get('/api/conferences/' + $stateParams['id'])
                 .then((response) => {
                     //console.log(response.data);

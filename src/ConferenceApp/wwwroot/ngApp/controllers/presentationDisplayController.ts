@@ -21,10 +21,17 @@
         constructor(public $http: ng.IHttpService,
             public $stateParams: ng.ui.IStateParamsService,
             public $state: ng.ui.IStateService,
-            private accountService: ConferenceApp.Services.AccountService) {
+            private accountService: ConferenceApp.Services.AccountService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
             //console.log($stateParams['id']);
 
             accountService.toolbarTitle = "Manage Presentations";
+
+            toolbarService.goBack = () => {
+                console.log("tried");
+                //this.$state.go("conferenceManage");
+                this.$state.go("schedule", { id: this.presentation.id })
+            };
 
             this.UpdatePresentations();
         }
