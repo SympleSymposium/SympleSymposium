@@ -10,7 +10,8 @@ namespace ConferenceApp {
             $stateProvider
                 .state('home', {
                     url: '/',
-                    templateUrl: '/ngApp/views/home.html',
+                    templateUrl: '/ngApp/views/home.html', 
+                    controller: ConferenceApp.Controllers.HomeController,
                     controllerAs: 'controller'
                 })
                 .state('conferenceManage', {

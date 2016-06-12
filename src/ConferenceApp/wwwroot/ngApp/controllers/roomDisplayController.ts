@@ -23,9 +23,17 @@
         constructor(private $http: ng.IHttpService,
             private $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService,
-            private accountService: ConferenceApp.Services.AccountService) {
+            private accountService: ConferenceApp.Services.AccountService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
 
             accountService.toolbarTitle = "Manage Rooms";
+            this.conferenceId = $stateParams['id'];
+
+            toolbarService.goBack = () => {
+                console.log("tried");
+                //this.$state.go("conferenceManage");
+                this.$state.go("schedule", { id: this.conferenceId })
+            };
 
             this.GetRooms();
         }

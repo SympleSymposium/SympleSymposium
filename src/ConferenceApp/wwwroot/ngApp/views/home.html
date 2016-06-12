@@ -2,40 +2,48 @@
     <div class="bg-overlay" flex-grow="1" layout="column">
         <!--SITE TITLE-->
         <div layout="row" class="banner-conf-title" layout-align="center">
-            
+
             <h1 id="site-title" class="title-color" ui-sref="conferenceManage">Symple Symposium</h1>
 
         </div>
-        <!--SITE DESCRIPTION-->
-        <div layout="row" layout-align="center">
-            <h2 id="site-description">The Peoples web conference</h2>
-        </div>
+        <h2 class="detail md-primary" layout="row" layout-align="center">Manage Your Conference With Confidence</h2>
         <!--REGISTER BUTTON-->
-        <div class="reg" layout="column" layout-align="space-around center">
-            <md-button class="md-raised big-font title-color under reg-btn-home" ui-sref="register">Register</md-button>
+        <div layout="row" layout-align="center">
+            <div class="reg" layout="column" layout-align="space-around center">
+                <md-button class="md-raised big-font title-color under reg-btn-home" ui-sref="register">Register</md-button>
+            </div>
+            <div class="reg" layout="column" layout-align="space-around center">
+                <md-button class="md-raised big-font title-color under reg-btn-home" ui-sref="login">Log In</md-button>
+            </div>
         </div>
-        <!--EVENT INFORMATION-->
-        <div class="event-info" layout="row" layout-align="center">
-            <ul layout="row" layout-align="space-around center">
+        
 
-                <li class="pad">
-                    <i class="fa fa-rocket amber" aria-hidden="true"></i>  Any information that is entered is instantly updated so that speakers as well as guest is able to get precise information, fast.
-                </li>
-                <li class="pad">
-                    <i class="fa fa-clock-o amber" aria-hidden="true"></i>
-                    Spreadsheets are antiquated and clunky to use. Think of all the time wasted manually plugging in data. With Symple   Symposium, it's easy to envision, track, and direct all      the speakers and guest who will attend your event.
-                </li>
-                <li class="pad">
-                    <i class="fa fa-check-square-o amber" aria-hidden="true"></i>
-                    Submit key learning objectives of speaker presentations and include key terms so attendees know what to expect from each presentation.
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h1 class="detail" layout="row" layout-align="center">Manage Your Conference With Confidence</h1>
-            <h2 layout="row" layout-align="center" class="des">
-                You can collect, organize and distribute information for meetings and events.
-            </h2>
+        <!--EVENT INFORMATION-->
+        <div class="event-info" layout="row" layout-align="space-around start">
+            <div flex layout="row" layout-align="space-around" class="event-info-box">
+                <div layout layout-align="center center">
+                    <i class="fa fa-rocket amber event-info-icon" aria-hidden="true"></i>
+                </div>
+                <div layout layout-align="center center">
+                    <div class="event-info-text">Any information entered is instantly updated so that speakers and guests are able to view precise information, fast.</div>
+                </div>
+            </div>
+            <div flex layout="row" class="event-info-box">
+                <div layout layout-align="center center">
+                    <i class="fa fa-clock-o amber event-info-icon" aria-hidden="true"></i>
+                </div>
+                <div layout layout-align="center center">
+                    <div class="event-info-text">Easily envision, track, and direct all speakers, presentations, and rooms at your event.</div>
+                </div>
+            </div>
+            <div flex layout="row" class="event-info-box-last">
+                <div layout layout-align="center center">
+                    <i class="fa fa-check-square-o amber event-info-icon" aria-hidden="true"></i>
+                </div>
+                <div layout layout-align="center center">
+                    <div class="event-info-text">Include speaker and presentation descriptions so attendees know what to expect from each presentation.</div>
+                </div>
+            </div>
         </div>
     </div>
 
