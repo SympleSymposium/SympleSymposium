@@ -3,7 +3,7 @@
         public presentation;
         public title = "Edit Presentation"
         public icon = "edit";
-        public theme = "primary";
+        public theme = "md-primary";
         public showDelete = true;     //to hide add form when edit is true
 
         constructor(public $http: ng.IHttpService,
@@ -31,7 +31,7 @@
 
             let editedPresentation = this.presentation;
 
-            console.log(JSON.stringify(editedPresentation));
+            console.log((editedPresentation));
 
             this.$http.post('/api/presentations/' + editedPresentation.id, editedPresentation)
                 .then((response) => {

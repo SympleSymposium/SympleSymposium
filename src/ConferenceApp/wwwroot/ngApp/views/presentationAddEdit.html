@@ -17,20 +17,16 @@
                         <label>Description</label>
                         <input ng-model="controller.presentation.description">
                     </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Image Url</label>
-                        <input ng-model="controller.presentation.imageUrl">
-                    </md-input-container>
                     <div layout="row" layout-align="center">
-                        <md-button ng-click="controller.cancel()" class="md-fab md-{{controller.theme}}">
+                        <md-button ng-click="controller.cancel()" class="md-fab md-hue-2">
                             <md-tooltip md-direction="top">Cancel</md-tooltip>
                             <md-icon>clear</md-icon>
                         </md-button>
-                        <md-button ng-click="controller.DeletePresentation(controller.presentation.id)" ng-show="controller.showDelete" class="md-fab md-{{controller.theme}}">
+                        <md-button ng-click="controller.DeletePresentation(controller.presentation.id)" ng-show="controller.showDelete" class="md-fab md-warn">
                             <md-tooltip md-direction="top">Delete</md-tooltip>
                             <md-icon>delete</md-icon>
                         </md-button>
-                        <md-button class="md-fab md-{{controller.theme}}" type="submit">
+                        <md-button class="md-fab md-accent" type="submit">
                             <md-tooltip md-direction="top">Submit</md-tooltip>
                             <md-icon>done</md-icon>
                         </md-button>

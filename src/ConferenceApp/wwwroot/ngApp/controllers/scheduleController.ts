@@ -2,6 +2,8 @@
 
     export class ScheduleController {
         public conference;
+        public themeAdd = "md-accent";
+        public themeEdit = "md-primary";
         public firstDay;
         public lastDay;
         public conferenceDays = [];

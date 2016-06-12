@@ -1,6 +1,6 @@
-﻿<div>
-    <div layout="column" layout-align="center center" class="bg-image-display" flex>
-        <md-card class="card">
+﻿
+    <div class="cards bg-image-display" layout="column" layout-align="center center" flex>
+        <md-card class="md-card-room">
             <md-toolbar class="md-{{controller.theme}}">
                 <div class="md-toolbar-tools">
                     <md-icon>{{controller.icon}}</md-icon>
@@ -18,15 +18,15 @@
                     <input ng-model="controller.room.description">
                 </md-input-container>
                     <div layout="row" layout-align="center">
-                        <md-button ng-click="controller.cancel()" class="md-fab md-{{controller.theme}}">
+                        <md-button ng-click="controller.cancel()" class="md-fab md-{{controller.themeCan}}">
                             <md-tooltip md-direction="top">Cancel</md-tooltip>
                             <md-icon>clear</md-icon>
                         </md-button>
-                        <md-button ng-click="controller.DeleteRoom(room.id)" ng-show="controller.showDelete" class="md-fab md-{{controller.theme}}">
+                        <md-button ng-click="controller.DeleteRoom(room.id)" ng-show="controller.showDelete" class="md-fab md-{{controller.themeDel}}">
                             <md-tooltip md-direction="top">Delete</md-tooltip>
                             <md-icon>delete</md-icon>
                         </md-button>
-                        <md-button class="md-fab md-{{controller.theme}}" type="submit">
+                        <md-button class="md-fab md-{{controller.themeSub}}" type="submit">
                             <md-tooltip md-direction="top">Submit</md-tooltip>
                             <md-icon>done</md-icon>
                         </md-button>
@@ -35,5 +35,5 @@
             </md-content>
         </md-card>
     </div>
-    </div>
+
 

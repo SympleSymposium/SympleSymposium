@@ -2,8 +2,11 @@
 
     export class RoomDisplayController {
         public rooms;
-        public themeAdd = "accent";
-        public themeEdit = "primary";
+        public title = "Rooms"
+        public icon = "panorama_vertical";
+        public theme = "md-primary";
+        public themeAdd = "md-accent";
+        public themeEdit = "md-primary";
 
         private GetRooms() {
             this.$http.get(`/api/rooms/manage/${
@@ -11,6 +14,7 @@
                 .then((response) => {
                     this.rooms = response.data;
                 })
+
                 .catch((response) => {
                     console.log(response.data);
                 });

@@ -6,10 +6,13 @@
         public speakers;
         public presentations;
         public rooms;
-        public addView = true;
         public dayDisabled = false;
         public day;
         public conferenceId;
+        public title = "Add Slot"
+        public icon = "add_circle";
+        public theme = "md-accent";
+        public showDelete = false; 
 
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService,
@@ -43,7 +46,13 @@
                 })
         }
 
-        public AddSlot() {
+        public cancel() {
+            this.$state.go('schedule', {
+                id: this.conferenceId
+            });
+        }
+
+        public UpdateSlot() {
 
             //console.log("day: " + this.day);
             //console.log("startTime: " + moment(this.slot.startTime).format("hh:mm:ss A"));

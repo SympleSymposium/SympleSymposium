@@ -2,8 +2,8 @@
 
     export class PresentationDisplayController {
         public presentation;
-        public themeAdd = "accent";
-        public themeEdit = "primary";
+        public themeAdd = "md-accent";
+        public themeEdit = "md-primary";
 
         private UpdatePresentations() {
             this.$http.get(`/api/presentations/manage/${this.$stateParams['id']}`)

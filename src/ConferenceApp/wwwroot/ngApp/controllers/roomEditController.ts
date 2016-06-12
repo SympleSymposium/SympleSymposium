@@ -4,7 +4,7 @@
         public room;
         public title = "Edit Room"
         public icon = "edit";
-        public theme = "primary";
+        public theme = "md-primary";
         public showDelete = true;     //to hide add form when edit is true
 
         public UpdateRoom() {

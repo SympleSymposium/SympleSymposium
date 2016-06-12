@@ -4,7 +4,7 @@
         public room: any = {}; 
         public title = "Add Room"
         public icon = "add_circle";
-        public theme = "accent";
+        public theme = "md-accent";
         public showDelete = false;//to hide edit when add is true
             
 

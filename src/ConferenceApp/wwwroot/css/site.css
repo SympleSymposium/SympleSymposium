@@ -35,7 +35,21 @@ body {
         z-index: 10 !important;
     }
 }
+/*---------------------*/
+/*CSS for Animation*/
+/*---------------------*/
 
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
 
 
 
@@ -66,21 +80,54 @@ body {
 /*---------------------*/
 /*CSS for Cards*/
 /*---------------------*/
+.parent-container {
+	position:relative;  
+}
 
+.speed-dial {
+    position: absolute;
+}
 .md-card-room {
-    margin-top: 48px;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    margin-top: 30px;
     margin-bottom: 60px;
+    width: 425px;
     background-color: #ECEFF1;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-    .md-card-room:hover {
+ .md-card-room:hover {
         border: solid thin;
         border-color: #E0E0E0;
     }
+ .md-card-rd {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    width: 800px;
+    height: auto;
+    background-color: #ECEFF1;
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+ }
+
+ .align {
+     align-self: center;
+     align-items:flex-start;
+ }
+
+ .align-w {
+     align-self: center;
+     align-items:flex-start;
+     width: 100px;
+ }
 
 .md-card-pres {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
     margin-top: 40px;
     margin-bottom: 60px;
     width: 320px;
@@ -90,12 +137,25 @@ body {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-    .md-card-pres:hover {
+ .md-card-pres:hover {
         border: solid thin;
         border-color: #E0E0E0;
     }
+ .md-card-speak {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    width: 400px;
+    height: 600px;
+    background-color: #ECEFF1;
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 
 .md-card {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
     margin-top: 40px;
     margin-bottom: 60px;
     width: 300px;
@@ -105,12 +165,31 @@ body {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-    .md-card:hover {
+ .md-card:hover {
+        border: solid thin;
+        border-color: #E0E0E0;
+    }
+
+ .md-card-add {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    width: 300px;
+    height: auto;
+    background-color: #ECEFF1;
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+  .md-card-add:hover {
         border: solid thin;
         border-color: #E0E0E0;
     }
 
 .md-card-auto {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
     margin-top: 40px;
     margin-bottom: 60px;
     width: 400px;
@@ -120,7 +199,7 @@ body {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-    .md-card-auto:hover {
+.md-card-auto:hover {
         border: solid thin;
         border-color: #E0E0E0;
     }
@@ -133,8 +212,8 @@ body {
 }
 
 .image-sp {
-    max-height: 30%;
-    max-width: 30%;
+    max-height: 40%;
+    max-width: 40%;
     height: auto;
     width: auto;
 }
@@ -146,14 +225,23 @@ body {
 }
 
 .md-title {
-    font-family: "Lato", sans-serif;
-    font-weight: 500;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 19px;
+    text-transform: uppercase;
+}
+md-subhead-head {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    font-size: 19px;
     text-align: center;
 }
 
 .md-subhead {
-    font-family: "Lato", sans-serif;
+    font-family: 'Varela Round', sans-serif;
     font-weight: 400;
+    font-size: 16px;
     text-align: center;
 }
 
@@ -162,37 +250,37 @@ body {
 }
 
 .card-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    font-size: 19px;
     display: inline;
     color: black;
-    font-weight: bold;
-    font-size: 19px;
     text-decoration: none;
     text-transform: uppercase;
 }
 
 .card-subhead {
-    font-family: 'Century Gothic';
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
     color: black;
-    font-weight: bold;
     font-size: 16px;
     text-decoration: none;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 
 .card-subhead-pres {
-    font-family: 'Century Gothic';
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
     color: black;
-    font-weight: 200;
     font-size: 13px;
     text-decoration: none;
 }
 
 .card-title-pres {
-    font-family: 'Century Gothic';
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
     display: inline;
     color: black;
-    font-weight: bold;
     font-size: 19px;
     text-transform: uppercase;
 }
@@ -271,15 +359,16 @@ body {
 .bg-image-display {
     background-image: url('../ngapp/images/wbg.jpg');
     background-position: 50% 50%;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
-    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .bg-overlay-display {
     background-color: rgba(0, 0, 0, 0);
     width: 100%;
-    height: 100%;
+
 }
 
 .bg-overlay {
