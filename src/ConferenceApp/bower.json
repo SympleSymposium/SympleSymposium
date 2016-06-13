@@ -15,7 +15,8 @@
     "angular-material": "^1.0.9",
     "moment": "^2.13.0",
     "mdPickers": "https://github.com/brockm87/mdPickers.git",
-    "font-awesome": "^4.6.3"
+    "font-awesome": "^4.6.3",
+    "animate.css": "^3.5.2"
   },
   "resolutions": {
     "angular": "^1.0.8",

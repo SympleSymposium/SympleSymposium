@@ -35,6 +35,10 @@ body {
         z-index: 10 !important;
     }
 }
+
+.toolbar-logo {
+    height: 80%;
+}
 /*---------------------*/
 /*CSS for Animation*/
 /*---------------------*/
@@ -46,12 +50,41 @@ body {
   animation-fill-mode: both;
 }
 
-.toolbar-logo {
-    height: 80%;
-}
+
 .animated.infinite {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
 }
 
 
@@ -82,28 +115,17 @@ body {
 /*---------------------*/
 /*CSS for Cards*/
 /*---------------------*/
-.parent-container {
-	position:relative;  
-}
-
-.speed-dial {
-    position: absolute;
-}
 .md-card-room {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
     margin-top: 30px;
     margin-bottom: 60px;
     width: 425px;
-    background-color: #ECEFF1;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
- .md-card-room:hover {
-        border: solid thin;
-        border-color: #E0E0E0;
-    }
  .md-card-rd {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
@@ -111,7 +133,7 @@ body {
     margin-bottom: 60px;
     width: 800px;
     height: auto;
-    background-color: #ECEFF1;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
  }
@@ -134,15 +156,12 @@ body {
     margin-bottom: 60px;
     width: 320px;
     height: 400px;
-    background-color: #ECEFF1;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
- .md-card-pres:hover {
-        border: solid thin;
-        border-color: #E0E0E0;
-    }
+
  .md-card-speak {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
@@ -150,7 +169,7 @@ body {
     margin-bottom: 60px;
     width: 400px;
     height: 600px;
-    background-color: #ECEFF1;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
@@ -162,15 +181,12 @@ body {
     margin-bottom: 60px;
     width: 300px;
     height: 400px;
-    background-color: #ECEFF1;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
- .md-card:hover {
-        border: solid thin;
-        border-color: #E0E0E0;
-    }
+
 
  .md-card-add {
     font-family: 'Varela Round', sans-serif;
@@ -179,15 +195,12 @@ body {
     margin-bottom: 60px;
     width: 300px;
     height: auto;
-    background-color: #ECEFF1;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-  .md-card-add:hover {
-        border: solid thin;
-        border-color: #E0E0E0;
-    }
+
 
 .md-card-auto {
     font-family: 'Varela Round', sans-serif;
@@ -196,15 +209,12 @@ body {
     margin-bottom: 60px;
     width: 400px;
     height: auto;
-    background-color: #ECEFF1;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.md-card-auto:hover {
-        border: solid thin;
-        border-color: #E0E0E0;
-    }
+
 
 .image {
     max-height: 80%;
@@ -225,6 +235,10 @@ body {
     margin-top: 48px;
     margin-bottom: 200px;
 }
+
+/*---------------------*/
+/*CSS for Card Text*/
+/*---------------------*/
 
 .md-title {
     font-family: 'Varela Round', sans-serif;
@@ -293,6 +307,11 @@ md-subhead-head {
 
 .md-button:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.logout-container {
+    margin-right: 40px;
+    margin-left: 10px;
 }
 
 .button {
