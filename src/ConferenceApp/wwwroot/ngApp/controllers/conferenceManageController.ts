@@ -14,8 +14,8 @@
 
             accountService.toolbarTitle = "Manage Conferences";
 
-            //Show top toolbar
-            toolbarService.hideToolbar = false;
+            //Hide BackButton
+            toolbarService.hideBackButton = true;
 
             $http.get('/api/conferences/manage')
                 .then((response) => {

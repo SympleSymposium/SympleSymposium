@@ -72,6 +72,9 @@
 
             accountService.toolbarTitle = "Presentation Schedule";
 
+            //Hide BackButton
+            toolbarService.hideBackButton = false;
+
 
             toolbarService.goBack = () => {
                 console.log("tried");

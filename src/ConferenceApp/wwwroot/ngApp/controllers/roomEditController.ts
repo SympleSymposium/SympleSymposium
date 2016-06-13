@@ -51,7 +51,11 @@
             public $stateParams: ng.ui.IStateParamsService,
             public $state: ng.ui.IStateService,
             public breadcrumbService: ConferenceApp.Services.BreadcrumbService,
-            public $mdDialog: ng.material.IDialogService) {
+            public $mdDialog: ng.material.IDialogService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
+
+            //Hide BackButton
+            toolbarService.hideBackButton = true;
 
             $http.get(`/api/rooms/${$stateParams['id']}`)
                 .then((response) => {

@@ -11,7 +11,12 @@
 
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService,
-            public $stateParams: ng.ui.IStateParamsService) {
+            public $stateParams: ng.ui.IStateParamsService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
+
+            //Hide BackButton
+            toolbarService.hideBackButton = true;
+
             console.log('we are in the roomadd constructor');
             this.room.conferenceId = parseInt(this.$stateParams['id'])
             console.log(this.room.conferenceId);
