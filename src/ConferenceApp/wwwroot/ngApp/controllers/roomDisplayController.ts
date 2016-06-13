@@ -7,6 +7,7 @@
         public theme = "md-primary";
         public themeAdd = "md-accent";
         public themeEdit = "md-primary";
+        public conferenceId;
 
         private GetRooms() {
             this.$http.get(`/api/rooms/manage/${

@@ -123,6 +123,8 @@ namespace ConferenceApp.Migrations
 
                     b.Property<int>("ConferenceId");
 
+                    b.Property<string>("Description");
+
                     b.Property<string>("Name");
 
                     b.HasKey("Id");

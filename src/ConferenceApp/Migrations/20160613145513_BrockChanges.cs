@@ -4,7 +4,7 @@ using Microsoft.Data.Entity.Migrations;
 
 namespace ConferenceApp.Migrations
 {
-    public partial class addspeakertoconferenceFK : Migration
+    public partial class BrockChanges : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,6 +12,7 @@ namespace ConferenceApp.Migrations
             migrationBuilder.DropForeignKey(name: "FK_Presentation_Conference_ConferenceId", table: "Presentation");
             migrationBuilder.DropForeignKey(name: "FK_Room_Conference_ConferenceId", table: "Room");
             migrationBuilder.DropForeignKey(name: "FK_Slot_Presentation_PresentationId", table: "Slot");
+            migrationBuilder.DropForeignKey(name: "FK_Slot_Speaker_SpeakerId", table: "Slot");
             migrationBuilder.DropForeignKey(name: "FK_Speaker_Address_AddressId", table: "Speaker");
             migrationBuilder.DropForeignKey(name: "FK_IdentityRoleClaim<string>_IdentityRole_RoleId", table: "AspNetRoleClaims");
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserClaim<string>_ApplicationUser_UserId", table: "AspNetUserClaims");
@@ -23,6 +24,10 @@ namespace ConferenceApp.Migrations
                 table: "Speaker",
                 nullable: false,
                 defaultValue: 0);
+            migrationBuilder.AddColumn<string>(
+                name: "Description",
+                table: "Room",
+                nullable: true);
             migrationBuilder.AddForeignKey(
                 name: "FK_Conference_Address_AddressId",
                 table: "Conference",
@@ -49,6 +54,13 @@ namespace ConferenceApp.Migrations
                 table: "Slot",
                 column: "PresentationId",
                 principalTable: "Presentation",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
+            migrationBuilder.AddForeignKey(
+                name: "FK_Slot_Speaker_SpeakerId",
+                table: "Slot",
+                column: "SpeakerId",
+                principalTable: "Speaker",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
             migrationBuilder.AddForeignKey(
@@ -108,6 +120,7 @@ namespace ConferenceApp.Migrations
             migrationBuilder.DropForeignKey(name: "FK_Presentation_Conference_ConferenceId", table: "Presentation");
             migrationBuilder.DropForeignKey(name: "FK_Room_Conference_ConferenceId", table: "Room");
             migrationBuilder.DropForeignKey(name: "FK_Slot_Presentation_PresentationId", table: "Slot");
+            migrationBuilder.DropForeignKey(name: "FK_Slot_Speaker_SpeakerId", table: "Slot");
             migrationBuilder.DropForeignKey(name: "FK_Speaker_Address_AddressId", table: "Speaker");
             migrationBuilder.DropForeignKey(name: "FK_Speaker_Conference_ConferenceId", table: "Speaker");
             migrationBuilder.DropForeignKey(name: "FK_IdentityRoleClaim<string>_IdentityRole_RoleId", table: "AspNetRoleClaims");
@@ -116,6 +129,7 @@ namespace ConferenceApp.Migrations
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserRole<string>_IdentityRole_RoleId", table: "AspNetUserRoles");
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserRole<string>_ApplicationUser_UserId", table: "AspNetUserRoles");
             migrationBuilder.DropColumn(name: "ConferenceId", table: "Speaker");
+            migrationBuilder.DropColumn(name: "Description", table: "Room");
             migrationBuilder.AddForeignKey(
                 name: "FK_Conference_Address_AddressId",
                 table: "Conference",
@@ -142,6 +156,13 @@ namespace ConferenceApp.Migrations
                 table: "Slot",
                 column: "PresentationId",
                 principalTable: "Presentation",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+            migrationBuilder.AddForeignKey(
+                name: "FK_Slot_Speaker_SpeakerId",
+                table: "Slot",
+                column: "SpeakerId",
+                principalTable: "Speaker",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
             migrationBuilder.AddForeignKey(
