@@ -37,7 +37,6 @@
 /// <reference path="ngapp/controllers/toolbar.js" />
 /// <reference path="ngapp/services/accountservice.js" />
 /// <reference path="ngapp/services/dayservice.js" />
-/// <reference path="ngApp/services/services.js" />
 /// <reference path="ngapp/services/toolbarservice.js" />
 <<<<<<< Updated upstream
 /// <reference path="ngapp/app.js" />

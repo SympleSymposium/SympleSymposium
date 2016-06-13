@@ -3,6 +3,7 @@
     export class ToolbarService {
 
         public hideToolbar;
+        public hideBackButton;
 
         public goBack() {
             console.log("original");

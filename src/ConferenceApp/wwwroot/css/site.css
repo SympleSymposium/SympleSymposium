@@ -40,18 +40,19 @@ body {
 /*---------------------*/
 
 .animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
 
 .toolbar-logo {
     height: 80%;
 }
+
 .animated.infinite {
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 
 
@@ -83,12 +84,13 @@ body {
 /*CSS for Cards*/
 /*---------------------*/
 .parent-container {
-	position:relative;  
+    position: relative;
 }
 
 .speed-dial {
     position: absolute;
 }
+
 .md-card-room {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
@@ -100,11 +102,12 @@ body {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
- .md-card-room:hover {
+    .md-card-room:hover {
         border: solid thin;
         border-color: #E0E0E0;
     }
- .md-card-rd {
+
+.md-card-rd {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
     margin-top: 40px;
@@ -114,18 +117,18 @@ body {
     background-color: #ECEFF1;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
- }
+}
 
- .align {
-     align-self: center;
-     align-items:flex-start;
- }
+.align {
+    align-self: center;
+    align-items: flex-start;
+}
 
- .align-w {
-     align-self: center;
-     align-items:flex-start;
-     width: 100px;
- }
+.align-w {
+    align-self: center;
+    align-items: flex-start;
+    width: 100px;
+}
 
  .add-button-top{
      margin-top: 40px;
@@ -148,11 +151,12 @@ body {
     height: 200px;
 }
 
- .md-card-pres:hover {
+    .md-card-pres:hover {
         border: solid thin;
         border-color: #E0E0E0;
     }
- .md-card-speak {
+
+.md-card-speak {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
     margin-top: 40px;
@@ -176,12 +180,12 @@ body {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
- .md-card:hover {
+    .md-card:hover {
         border: solid thin;
         border-color: #E0E0E0;
     }
 
- .md-card-add {
+.md-card-add {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
     margin-top: 40px;
@@ -193,7 +197,7 @@ body {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-  .md-card-add:hover {
+    .md-card-add:hover {
         border: solid thin;
         border-color: #E0E0E0;
     }
@@ -210,7 +214,7 @@ body {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.md-card-auto:hover {
+    .md-card-auto:hover {
         border: solid thin;
         border-color: #E0E0E0;
     }
@@ -242,6 +246,7 @@ body {
     font-size: 19px;
     text-transform: uppercase;
 }
+
 md-subhead-head {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
@@ -393,7 +398,6 @@ md-card-content{
 .bg-overlay-display {
     background-color: rgba(0, 0, 0, 0);
     width: 100%;
-
 }
 
 .bg-overlay {
@@ -680,7 +684,7 @@ a:hover {
     width: 100%;
 }*/
 
-md-sidenav{
+md-sidenav {
     margin-top: 15px;
     margin-bottom: 15px;
     /*height: calc(100% - 100px);*/
@@ -770,7 +774,8 @@ md-sidenav{
 
     .slot-container .slot {
         position: relative;
-        background-color: #E0E0E0;
+        /*background-color: #E0E0E0;*/
+        background-color: rgb(225, 245, 254);
         top: 0;
         transition: all .1s;
     }

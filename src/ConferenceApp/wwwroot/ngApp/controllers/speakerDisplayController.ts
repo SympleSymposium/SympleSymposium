@@ -27,6 +27,9 @@
             accountService.toolbarTitle = "Manage Speakers";
             this.conferenceId = $stateParams['id'];
 
+            //Hide BackButton
+            toolbarService.hideBackButton = false;
+
             toolbarService.goBack = () => {
                 console.log("tried");
                 //this.$state.go("conferenceManage");

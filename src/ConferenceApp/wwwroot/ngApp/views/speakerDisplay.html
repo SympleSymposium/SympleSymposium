@@ -28,7 +28,7 @@
                 <md-card-content>
                     <footer>
                         <md-card-actions class="speed-dial" layout="column" layout-align="center">
-                            <md-button ui-sref="speakerEdit({id:speaker.id})" class="md-fab md-{{controller.themeEdit}}" layout="flex">
+                            <md-button ui-sref="speakerEdit({id:speaker.id})" class="md-fab md-{{controller.themeEdit}} md-warn" layout="flex">
                                 <md-tooltip md-direction="right">Edit</md-tooltip>
                                 <md-icon>edit</md-icon>
                             </md-button>
@@ -45,7 +45,7 @@
                     </md-card-header-text>
                 </md-card-header>
                 <md-card-actions layout="column" layout-align="space-around center">
-                    <md-button ui-sref="speakerAdd({id:controller.$stateParams['id']})" class="md-fab md-{{controller.themeAdd}}" layout="flex">
+                    <md-button ui-sref="speakerAdd({id:controller.$stateParams['id']})" class="md-fab md-{{controller.themeAdd}} md-accent md-hue-2" layout="flex">
                         <md-icon>add_circle</md-icon>
                     </md-button>
                 </md-card-actions>

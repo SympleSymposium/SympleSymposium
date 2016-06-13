@@ -30,6 +30,9 @@
             accountService.toolbarTitle = "Manage Rooms";
             this.conferenceId = $stateParams['id'];
 
+            //Hide BackButton
+            toolbarService.hideBackButton = false;
+
             toolbarService.goBack = () => {
                 console.log("tried");
                 //this.$state.go("conferenceManage");

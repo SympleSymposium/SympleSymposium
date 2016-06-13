@@ -1,6 +1,6 @@
 ﻿<div ng-cloak class="bg-image-display">
     <div class="add-button-top"  layout="row" layout-align="center">
-        <md-button ui-sref="presentationAdd({id:controller.$stateParams['id']})" class="md-fab md-{{controller.themeAdd}}" layout="flex">
+        <md-button ui-sref="presentationAdd({id:controller.$stateParams['id']})" class="md-fab  md-accent md-hue-2" layout="flex">
             <md-tooltip md-direction="top">Add</md-tooltip>
             <md-icon>add_circle</md-icon>
         </md-button>
@@ -18,7 +18,7 @@
                 </md-card-content>
                 <div flex></div>
                 <md-card-actions class="actions-pres" layout="row" layout-align="center end">
-                    <md-button ui-sref="presentationEdit({id:present.id})" class="md-fab md-{{controller.themeEdit}}" layout="flex">
+                    <md-button ui-sref="presentationEdit({id:present.id})" class="md-fab md-warn" layout="flex">
                         <md-tooltip md-direction="right">Edit</md-tooltip>
                         <md-icon>edit</md-icon>
                     </md-button>

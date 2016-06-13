@@ -10,8 +10,13 @@
 
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService,
-            public $stateParams: ng.ui.IStateParamsService) {
+            public $stateParams: ng.ui.IStateParamsService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
+
             console.log('we are in the speakerAdd constructor');
+
+            //Hide BackButton
+            toolbarService.hideBackButton = true;
         }
 
         public cancel() {

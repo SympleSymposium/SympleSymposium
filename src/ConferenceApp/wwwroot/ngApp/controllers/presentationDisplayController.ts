@@ -27,6 +27,10 @@
             //console.log($stateParams['id']);
 
             accountService.toolbarTitle = "Manage Presentations";
+
+            //Hide BackButton
+            toolbarService.hideBackButton = false;
+
             this.conferenceId = $stateParams['id'];
 
             toolbarService.goBack = () => {

@@ -18,9 +18,13 @@
             private $state: ng.ui.IStateService,
             private $stateParams: ng.ui.IStateParamsService,
             private accountService: ConferenceApp.Services.AccountService,
-            private dayService: ConferenceApp.Services.DayService) {
+            private dayService: ConferenceApp.Services.DayService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
 
             accountService.toolbarTitle = "Add Slot";
+
+            //Hide BackButton
+            toolbarService.hideBackButton = true;
 
             this.conferenceId = $stateParams['id'];
             console.log("ConferenceId: " + this.conferenceId);
