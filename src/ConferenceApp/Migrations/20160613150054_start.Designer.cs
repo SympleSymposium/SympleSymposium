@@ -8,8 +8,8 @@ using ConferenceApp.Models;
 namespace ConferenceApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160613145513_BrockChanges")]
-    partial class BrockChanges
+    [Migration("20160613150054_start")]
+    partial class start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -62,32 +62,6 @@ namespace ConferenceApp.Migrations
                     table.PrimaryKey("PK_IdentityRole", x => x.Id);
                 });
             migrationBuilder.CreateTable(
-                name: "Speaker",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AddressId = table.Column<int>(nullable: true),
-                    Bio = table.Column<string>(nullable: true),
-                    Company = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    FirstName = table.Column<string>(nullable: true),
-                    ImageUrl = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Speaker", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Speaker_Address_AddressId",
-                        column: x => x.AddressId,
-                        principalTable: "Address",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.SetNull);
-                });
-            migrationBuilder.CreateTable(
                 name: "Conference",
                 columns: table => new
                 {
@@ -226,6 +200,7 @@ namespace ConferenceApp.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     ConferenceId = table.Column<int>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -233,6 +208,39 @@ namespace ConferenceApp.Migrations
                     table.PrimaryKey("PK_Room", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Room_Conference_ConferenceId",
+                        column: x => x.ConferenceId,
+                        principalTable: "Conference",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+            migrationBuilder.CreateTable(
+                name: "Speaker",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AddressId = table.Column<int>(nullable: true),
+                    Bio = table.Column<string>(nullable: true),
+                    Company = table.Column<string>(nullable: true),
+                    ConferenceId = table.Column<int>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    ImageUrl = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    Phone = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Speaker", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Speaker_Address_AddressId",
+                        column: x => x.AddressId,
+                        principalTable: "Address",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
+                    table.ForeignKey(
+                        name: "FK_Speaker_Conference_ConferenceId",
                         column: x => x.ConferenceId,
                         principalTable: "Conference",
                         principalColumn: "Id",
@@ -270,7 +278,7 @@ namespace ConferenceApp.Migrations
                         column: x => x.SpeakerId,
                         principalTable: "Speaker",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
