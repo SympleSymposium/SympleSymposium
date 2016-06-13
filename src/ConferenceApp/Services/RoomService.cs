@@ -106,6 +106,7 @@ namespace ConferenceApp.Services {
                                select r).FirstOrDefault();
 
             var relatedSlots = (from s in _slotRepo.List(deletedRoom.ConferenceId)
+                                where s.RoomId == deletedRoom.Id
                                 select s).ToList();
 
             _slotRepo.DeleteRelatedSlots(relatedSlots);
