@@ -37,4 +37,32 @@
 /// <reference path="ngapp/controllers/toolbar.js" />
 /// <reference path="ngapp/services/accountservice.js" />
 /// <reference path="ngapp/services/dayservice.js" />
+/// <reference path="ngApp/services/services.js" />
 /// <reference path="ngapp/services/toolbarservice.js" />
+<<<<<<< Updated upstream
+/// <reference path="ngapp/app.js" />
+/// <reference path="ngapp/controllers/accountcontroller.js" />
+/// <reference path="ngApp/controllers/ConfEditController.js" />
+/// <reference path="ngapp/controllers/conferenceaddcontroller.js" />
+/// <reference path="ngapp/controllers/conferenceeditcontroller.js" />
+/// <reference path="ngapp/controllers/conferencemanagecontroller.js" />
+/// <reference path="ngapp/controllers/controllers.js" />
+/// <reference path="ngapp/controllers/homecontroller.js" />
+/// <reference path="ngapp/controllers/presentationaddcontroller.js" />
+/// <reference path="ngapp/controllers/presentationdisplaycontroller.js" />
+/// <reference path="ngapp/controllers/presentationeditcontroller.js" />
+/// <reference path="ngapp/controllers/roomaddcontroller.js" />
+/// <reference path="ngapp/controllers/roomdisplaycontroller.js" />
+/// <reference path="ngapp/controllers/roomeditcontroller.js" />
+/// <reference path="ngapp/controllers/schedulecontroller.js" />
+/// <reference path="ngapp/controllers/slotaddcontroller.js" />
+/// <reference path="ngapp/controllers/sloteditcontroller.js" />
+/// <reference path="ngapp/controllers/speakeraddcontroller.js" />
+/// <reference path="ngapp/controllers/speakerdisplaycontroller.js" />
+/// <reference path="ngapp/controllers/speakereditcontroller.js" />
+/// <reference path="ngapp/controllers/toolbar.js" />
+/// <reference path="ngapp/services/accountservice.js" />
+/// <reference path="ngapp/services/dayservice.js" />
+=======
+>>>>>>> Stashed changes
+/// <reference path="ngApp/services/services.js" />
