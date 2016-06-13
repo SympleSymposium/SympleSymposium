@@ -28,6 +28,7 @@ namespace ConferenceApp.Services {
             var rooms = (from r in _roomRepo.List()
                          select new RoomDTO {
                              Id = r.Id,
+                             Description = r.Description,
                              Name = r.Name,
                              ConferenceId = r.ConferenceId
                          }).ToList();
@@ -41,6 +42,7 @@ namespace ConferenceApp.Services {
                         select new RoomDTO {
                             //Id = r.Id,
                             Id = roomId,
+                            Description = r.Description,
                             Name = r.Name,
                             ConferenceName = r.Conference.Name,
                             ConferenceId = r.ConferenceId
@@ -60,6 +62,7 @@ namespace ConferenceApp.Services {
                     select new RoomDTO {
                         Id = r.Id,
                         Name = r.Name,
+                        Description = r.Description
                     }
                     ).ToList();
         }
@@ -73,6 +76,7 @@ namespace ConferenceApp.Services {
             }
 
             editedRoom.Name = room.Name;
+            editedRoom.Description = room.Description;
             editedRoom.Id = room.Id;
             //Add Slots ????
 
@@ -84,6 +88,7 @@ namespace ConferenceApp.Services {
         public void PostRoom(RoomViewModel room) {
             var newRoom = new Room() {
                 Name = room.Name,
+                Description = room.Description,
                 ConferenceId = room.ConferenceId
             };
             _roomRepo.AddRoom(newRoom);

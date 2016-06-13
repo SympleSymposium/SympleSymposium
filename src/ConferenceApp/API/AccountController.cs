@@ -63,11 +63,14 @@ namespace ConferenceApp.Controllers
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+                //changed to use UserName rather than password to login/register
+                //var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation(1, "User logged in.");
-                    var user = await GetUser(model.Email);
+                    //var user = await GetUser(model.Email);
+                    var user = await GetUser(model.UserName);
                     return Ok(user);
                 }
                 if (result.RequiresTwoFactor)
@@ -99,8 +102,14 @@ namespace ConferenceApp.Controllers
         public async Task<IActionResult> Register([FromBody]RegisterViewModel model)
         {
             if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            {                
+                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //changed below lines to use UserName
+                var user = new ApplicationUser
+                {
+                    UserName = model.UserName, // <-----
+                    Email = model.Email
+                };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -4,7 +4,7 @@
         public speaker;
         public title = "Add Speaker"
         public icon = "add_circle";
-        public theme = "accent";
+        public theme = "md-accent";
         public showDelete = false;  
        
 

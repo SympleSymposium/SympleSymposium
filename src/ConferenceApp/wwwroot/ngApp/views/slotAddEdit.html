@@ -1,66 +1,66 @@
-﻿<div class="flex-center">
-    <md-card class="card">
-        <div layout="column" ng-cloak class="md-inline-form">
-            <md-content layout-padding>
-                <div>
-                    <form name="userForm">
-                        <div layout="row" layout-align="center center">
-                            <md-input-container flex ="25">
-                                <label>Day</label>
-                                <input ng-model="controller.day" ng-disabled="controller.dayDisabled">
-                            </md-input-container>
-                            <div flex layout="row" layout-align="end">
-                                <mdp-time-picker ng-model="controller.slot.startTime" mdp-auto-switch="true" mdp-label="Start Time"></mdp-time-picker>
-                            </div>
-                            <div flex layout="row" layout-align="end">
-                                <mdp-time-picker ng-model="controller.slot.endTime" mdp-auto-switch="true" mdp-label="End Time"></mdp-time-picker>
-                            </div>
-
-                        </div>
-                        <div layout="column">
-                            <md-input-container>
-                                <label>Speaker</label>
-                                <md-select ng-model="controller.slot.speaker.id">
-                                    <md-option ng-repeat="speaker in controller.speakers" value="{{speaker.id}}">
-                                        {{speaker.firstName}} {{speaker.lastName}}
-                                    </md-option>
-                                </md-select>
-                            </md-input-container>
-                            <md-input-container>
-                                <label>Presentation</label>
-                                <md-select ng-model="controller.slot.presentation.id">
-                                    <md-option ng-repeat="presentation in controller.presentations" value="{{presentation.id}}">
-                                        {{presentation.title}}
-                                    </md-option>
-                                </md-select>
-                            </md-input-container>
-                            <md-input-container>
-                                <label>Room</label>
-                                <md-select ng-model="controller.slot.room.id">
-                                    <md-option ng-repeat="room in controller.rooms" value="{{room.id}}">
-                                        {{room.name}}
-                                    </md-option>
-                                </md-select>
-                            </md-input-container>
-                        </div>
-                        
-                        <div layout="row" layout-align="center">
-                            <md-button ui-sref="schedule({id:controller.conferenceId})" class="md-raised md-primary">
-                                Cancel
-                            </md-button>
-                            <md-button ng-click="controller.DeleteSlot()" ng-show="controller.showDelete" class="md-raised md-primary">
-                                Delete
-                            </md-button>
-                            <md-button ng-click="controller.EditSlot()" ng-show="controller.editView" class="md-raised md-primary">
-                                Submit
-                            </md-button>
-                            <md-button ng-click="controller.AddSlot()" ng-show="controller.addView" class="md-raised md-primary">
-                                Submit
-                            </md-button>
-                        </div>
-                    </form>
+﻿<div>
+    <div layout="column" layout-align="center center" class="bg-image-display" flex>
+        <md-card class="card">
+            <md-toolbar class="md-{{controller.theme}}">
+                <div class="md-toolbar-tools">
+                    <md-icon>{{controller.icon}}</md-icon>
+                    <span flex style="margin-left:10px;">{{controller.title}}</span>
                 </div>
-            </md-content>
+            </md-toolbar>
+            <md-content layout-padding layout="column" ng-cloak class="md-inline-form">
+                <form name="userForm" ng-submit="controller.UpdateSlot()">
+                    <md-input-container class="md-block" flex>
+                        <label>Day</label>
+                        <input ng-model="controller.day" ng-disabled="controller.dayDisabled">
+                    </md-input-container>
+                    <div flex layout="row" layout-align="start">
+                        <mdp-time-picker ng-model="controller.slot.startTime" mdp-auto-switch="true" mdp-label="Start Time"></mdp-time-picker>
+                    <div flex layout="row" layout-align="end">
+                        <mdp-time-picker ng-model="controller.slot.endTime" mdp-auto-switch="true" mdp-label="End Time"></mdp-time-picker>
+                    </div>
+                        </div>
+    <div layout="column">
+        <md-input-container>
+            <label>Speaker</label>
+            <md-select ng-model="controller.slot.speaker.id">
+                <md-option ng-repeat="speaker in controller.speakers" value="{{speaker.id}}">
+                    {{speaker.firstName}} {{speaker.lastName}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container>
+            <label>Presentation</label>
+            <md-select ng-model="controller.slot.presentation.id">
+                <md-option ng-repeat="presentation in controller.presentations" value="{{presentation.id}}">
+                    {{presentation.title}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container>
+            <label>Room</label>
+            <md-select ng-model="controller.slot.room.id">
+                <md-option ng-repeat="room in controller.rooms" value="{{room.id}}">
+                    {{room.name}}
+                </md-option>
+            </md-select>
+        </md-input-container>
         </div>
+
+    <div layout="row" layout-align="center">
+        <md-button ng-click="controller.cancel()" class="md-fab md-{{controller.theme}}">
+            <md-tooltip md-direction="top">Cancel</md-tooltip>
+            <md-icon>clear</md-icon>
+        </md-button>
+        <md-button ng-click="controller.DeleteSlot()" ng-show="controller.showDelete" class="md-fab md-{{controller.theme}}">
+            <md-tooltip md-direction="top">Delete</md-tooltip>
+            <md-icon>delete</md-icon>
+        </md-button>
+        <md-button class="md-fab md-{{controller.theme}}" type="submit">
+            <md-tooltip md-direction="top">Submit</md-tooltip>
+            <md-icon>done</md-icon>
+        </md-button>
+    </div>
+    </form>
+            </md-content>
     </md-card>
 </div>

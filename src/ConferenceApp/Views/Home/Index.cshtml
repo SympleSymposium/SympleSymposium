@@ -50,25 +50,29 @@
     <script src="~/ngapp/controllers/speakerdisplaycontroller.js"></script>
     <script src="~/ngapp/controllers/speakereditcontroller.js"></script>
     <script src="~/ngapp/controllers/toolbar.js"></script>
+    <script src="~/ngapp/controllers/homecontroller.js"></script>
 
     <!-- Services-->
     <script src="~/ngapp/services/accountservice.js"></script>
     <script src="~/ngapp/services/dayservice.js"></script>
+    <script src="~/ngapp/services/toolbarservice.js"></script>
 
 </head>
 
 <body ng-controller="AccountController as account" ng-cloak layout="column">
 
-    <md-toolbar>
-        <div class="md-toolbar-tools" ng-controller="ToolbarController as toolbar">
+    <md-toolbar ng-controller="ToolbarController as toolbar" ng-hide="toolbar.toolbarService.hideToolbar">
+        <div class="md-toolbar-tools" layout="row">
             @*<md-button ui-sref="conferenceManage">
                     Home
                 </md-button>*@
-            <div class="breadcrumbs">
-                <div ui-sref="home"><img src="~/ngApp/images/logo.png" /></div>
+            <div ui-sref="home"><img class="toolbar-logo" src="~/ngApp/images/logo.png" /></div>
+            <md-button class="md-raised" href="#" ng-click="toolbar.toolbarService.goBack()"> << Back</md-button>
+            @*<div class="breadcrumbs">
+                
                 <div ng-repeat="breadcrumb in toolbar.breadcrumbs | limitTo:toolbar.breadcrumbs.length - 1" ui-sref="{{breadcrumb.link}}">{{breadcrumb.text}}</div>
                 <div ng-if="toolbar.lastBreadcrumb">{{toolbar.lastBreadcrumb.text}}</div>
-            </div>
+            </div>*@
             <span flex></span>
             <h5 ng-show="account.isLoggedIn()">
                 <span>{{account.getUserName()}}</span>
@@ -80,6 +84,8 @@
 
 
     <ui-view flex-grow="1" layout="column"></ui-view>
+
+   
 
 </body>
 </html>

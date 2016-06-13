@@ -4,7 +4,7 @@
         public speaker;
         public title = "Edit Speaker"
         public icon = "edit";
-        public theme = "primary";
+        public theme = "md-primary";
         public showDelete = true;     //to hide add form when edit is true
 
         constructor(public $http: ng.IHttpService,

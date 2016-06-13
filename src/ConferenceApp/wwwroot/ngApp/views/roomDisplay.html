@@ -1,33 +1,43 @@
 ﻿<div>
-    <div class="cards bg-image-display" layout="row" layout-align="start start" layout-wrap>
-        <div flex-offset="10" ng-repeat="room in controller.rooms">
-            <md-card class="md-card-auto" flex>
-                <md-card-header>
-                    <md-card-header-text>
-                        <span class="card-title md-title">{{room.name}}</span>
+<div class="cards bg-image-display" layout="row" layout-align="center center" flex>
+    <md-card class="md-card-rd">
+        <md-toolbar class="md-{{controller.theme}}">
+            <div class="md-toolbar-tools">
+                <md-icon>{{controller.icon}}</md-icon>
+                <span flex style="margin-left:10px;">{{controller.title}}</span>
+            </div>
+        </md-toolbar>
+        <md-content layout-padding layout="column" ng-cloak class="md-inline-form">
+            <div style="border-bottom: 1px solid #E0E0E0;" ng-repeat="room in controller.rooms">
+                <md-card-header layout="row">
+                    <md-card-header-text flex="30" layout layout-align="start center">
+                        <span class="card-su md-title">{{room.name}}</span>
+                        </md-card-header-text>
+                    <md-card-header-text flex="55"  layout layout-align="start center">
+                        <span class="card-subhead md-title">{{room.description}}</span>
                     </md-card-header-text>
+                    <md-card-actions layout="row" layout-align="center center" flex>
+                        <md-button ui-sref="roomEdit({id:room.id})" class="md-fab md-mini md-{{controller.theme}}" layout="column">
+                            <md-tooltip md-direction="top">Edit</md-tooltip>
+                            <md-icon>edit</md-icon>
+                        </md-button>
+                    </md-card-actions>
                 </md-card-header>
-                <md-card-actions layout="row" layout-align="center end">
-                    <md-button ui-sref="roomEdit({id:room.id})" class="md-fab md-{{controller.themeEdit}}" layout="flex">
-                        <md-tooltip md-direction="right">Edit</md-tooltip>
-                        <md-icon>edit</md-icon>
-                    </md-button>
-                </md-card-actions>
-            </md-card>
-        </div>
-        <div flex-offset="10">
-            <md-card class="md-card-auto" flex>
-                <md-card-header>
-                    <md-card-header-text>
-                        <span class="card-title md-title">Add Room</span>
-                    </md-card-header-text>
-                </md-card-header>
-                <md-card-actions layout="column" layout-align="end center">
-                    <md-button ui-sref="roomAdd({id:controller.$stateParams['id']})" class="md-fab md-{{controller.themeAdd}}" layout="flex">
-                        <md-icon>add_circle</md-icon>
-                    </md-button>
-                </md-card-actions>
-            </md-card>
-        </div>
+            </div>
+            <md-card-actions layout="column" layout-align="end center">
+                <md-button ui-sref="roomAdd({id:controller.$stateParams['id']})" class="md-fab md-{{controller.themeAdd}}" layout="flex">
+                    <md-icon>add_circle</md-icon>
+                </md-button>
+            </md-card-actions>
+        </md-content>
+    </md-card>
     </div>
     </div>
+
+
+
+
+
+
+
+

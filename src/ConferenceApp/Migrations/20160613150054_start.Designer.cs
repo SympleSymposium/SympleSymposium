@@ -8,8 +8,8 @@ using ConferenceApp.Models;
 namespace ConferenceApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160603203218_add speaker to conference FK")]
-    partial class addspeakertoconferenceFK
+    [Migration("20160613150054_start")]
+    partial class start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -123,6 +123,8 @@ namespace ConferenceApp.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("ConferenceId");
+
+                    b.Property<string>("Description");
 
                     b.Property<string>("Name");
 

@@ -3,7 +3,7 @@
         public presentation;
         public title = "Add Presentation"
         public icon = "add_circle";
-        public theme = "accent";
+        public theme = "md-accent";
         public showDelete = false;//to hide edit when add is true
 
 
@@ -14,7 +14,11 @@
         }
 
         public cancel() {
-            this.$state.go('displayPresentations', { id: this.presentation.conferenceId });
+
+            let conferenceId = parseInt(this.$stateParams['id']);
+            this.$state.go('displayPresentations', { id: conferenceId });
+
+            //this.$state.go('displayPresentations', { id: this.presentation.conferenceId });
         }
 
         public UpdatePresentation() {

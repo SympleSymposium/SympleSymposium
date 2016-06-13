@@ -8,6 +8,12 @@ namespace ConferenceApp.ViewModels.Account
 {
     public class RegisterViewModel
     {
+        //added UserName and it is Required
+        [Required]
+        //[EmailAddress]
+        //[Display(Name = "Email")]
+        public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

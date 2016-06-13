@@ -2,10 +2,13 @@
 
     export class ScheduleController {
         public conference;
+        public themeAdd = "md-accent";
+        public themeEdit = "md-primary";
         public firstDay;
         public lastDay;
         public conferenceDays = [];
         public currentDay;
+        public selectedIndex;
         public timeMarkers =
         ["8:00 AM",
             "9:00 AM",
@@ -17,6 +20,13 @@
             "3:00 PM",
             "4:00 PM",
             "5:00 PM",];
+
+        public displayIndex() {
+            console.log(this.selectedIndex);
+            this.currentDay = this.conferenceDays[this.selectedIndex];
+            //Save current day to service so that slotAddController will be able to access it
+            this.dayService.slotDay = this.conferenceDays[this.selectedIndex];
+        }
 
         //change currently viewed day
         public moveDay(moveNum: number) {
@@ -50,14 +60,29 @@
             }
         }
 
+        
+
         constructor(private $http: ng.IHttpService,
             private $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService,
+            public $window: ng.IWindowService,
             private accountService: ConferenceApp.Services.AccountService,
-            private dayService: ConferenceApp.Services.DayService) {
+            private dayService: ConferenceApp.Services.DayService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
 
             accountService.toolbarTitle = "Presentation Schedule";
 
+
+            toolbarService.goBack = () => {
+                console.log("tried");
+                this.$state.go("conferenceManage");
+            };
+
+            //$back => {
+            //    $window.history.back();
+            //}
+
+            
             $http.get('/api/conferences/' + $stateParams['id'])
                 .then((response) => {
                     //console.log(response.data);
@@ -79,7 +104,7 @@
                     if (dayService.slotDay) {
 
                         //If currentDay is already set, jump to this day
-                        this.currentDay = dayService.slotDay;
+                        this.selectedIndex = this.conferenceDays.indexOf(dayService.slotDay);
 
                     } else {
 

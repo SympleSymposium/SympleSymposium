@@ -6,11 +6,13 @@
         public speakers;
         public presentations;
         public rooms;
-        public editView = true;
         public showDelete = true;
         public dayDisabled = true;
         public day;
         public conferenceId;
+        public title = "Edit Slot"
+        public icon = "edit";
+        public theme = "md-primary";
         
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService,
@@ -53,7 +55,13 @@
                 });
         }
 
-        public EditSlot() {
+        public cancel() {
+            this.$state.go('schedule', {
+                id: this.conferenceId
+            });
+        }
+
+        public UpdateSlot() {
 
             let editedSlot = {
                 id: this.slot.id,

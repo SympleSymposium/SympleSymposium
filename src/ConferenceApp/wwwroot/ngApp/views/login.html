@@ -1,7 +1,6 @@
 <div class="log-back" layout="row" flex-grow="1">
     <div class="log-over" layout="row" layout-align="center center" flex-grow="1">
         <md-card class="card card-back">
-            <!--////////////////////////////////////-->
             <div layout="column" layout-padding layout-align="center center" style="background-color: #FF6F00;">
                 <div>
                     <md-icon class="logo flex-center white" style="font-size: 48px; padding-right: 26px;">home</md-icon>
@@ -9,20 +8,12 @@
                 <div class="md-headline md-padding white top">Login</div>
             </div>
             <div layout="column" layout-align="start center" class="reg-info">
-                <ul class="user-agent-counter">
-                    <li ng-repeat="externalLogin in account.externalLogins">
-                        <a target="_self" href="/api/account/ExternalLogin?provider={{externalLogin.authenticationScheme}}&returnUrl=/">{{externalLogin.displayName}}</a>
-                    </li>
-                </ul>
-                <ul class="user-agent-counter">
-                    <li ng-repeat="error in controller.validationMessages">
-                        {{error}}
-                    </li>
-                </ul>
-                <form ng-submit="controller.login()" layout="column" layout-align="start center">
+                
+                <form class="login-register" ng-submit="controller.login()" layout="column" layout-align="start center">
                     <md-input-container class="md-primary input-field top">
-                        <label>Email</label>
-                        <input type="text" ng-model="controller.loginUser.email">
+                        <label>User Name:</label>
+                        <!--<input type="text" ng-model="controller.loginUser.email">-->
+                        <input type="text" ng-model="controller.loginUser.userName">
                     </md-input-container>
                     <md-input-container class="md-primary input-field pw">
                         <label>Password</label>
@@ -36,6 +27,16 @@
                         <h5>Don't have an account? <a class="indigo" href="/register">create one</a></h5>
                     </div>
                 </form>
+                <ul class="user-agent-counter">
+                    <li ng-repeat="externalLogin in account.externalLogins">
+                        <a target="_self" href="/api/account/ExternalLogin?provider={{externalLogin.authenticationScheme}}&returnUrl=/">{{externalLogin.displayName}}</a>
+                    </li>
+                </ul>
+                <ul class="user-agent-counter">
+                    <li ng-repeat="error in controller.validationMessages">
+                        {{error}}
+                    </li>
+                </ul>
             </div>
         </md-card>
     </div>
