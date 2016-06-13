@@ -17,15 +17,15 @@
                             <span class="card-subhead md-title">{{room.description}}</span>
                         </md-card-header-text>
                         <md-card-actions layout="row" layout-align="center center" flex>
-                            <md-button ui-sref="roomEdit({id:room.id})" class="md-fab md-mini md-{{controller.theme}}" layout="column">
-                                <md-tooltip md-direction="top">Edit</md-tooltip>
+                            <md-button ui-sref="roomEdit({id:room.id})" class="md-fab md-mini md-{{controller.theme}} md-warn" layout="column">
+                                <md-tooltip md-direction="top" >Edit</md-tooltip>
                                 <md-icon>edit</md-icon>
                             </md-button>
                         </md-card-actions>
                     </md-card-header>
                 </div>
                 <md-card-actions layout="column" layout-align="end center">
-                    <md-button ui-sref="roomAdd({id:controller.$stateParams['id']})" class="md-fab md-{{controller.themeAdd}}" layout="flex">
+                    <md-button ui-sref="roomAdd({id:controller.$stateParams['id']})" class="md-fab md-{{controller.themeAdd}} md-accent md-hue-2" layout="flex">
                         <md-icon>add_circle</md-icon>
                     </md-button>
                 </md-card-actions>

@@ -10,7 +10,7 @@ namespace ConferenceApp {
             $stateProvider
                 .state('home', {
                     url: '/',
-                    templateUrl: '/ngApp/views/home.html', 
+                    templateUrl: '/ngApp/views/home.html',
                     controller: ConferenceApp.Controllers.HomeController,
                     controllerAs: 'controller'
                 })
@@ -134,20 +134,44 @@ namespace ConferenceApp {
             $locationProvider.html5Mode(true);
         })
         .config(function ($mdThemingProvider) {
+            $mdThemingProvider.definePalette('secondaryPalette', {
+                '50': '#1b4e6d',
+                '100': '#205d81',
+                '200': '#256b96',
+                '300': '#2a7aaa',
+                '400': '#2f89bf',
+                '500': '#3a96ce',
+                '600': '#62acd8',
+                '700': '#77b7dd',
+                '800': '#8bc2e2',
+                '900': '#a0cce7',
+                'A100': '#62acd8',
+                'A200': '#4ea1d3',
+                'A400': '#3a96ce',
+                'A700': '#b4d7ec',
+                'contrastDefaultColor': 'light',    // whether, by default, text (contrast)
+                // on this palette should be dark or light
+                'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
+                    '200', '300', '400', 'A100'],
+                'contrastLightColors': undefined    // could also specify this if default was 'dark'
+            });
             $mdThemingProvider.theme('default')
-                .primaryPalette('teal', {
-                    'default': '500', // by default use shade 400 from the pink palette for primary intentions
+                .primaryPalette('blue-grey', {
+                    'default': '800', // by default use shade 400 from the pink palette for primary intentions
                     'hue-1': '200', // use shade 100 for the <code>md-hue-1</code> class
                     'hue-2': '300', // use shade 600 for the <code>md-hue-2</code> class
-                    'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
+                    'hue-3': '500' // use shade A100 for the <code>md-hue-3</code> class
                 })
                 // If you specify less than all of the keys, it will inherit from the
                 // default shades
                 .accentPalette('light-blue', {
-                    //'default': '200' // use shade 200 for default, and keep all other shades the same
+                    'default': '50',
+                    'hue-1': '300',
+                    'hue-2': '600',
+                    'hue-3': 'A700'
                 })
-                .warnPalette('amber', {
-                    'default': '900'
+                .warnPalette('red', {
+                    'default': '400'
                 });
 
 
