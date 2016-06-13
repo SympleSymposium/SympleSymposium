@@ -657,13 +657,20 @@ a:hover {
     width: 100%;
 }*/
 
+md-sidenav{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /*height: calc(100% - 100px);*/
+}
+
 .page-container {
-    height: 100%;
+    min-height: calc(100% - 64px);
 }
 
 .schedule-container {
     margin: 15px;
     background-color: white;
+    /*height: calc(100% - 80px);*/
 }
 
     .schedule-container * {

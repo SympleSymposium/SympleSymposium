@@ -1,6 +1,10 @@
-﻿<div class="page-container bg-image-display" id="popupContainer" layout="row" layout-align="center">
+﻿<div class="page-container bg-image-display" 
+     id="popupContainer" 
+     layout="row" 
+     layout-align="center"
+     ng-cloak>
 
-    <md-tabs flex class="schedule-container md-primary" 
+    <md-tabs flex class="schedule-container md-primary md-whiteframe-4dp"
              md-selected="controller.selectedIndex">
 
         <md-tab ng-repeat="day in controller.conferenceDays"
@@ -84,7 +88,7 @@
             </div>
             <div layout="column" layout-align="center center">
                 <img ng-src="{{controller.conference.imageUrl}}" />
-                <br/>
+                <br />
                 <b>{{controller.conference.name}}</b>
                 <p style="margin: 0">{{controller.conference.street}}</p>
                 <p style="margin: 0">{{controller.conference.city}}, {{controller.conference.state}} {{controller.conference.zip}}</p>

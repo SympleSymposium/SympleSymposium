@@ -1,4 +1,4 @@
-﻿<div>
+﻿<div ng-cloak>
     <div class="cards bg-image-display" layout="row" layout-align="start center" layout-wrap>
         <div flex="20" flex-offset="4" ng-repeat="present in controller.presentation">
             <md-card class="md-card-pres">
@@ -33,7 +33,7 @@
             </md-card>
         </div>
     </div>
-    </div>
+</div>
 
 
 
@@ -42,9 +42,9 @@
 
 
 
-    <!--<md-button ng-click="controller.DeletePresentation(present.id)" class="md-raised md-primary">
-                Delete
-            </md-button>
-    <md-button ui-sref="schedule({id:controller.$stateParams['id']})" class="md-raised md-primary">
-        Back
-    </md-button>-->
+<!--<md-button ng-click="controller.DeletePresentation(present.id)" class="md-raised md-primary">
+            Delete
+        </md-button>
+<md-button ui-sref="schedule({id:controller.$stateParams['id']})" class="md-raised md-primary">
+    Back
+</md-button>-->
