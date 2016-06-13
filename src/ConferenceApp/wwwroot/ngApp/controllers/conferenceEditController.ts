@@ -56,9 +56,13 @@
             private $state: ng.ui.IStateService,
             $stateParams: ng.ui.IStateParamsService,
             private accountService: ConferenceApp.Services.AccountService,
-            public $mdDialog: ng.material.IDialogService) {
+            public $mdDialog: ng.material.IDialogService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
 
             accountService.toolbarTitle = "Edit Conference Details";
+
+            //Hide BackButton
+            toolbarService.hideBackButton = true;
 
             $http.get('/api/conferences/' + $stateParams['id'])
                 .then((response) => {

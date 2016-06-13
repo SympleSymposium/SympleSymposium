@@ -44,16 +44,17 @@ body {
 /*---------------------*/
 
 .animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
 
 
+
 .animated.infinite {
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes slideInDown {
@@ -115,6 +116,7 @@ body {
 /*---------------------*/
 /*CSS for Cards*/
 /*---------------------*/
+
 .md-card-room {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
@@ -136,24 +138,29 @@ body {
     background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
- }
+}
 
- .align {
-     align-self: center;
-     align-items:flex-start;
- }
+.align {
+    align-self: center;
+    align-items: flex-start;
+}
 
- .align-w {
-     align-self: center;
-     align-items:flex-start;
-     width: 100px;
+.align-w {
+    align-self: center;
+    align-items: flex-start;
+    width: 100px;
+}
+
+ .add-button-top{
+     margin-top: 40px;
  }
 
 .md-card-pres {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
     margin-top: 40px;
-    margin-bottom: 60px;
+    margin-right: 20px;
+    margin-left: 20px;
     width: 320px;
     height: 400px;
     background-color: #FAFAFA;
@@ -161,8 +168,12 @@ body {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
+.md-card-pres-add{
+    height: 200px;
+}
 
- .md-card-speak {
+
+.md-card-speak {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
     margin-top: 40px;
@@ -188,7 +199,7 @@ body {
 
 
 
- .md-card-add {
+.md-card-add {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
     margin-top: 40px;
@@ -247,6 +258,7 @@ body {
     font-size: 19px;
     text-transform: uppercase;
 }
+
 md-subhead-head {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
@@ -259,6 +271,19 @@ md-subhead-head {
     font-weight: 400;
     font-size: 16px;
     text-align: center;
+}
+
+.header-pres{
+    min-height: 125px;
+    padding-top: 40px;
+}
+
+.actions-pres{
+    margin-bottom: 30px;
+}
+
+md-card-content{
+    padding-top: 0px;
 }
 
 .input-field input {
@@ -290,6 +315,7 @@ md-subhead-head {
     color: black;
     font-size: 13px;
     text-decoration: none;
+    text-align: left;
 }
 
 .card-title-pres {
@@ -382,14 +408,13 @@ md-subhead-head {
     background-position: 50% 50%;
     background-repeat: repeat;
     background-size: cover;
-    min-width: 100%;
-    min-height: 100%;
+    /*min-width: 100%;*/
+    /*min-height: 100%;*/
 }
 
 .bg-overlay-display {
     background-color: rgba(0, 0, 0, 0);
     width: 100%;
-
 }
 
 .bg-overlay {
@@ -676,13 +701,20 @@ a:hover {
     width: 100%;
 }*/
 
+md-sidenav {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /*height: calc(100% - 100px);*/
+}
+
 .page-container {
-    height: 100%;
+    min-height: calc(100% - 64px);
 }
 
 .schedule-container {
     margin: 15px;
     background-color: white;
+    /*height: calc(100% - 80px);*/
 }
 
     .schedule-container * {
@@ -759,7 +791,8 @@ a:hover {
 
     .slot-container .slot {
         position: relative;
-        background-color: #E0E0E0;
+        /*background-color: #E0E0E0;*/
+        background-color: rgb(225, 245, 254);
         top: 0;
         transition: all .1s;
     }

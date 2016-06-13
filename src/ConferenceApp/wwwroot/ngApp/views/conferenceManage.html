@@ -1,4 +1,4 @@
-﻿<div class="bg-image-display">
+﻿<div class="bg-image-display" ng-cloak>
         <div class="cards" layout="row" layout-align="start center" layout-wrap>
             <div flex="20" flex-offset="10" ng-repeat="conference in controller.conferences">
                 <div>
@@ -18,11 +18,11 @@
                             <div class="card-subhead md-subhead">{{conference.startDate | date:'MM/dd/yy'}} - {{conference.endDate | date:'MM/dd/yy'}}</div>
                         </md-card-content>
                         <md-card-actions layout="row" layout-align="space-around center">
-                            <md-button ui-sref="conferenceEdit({id:conference.id})" class="md-fab md-primary" layout="flex">
+                            <md-button ui-sref="conferenceEdit({id:conference.id})" class="md-fab md-warn" layout="flex">
                                 <md-tooltip md-direction="right">Edit</md-tooltip>
                                 <md-icon>edit</md-icon>
                             </md-button>
-                            <md-button ui-sref="schedule({id:conference.id})" class="md-fab md-hue-1" layout="flex">
+                            <md-button ui-sref="schedule({id:conference.id})" class="md-fab md-accent md-hue-3" layout="flex">
                                 <md-tooltip md-direction="left">Schedule</md-tooltip>
                                 <md-icon>view_list</md-icon>
                             </md-button>

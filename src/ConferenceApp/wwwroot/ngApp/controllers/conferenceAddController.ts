@@ -25,9 +25,13 @@
 
         constructor(private $http: ng.IHttpService,
             private $state: ng.ui.IStateService,
-            private accountService: ConferenceApp.Services.AccountService) {
+            private accountService: ConferenceApp.Services.AccountService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
 
             accountService.toolbarTitle = "Add New Conference";
+
+            //Hide BackButton
+            toolbarService.hideBackButton = true;
 
         }
     }

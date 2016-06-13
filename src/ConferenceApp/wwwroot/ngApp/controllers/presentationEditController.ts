@@ -10,8 +10,13 @@
             public $stateParams: ng.ui.IStateParamsService,
             public $state: ng.ui.IStateService,
             private accountService: ConferenceApp.Services.AccountService,
-            public $mdDialog: ng.material.IDialogService) {
+            public $mdDialog: ng.material.IDialogService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
             console.log($stateParams['id']);
+
+            //Hide BackButton
+            toolbarService.hideBackButton = true;
+
             // $http.get('/api/presentations/' + $stateParams['id'])
             $http.get(`/api/presentations/${$stateParams['id']}`)
                 //$http.get(`/api/presentations/${this.presentations.conferenceId}`)

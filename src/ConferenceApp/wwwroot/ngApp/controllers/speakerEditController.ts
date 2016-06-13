@@ -10,7 +10,11 @@
         constructor(public $http: ng.IHttpService,
             public $stateParams: ng.ui.IStateParamsService,
             public $state: ng.ui.IStateService,
-            public $mdDialog: ng.material.IDialogService) {
+            public $mdDialog: ng.material.IDialogService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
+
+            //Hide BackButton
+            toolbarService.hideBackButton = true;
 
             $http.get(`/api/speakers/${$stateParams['id']}`)
                 .then((response) => {

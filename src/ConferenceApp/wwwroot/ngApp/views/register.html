@@ -1,4 +1,4 @@
-<div class="reg-back">
+<div class="reg-back" ng-cloak>
     <div class="reg-over">
         <div class="flex-center">
             <md-card class="card card-back">
@@ -9,7 +9,7 @@
                     <div class="md-headline md-padding white top" style="margin-right: -28px;">Register</div>
                 </div>
                 <div class="register-tit" layout="column" layout-align="start center">
-                    
+
                     <form class="login-register" ng-submit="controller.register()" layout="column" layout-align="start center">
                         <div>
                             <md-input-container class="md-prima input-field">
@@ -39,7 +39,7 @@
                                 <input type="password" ng-model="controller.registerUser.confirmPassword">
                             </md-input-container>
                         </div>
-                        <div><md-button class="md-raised" input type="submit" value="Register"> Register </md-button></div>
+                        <md-button class="md-raised" type="submit" flex-offset="200" value="Register"> Register </md-button>
                     </form>
                     <ul class="user-agent-counter">
                         <li ng-repeat="externalLogin in account.externalLogins">

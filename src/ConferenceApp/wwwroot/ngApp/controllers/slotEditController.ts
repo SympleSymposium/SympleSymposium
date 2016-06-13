@@ -18,10 +18,14 @@
             private $state: ng.ui.IStateService,
             private $stateParams: ng.ui.IStateParamsService,
             private accountService: ConferenceApp.Services.AccountService,
-            public $mdDialog: ng.material.IDialogService) {
+            public $mdDialog: ng.material.IDialogService,
+            private toolbarService: ConferenceApp.Services.ToolbarService) {
             //console.log('edit');
 
             accountService.toolbarTitle = "Edit Slot";
+
+            //Hide BackButton
+            toolbarService.hideBackButton = true;
 
             //this $http.get is to get the specific slot 
             $http.get(`/api/slots/edit/${$stateParams['id']}`)

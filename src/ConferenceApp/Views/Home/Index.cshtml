@@ -71,7 +71,7 @@
 
             <div ui-sref="home"><img class="toolbar-logo" src="~/ngApp/images/logoSymp.png" /></div>
             <div layout="column" layout-align="end center">
-                <md-button ng-click="toolbar.toolbarService.goBack()" href="#" class="md-fab md-mini md-accent" layout="flex">
+                <md-button ng-hide="toolbar.toolbarService.hideBackButton" ng-click="toolbar.toolbarService.goBack()" href="#" class="md-fab md-mini md-accent" layout="flex">
                     <md-tooltip md-direction="right">Go Back</md-tooltip>
                     <md-icon>arrow_back</md-icon>
                 </md-button>

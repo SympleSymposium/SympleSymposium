@@ -1,43 +1,43 @@
 ﻿<!--<div layout="row" layout-align="start start">
     <md-button ui-sref="schedule({id:controller.$stateParams['id']})" class="md-raised md-primary">
         Back-->
-<div>
-    <div  class="cards bg-image-display" layout="row" layout-align="start start" layout-wrap>
+<div ng-cloak>
+    <div class="cards bg-image-display" layout="row" layout-align="start start" layout-wrap>
         <div flex="20" flex-offset="10" ng-repeat="speaker in controller.speakers">
             <md-card class="md-card-speak" layout="column" flex>
                 <div class="parent-container">
-                <md-card-header>
-                    <md-card-header-text>
-                        <div class="card-title md-title">{{speaker.title}} {{speaker.firstName}} {{speaker.lastName}}</div>
-                    </md-card-header-text>
-                </md-card-header>
-                <div>
-                    <md-card-title layout="column" layout-align="center center" layout-scale>
-                        <img class="image-sp md-card-image" ng-src="{{speaker.imageUrl}}" />
-                    </md-card-title>
-                </div>
-                <md-card-content layout="column" layout-align="space-around center">
-                    <span class="card-subhead md-subhead-head">{{speaker.company}}</span>
-                    <span class="card-subhead md-subhead">{{speaker.phone}}</span>
-                    <span class="card-subhead md-subhead">{{speaker.email}}</span>
-                </md-card-content>
-                <md-card-content layout="column" layout-align="space-around center">
-                    <span class="card-subhead md-subhead">{{speaker.bio}}</span>
-                </md-card-content>
-              </div>
-                <md-card-content>
-                <footer>
-                <md-card-actions class="speed-dial" layout="column" layout-align="center">
-                    <md-button ui-sref="speakerEdit({id:speaker.id})" class="md-fab md-{{controller.themeEdit}}" layout="flex">
-                        <md-tooltip md-direction="right">Edit</md-tooltip>
-                        <md-icon>edit</md-icon>
-                    </md-button>
-                </md-card-actions>
-                    </footer>
+                    <md-card-header>
+                        <md-card-header-text>
+                            <div class="card-title md-title">{{speaker.title}} {{speaker.firstName}} {{speaker.lastName}}</div>
+                        </md-card-header-text>
+                    </md-card-header>
+                    <div>
+                        <md-card-title layout="column" layout-align="center center" layout-scale>
+                            <img class="image-sp md-card-image" ng-src="{{speaker.imageUrl}}" />
+                        </md-card-title>
+                    </div>
+                    <md-card-content layout="column" layout-align="space-around center">
+                        <span class="card-subhead md-subhead-head">{{speaker.company}}</span>
+                        <span class="card-subhead md-subhead">{{speaker.phone}}</span>
+                        <span class="card-subhead md-subhead">{{speaker.email}}</span>
                     </md-card-content>
+                    <md-card-content layout="column" layout-align="space-around center">
+                        <span class="card-subhead md-subhead">{{speaker.bio}}</span>
+                    </md-card-content>
+                </div>
+                <md-card-content>
+                    <footer>
+                        <md-card-actions class="speed-dial" layout="column" layout-align="center">
+                            <md-button ui-sref="speakerEdit({id:speaker.id})" class="md-fab md-{{controller.themeEdit}} md-warn" layout="flex">
+                                <md-tooltip md-direction="right">Edit</md-tooltip>
+                                <md-icon>edit</md-icon>
+                            </md-button>
+                        </md-card-actions>
+                    </footer>
+                </md-card-content>
             </md-card>
         </div>
-        <div  flex="20" flex-offset="10">
+        <div flex="20" flex-offset="10">
             <md-card class="md-card-speak" flex>
                 <md-card-header>
                     <md-card-header-text>
@@ -45,13 +45,12 @@
                     </md-card-header-text>
                 </md-card-header>
                 <md-card-actions layout="column" layout-align="space-around center">
-                    <md-button ui-sref="speakerAdd({id:controller.$stateParams['id']})" class="md-fab md-{{controller.themeAdd}}" layout="flex">
+                    <md-button ui-sref="speakerAdd({id:controller.$stateParams['id']})" class="md-fab md-{{controller.themeAdd}} md-accent md-hue-2" layout="flex">
                         <md-icon>add_circle</md-icon>
                     </md-button>
                 </md-card-actions>
             </md-card>
         </div>
-        </div>
     </div>
+</div>
 
-  

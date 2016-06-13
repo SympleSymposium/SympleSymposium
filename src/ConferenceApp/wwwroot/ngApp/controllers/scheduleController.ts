@@ -72,16 +72,14 @@
 
             accountService.toolbarTitle = "Presentation Schedule";
 
+            //Hide BackButton
+            toolbarService.hideBackButton = false;
+
 
             toolbarService.goBack = () => {
                 console.log("tried");
                 this.$state.go("conferenceManage");
             };
-
-            //$back => {
-            //    $window.history.back();
-            //}
-
             
             $http.get('/api/conferences/' + $stateParams['id'])
                 .then((response) => {
@@ -102,9 +100,11 @@
                     }
 
                     if (dayService.slotDay) {
-
                         //If currentDay is already set, jump to this day
                         this.selectedIndex = this.conferenceDays.indexOf(dayService.slotDay);
+                        if (this.selectedIndex == -1) {
+                            this.selectedIndex = 0;
+                        }
 
                     } else {
 
@@ -113,6 +113,7 @@
 
                         //Save current day to service so that slotAddController will be able to access it
                         dayService.slotDay = this.currentDay;
+                        this.selectedIndex = this.conferenceDays.indexOf(dayService.slotDay);
                     }
 
                     
