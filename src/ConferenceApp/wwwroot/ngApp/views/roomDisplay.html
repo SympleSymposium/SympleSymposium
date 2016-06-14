@@ -1,10 +1,10 @@
 ﻿<div ng-cloak>
-    <div class="cards bg-image-display" layout="row" layout-align="center center" flex>
+    <div class="cards bg-image-display" layout="column" layout-align="center center" flex>
     <md-card class="md-card-rd animated bounceInLeft">
             <md-toolbar class="md-{{controller.theme}}">
                 <div class="md-toolbar-tools">
                     <md-icon>{{controller.icon}}</md-icon>
-                    <span flex style="margin-left:10px;">{{controller.title}}</span>
+                    <span class="tb-text" flex style="margin-left:10px;">{{controller.title}}</span>
                 </div>
             </md-toolbar>
             <md-content layout-padding layout="column" ng-cloak class="md-inline-form">
@@ -17,15 +17,16 @@
                         <span class="card-subhead">{{room.description}}</span>
                         </md-card-header-text>
                         <md-card-actions layout="row" layout-align="center center" flex>
-                            <md-button ui-sref="roomEdit({id:room.id})" class="md-fab md-mini md-{{controller.theme}} md-warn" layout="column">
-                                <md-tooltip md-direction="top" >Edit</md-tooltip>
+                            <md-button ui-sref="roomEdit({id:room.id})" class="md-fab md-mini md-warn" layout="column">
+                                <md-tooltip md-direction="left" >Edit</md-tooltip>
                                 <md-icon>edit</md-icon>
                             </md-button>
                         </md-card-actions>
                     </md-card-header>
                 </div>
                 <md-card-actions layout="column" layout-align="end center">
-                    <md-button ui-sref="roomAdd({id:controller.$stateParams['id']})" class="md-fab md-{{controller.themeAdd}} md-accent md-hue-2" layout="flex">
+                    <md-button ui-sref="roomAdd({id:controller.$stateParams['id']})" class="md-fab md-accent md-hue-2" layout="flex">
+                        <md-tooltip md-direction="left">Add</md-tooltip>
                         <md-icon>add_circle</md-icon>
                     </md-button>
                 </md-card-actions>

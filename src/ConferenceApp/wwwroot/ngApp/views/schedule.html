@@ -37,9 +37,9 @@
                              ui-sref="slotEdit({id:s.id})">
                             <div class="slot md-primary">
                                 <div layout="column" layout-align="center center">
-                                    <div>{{s.presentation.title}}</div>
-                                    <div>Speaker: {{s.speaker.firstName}} {{s.speaker.lastName}}</div>
-                                    <div>{{s.startTimeDisplay}} to {{s.endTimeDisplay}}</div>
+                                    <div class="md-title-slot">{{s.presentation.title}}</div>
+                                    <div class="md-subhead-slot">Speaker: {{s.speaker.firstName}} {{s.speaker.lastName}}</div>
+                                    <div class="md-subhead-slot">{{s.startTimeDisplay}} to {{s.endTimeDisplay}}</div>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                 md-whiteframe="4"
                 ng-cloak>
         <md-toolbar class="md-theme-indigo">
-            <h1 class="md-toolbar-tools">Schedule Options</h1>
+            <h1 layout-align="center center" class="md-toolbar-tools nav-title">Schedule Options</h1>
         </md-toolbar>
         <!--<md-content layout-padding ng-controller="RightCtrl">-->
         <md-content layout-padding>
@@ -81,7 +81,7 @@
                 </div>
             </div>-->
             <div layout="column" layout-align="center stretch">
-                <md-button class="md-raised md-primary"
+                <md-button class="md-raised md-primary button-text"
                            ui-sref="slotAdd({id:controller.conference.id})">
                     Add Slot
                 </md-button>
@@ -89,22 +89,22 @@
             <div layout="column" layout-align="center center">
                 <img ng-src="{{controller.conference.imageUrl}}" />
                 <br />
-                <b>{{controller.conference.name}}</b>
-                <p style="margin: 0">{{controller.conference.street}}</p>
-                <p style="margin: 0">{{controller.conference.city}}, {{controller.conference.state}} {{controller.conference.zip}}</p>
+                <span class="sched-text-head">{{controller.conference.name}}</span>
+                <span class="sched-text-sub" style="margin: 0">{{controller.conference.street}}</span>
+                <span class="sched-text-sub"style="margin: 0">{{controller.conference.city}}, {{controller.conference.state}} {{controller.conference.zip}}</span>
                 <br />
             </div>
 
             <div layout="column" layout-align="center stretch">
-                <md-button class="md-raised md-primary"
+                <md-button class="md-raised md-primary button-text"
                            ui-sref="displayRooms({id:controller.conference.id})">
                     Add / Edit Rooms
                 </md-button>
-                <md-button class="md-raised md-primary"
+                <md-button class="md-raised md-primary button-text"
                            ui-sref="displayPresentations({id:controller.conference.id})">
                     Add / Edit Presentations
                 </md-button>
-                <md-button class="md-raised md-primary"
+                <md-button class="md-raised md-primary button-text"
                            ui-sref="displaySpeakers({id:controller.conference.id})">
                     Add / Edit Speakers
                 </md-button>
