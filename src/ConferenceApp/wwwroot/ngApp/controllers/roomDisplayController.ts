@@ -5,8 +5,6 @@
         public title = "Rooms"
         public icon = "panorama_vertical";
         public theme = "md-primary";
-        public themeAdd = "md-accent";
-        public themeEdit = "md-primary";
         public conferenceId;
 
         private GetRooms() {

@@ -1,11 +1,11 @@
-﻿<div ng-cloak class="bg-image-display" layout="column">
-    <div class="add-button-top" layout="row" layout-align="center center">
-        <md-button ui-sref="speakerAdd({id:controller.$stateParams['id']})" class="md-fab md-accent md-hue-2" layout>
+﻿<div class="bg-image-display" ng-cloak>
+    <div class="add-button-top add-style-bg" layout="row" layout-align="center">
+        <md-button ui-sref="speakerAdd({id:controller.$stateParams['id']})" class="md-fab md-accent md-hue-2" layout="flex">
             <md-tooltip md-direction="top">Add</md-tooltip>
             <md-icon>add_circle</md-icon>
         </md-button>
     </div>
-    <div class="cards" layout="row" layout-align="space-around start" layout-wrap>
+    <div class="cards bg-image-display add-style-padding" layout="row" layout-align="space-around start" layout-wrap>
         <div class="md-card-speak-container" ng-repeat="speaker in controller.speakers" layout layout-align="center center">
             <md-card class="md-card-speak" layout="column">
                 <div class="parent-container">

@@ -4,7 +4,7 @@
             <md-toolbar class="md-{{controller.theme}}">
                 <div class="md-toolbar-tools">
                     <md-icon>{{controller.icon}}</md-icon>
-                    <span flex style="margin-left:10px;">{{controller.title}}</span>
+                    <span class="tb-text" flex style="margin-left:10px;">{{controller.title}}</span>
                 </div>
             </md-toolbar>
             <md-content layout-padding layout="column" ng-cloak class="md-inline-form">
@@ -18,7 +18,7 @@
                         <input ng-model="controller.presentation.description">
                     </md-input-container>
                     <div layout="row" layout-align="center">
-                        <md-button ng-click="controller.cancel()" class="md-fab md-hue-2">
+                        <md-button ng-click="controller.cancel()" class="md-fab md-accent">
                             <md-tooltip md-direction="top">Cancel</md-tooltip>
                             <md-icon>clear</md-icon>
                         </md-button>
@@ -26,7 +26,7 @@
                             <md-tooltip md-direction="top">Delete</md-tooltip>
                             <md-icon>delete</md-icon>
                         </md-button>
-                        <md-button class="md-fab md-accent" type="submit">
+                        <md-button class="md-fab md-hue-2" type="submit">
                             <md-tooltip md-direction="top">Submit</md-tooltip>
                             <md-icon>done</md-icon>
                         </md-button>

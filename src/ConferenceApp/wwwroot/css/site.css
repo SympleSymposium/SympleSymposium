@@ -157,7 +157,6 @@ body {
     margin-bottom: 60px;
     width: 425px;
     background-color: #FAFAFA;
-    text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
@@ -169,7 +168,6 @@ body {
     width: 800px;
     height: auto;
     background-color: #FAFAFA;
-    text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
@@ -286,7 +284,29 @@ body {
     font-size: 19px;
     text-transform: uppercase;
 }
+.nav-title {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    color: white;
+}
 
+.md-title-slot {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 17px;
+    color: white;
+    text-transform: uppercase;
+}
+.md-subhead-slot {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 100;
+    font-weight: lighter;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
 md-subhead-head {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
@@ -355,6 +375,33 @@ md-card-content{
     text-transform: uppercase;
 }
 
+.sched-text-head {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+.sched-text-sub {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    color: black;
+}
+
+.un-text {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    font-weight: bold;
+    color: white;
+}
+
+.tb-text {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    color: white;
+}
+
 /*---------------------*/
 /*CSS for Buttons*/
 /*---------------------*/
@@ -364,7 +411,11 @@ md-card-content{
 }
 
 .logout-container {
-    margin-right: 40px;
+    margin-right: 50px;
+    margin-left: 10px;
+}
+
+.back-container {
     margin-left: 10px;
 }
 
@@ -398,6 +449,13 @@ md-card-content{
     opacity: 0.54;
 }
 
+.button-text {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+}
+
 /*---------------------*/
 /*CSS for Images and Titles*/
 /*---------------------*/
@@ -419,7 +477,7 @@ md-card-content{
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 8px;
-    border: 4px solid #009688;
+    border: 4px solid #62acd8 ;
     padding: 20px;
 }
 
@@ -534,7 +592,7 @@ md-card-content{
 }
 
 .amber {
-    color: #FF6F00;
+    color: rgb(239,83,80);
 }
 
 .dark-grey {
@@ -654,7 +712,7 @@ a:hover {
 }
 
 .log-over {
-    background-color: rgba(255, 11, 0, 0.20);
+    background-color: rgba(239, 83, 80, 0.30);
 }
 
 
@@ -765,6 +823,7 @@ md-sidenav {
 .room-header {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
+    font-weight: bold;
     height: 25px;
     border-top: 1px solid black;
     border-left: 1px solid black;
@@ -785,6 +844,7 @@ md-sidenav {
 .time-slot {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
+    font-weight: bold;
     width: 100%;
     height: 10%;
     border-bottom: 1px solid black;
@@ -863,35 +923,16 @@ md-sidenav {
 .reg-btn-home {
     padding: 10px;
     background-color: transparent !important;
-    border: 4px solid rgb(77,182,172) !important;
+    border: 4px solid #62acd8 !important;
     border-radius: 500px;
     padding: 0 90px;
 }
 
     .reg-btn-home:hover {
-        background-color: rgb(77,182,172) !important;
+        background-color: #62acd8 !important;
     }
 
-/*---------------------*/
-/*CSS for breadcrumbs*/
-/*---------------------*/
 
-
-.breadcrumbs {
-    display: flex;
-}
-
-    .breadcrumbs div {
-        display: flex;
-        height: 64px;
-        width: 250px;
-        border-top-right-radius: 32px;
-        border-bottom-right-radius: 32px;
-        box-shadow: rgba(0,0,0,.23) 3px 0;
-        align-items: center;
-        justify-content: center;
-    }
-
-        .breadcrumbs div img {
-            width: 100%;
+        .accent-h-2{
+            background-color:#62acd8 ;
         }
