@@ -1,10 +1,10 @@
-﻿<div ng-cloak>
-    <div layout="column" layout-align="center center" class="bg-image-display" flex>
-        <md-card class="card animated bounceInLeft">
+﻿
+    <div class="cards bg-image-display" layout="column" layout-align="center center" flex ng-cloak>
+        <md-card class="md-card-room animated bounceInLeft">
             <md-toolbar class="md-{{controller.theme}}">
                 <div class="md-toolbar-tools">
                     <md-icon>{{controller.icon}}</md-icon>
-                    <span class="tb-text"flex style="margin-left:10px;">{{controller.title}}</span>
+                    <span class="tb-text" flex style="margin-left:10px;">{{controller.title}}</span>
                 </div>
             </md-toolbar>
             <md-content layout-padding layout="column" ng-cloak class="md-inline-form">
@@ -75,4 +75,4 @@
             </md-content>
         </md-card>
     </div>
-</div>
+

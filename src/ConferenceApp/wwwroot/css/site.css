@@ -59,6 +59,7 @@ body {
     }
 }
 
+
 .toolbar-logo {
     height: 80%;
 }
@@ -291,11 +292,27 @@ body {
     color: white;
 }
 
+@media(max-width: 1280px) {
+    .schedule-body {
+        font-size: .7em;
+    }
+}
+@media(max-width: 960px) {
+    .schedule-body {
+        font-size: .5em;
+    }
+}
+@media(max-width: 768px) {
+    .schedule-body {
+        font-size: .3em;
+    }
+}
+
 .md-title-slot {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
     text-align: center;
-    font-size: 17px;
+    font-size: .9em;
     color: white;
     text-transform: uppercase;
 }
@@ -304,7 +321,7 @@ body {
     font-weight: 100;
     font-weight: lighter;
     color: white;
-    font-size: 14px;
+    font-size: .7em;
     text-align: center;
 }
 md-subhead-head {
