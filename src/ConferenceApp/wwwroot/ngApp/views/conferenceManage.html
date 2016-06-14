@@ -1,11 +1,11 @@
-﻿<div class="bg-image-display" ng-cloak>
+﻿<div ng-cloak>
     <div class="add-button-top" layout="row" layout-align="center center">
         <md-button ui-sref="conferenceAdd" class="md-fab  md-accent md-hue-3" layout="flex">
             <md-tooltip md-direction="top">Add</md-tooltip>
             <md-icon>add_circle</md-icon>
         </md-button>
     </div>
-    <div layout="row" layout-align="space-around center" layout-wrap>
+    <div layout="row" layout-align="space-around start" layout-wrap>
         <md-card class="md-card" ng-repeat="conference in controller.conferences">
             <md-card-header>
                 <md-card-header-text>
