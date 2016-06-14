@@ -1,3 +1,26 @@
+.speaker-img{
+    overflow: hidden;
+    height: 150px;
+    width: 125px;
+    margin-left: 20px;
+
+}
+
+.speaker-bio{
+    height: 125px;
+}
+
+/*.image-sp {
+    width: initial;
+    max-width: initial;
+    min-height: 100%;
+    min-width: 100%;
+    /*height: 150px;
+    width: 120px;
+    margin: 0px 20px 0px 20px;*/
+}*/
+
+
 body {
     /*padding-bottom: 20px;*/
 }
@@ -35,6 +58,10 @@ body {
         z-index: 10 !important;
     }
 }
+
+.toolbar-logo {
+    height: 80%;
+}
 /*---------------------*/
 /*CSS for Animation*/
 /*---------------------*/
@@ -46,13 +73,42 @@ body {
     animation-fill-mode: both;
 }
 
-.toolbar-logo {
-    height: 80%;
-}
+
 
 .animated.infinite {
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
 }
 
 
@@ -83,12 +139,15 @@ body {
 /*---------------------*/
 /*CSS for Cards*/
 /*---------------------*/
-.parent-container {
-    position: relative;
+
+.add-style-bg {
+    position: absolute; 
+    top: 40px; 
+    left: 48%;
 }
 
-.speed-dial {
-    position: absolute;
+.add-style-padding {
+    padding-top: 64px;
 }
 
 .md-card-room {
@@ -97,24 +156,19 @@ body {
     margin-top: 30px;
     margin-bottom: 60px;
     width: 425px;
-    background-color: #ECEFF1;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-    .md-card-room:hover {
-        border: solid thin;
-        border-color: #E0E0E0;
-    }
-
-.md-card-rd {
+ .md-card-rd {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
     margin-top: 40px;
     margin-bottom: 60px;
     width: 800px;
     height: auto;
-    background-color: #ECEFF1;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
@@ -130,22 +184,27 @@ body {
     width: 100px;
 }
 
+ .add-button-top{
+     margin-top: 40px;
+ }
+
 .md-card-pres {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
     margin-top: 40px;
-    margin-bottom: 60px;
+    margin-right: 20px;
+    margin-left: 20px;
     width: 320px;
     height: 400px;
-    background-color: #ECEFF1;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-    .md-card-pres:hover {
-        border: solid thin;
-        border-color: #E0E0E0;
-    }
+.md-card-pres-add{
+    height: 200px;
+}
+
 
 .md-card-speak {
     font-family: 'Varela Round', sans-serif;
@@ -153,11 +212,13 @@ body {
     margin-top: 40px;
     margin-bottom: 60px;
     width: 400px;
-    height: 600px;
-    background-color: #ECEFF1;
+    height: 420px;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+
+
 
 .md-card {
     font-family: 'Varela Round', sans-serif;
@@ -166,15 +227,12 @@ body {
     margin-bottom: 60px;
     width: 300px;
     height: 400px;
-    background-color: #ECEFF1;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-    .md-card:hover {
-        border: solid thin;
-        border-color: #E0E0E0;
-    }
+
 
 .md-card-add {
     font-family: 'Varela Round', sans-serif;
@@ -183,15 +241,12 @@ body {
     margin-bottom: 60px;
     width: 300px;
     height: auto;
-    background-color: #ECEFF1;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-    .md-card-add:hover {
-        border: solid thin;
-        border-color: #E0E0E0;
-    }
+
 
 .md-card-auto {
     font-family: 'Varela Round', sans-serif;
@@ -200,26 +255,16 @@ body {
     margin-bottom: 60px;
     width: 400px;
     height: auto;
-    background-color: #ECEFF1;
+    background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-    .md-card-auto:hover {
-        border: solid thin;
-        border-color: #E0E0E0;
-    }
+
 
 .image {
     max-height: 80%;
     max-width: 80%;
-    height: auto;
-    width: auto;
-}
-
-.image-sp {
-    max-height: 40%;
-    max-width: 40%;
     height: auto;
     width: auto;
 }
@@ -229,6 +274,10 @@ body {
     margin-top: 48px;
     margin-bottom: 200px;
 }
+
+/*---------------------*/
+/*CSS for Card Text*/
+/*---------------------*/
 
 .md-title {
     font-family: 'Varela Round', sans-serif;
@@ -250,6 +299,19 @@ md-subhead-head {
     font-weight: 400;
     font-size: 16px;
     text-align: center;
+}
+
+.header-pres{
+    min-height: 125px;
+    padding-top: 40px;
+}
+
+.actions-pres{
+    margin-bottom: 30px;
+}
+
+md-card-content{
+    padding-top: 0px;
 }
 
 .input-field input {
@@ -281,6 +343,7 @@ md-subhead-head {
     color: black;
     font-size: 13px;
     text-decoration: none;
+    text-align: left;
 }
 
 .card-title-pres {
@@ -298,6 +361,11 @@ md-subhead-head {
 
 .md-button:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.logout-container {
+    margin-right: 40px;
+    margin-left: 10px;
 }
 
 .button {
@@ -366,7 +434,7 @@ md-subhead-head {
 .bg-image-display {
     background-image: url('../ngapp/images/wbg.jpg');
     background-position: 50% 50%;
-    background-repeat: repeat;
+    background-repeat: repeat repeat;
     background-size: cover;
     min-width: 100%;
     min-height: 100%;
@@ -379,10 +447,6 @@ md-subhead-head {
 
 .bg-overlay {
     background-color: rgba(0, 0, 0, .80);
-}
-
-.banner-conf-title {
-    padding-top: 96px !important;
 }
 
 .bg-overlayII {
@@ -751,8 +815,8 @@ md-sidenav {
 
     .slot-container .slot {
         position: relative;
-        /*background-color: #E0E0E0;*/
-        background-color: rgb(225, 245, 254);
+        background-color: #78909C;
+        /*background-color: rgb(225, 245, 254);*/
         top: 0;
         transition: all .1s;
     }

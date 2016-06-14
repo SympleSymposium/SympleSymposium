@@ -6,7 +6,7 @@
     <link href="~/lib/angular-material/angular-material.css" rel="stylesheet" />
     <link href="~/lib/mdpickers/dist/mdpickers.css" rel="stylesheet" />
     <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-
+    <link href="~/lib/animate.css/animate.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
 
     <!-- Fonts -->
@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <base href="/" />
+
 
     <!-- Library Files -->
     <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -66,26 +67,36 @@
             @*<md-button ui-sref="conferenceManage">
                     Home
                 </md-button>*@
-            <div ui-sref="home"><img class="toolbar-logo" src="~/ngApp/images/logo.png" /></div>
-            <md-button class="md-raised" href="#" ng-hide="toolbar.toolbarService.hideBackButton" ng-click="toolbar.toolbarService.goBack()" > << Back</md-button>
-            @*<div class="breadcrumbs">
-                
-                <div ng-repeat="breadcrumb in toolbar.breadcrumbs | limitTo:toolbar.breadcrumbs.length - 1" ui-sref="{{breadcrumb.link}}">{{breadcrumb.text}}</div>
-                <div ng-if="toolbar.lastBreadcrumb">{{toolbar.lastBreadcrumb.text}}</div>
-            </div>*@
+
+
+            <div ui-sref="home"><img class="toolbar-logo" src="~/ngApp/images/logoSymp.png" /></div>
+            <div layout="column" layout-align="end center">
+                <md-button ng-hide="toolbar.toolbarService.hideBackButton" ng-click="toolbar.toolbarService.goBack()" href="#" class="md-fab md-mini md-accent" layout="flex">
+                    <md-tooltip md-direction="right">Go Back</md-tooltip>
+                    <md-icon>arrow_back</md-icon>
+                </md-button>
+            </div>
             <span flex></span>
             <h5 ng-show="account.isLoggedIn()">
                 <span>{{account.getUserName()}}</span>
             </h5>
-            <md-button class="md-raised" href="/login" ng-show="!account.isLoggedIn()">Login</md-button>
-            <md-button class="md-raised" href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</md-button>
+
+            <md-button class="md-raised md-accent" href="/login" ng-show="!account.isLoggedIn()">Login</md-button>
+
+            <div>
+                <md-button href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()" class="md-fab md-mini md-warn logout-container" layout="flex">
+                    <md-tooltip md-direction="right">Logout</md-tooltip>
+                    <md-icon>account_box</md-icon>
+                </md-button>
+            </div>
         </div>
     </md-toolbar>
 
 
+
     <ui-view flex-grow="1" layout="column"></ui-view>
 
-   
+
 
 </body>
 </html>

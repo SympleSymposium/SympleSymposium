@@ -17,7 +17,6 @@
 /// <reference path="lib/moment/moment.js" />
 /// <reference path="ngapp/app.js" />
 /// <reference path="ngapp/controllers/accountcontroller.js" />
-/// <reference path="ngApp/controllers/ConfEditController.js" />
 /// <reference path="ngapp/controllers/conferenceaddcontroller.js" />
 /// <reference path="ngapp/controllers/conferenceeditcontroller.js" />
 /// <reference path="ngapp/controllers/conferencemanagecontroller.js" />
@@ -38,7 +37,6 @@
 /// <reference path="ngapp/controllers/toolbar.js" />
 /// <reference path="ngapp/services/accountservice.js" />
 /// <reference path="ngapp/services/dayservice.js" />
-/// <reference path="ngApp/services/services.js" />
 /// <reference path="ngapp/services/toolbarservice.js" />
 <<<<<<< Updated upstream
 /// <reference path="ngapp/app.js" />

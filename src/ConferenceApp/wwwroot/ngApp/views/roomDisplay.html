@@ -1,6 +1,6 @@
 ﻿<div ng-cloak>
     <div class="cards bg-image-display" layout="row" layout-align="center center" flex>
-        <md-card class="md-card-rd">
+    <md-card class="md-card-rd animated bounceInLeft">
             <md-toolbar class="md-{{controller.theme}}">
                 <div class="md-toolbar-tools">
                     <md-icon>{{controller.icon}}</md-icon>
@@ -10,11 +10,11 @@
             <md-content layout-padding layout="column" ng-cloak class="md-inline-form">
                 <div style="border-bottom: 1px solid #E0E0E0;" ng-repeat="room in controller.rooms">
                     <md-card-header layout="row">
-                        <md-card-header-text flex="30" layout layout-align="start center">
+                    <md-card-header-text flex="40" layout layout-align="start center">
                             <span class="card-su md-title">{{room.name}}</span>
                         </md-card-header-text>
-                        <md-card-header-text flex="55" layout layout-align="start center">
-                            <span class="card-subhead md-title">{{room.description}}</span>
+                    <md-card-header-text flex="45"  layout layout-align="start center">
+                        <span class="card-subhead">{{room.description}}</span>
                         </md-card-header-text>
                         <md-card-actions layout="row" layout-align="center center" flex>
                             <md-button ui-sref="roomEdit({id:room.id})" class="md-fab md-mini md-{{controller.theme}} md-warn" layout="column">

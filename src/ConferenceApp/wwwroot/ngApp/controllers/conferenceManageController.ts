@@ -17,6 +17,9 @@
             //Hide BackButton
             toolbarService.hideBackButton = true;
 
+            //Show Toolbar
+            toolbarService.hideToolbar = false;
+
             $http.get('/api/conferences/manage')
                 .then((response) => {
                     this.conferences = response.data;
