@@ -76,11 +76,6 @@
                     <md-icon>arrow_back</md-icon>
                 </md-button>
             </div>
-            @*<div class="breadcrumbs">
-
-                    <div ng-repeat="breadcrumb in toolbar.breadcrumbs | limitTo:toolbar.breadcrumbs.length - 1" ui-sref="{{breadcrumb.link}}">{{breadcrumb.text}}</div>
-                    <div ng-if="toolbar.lastBreadcrumb">{{toolbar.lastBreadcrumb.text}}</div>
-                </div>*@
             <span flex></span>
             <h5 ng-show="account.isLoggedIn()">
                 <span>{{account.getUserName()}}</span>

@@ -1,11 +1,11 @@
-﻿<div ng-cloak class="bg-image-display">
-    <div class="add-button-top"  layout="row" layout-align="center">
+﻿<div class="bg-image-display" ng-cloak>
+    <div class="add-button-top add-style-bg"  layout="row" layout-align="center">
         <md-button ui-sref="presentationAdd({id:controller.$stateParams['id']})" class="md-fab  md-accent md-hue-2" layout="flex">
             <md-tooltip md-direction="top">Add</md-tooltip>
             <md-icon>add_circle</md-icon>
         </md-button>
     </div>
-    <div class="cards " layout="row" layout-align="space-around center" layout-wrap>
+    <div class="cards bg-image-display add-style-padding" layout="row" layout-align="space-around center" layout-wrap>
         <div ng-repeat="present in controller.presentation">
             <md-card class="md-card-pres" layout="column" layout-align="start center">
                 <md-card-header class="header-pres" layout layout-align="center center">
@@ -26,4 +26,4 @@
             </md-card>
         </div>
     </div>
-</div>
+        </div>

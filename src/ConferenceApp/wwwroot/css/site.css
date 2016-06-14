@@ -1,3 +1,26 @@
+.speaker-img{
+    overflow: hidden;
+    height: 150px;
+    width: 125px;
+    margin-left: 20px;
+
+}
+
+.speaker-bio{
+    height: 125px;
+}
+
+/*.image-sp {
+    width: initial;
+    max-width: initial;
+    min-height: 100%;
+    min-width: 100%;
+    /*height: 150px;
+    width: 120px;
+    margin: 0px 20px 0px 20px;*/
+}*/
+
+
 body {
     /*padding-bottom: 20px;*/
 }
@@ -117,6 +140,16 @@ body {
 /*CSS for Cards*/
 /*---------------------*/
 
+.add-style-bg {
+    position: absolute; 
+    top: 40px; 
+    left: 48%;
+}
+
+.add-style-padding {
+    padding-top: 64px;
+}
+
 .md-card-room {
     font-family: 'Varela Round', sans-serif;
     font-weight: 400;
@@ -179,11 +212,13 @@ body {
     margin-top: 40px;
     margin-bottom: 60px;
     width: 400px;
-    height: 600px;
+    height: 420px;
     background-color: #FAFAFA;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+
+
 
 .md-card {
     font-family: 'Varela Round', sans-serif;
@@ -230,13 +265,6 @@ body {
 .image {
     max-height: 80%;
     max-width: 80%;
-    height: auto;
-    width: auto;
-}
-
-.image-sp {
-    max-height: 40%;
-    max-width: 40%;
     height: auto;
     width: auto;
 }
@@ -406,10 +434,10 @@ md-card-content{
 .bg-image-display {
     background-image: url('../ngapp/images/wbg.jpg');
     background-position: 50% 50%;
-    background-repeat: repeat;
+    background-repeat: repeat repeat;
     background-size: cover;
-    /*min-width: 100%;*/
-    /*min-height: 100%;*/
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .bg-overlay-display {
@@ -419,10 +447,6 @@ md-card-content{
 
 .bg-overlay {
     background-color: rgba(0, 0, 0, .80);
-}
-
-.banner-conf-title {
-    padding-top: 96px !important;
 }
 
 .bg-overlayII {
@@ -791,8 +815,8 @@ md-sidenav {
 
     .slot-container .slot {
         position: relative;
-        /*background-color: #E0E0E0;*/
-        background-color: rgb(225, 245, 254);
+        background-color: #78909C;
+        /*background-color: rgb(225, 245, 254);*/
         top: 0;
         transition: all .1s;
     }
