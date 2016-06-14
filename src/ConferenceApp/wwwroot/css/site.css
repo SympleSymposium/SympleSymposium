@@ -408,8 +408,8 @@ md-card-content{
     background-position: 50% 50%;
     background-repeat: repeat;
     background-size: cover;
-    /*min-width: 100%;*/
-    /*min-height: 100%;*/
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .bg-overlay-display {
@@ -419,10 +419,6 @@ md-card-content{
 
 .bg-overlay {
     background-color: rgba(0, 0, 0, .80);
-}
-
-.banner-conf-title {
-    padding-top: 96px !important;
 }
 
 .bg-overlayII {
