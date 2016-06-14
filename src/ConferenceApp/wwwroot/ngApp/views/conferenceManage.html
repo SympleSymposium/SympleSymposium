@@ -1,51 +1,34 @@
 ﻿<div class="bg-image-display" ng-cloak>
-        <div class="cards" layout="row" layout-align="start center" layout-wrap>
-            <div flex="20" flex-offset="10" ng-repeat="conference in controller.conferences">
-                <div>
-                    <md-card class="md-card">
-                        <md-card-header>
-                            <md-card-header-text>
-                                <div class="card-title md-title">{{conference.name}}</div>
-                            </md-card-header-text>
-                        </md-card-header>
-
-                        <md-card-title layout="column" layout-align="center center" layout-scale>
-                            <img class="image md-card-image" src="{{conference.imageUrl}}" />
-                        </md-card-title>
-
-                        <md-card-content layout="column" layout-align="space-around center">
-                            <div class="card-subhead md-subhead">{{conference.city}}, {{conference.state}}</div>
-                            <div class="card-subhead md-subhead">{{conference.startDate | date:'MM/dd/yy'}} - {{conference.endDate | date:'MM/dd/yy'}}</div>
-                        </md-card-content>
-                        <md-card-actions layout="row" layout-align="space-around center">
-                            <md-button ui-sref="conferenceEdit({id:conference.id})" class="md-fab md-warn" layout="flex">
-                                <md-tooltip md-direction="right">Edit</md-tooltip>
-                                <md-icon>edit</md-icon>
-                            </md-button>
-                            <md-button ui-sref="schedule({id:conference.id})" class="md-fab md-accent md-hue-3" layout="flex">
-                                <md-tooltip md-direction="left">Schedule</md-tooltip>
-                                <md-icon>view_list</md-icon>
-                            </md-button>
-                        </md-card-actions>
-                    </md-card>
-                </div>
-            </div>
-            <div flex="20" flex-offset="10" layout-wrap>
-                <md-card class="md-card-add" flex>
-
-                    <md-card-header>
-                        <md-card-header-text>
-                            <span class="card-title md-title">Add Conference</span>
-                        </md-card-header-text>
-                    </md-card-header>
-                    <md-card-actions>
-                        <div layout="row" layout-align="center center">
-                            <md-button ui-sref="conferenceAdd" class="md-fab md-accent" layout="flex">
-                                <md-icon>add_circle</md-icon>
-                            </md-button>
-                        </div>
-                    </md-card-actions>
-                </md-card>
-            </div>
-        </div>
+    <div class="add-button-top" layout="row" layout-align="center center">
+        <md-button ui-sref="conferenceAdd" class="md-fab  md-accent md-hue-2" layout="flex">
+            <md-tooltip md-direction="top">Add</md-tooltip>
+            <md-icon>add_circle</md-icon>
+        </md-button>
+    </div>
+    <div layout="row" layout-align="space-around center" layout-wrap>
+        <md-card class="md-card" ng-repeat="conference in controller.conferences">
+            <md-card-header>
+                <md-card-header-text>
+                    <div class="card-title md-title">{{conference.name}}</div>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-title layout="column" layout-align="center center" layout-scale>
+                <img class="image md-card-image" src="{{conference.imageUrl}}" />
+            </md-card-title>
+            <md-card-content layout="column" layout-align="space-around center">
+                <div class="card-subhead md-subhead">{{conference.city}}, {{conference.state}}</div>
+                <div class="card-subhead md-subhead">{{conference.startDate | date:'MM/dd/yy'}} - {{conference.endDate | date:'MM/dd/yy'}}</div>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="space-around center">
+                <md-button ui-sref="conferenceEdit({id:conference.id})" class="md-fab md-warn" layout="flex">
+                    <md-tooltip md-direction="right">Edit</md-tooltip>
+                    <md-icon>edit</md-icon>
+                </md-button>
+                <md-button ui-sref="schedule({id:conference.id})" class="md-fab md-accent md-hue-3" layout="flex">
+                    <md-tooltip md-direction="left">Schedule</md-tooltip>
+                    <md-icon>view_list</md-icon>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
 </div>
