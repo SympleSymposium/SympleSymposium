@@ -477,7 +477,7 @@ md-card-content{
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 8px;
-    border: 4px solid #009688;
+    border: 4px solid #62acd8 ;
     padding: 20px;
 }
 
@@ -592,7 +592,7 @@ md-card-content{
 }
 
 .amber {
-    color: #FF6F00;
+    color: rgb(239,83,80);
 }
 
 .dark-grey {
@@ -712,7 +712,7 @@ a:hover {
 }
 
 .log-over {
-    background-color: rgba(255, 11, 0, 0.20);
+    background-color: rgba(239, 83, 80, 0.30);
 }
 
 
@@ -923,11 +923,16 @@ md-sidenav {
 .reg-btn-home {
     padding: 10px;
     background-color: transparent !important;
-    border: 4px solid rgb(77,182,172) !important;
+    border: 4px solid #62acd8 !important;
     border-radius: 500px;
     padding: 0 90px;
 }
 
     .reg-btn-home:hover {
-        background-color: rgb(77,182,172) !important;
+        background-color: #62acd8 !important;
     }
+
+
+        .accent-h-2{
+            background-color:#62acd8 ;
+        }
