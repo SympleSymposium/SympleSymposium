@@ -1,116 +1,131 @@
-﻿<div class="page-container bg-image-display"
-     id="popupContainer"
-     layout="row"
-     layout-align="center"
-     ng-cloak>
+﻿<div ng-cloak>
+    <div class="mobile-buttons-group" layout="row" layout-align="space-around center" hide-gt-md>
+        <md-button class="md-raised md-primary button-text mobile-button"
+                   ui-sref="slotAdd({id:controller.conference.id})">
+            Add Slot
+        </md-button>
+        <md-button class="md-raised md-primary button-text mobile-button"
+                   ui-sref="displayRooms({id:controller.conference.id})">
+            Add / Edit Rooms
+        </md-button>
+        <md-button class="md-raised md-primary button-text mobile-button"
+                   ui-sref="displayPresentations({id:controller.conference.id})">
+            Add / Edit Presentations
+        </md-button>
+        <md-button class="md-raised md-primary button-text mobile-button"
+                   ui-sref="displaySpeakers({id:controller.conference.id})">
+            Add / Edit Speakers
+        </md-button>
+    </div>
+    <div class="page-container" layout="row" layout-align="center">
+        <md-tabs flex class="schedule-container md-primary md-whiteframe-4dp"
+                 md-selected="controller.selectedIndex">
 
-    <md-tabs flex class="schedule-container md-primary md-whiteframe-4dp"
-             md-selected="controller.selectedIndex">
+            <md-tab ng-repeat="day in controller.conferenceDays"
+                    md-on-select="controller.displayIndex()"
+                    label="{{day}}">
 
-        <md-tab ng-repeat="day in controller.conferenceDays"
-                md-on-select="controller.displayIndex()"
-                label="{{day}}">
-
-            <div class="schedule-body" layout="row" layout-align="center stretch">
-                <div class="time-axis">
-                    <div class="top-blank"></div>
-                    <div class="time-slot-outer">
-                        <div class="time-slot" layout="row" layout-align="start center" ng-repeat="t in controller.timeMarkers">
-                            <div>{{t}}</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="left-blank"></div>
-
-                <div class="room-col" layout="column" layout-align="center stretch" flex ng-repeat="r in controller.conference.rooms">
-                    <div class="room-headers" layout="row">
-                        <div class="room-header" flex>
-                            {{r.name}}
-                        </div>
-                    </div>
-                    <div class="schedule-cell " flex>
-                        <div class="slot-container"
-                             ng-repeat="s in r.slots
-                                       |filter:{day: day}"
-                             style="top:{{s.top}}%;
-                         height:calc({{s.height}}% - 1px);"
-                             ui-sref="slotEdit({id:s.id})">
-                            <div class="slot md-primary">
-                                <div layout="column" layout-align="center center">
-                                    <div class="md-title-slot">{{s.presentation.title}}</div>
-                                    <div class="md-subhead-slot">Speaker: {{s.speaker.firstName}} {{s.speaker.lastName}}</div>
-                                    <div class="md-subhead-slot">{{s.startTimeDisplay}} to {{s.endTimeDisplay}}</div>
-                                </div>
+                <div class="schedule-body" layout="row" layout-align="center stretch">
+                    <div class="time-axis">
+                        <div class="top-blank"></div>
+                        <div class="time-slot-outer">
+                            <div class="time-slot" layout="row" layout-align="start center" ng-repeat="t in controller.timeMarkers">
+                                <div>{{t}}</div>
                             </div>
                         </div>
+                    </div>
+                    <div class="left-blank"></div>
 
+                    <div class="room-col" layout="column" layout-align="center stretch" flex ng-repeat="r in controller.conference.rooms">
+                        <div class="room-headers" layout="row">
+                            <div class="room-header" flex>
+                                {{r.name}}
+                            </div>
+                        </div>
+                        <div class="schedule-cell " flex>
+                            <div class="slot-container"
+                                 ng-repeat="s in r.slots
+                                       |filter:{day: day}"
+                                 style="top:{{s.top}}%;
+                         height:calc({{s.height}}% - 1px);"
+                                 ui-sref="slotEdit({id:s.id})">
+                                <div class="slot md-primary">
+                                    <div layout="column" layout-align="center center">
+                                        <div class="md-title-slot">{{s.presentation.title}}</div>
+                                        <div class="md-subhead-slot">Speaker: {{s.speaker.firstName}} {{s.speaker.lastName}}</div>
+                                        <div class="md-subhead-slot">{{s.startTimeDisplay}} to {{s.endTimeDisplay}}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </md-tab>
-    </md-tabs>
+            </md-tab>
+            <div>test</div>
+        </md-tabs>
 
 
-    <md-sidenav class="md-sidenav-right"
-                md-component-id="right"
-                md-is-locked-open="$mdMedia('gt-md')"
-                md-disable-backdrop
-                md-whiteframe="4"
-                ng-cloak>
-        <md-toolbar class="md-theme-indigo">
-            <h1 layout-align="center center" class="md-toolbar-tools nav-title">Schedule Options</h1>
-        </md-toolbar>
-        <!--<md-content layout-padding ng-controller="RightCtrl">-->
-        <md-content layout-padding>
-            <!--<br />
-            Day of Conference: <br />
-            <div>{{controller.currentDay|date:"M/d/yyyy"}}</div>
-            <div class="cur-week-label" layout="column" layout-align="center center">
-                <div layout="row" layout-align="center center">
-                    <md-button class="day-button md-raised md-primary"
-                               ng-disabled="controller.backDisabled()"
-                               ng-click="controller.moveDay(-1)">
-                        Back
-                    </md-button>
-                    <md-button class="day-button md-raised md-primary"
-                               ng-disabled="controller.forwardDisabled()"
-                               ng-click="controller.moveDay(1)">
-                        Forward
+        <md-sidenav class="md-sidenav-right"
+                    md-component-id="right"
+                    md-is-locked-open="$mdMedia('gt-md')"
+                    md-disable-backdrop
+                    md-whiteframe="4"
+                    ng-cloak>
+            <md-toolbar class="md-theme-indigo">
+                <h1 layout-align="center center" class="md-toolbar-tools nav-title">Schedule Options</h1>
+            </md-toolbar>
+            <!--<md-content layout-padding ng-controller="RightCtrl">-->
+            <md-content layout-padding>
+                <!--<br />
+                Day of Conference: <br />
+                <div>{{controller.currentDay|date:"M/d/yyyy"}}</div>
+                <div class="cur-week-label" layout="column" layout-align="center center">
+                    <div layout="row" layout-align="center center">
+                        <md-button class="day-button md-raised md-primary"
+                                   ng-disabled="controller.backDisabled()"
+                                   ng-click="controller.moveDay(-1)">
+                            Back
+                        </md-button>
+                        <md-button class="day-button md-raised md-primary"
+                                   ng-disabled="controller.forwardDisabled()"
+                                   ng-click="controller.moveDay(1)">
+                            Forward
+                        </md-button>
+                    </div>
+                </div>-->
+                <div layout="column" layout-align="center stretch">
+                    <md-button class="md-raised md-primary button-text"
+                               ui-sref="slotAdd({id:controller.conference.id})">
+                        Add Slot
                     </md-button>
                 </div>
-            </div>-->
-            <div layout="column" layout-align="center stretch">
-                <md-button class="md-raised md-primary button-text"
-                           ui-sref="slotAdd({id:controller.conference.id})">
-                    Add Slot
-                </md-button>
-            </div>
-            <div layout="column" layout-align="center center">
-                <img ng-src="{{controller.conference.imageUrl}}" />
-                <br />
-                <span class="sched-text-head">{{controller.conference.name}}</span>
-                <span class="sched-text-sub" style="margin: 0">{{controller.conference.street}}</span>
-                <span class="sched-text-sub"style="margin: 0">{{controller.conference.city}}, {{controller.conference.state}} {{controller.conference.zip}}</span>
-                <br />
-            </div>
+                <div layout="column" layout-align="center center">
+                    <img ng-src="{{controller.conference.imageUrl}}" />
+                    <br />
+                    <span class="sched-text-head">{{controller.conference.name}}</span>
+                    <span class="sched-text-sub" style="margin: 0">{{controller.conference.street}}</span>
+                    <span class="sched-text-sub" style="margin: 0">{{controller.conference.city}}, {{controller.conference.state}} {{controller.conference.zip}}</span>
+                    <br />
+                </div>
 
-            <div layout="column" layout-align="center stretch">
-                <md-button class="md-raised md-primary button-text"
-                           ui-sref="displayRooms({id:controller.conference.id})">
-                    Add / Edit Rooms
-                </md-button>
-                <md-button class="md-raised md-primary button-text"
-                           ui-sref="displayPresentations({id:controller.conference.id})">
-                    Add / Edit Presentations
-                </md-button>
-                <md-button class="md-raised md-primary button-text"
-                           ui-sref="displaySpeakers({id:controller.conference.id})">
-                    Add / Edit Speakers
-                </md-button>
-            </div>
+                <div layout="column" layout-align="center stretch">
+                    <md-button class="md-raised md-primary button-text"
+                               ui-sref="displayRooms({id:controller.conference.id})">
+                        Add / Edit Rooms
+                    </md-button>
+                    <md-button class="md-raised md-primary button-text"
+                               ui-sref="displayPresentations({id:controller.conference.id})">
+                        Add / Edit Presentations
+                    </md-button>
+                    <md-button class="md-raised md-primary button-text"
+                               ui-sref="displaySpeakers({id:controller.conference.id})">
+                        Add / Edit Speakers
+                    </md-button>
+                </div>
 
-        </md-content>
-    </md-sidenav>
+            </md-content>
+        </md-sidenav>
+    </div>
 </div>
-<!--</md-whiteframe>-->

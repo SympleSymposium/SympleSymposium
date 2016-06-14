@@ -784,6 +784,15 @@ a:hover {
     width: 100%;
 }*/
 
+.mobile-buttons-group{
+    margin-top: 15px;
+}
+
+.mobile-button{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
 md-sidenav {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -791,6 +800,8 @@ md-sidenav {
 }
 
 .page-container {
+    /*min-height: calc(100% - 127px);*/
+
     min-height: calc(100% - 64px);
 }
 
