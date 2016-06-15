@@ -71,12 +71,24 @@ namespace ConferenceApp.Models
 
             #endregion
 
-            #region Initialize Addressses
+            #region Initialize Addresses
             var Addresses = new List<Address>() {
                 new Address() {
                     Street = "11200 Broadway Street",
                     City = "Pearland",
                     State = "TX",
+                    Zip = "77584",
+                },
+                new Address() {
+                    Street = "100 Main Street",
+                    City = "Dallas",
+                    State = "TX",
+                    Zip = "77584",
+                },
+                new Address() {
+                    Street = "Broadway Street",
+                    City = "New York",
+                    State = "NY",
                     Zip = "77584",
                 },
                 new Address() {
@@ -168,7 +180,7 @@ namespace ConferenceApp.Models
                 },
                 new Conference() {
                     Name = "Houston Tech Conference",
-                    AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "100 Main Street").Id,
                     StartDate = new DateTime(2016, 10, 4),
                     EndDate = new DateTime(2016, 10, 7),
                     ImageUrl = "ngapp/images/SkillCode.png",
@@ -184,7 +196,7 @@ namespace ConferenceApp.Models
                 },
                 new Conference() {
                     Name = "International Technology Conference",
-                    AddressId = Addresses.FirstOrDefault(a => a.Street == "11200 Broadway Street").Id,
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "Broadway Street").Id,
                     StartDate = new DateTime(2016, 9, 1),
                     EndDate = new DateTime(2016, 9, 7),
                     ImageUrl = "ngapp/images/co.png",
