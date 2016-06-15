@@ -7,9 +7,12 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace ConferenceApp.Models {
-    public class SampleData {
-        public async static Task Initialize(IServiceProvider serviceProvider) {
+namespace ConferenceApp.Models
+{
+    public class SampleData
+    {
+        public async static Task Initialize(IServiceProvider serviceProvider)
+        {
             var db = serviceProvider.GetService<ApplicationDbContext>();
             var userManager = serviceProvider.GetService<UserManager<ApplicationUser>>();
             db.Database.EnsureCreated();
@@ -18,9 +21,11 @@ namespace ConferenceApp.Models {
             // Ensure Stephen (IsAdmin)
             //var stephen = await userManager.FindByNameAsync("Stephen.Walther@CoderCamps.com");
             var stephen = await userManager.FindByNameAsync("StephenWalther");
-            if (stephen == null) {
+            if (stephen == null)
+            {
                 // create user
-                stephen = new ApplicationUser {
+                stephen = new ApplicationUser
+                {
                     UserName = "StephenWalther",
                     Email = "Stephen.Walther@CoderCamps.com"
                 };
@@ -30,18 +35,22 @@ namespace ConferenceApp.Models {
                 await userManager.AddClaimAsync(stephen, new Claim("IsAdmin", "true"));
             }
             var john = await userManager.FindByNameAsync("John");
-            if (john == null) {
+            if (john == null)
+            {
                 // create user
-                john = new ApplicationUser {
+                john = new ApplicationUser
+                {
                     UserName = "John",
                     Email = "John@CoderCamps.com"
                 };
                 await userManager.CreateAsync(john, "Secret123!");
             }
             var tim = await userManager.FindByNameAsync("Tim");
-            if (tim == null) {
+            if (tim == null)
+            {
                 // create user
-                tim = new ApplicationUser {
+                tim = new ApplicationUser
+                {
                     UserName = "Tim",
                     Email = "Tim@CoderCamps.com"
                 };
@@ -49,15 +58,17 @@ namespace ConferenceApp.Models {
             }
             // Ensure Mike (not IsAdmin)
             var mike = await userManager.FindByNameAsync("Mike");
-            if (mike == null) {
+            if (mike == null)
+            {
                 // create user
-                mike = new ApplicationUser {
+                mike = new ApplicationUser
+                {
                     UserName = "Mike",
                     Email = "Mike@CoderCamps.com"
                 };
                 await userManager.CreateAsync(mike, "Secret123!");
             }
-            
+
             #endregion
 
             #region Initialize Addressses
@@ -124,17 +135,20 @@ namespace ConferenceApp.Models {
                 }
             };
 
-            for (int i = 0; i < Addresses.Count; i++) {
+            for (int i = 0; i < Addresses.Count; i++)
+            {
                 var address = Addresses[i];
 
                 var dbAddress = (from a in db.Addresses
-                                    where a.Street == address.Street
-                                    select a).FirstOrDefault();
+                                 where a.Street == address.Street
+                                 select a).FirstOrDefault();
 
-                if (dbAddress == null) {
+                if (dbAddress == null)
+                {
                     db.Addresses.Add(address);
                 }
-                else {
+                else
+                {
                     Addresses[i] = dbAddress;
                 }
             }
@@ -178,17 +192,20 @@ namespace ConferenceApp.Models {
                 }
             };
 
-            for (int i = 0; i < Conferences.Count; i++) {
+            for (int i = 0; i < Conferences.Count; i++)
+            {
                 var conference = Conferences[i];
 
                 var dbConference = (from c in db.Conferences
                                     where c.Name == conference.Name && c.ApplicationUserId == conference.ApplicationUserId
                                     select c).FirstOrDefault();
 
-                if (dbConference == null) {
+                if (dbConference == null)
+                {
                     db.Conferences.Add(conference);
                 }
-                else {
+                else
+                {
                     Conferences[i] = dbConference;
                 }
             }
@@ -245,17 +262,20 @@ namespace ConferenceApp.Models {
                 },
             };
 
-            for (int i = 0; i < Rooms.Count; i++) {
+            for (int i = 0; i < Rooms.Count; i++)
+            {
                 var room = Rooms[i];
 
                 var dbRoom = (from r in db.Rooms
-                              where r.Name == room.Name
+                              where r.Name == room.Name  && r.ConferenceId == room.ConferenceId
                               select r).FirstOrDefault();
 
-                if (dbRoom == null) {
+                if (dbRoom == null)
+                {
                     db.Rooms.Add(room);
                 }
-                else {
+                else
+                {
                     Rooms[i] = dbRoom;
                 }
             }
@@ -276,6 +296,30 @@ namespace ConferenceApp.Models {
                     Bio = ".Net Consultant and Trainer, GeeksWithBlogs Co-Owner, Microsoft Regional Director",
                     ImageUrl = "ngApp/images/JimSmith.jpg",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
+                },
+                 new Speaker() {
+                    Title = "Mr.",
+                    FirstName = "Jim",
+                    LastName = "Smith",
+                    Phone = "501-324-7800",
+                    Email = "jim.smith@marathon.com",
+                    Company = "Marathon Petroleum",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 A Street").Id,
+                    Bio = ".Net Consultant and Trainer, GeeksWithBlogs Co-Owner, Microsoft Regional Director",
+                    ImageUrl = "ngApp/images/JimSmith.jpg",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
+                },
+                new Speaker() {
+                    Title = "Ms.",
+                    FirstName = "Jill",
+                    LastName = "Jones",
+                    Phone = "244-788-6000",
+                    Email = "jill.jones@microsoft.com",
+                    Company = "Microsoft",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 B Street").Id,
+                    Bio = "Jill Jones is a Technical Evangelist in the Developer & Platform Evangelism (DPE) group at Microsoft. She enjoys running, photography and being outdoors.",
+                    ImageUrl = "ngApp/images/JillJones.jpg",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
                 },
                 new Speaker() {
                     Title = "Ms.",
@@ -338,6 +382,18 @@ namespace ConferenceApp.Models {
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
+                    Title = "Ms.",
+                    FirstName = "Anne",
+                    LastName = "Robertson",
+                    Phone = "782-644-8100",
+                    Email = "aroberts@microsoft.com",
+                    Company = "Microsoft",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 F Street").Id,
+                    Bio = "Author, speaker, designer, developer, consultant, trainer, mother.",
+                    ImageUrl = "ngApp/images/AnneRobertson.jpg",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
+                },
+                new Speaker() {
                     Title = "Mr.",
                     FirstName = "Sam",
                     LastName = "Giles",
@@ -362,6 +418,18 @@ namespace ConferenceApp.Models {
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Speaker() {
+                    Title = "Mrs.",
+                    FirstName = "Alice",
+                    LastName = "Jean",
+                    Phone = "611-855-4300",
+                    Email = "ajean@sleektech@com",
+                    Company = "Sleek Technologies",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 H Street").Id,
+                    Bio = "I'm CTO of Sleek Technologies, and a Microsoft MVP, developer, author, and speaker, passionate about SQL Server and .NET technologies.",
+                    ImageUrl = "ngApp/images/AliceJean.jpg",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
+                },
+                new Speaker() {
                     Title = "Dr.",
                     FirstName = "Chris",
                     LastName = "Ramsey",
@@ -375,6 +443,18 @@ namespace ConferenceApp.Models {
                 },
                 new Speaker() {
                     Title = "Dr.",
+                    FirstName = "Chris",
+                    LastName = "Ramsey",
+                    Phone = "748-655-9000",
+                    Email = "cramsey@hp.com",
+                    Company = "HP",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 I Street").Id,
+                    Bio = "Jazz musician turned software consultant. Obsessed w/ Scrum & software testing. Scrum.org trainer, project coach, conference speaker.",
+                    ImageUrl = "ngApp/images/ChrisRamsey.jpg",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
+                },
+                new Speaker() {
+                    Title = "Dr.",
                     FirstName = "Adam",
                     LastName = "Ramsey",
                     Phone = "748-655-9000",
@@ -384,19 +464,34 @@ namespace ConferenceApp.Models {
                     Bio = "Live, Love, Bike & Code. Developer Guru.",
                     ImageUrl = "ngApp/images/AdamRamsey.jpg",
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Houston Tech Conference").Id
+                },
+                new Speaker() {
+                    Title = "Dr.",
+                    FirstName = "Adam",
+                    LastName = "Ramsey",
+                    Phone = "748-655-9000",
+                    Email = "adam.ramsey@xamarin.com",
+                    Company = "Xamarin",
+                    AddressId = Addresses.FirstOrDefault(a => a.Street == "123 I Street").Id,
+                    Bio = "Live, Love, Bike & Code. Developer Guru.",
+                    ImageUrl = "ngApp/images/AdamRamsey.jpg",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
                 }
             };
 
-            for (int i = 0; i < Speakers.Count; i++) {
+            for (int i = 0; i < Speakers.Count; i++)
+            {
                 var speaker = Speakers[i];
                 var dbSpeaker = (from s in db.Speakers
-                                    where s.FirstName == speaker.FirstName && s.LastName == speaker.LastName
-                                    select s).FirstOrDefault();
+                                 where s.FirstName == speaker.FirstName && s.LastName == speaker.LastName && s.ConferenceId == speaker.ConferenceId
+                                 select s).FirstOrDefault();
 
-                if (dbSpeaker == null) {
+                if (dbSpeaker == null)
+                {
                     db.Speakers.Add(speaker);
                 }
-                else {
+                else
+                {
                     Speakers[i] = dbSpeaker;
                 }
             }
@@ -461,6 +556,36 @@ namespace ConferenceApp.Models {
                     ConferenceId = Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id
                 },
                 new Presentation() {
+                    Title = "HTML: Let's Lay This Out",
+                    Description = "Utilize HyperText Markup Language (HTML) to enable you to 'mark up' plain-text documents and add images, links, and formatting.",
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
+                },
+                new Presentation() {
+                    Title = "CSS: How to Stay in Style",
+                    Description = "Understand the ins and outs of CSS animations and transitions, motion design best practices, and how to ensure high performance, 'jank-free' animation on even everyday mobile devices.",
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
+                },
+                new Presentation() {
+                    Title = "JavaScript: No, This Talk Is Not About Java",
+                    Description = "Cover basic programming concepts like variables, data types, and functions, if/then statements, arrays and loops. They also introduce the Document Object Model (DOM) and how to use JavaScript to interact with the DOM and change HTML pages",
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
+                },
+                new Presentation() {
+                    Title = "Typescript: JavaScript, Only So Much Better",
+                    Description = "A new language and toolset that makes it easier to write cross-platform, application-scale JavaScript.",
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
+                },
+                new Presentation() {
+                    Title = "Angular: What HTML Should Have Been, According To Google",
+                    Description = "Learn the basics of how to get started with developing Angular apps and scaling them with further complexity",
+                    ImageUrl = "",
+                    ConferenceId = Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id
+                },
+                new Presentation() {
                     Title = "Houston Web Development",
                     Description = "Learn about web dev in Houston!",
                     ImageUrl = "",
@@ -469,17 +594,20 @@ namespace ConferenceApp.Models {
 
             };
 
-            for (int i = 0; i < Presentations.Count; i++) {
+            for (int i = 0; i < Presentations.Count; i++)
+            {
                 var presentation = Presentations[i];
 
                 var dbPresentation = (from p in db.Presentations
                                       where p.Title == presentation.Title && p.ConferenceId == presentation.ConferenceId
                                       select p).FirstOrDefault();
 
-                if (dbPresentation == null) {
+                if (dbPresentation == null)
+                {
                     db.Presentations.Add(presentation);
                 }
-                else {
+                else
+                {
                     Presentations[i] = dbPresentation;
                 }
             }
@@ -537,41 +665,66 @@ namespace ConferenceApp.Models {
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,1,15,0,0),
                     EndTime = new DateTime(2016,8,1,17,0,0)
+                }
+                ,
+                new Slot() {
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "CSS: How to Stay in Style").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Jill" && s.LastName == "Jones" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    StartTime = new DateTime(2016,8,2,13,30,0),
+                    EndTime = new DateTime(2016,8,2,14,30,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Visual Studio: There Is Only One Visual Studio").Id,
-                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Alice" && s.LastName == "Jean" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Alice" && s.LastName == "Jean" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id).Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room A" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,2,10,30,0),
                     EndTime = new DateTime(2016,8,2,11,30,0)
                 },
                 new Slot() {
                     PresentationId = Presentations.FirstOrDefault(p => p.Title == "Atom: Can We Just Code Already?").Id,
-                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Chris" && s.LastName == "Ramsey" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Chris" && s.LastName == "Ramsey" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room B" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    StartTime = new DateTime(2016,8,2,10,30,0),
+                    EndTime = new DateTime(2016,8,2,11,30,0)
+                },
+                new Slot() {
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "HTML: Let's Lay This Out").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Jim" && s.LastName == "Smith" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room B" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    StartTime = new DateTime(2016,8,2,8,0,0),
+                    EndTime = new DateTime(2016,8,2,10,0,0)
+                },
+                new Slot() {
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Houston Web Development").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Adam" && s.LastName == "Ramsey" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id).Id,
                     RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
                     StartTime = new DateTime(2016,8,2,10,30,0),
                     EndTime = new DateTime(2016,8,2,11,30,0)
                 },
                 new Slot() {
-                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "Houston Web Development").Id,
-                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Adam" && s.LastName == "Ramsey" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Houston Tech Conference").Id).Id,
-                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room D" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Houston Tech Conference").Id).Id,
-                    StartTime = new DateTime(2016,8,2,10,30,0),
-                    EndTime = new DateTime(2016,8,2,11,30,0)
+                    PresentationId = Presentations.FirstOrDefault(p => p.Title == "C#: Not Just A Note On Your Piano").Id,
+                    SpeakerId = Speakers.FirstOrDefault(s => s.FirstName == "Anne" && s.LastName == "Robertson" && s.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "International Technology Conference").Id).Id,
+                    RoomId = Rooms.FirstOrDefault(r => r.Name == "Room C" && r.ConferenceId == Conferences.FirstOrDefault(c => c.Name == "Full Stack Web Development Expo").Id).Id,
+                    StartTime = new DateTime(2016,8,2,14,0,0),
+                    EndTime = new DateTime(2016,8,2,16,0,0)
                 }
             };
 
-            for (int i = 0; i < Slots.Count; i++) {
+            for (int i = 0; i < Slots.Count; i++)
+            {
                 var slot = Slots[i];
 
                 var dbSlot = (from s in db.Slots
                               where s.PresentationId == slot.PresentationId && s.RoomId == slot.RoomId && s.SpeakerId == slot.SpeakerId && s.StartTime == slot.StartTime
                               select s).FirstOrDefault();
 
-                if (dbSlot == null) {
+                if (dbSlot == null)
+                {
                     db.Slots.Add(slot);
                 }
-                else {
+                else
+                {
                     Slots[i] = dbSlot;
                 }
             }
@@ -579,7 +732,7 @@ namespace ConferenceApp.Models {
             db.SaveChanges();
             #endregion
 
-            
+
 
 
         }
