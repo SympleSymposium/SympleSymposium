@@ -488,6 +488,15 @@ md-card-content{
     cursor: pointer;
 }
 
+.home-logo {
+    height: 6em;
+    width: 20em;
+    padding-top: 0.5em;
+    padding-right: 3em;
+    padding-bottom: 0.5em;
+    padding-left: 3em;
+}
+
 #site-title {
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
